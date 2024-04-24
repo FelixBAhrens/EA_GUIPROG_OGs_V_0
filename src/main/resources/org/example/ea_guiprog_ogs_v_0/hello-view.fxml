@@ -14,6 +14,6 @@
     <Label fx:id="welcomeText"/>
     <Button text="Fortfahren" onAction="#onFortfahrenButtonClick"/>
     <Button text="Neues Spiel" onAction="#onNeuesSpielButtonClick"/>
-    <Button text="Einstellung" onAction="#onBeendenButtonClick"/>
+    <Button text="test" onAction="#onBeendenButtonClick"/>
 
 </VBox>
