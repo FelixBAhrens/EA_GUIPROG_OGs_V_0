@@ -12,6 +12,8 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Button text="DAVID IST BLOED!" onAction="#onHelloButtonClick"/>
-    <Button text="DAVID IST TOLL" onAction="#onFortfahrenButtonClick"/>
+    <Button text="Fortfahren" onAction="#onFortfahrenButtonClick"/>
+    <Button text="Neues Spiel" onAction="#onNeuesSpielButtonClick"/>
+    <Button text="Beenden" onAction="#onBeendenButtonClick"/>
+
 </VBox>

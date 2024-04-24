@@ -6,15 +6,25 @@ import javafx.scene.control.Label;
 public class HelloController {
     @FXML
     private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
     @FXML
     protected void onFortfahrenButtonClick() {
+        welcomeText.setText("Fortfahren!");
+    }
+    @FXML
+    protected void onNeuesSpielButtonClick() {
+        welcomeText.setText("Neues Spiel! Waehle bitte den Schwierigkeitsgrad.");
+    }
+    @FXML
+    protected void onSpielLadenButtonClick() {
         welcomeText.setText("Waehle bitte den Schwierigkeitsgrad.");
     }
-
+    @FXML
+    protected void onEinstellungenButtonClick() {
+        welcomeText.setText("Waehle bitte den Schwierigkeitsgrad.");
+    }
+    @FXML
+    protected void onBeendenButtonClick() {
+        System.exit(0);
+    }
 
 }
