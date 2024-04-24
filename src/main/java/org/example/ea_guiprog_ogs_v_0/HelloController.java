@@ -9,11 +9,11 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        welcomeText.setText("Fortfahren");
     }
     @FXML
     protected void onFortfahrenButtonClick() {
-        welcomeText.setText("Waehle bitte den Schwierigkeitsgrad.");
+        welcomeText.setText("Neues Spiel");
     }
 
 
