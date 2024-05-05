@@ -1,8 +1,12 @@
-module org.example.ea_guiprog_ogs_v_0 {
+module EA_GUIPROG_OGs_V_0 {
+    exports control;
     requires javafx.controls;
-    requires javafx.fxml;
+    requires javafx.graphics;
+    requires java.desktop;
 
+    opens Main;
+    opens control;
 
-    opens org.example.ea_guiprog_ogs_v_0 to javafx.fxml;
-    exports org.example.ea_guiprog_ogs_v_0;
+    exports Main;
+
 }
