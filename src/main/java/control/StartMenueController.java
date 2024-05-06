@@ -13,7 +13,7 @@ import res.Strings;
 
 public class StartMenueController extends Application {
 
-    //Name von hauptStage überdenken
+    //Name von hauptStage ueberdenken
     public Stage hauptStage;
     private Scene startMenue;
     private Scene schwierigkeitsMenue;
