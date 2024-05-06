@@ -28,6 +28,8 @@ public class StadtController extends Application {
         schenke.setOnAction(e -> hauptStage.setScene(schenkeSz));
         Button magieverstaerker = new Button("Magieverstärker");
         magieverstaerker.setOnAction(e -> hauptStage.setScene(magieverstaerkerSz));
+        Button fraktionenCamps = new Button("FraktionenCamps");
+        fraktionenCamps.setOnAction(e->hauptStage.setScene(fraktionenCampsSz));
         HBox haeuser = new HBox(schmiede, schenke, magieverstaerker);
         stadtSz = new Scene(haeuser, 400, 200);
         hauptStage.setScene(stadtSz);
