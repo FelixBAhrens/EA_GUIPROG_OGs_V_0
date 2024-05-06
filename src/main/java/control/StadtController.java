@@ -32,7 +32,13 @@ public class StadtController extends Application {
         basisCamp.setOnAction(e -> hauptStage.setScene(basisCampSz));
         Button fraktionenCamps = new Button("FraktionenCamps");
         fraktionenCamps.setOnAction(e->hauptStage.setScene(fraktionenCampsSz));
-        HBox haeuser = new HBox(schmiede, schenke, magieverstaerker, basisCamp, fraktionenCamps);
+        Button trainingsGelaende = new Button("Trainingsgelände");
+        trainingsGelaende.setOnAction(e->hauptStage.setScene(trainingsGelaendeSz));
+        Button markt = new Button("Markt");
+        markt.setOnAction(e->hauptStage.setScene(marktSz));
+        Button hauptquartier = new Button("Hauptquartier");
+        hauptquartier.setOnAction(e->hauptStage.setScene(hauptquartierSz));
+        HBox haeuser = new HBox(schmiede, schenke, magieverstaerker, basisCamp, fraktionenCamps, trainingsGelaende, markt, hauptquartier);
 
         stadtSz = new Scene(haeuser, 400, 200);
         hauptStage.setScene(stadtSz);
