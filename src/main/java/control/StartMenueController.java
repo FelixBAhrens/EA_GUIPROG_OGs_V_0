@@ -110,7 +110,7 @@ public class StartMenueController extends Application {
     public void setSchwierigkeitsgrad(String schwierigkeitsgrad){
         this.schwierigkeitsgrad = schwierigkeitsgrad;
         System.out.println(schwierigkeitsgrad);
-        StadtController.zeigeStadt();
+        StadtController.zeigeStadt(hauptStage);
     }
 
     public static void zeigeStory(){

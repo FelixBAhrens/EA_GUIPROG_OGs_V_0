@@ -22,19 +22,19 @@ public class StadtController extends Application {
 
     }
 
-    public static void zeigeStadt(){
-        Stage stadtFenster = new Stage();
+    public static void zeigeStadt(Stage hauptstage){
+       // Stage stadtFenster = new Stage();
         Button schmiede = new Button("Schmiede");
-        schmiede.setOnAction(e -> stadtFenster.setScene(schmiedeSz));
+        schmiede.setOnAction(e -> hauptstage.setScene(schmiedeSz));
         Button schenke = new Button("Schenke");
-        schenke.setOnAction(e -> stadtFenster.setScene(schenkeSz));
+        schenke.setOnAction(e -> hauptstage.setScene(schenkeSz));
 
         HBox haeuser = new HBox(schmiede, schenke);
         stadtSz = new Scene(haeuser, 400, 200);
-        stadtFenster.setScene(stadtSz);
+        hauptstage.setScene(stadtSz);
 
-        stadtFenster.setScene(stadtSz);
-        stadtFenster.show();
+        hauptstage.setScene(stadtSz);
+        hauptstage.show();
     }
 
     public static void setupSchmiede(){
