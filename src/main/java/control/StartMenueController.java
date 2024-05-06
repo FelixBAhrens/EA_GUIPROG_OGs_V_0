@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import res.Strings;
 
 public class StartMenueController extends Application {
+
+    //Name von hauptStage überdenken
     public Stage hauptStage;
     private Scene startMenue;
     private Scene schwierigkeitsMenue;

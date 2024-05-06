@@ -10,7 +10,7 @@ public class StadtController extends Application {
     static Scene stadtSz;
     static Scene schmiedeSz;
     static Scene schenkeSz;
-    static Scene magieverstärkerSz;
+    static Scene magieverstaerkerSz;
     static Scene basisCampSz;
     static Scene fraktionenCampsSz;
     static Scene trainingsGelaendeSz;
@@ -21,20 +21,19 @@ public class StadtController extends Application {
     public void start(Stage stadtFenster) throws Exception {
 
     }
-
-    public static void zeigeStadt(Stage hauptstage){
-       // Stage stadtFenster = new Stage();
+    public static void zeigeStadt(Stage hauptStage){
         Button schmiede = new Button("Schmiede");
-        schmiede.setOnAction(e -> hauptstage.setScene(schmiedeSz));
+        schmiede.setOnAction(e -> hauptStage.setScene(schmiedeSz));
         Button schenke = new Button("Schenke");
-        schenke.setOnAction(e -> hauptstage.setScene(schenkeSz));
-
-        HBox haeuser = new HBox(schmiede, schenke);
+        schenke.setOnAction(e -> hauptStage.setScene(schenkeSz));
+        Button magieverstaerker = new Button("Magieverstärker");
+        magieverstaerker.setOnAction(e -> hauptStage.setScene(magieverstaerkerSz));
+        HBox haeuser = new HBox(schmiede, schenke, magieverstaerker);
         stadtSz = new Scene(haeuser, 400, 200);
-        hauptstage.setScene(stadtSz);
+        hauptStage.setScene(stadtSz);
 
-        hauptstage.setScene(stadtSz);
-        hauptstage.show();
+        hauptStage.setScene(stadtSz);
+        hauptStage.show();
     }
 
     public static void setupSchmiede(){
