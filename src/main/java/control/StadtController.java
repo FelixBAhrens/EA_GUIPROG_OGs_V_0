@@ -3,6 +3,7 @@ package control;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -22,6 +23,7 @@ public class StadtController extends Application {
 
     }
     public static void zeigeStadt(Stage hauptStage){
+        hauptStage.setTitle("Stadt");
         Button schmiede = new Button("Schmiede");
         schmiede.setOnAction(e -> hauptStage.setScene(schmiedeSz));
         Button schenke = new Button("Schenke");
@@ -38,7 +40,8 @@ public class StadtController extends Application {
         markt.setOnAction(e->hauptStage.setScene(marktSz));
         Button hauptquartier = new Button("Hauptquartier");
         hauptquartier.setOnAction(e->hauptStage.setScene(hauptquartierSz));
-        HBox haeuser = new HBox(schmiede, schenke, magieverstaerker, basisCamp, fraktionenCamps, trainingsGelaende, markt, hauptquartier);
+
+        HBox haeuser = new HBox(10, schmiede, schenke, magieverstaerker, basisCamp, fraktionenCamps, trainingsGelaende, markt, hauptquartier);
 
         stadtSz = new Scene(haeuser, 400, 200);
         hauptStage.setScene(stadtSz);
@@ -47,7 +50,30 @@ public class StadtController extends Application {
         hauptStage.show();
     }
 
-    public static void setupSchmiede(){
+    public static void zeigeSchmiede(){
 
     }
+
+    public static void zeigeSchenke(){
+
+    }
+    public static void zeigemagieverstaerker(){
+
+    }
+    public static void zeigeBasiscamp(){
+
+    }
+    public static void zeigeFraktionenCamps(){
+
+    }
+    public static void zeigeTrainingsgelaende(){
+
+    }
+    public static void zeigeMarkt(){
+
+    }
+    public static void zeigeHauptquartier(){
+
+    }
+
 }

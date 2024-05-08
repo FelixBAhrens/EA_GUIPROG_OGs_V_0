@@ -1,6 +1,17 @@
 package control;
 
-public class MapController {
+public class KartenController {
+    public void generiereKarte(){
+
+    }
+
+    public void platziereGegner(){
+
+    }
+
+    public void platziere(){
+
+    }
 }
 
 /**
