@@ -8,10 +8,6 @@ public class KartenController {
     public void platziereGegner(){
 
     }
-
-    public void platziere(){
-
-    }
 }
 
 /**

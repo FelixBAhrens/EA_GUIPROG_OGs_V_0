@@ -9,7 +9,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.GameFile;
 import res.Strings;
+
+import java.io.IOException;
+import java.util.Date;
 
 public class StartMenueController extends Application {
 
@@ -18,40 +22,36 @@ public class StartMenueController extends Application {
     private Scene startMenue;
     private Scene schwierigkeitsMenue;
     private String schwierigkeitsgrad;
+    private Scene neuesSpielDialog;
     private Scene einstellungenMenue;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        hauptStage = primaryStage;
-        hauptStage.setTitle("StartMenue");
-        primaryStage.setScene(zeigeStartMenue());
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        hauptStage = stage;
+        zeigeStartMenue();
+        //hauptStage.setTitle("StartMenue");
+        hauptStage.setScene(startMenue);
+        hauptStage.show();
     }
 
-    public Scene zeigeStartMenue(){
+    public void zeigeStartMenue(){
         Button fortfahren = new Button("Fortfahren");
+        Button neuesSpiel = new Button("Neues Spiel");
+        Button spielLaden = new Button("Spiel Laden");
+        Button einstellungen = new Button("Einstellungen");
+        Button beenden = new Button("Beenden");
         fortfahren.setOnAction(e->{
             hauptStage.setTitle("Schwierigkeitsgrad waehlen");
             hauptStage.setScene(frageSchwierigkeitAb());
         });
-        Button einstellungen = new Button("Einstellungen");
+        neuesSpiel.setOnAction(e->zeigeNeuesSpielDialog(hauptStage));
         einstellungen.setOnAction(e->{
-            hauptStage.setTitle("Einstellungen");
-            hauptStage.setScene(zeigeEinstellungen());
+            SzenenController.setzeSzene("Einstellungen", zeigeEinstellungen(), hauptStage);
         });
-        Button beenden = new Button("Beenden");
-        beenden.setOnAction(e -> System.exit(0));
-        Button resetButton = new Button("Zurueck");
-        resetButton.setOnAction(e -> {
-            try {
-                start(hauptStage);
-            } catch (Exception ex) {
-                throw new RuntimeException(ex);
-            }
 
-        });
+        beenden.setOnAction(e -> System.exit(0));
         VBox layout1 = new VBox(10);
-        layout1.getChildren().addAll(fortfahren, einstellungen, beenden, resetButton);
+        layout1.getChildren().addAll(fortfahren, neuesSpiel, spielLaden, einstellungen, beenden);
 
 
         // Erstellen der Menüelemente
@@ -78,19 +78,44 @@ public class StartMenueController extends Application {
         layoutStartmenue.setCenter(layout1);
 
         startMenue = new Scene(layoutStartmenue, 400, 600);
-        return startMenue;
+        SzenenController.setzeSzene("StartMenue", startMenue, hauptStage);
+    }
+
+    /**
+     * Methode, die das Menue zeigt, mit dem der Anwender einen neuen Spielstand aufmachen kann.
+     * @param hauptStage
+     * @Author Felix Ahrens
+     */
+    public void zeigeNeuesSpielDialog(Stage hauptStage){
+        hauptStage.setTitle("Neues Spiel erstellen");
+        Text spielNummer_auswaehlen = new Text("Waehle deine Spielnummer selber aus");
+        Button spielErstellen = new Button("Spiel Erstellen");
+        spielErstellen.setOnAction(e-> {
+            try {
+                GameFile.erstelleNeueGameFile("Spiel1", new Date());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        VBox layoutNewGame = new VBox(10);
+        layoutNewGame.getChildren().addAll(spielNummer_auswaehlen, spielErstellen);
+        neuesSpielDialog = new Scene(layoutNewGame, 400, 600);
+        SzenenController.setzeSzene("Neues Spiel", neuesSpielDialog, hauptStage);
+
     }
 
     public Scene zeigeEinstellungen(){
         Button geburtstag = new Button("gebe dein Geburtsjahr ein");
+        Button ton = new Button("Ton an");
+        ton.setOnAction(e-> ton.setText("Ton aus"));
         Button zurueck = new Button("Zurück");
         VBox layout2 = new VBox(10);
-        layout2.getChildren().addAll(geburtstag, zurueck);
+        layout2.getChildren().addAll(geburtstag, ton, zurueck);
         Text text = new Text("4.2.1969");
         geburtstag.setOnAction(e->{
             layout2.getChildren().add(text);
         });
-        zurueck.setOnAction(e->zeigeStartMenue());
+        zurueck.setOnAction(e->SzenenController.zurueckSzene(hauptStage));
         einstellungenMenue = new Scene(layout2, 400, 600);
         return einstellungenMenue;
     }

@@ -51,7 +51,7 @@ public class StadtController extends Application {
     }
 
     public static void zeigeSchmiede(){
-
+        
     }
 
     public static void zeigeSchenke(){

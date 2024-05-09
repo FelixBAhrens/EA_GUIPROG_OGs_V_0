@@ -8,5 +8,7 @@ module EA_GUIPROG_OGs_V_0 {
     opens control;
 
     exports Main;
+    exports model;
+    opens model;
 
 }
