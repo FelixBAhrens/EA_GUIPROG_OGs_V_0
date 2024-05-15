@@ -1,5 +1,6 @@
 package control;
 
+import javafx.event.Event;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -8,14 +9,24 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
+import static control.KartenController2.object;
 
 public class KartenController
 {
-    private static Rectangle object; // Deklariere ein Rechteck als Objekt
+private static boolean moveUp;
+private static boolean moveLeft;
+private static boolean moveDown;
+private static boolean moveRight;
+    private static final int WINDOW_WIDTH = 600;
+    private static final int WINDOW_HEIGHT = 800;
     private static final int OBJECT_SIZE = 45; // Definiere die groesse des Objektes
     private static final int GRAIN_SIZE = 5;
-    private static int gesammleteKoerner = 0;
 
+    private static Pane root;
+    static Rectangle object; // Deklariere ein Rechteck als Objekt
+    private static Rectangle grain;
+    private static int gesammelteKoerner = 0;
+    private static Scene scene;
 
     public static void setzeKarte (Stage hauptStage) // Ueberschreibe die start-Methode der Application-Klasse
     {
@@ -28,37 +39,81 @@ public class KartenController
         object.setFill(Color.RED); // Setze die Farbe des Rechteckes auf rot
         root.getChildren().addAll(object, grain); // Fuege das Rechteck zum Pane hinzu
 
-        scene.setOnKeyPressed (event -> // Fuege einen Event-Listener hinzu, der auf Tastendruecke reagiert
+        scene.setOnKeyPressed (event ->
         {
-            switch (event.getCode())  // Ueberpruefe die gedrueckte Taste
+            switch (event.getCode())
             {
-                case W: // Wenn die Taste W gedrueckt wurde:
-                    object.setY(object.getY() - 10); // Bewege das Rechteck nach oben
+                case W:
+                    moveUp = true;
                     break;
-                case A: // Wenn die Taste A gedrueckt wurde:
-                    object.setX(object.getX() - 10); // Bewege das Rechteck nach links
+                case A:
+                    moveLeft = true;
                     break;
-                case S: // Wenn die Taste S gedrueckt wurde:
-                    object.setY(object.getY() + 10); // Bewege das Rechteck nach unten
+                case S:
+                    moveDown = true;
                     break;
-                case D: // Wenn die Taste D gedruekt wurde:
-                    object.setX(object.getX() + 10); // Bewege das Rechteck nach rechts
+                case D:
+                    moveRight = true;
                     break;
                 case E: // Wenn die Taste E gedrueckt wurde:
                     if (kornGesammelt(object.getX(), object.getY(), grain.getX(), grain.getY())){
-                        gesammleteKoerner++;
-                        hauptStage.setTitle("Gesammelte Koerner: " + gesammleteKoerner);
+                        gesammelteKoerner++;
+                        hauptStage.setTitle("Gesammelte Koerner: " + gesammelteKoerner);
                         versetzeKorn(grain);
                     }
                     break;
             }
+        });
 
+        scene.setOnKeyReleased (event ->
+        {
+            switch (event.getCode())
+            {
+                case W:
+                    moveUp = false;
+                    break;
+                case A:
+                    moveLeft = false;
+                    break;
+                case S:
+                    moveDown = false;
+                    break;
+                case D:
+                    moveRight = false;
+                    break;
+            }
         }
         );
 
         hauptStage.setScene(scene); // Setze die Szene im Hauptfenster
         hauptStage.setTitle("Objektsteuerung mit WASD"); // Setze den Fenstertitel
         hauptStage.show(); // Zeige das Hautfenster an
+
+        hauptStage.addEventHandler (javafx.event.Event.ANY, event -> // Fuege einen Event-Listener hinzu, der auf Tastendruecke reagiert
+        {
+            if (moveUp && !moveDown && object.getY() > 0)
+            {
+                object.setY(object.getY() - 10);
+            }
+            if (moveDown && !moveUp && object.getY() < hauptStage.getHeight() - object.getHeight())
+            {
+                object.setY(object.getY() + 10);
+            }
+            if (moveLeft && !moveRight && object.getX() > 0)
+            {
+                object.setX(object.getX() - 10);
+            }
+            if (moveRight && !moveLeft && object.getX() < hauptStage.getWidth() - object.getWidth())
+            {
+                object.setX(object.getX() + 10);
+            }
+
+
+
+        }
+        );
+
+
     }
 
     private static boolean kornGesammelt(double xKoord, double yKoord, double xKoordGrain, double yKoordGrain){
