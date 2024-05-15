@@ -52,7 +52,7 @@ public class StartMenueController extends Application {
         VBox layout1 = new VBox(10);
         layout1.getChildren().addAll(fortfahren, neuesSpiel, spielLaden, einstellungen, beenden);
 
-
+        // Klassisches Menue
         // Erstellen der Menüelemente
         javafx.scene.control.Menu fileMenu = new javafx.scene.control.Menu("Menue");
         javafx.scene.control.MenuItem newItem = new javafx.scene.control.MenuItem("Fortfahren");
@@ -60,17 +60,22 @@ public class StartMenueController extends Application {
         javafx.scene.control.MenuItem loadItem = new javafx.scene.control.MenuItem("Spiel Laden");
         javafx.scene.control.MenuItem settingItem = new javafx.scene.control.MenuItem("Einstellungen");
         javafx.scene.control.MenuItem exitItem = new javafx.scene.control.MenuItem("Spiel Beenden");
-
-        // Hinzufügen von Aktionen zu den Menüelementen
-        newItem.setOnAction(e->KartenController.setzeKarte(hauptStage));
+        // Aktionen
         exitItem.setOnAction(e -> hauptStage.close());
-
         // Hinzufügen der Menüelemente zum Menü
         fileMenu.getItems().addAll(newItem, newGameItem, loadItem, settingItem, exitItem);
 
+        // Debugger Menue
+        javafx.scene.control.Menu debugMenu = new javafx.scene.control.Menu("Debug");
+        javafx.scene.control.MenuItem debugKarte = new javafx.scene.control.MenuItem("Karte");
+        // Aktionen
+        debugMenu.setOnAction(e->KartenController.setzeKarte(hauptStage));
+        // Menuelemente zum Menue hinzufuegen
+        debugMenu.getItems().addAll(debugKarte);
+
         // Erstellen der Menüleiste
         javafx.scene.control.MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().add(fileMenu);
+        menuBar.getMenus().addAll(fileMenu, debugMenu);
 
         // Erstellen des Hauptlayouts
         BorderPane layoutStartmenue = new BorderPane();
