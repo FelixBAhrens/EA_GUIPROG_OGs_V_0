@@ -29,7 +29,6 @@ public class StartMenueController extends Application {
     public void start(Stage stage) throws Exception {
         hauptStage = stage;
         zeigeStartMenue();
-        //hauptStage.setTitle("StartMenue");
         hauptStage.setScene(startMenue);
         hauptStage.show();
     }
@@ -63,6 +62,7 @@ public class StartMenueController extends Application {
         javafx.scene.control.MenuItem exitItem = new javafx.scene.control.MenuItem("Spiel Beenden");
 
         // Hinzufügen von Aktionen zu den Menüelementen
+        newItem.setOnAction(e->KartenController.setzeKarte(hauptStage));
         exitItem.setOnAction(e -> hauptStage.close());
 
         // Hinzufügen der Menüelemente zum Menü
