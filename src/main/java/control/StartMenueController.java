@@ -61,7 +61,7 @@ public class StartMenueController extends Application {
         javafx.scene.control.MenuItem settingItem = new javafx.scene.control.MenuItem("Einstellungen");
         javafx.scene.control.MenuItem exitItem = new javafx.scene.control.MenuItem("Spiel Beenden");
         // Aktionen
-        exitItem.setOnAction(e -> hauptStage.close());
+        exitItem.setOnAction(e -> System.exit(0));
         // Hinzufügen der Menüelemente zum Menü
         fileMenu.getItems().addAll(newItem, newGameItem, loadItem, settingItem, exitItem);
 
