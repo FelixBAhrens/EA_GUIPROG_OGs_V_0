@@ -112,21 +112,22 @@ public class KartenController
 
     private static void moveObject ()
     {
+        int movementSpeed = 5;
         if (movingUp && object.getY() > 0)
         {
-            object.setY(object.getY() - 10);
+            object.setY(object.getY() - movementSpeed);
         }
         if (movingDown && object.getY() < WINDOW_HEIGHT - OBJECT_SIZE)
         {
-            object.setY(object.getY() + 10);
+            object.setY(object.getY() + movementSpeed);
         }
         if (movingLeft && object.getX() > 0)
         {
-            object.setX(object.getX() - 10);
+            object.setX(object.getX() - movementSpeed);
         }
         if (movingRight && object.getX() < WINDOW_WIDTH - OBJECT_SIZE)
         {
-            object.setX(object.getX() + 10);
+            object.setX(object.getX() + movementSpeed);
         }
     }
 
