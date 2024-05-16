@@ -1,6 +1,6 @@
 package control;
 
-import javafx.event.Event;
+import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -9,14 +9,9 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-import static control.KartenController2.object;
-
 public class KartenController
 {
-private static boolean moveUp;
-private static boolean moveLeft;
-private static boolean moveDown;
-private static boolean moveRight;
+
     private static final int WINDOW_WIDTH = 600;
     private static final int WINDOW_HEIGHT = 800;
     private static final int OBJECT_SIZE = 45; // Definiere die groesse des Objektes
@@ -28,117 +23,138 @@ private static boolean moveRight;
     private static int gesammelteKoerner = 0;
     private static Scene scene;
 
-    public static void setzeKarte (Stage hauptStage) // Ueberschreibe die start-Methode der Application-Klasse
+    private static boolean movingUp = false;
+    private static boolean movingDown = false;
+    private static boolean movingLeft = false;
+    private static boolean movingRight = false;
+
+    public static void setzeKarte (Stage hauptStage)
     {
-        Pane root = new Pane(); // Erstelle ein Pane, um die Benutzeroberflaeche zu halten
-        Scene scene = new Scene(root, 600, 800); // Erstelle eine neue Szene mit einem Pane der Groesse 600x400
+        initialize(hauptStage);
+    }
 
-        Rectangle grain = versetzeKorn(new Rectangle(10,10, GRAIN_SIZE, GRAIN_SIZE));
+    private static void initialize (Stage hauptStage)
+    {
+        root = new Pane();
+        scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-        object = new Rectangle(50, 50, OBJECT_SIZE, OBJECT_SIZE); // Erstelle ein Rechteck und lege seine Position fest
-        object.setFill(Color.RED); // Setze die Farbe des Rechteckes auf rot
-        root.getChildren().addAll(object, grain); // Fuege das Rechteck zum Pane hinzu
+        object = createObject();
+        grain = createGrain();
 
-        scene.setOnKeyPressed (event ->
+        root.getChildren().addAll(object, grain);
+
+        setupKeyListeners(hauptStage);
+        setupGameLoop(hauptStage);
+        hauptStage.setScene(scene); // Setze die Szene im Hauptfenster
+        hauptStage.setTitle("Objektsteuerung mit WASD"); // Setze den Fenstertitel
+        hauptStage.show(); // Zeige das Hautfenster an
+    }
+
+    private static Rectangle createObject ()
+    {
+        Rectangle object = new Rectangle(50, 50, OBJECT_SIZE, OBJECT_SIZE);
+        object.setFill(Color.RED);
+
+        return object;
+    }
+
+    private static Rectangle createGrain ()
+    {
+        Rectangle grain = new Rectangle(10, 10, GRAIN_SIZE, GRAIN_SIZE);
+        grain.setFill(Color.BLACK);
+
+        return grain;
+    }
+
+    private static void setupKeyListeners (Stage hauptStage)
+    {
+        scene.setOnKeyPressed(event ->
         {
             switch (event.getCode())
             {
                 case W:
-                    moveUp = true;
+                    movingUp = true;
                     break;
                 case A:
-                    moveLeft = true;
+                    movingLeft = true;
                     break;
                 case S:
-                    moveDown = true;
+                    movingDown = true;
                     break;
                 case D:
-                    moveRight = true;
+                    movingRight = true;
                     break;
-                case E: // Wenn die Taste E gedrueckt wurde:
-                    if (kornGesammelt(object.getX(), object.getY(), grain.getX(), grain.getY())){
-                        gesammelteKoerner++;
-                        hauptStage.setTitle("Gesammelte Koerner: " + gesammelteKoerner);
-                        versetzeKorn(grain);
-                    }
+                case E:
+                    collectGrain(hauptStage);
                     break;
             }
         });
 
-        scene.setOnKeyReleased (event ->
+        scene.setOnKeyReleased(event ->
         {
             switch (event.getCode())
             {
                 case W:
-                    moveUp = false;
+                    movingUp = false;
                     break;
                 case A:
-                    moveLeft = false;
+                    movingLeft = false;
                     break;
                 case S:
-                    moveDown = false;
+                    movingDown = false;
                     break;
                 case D:
-                    moveRight = false;
+                    movingRight = false;
                     break;
             }
-        }
-        );
+        });
+    }
 
-        hauptStage.setScene(scene); // Setze die Szene im Hauptfenster
-        hauptStage.setTitle("Objektsteuerung mit WASD"); // Setze den Fenstertitel
-        hauptStage.show(); // Zeige das Hautfenster an
-
-        hauptStage.addEventHandler (javafx.event.Event.ANY, event -> // Fuege einen Event-Listener hinzu, der auf Tastendruecke reagiert
+    private static void moveObject ()
+    {
+        if (movingUp && object.getY() > 0)
         {
-            if (moveUp && !moveDown && object.getY() > 0)
-            {
-                object.setY(object.getY() - 10);
-            }
-            if (moveDown && !moveUp && object.getY() < hauptStage.getHeight() - object.getHeight())
-            {
-                object.setY(object.getY() + 10);
-            }
-            if (moveLeft && !moveRight && object.getX() > 0)
-            {
-                object.setX(object.getX() - 10);
-            }
-            if (moveRight && !moveLeft && object.getX() < hauptStage.getWidth() - object.getWidth())
-            {
-                object.setX(object.getX() + 10);
-            }
-
-
-
+            object.setY(object.getY() - 10);
         }
-        );
-
-
+        if (movingDown && object.getY() < WINDOW_HEIGHT - OBJECT_SIZE)
+        {
+            object.setY(object.getY() + 10);
+        }
+        if (movingLeft && object.getX() > 0)
+        {
+            object.setX(object.getX() - 10);
+        }
+        if (movingRight && object.getX() < WINDOW_WIDTH - OBJECT_SIZE)
+        {
+            object.setX(object.getX() + 10);
+        }
     }
 
-    private static boolean kornGesammelt(double xKoord, double yKoord, double xKoordGrain, double yKoordGrain){
-        double difXKoord = xKoord - xKoordGrain;
-        double difYKoord = yKoord - yKoordGrain;
-        System.out.println(difXKoord + " " + difYKoord);
-        return ((difXKoord > -50 & difXKoord<1) && (difYKoord > -50 & difYKoord < 1));
+    private static void collectGrain (Stage hauptStage)
+    {
+        if (object.getBoundsInParent().intersects(grain.getBoundsInParent()))
+        {
+            gesammelteKoerner++;
+            hauptStage.setTitle("Gesammelte Koerner: " + gesammelteKoerner);
+            resetGrain();
+        }
     }
 
-    private static Rectangle versetzeKorn (Rectangle grain){
+    private static void resetGrain ()
+    {
         Random random = new Random();
-        grain.setX(random.nextInt(60)*10);
-        grain.setY(random.nextInt(80)*10);
-        return grain;
+        grain.setX(random.nextInt(60) * 10); // ToDo: Weshalb nicht (601) als Grenze?
+        grain.setY(random.nextInt(80) * 10);
     }
 
+    private static void setupGameLoop (Stage hauptStage)
+    {
+        new AnimationTimer()
+        {
+            public void handle (long now)
+            {
+                moveObject();
+            }
+        }.start();
+    }
 }
-
-
-
-
-/**
- * Hier sollten wir uns schon ueberlegen wie wir die Steuerung machen wollen
- * und wie die Elemente der Map aussehen sollen.
- * Mein Vorschlag waere: WASD-Steuerung plus Enter-Taste oder Mausklick.
- * Vom Design her brauchen wir dann noch am Bildschirmrand Anzeigen fuer gesammelte Objekte ect.
- * ~Felix
- */
