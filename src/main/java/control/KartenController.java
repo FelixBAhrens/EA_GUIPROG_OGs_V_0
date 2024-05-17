@@ -19,7 +19,7 @@ public class KartenController
     private static final int GRAIN_SIZE = 5;
 
     private static Pane root;
-    static Rectangle object; // Deklariere ein Rechteck als Objekt
+    private static Rectangle object; // Deklariere ein Rechteck als Objekt
     private static Rectangle grain;
     private static int gesammelteKoerner = Konstanten.ZERO;
     private static Scene scene;

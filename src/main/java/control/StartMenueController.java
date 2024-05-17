@@ -68,10 +68,12 @@ public class StartMenueController extends Application {
         // Debugger Menue
         javafx.scene.control.Menu debugMenu = new javafx.scene.control.Menu("Debug");
         javafx.scene.control.MenuItem debugKarte = new javafx.scene.control.MenuItem("Karte");
+        javafx.scene.control.MenuItem debugKampf = new javafx.scene.control.MenuItem("Kampf");
         // Aktionen
         debugMenu.setOnAction(e-> KartenController.setzeKarte(hauptStage));
+        debugMenu.setOnAction(e-> KampfController.setzeKampfKarte(hauptStage));
         // Menuelemente zum Menue hinzufuegen
-        debugMenu.getItems().addAll(debugKarte);
+        debugMenu.getItems().addAll(debugKarte, debugKampf);
 
         // Erstellen der Menüleiste
         javafx.scene.control.MenuBar menuBar = new MenuBar();
