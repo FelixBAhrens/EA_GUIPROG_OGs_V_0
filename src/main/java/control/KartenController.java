@@ -6,21 +6,22 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import res.Konstanten;
 
 import java.util.Random;
 
 public class KartenController
 {
 
-    private static final int WINDOW_WIDTH = 600;
-    private static final int WINDOW_HEIGHT = 800;
+    private static final int WINDOW_WIDTH = Konstanten.SIX_HUNDRED;
+    private static final int WINDOW_HEIGHT = Konstanten.EIGHT_HUNDRED;
     private static final int OBJECT_SIZE = 45; // Definiere die groesse des Objektes
     private static final int GRAIN_SIZE = 5;
 
     private static Pane root;
     static Rectangle object; // Deklariere ein Rechteck als Objekt
     private static Rectangle grain;
-    private static int gesammelteKoerner = 0;
+    private static int gesammelteKoerner = Konstanten.ZERO;
     private static Scene scene;
 
     private static boolean movingUp = false;
@@ -113,6 +114,14 @@ public class KartenController
     private static void moveObject ()
     {
         int movementSpeed = 5;
+        boolean movingHorizontally = movingLeft || movingRight;
+        boolean movingVertically = movingUp || movingDown;
+
+        if (movingVertically && movingHorizontally)
+        {
+            movementSpeed /= Math.sqrt(2);
+        }
+
         if (movingUp && object.getY() > 0)
         {
             object.setY(object.getY() - movementSpeed);
