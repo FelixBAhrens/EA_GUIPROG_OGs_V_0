@@ -18,9 +18,9 @@ public class KampfController {
     private static final int GRAIN_SIZE = 5;
 
     private static Pane root;
-    private static Rectangle object; // Deklariere ein Rechteck als Objekt
-    private static Rectangle grain;
-    private static int gesammelteKoerner = Konstanten.ZERO;
+    //private static Rectangle object; // Deklariere ein Rechteck als Objekt
+    //private static Rectangle grain;
+    //private static int gesammelteKoerner = Konstanten.ZERO;
     private static Scene scene;
 
 
@@ -28,13 +28,13 @@ public class KampfController {
         root = new Pane();
         root.getChildren().add(stickMan1.getStickmanGroup());
         scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-
         setupKeyListeners(hauptStage);
         setupGameLoop(hauptStage);
         hauptStage.setScene(scene); // Setze die Szene im Hauptfenster
         hauptStage.setTitle("Objektsteuerung mit WASD"); // Setze den Fenstertitel
         hauptStage.show(); // Zeige das Hautfenster an
     }
+
 
     private static void setupKeyListeners (Stage hauptStage)
     {
@@ -62,6 +62,7 @@ public class KampfController {
                     //collectGrain(hauptStage);
                     break;
             }
+            stickMan1.moveStickman((int)hauptStage.getHeight(), (int)hauptStage.getWidth());
         });
 
         scene.setOnKeyReleased(event ->
@@ -81,6 +82,7 @@ public class KampfController {
                     stickMan1.setMovingDown(false);
                     break;
             }
+            stickMan1.moveStickman((int)hauptStage.getHeight(), (int)hauptStage.getWidth());
         });
     }
 
@@ -91,8 +93,13 @@ public class KampfController {
             public void handle (long now)
             {
                 stickMan1.moveStickman((int)hauptStage.getHeight(), (int)hauptStage.getWidth());
+                hauptStage.setScene(scene);
             }
         }.start();
+    }
+
+    private static void updateStickMan (Stage hauptStage){
+
     }
 }
 /**

@@ -6,8 +6,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import org.w3c.dom.Text;
 
-public class StadtController extends Application {
+public class StadtController {
     static Scene stadtSz;
     static Scene schmiedeSz;
     static Scene schenkeSz;
@@ -18,10 +19,6 @@ public class StadtController extends Application {
     static Scene marktSz;
     static Scene hauptquartierSz;
 
-    @Override
-    public void start(Stage stadtFenster) throws Exception {
-
-    }
     public static void zeigeStadt(Stage hauptStage){
         hauptStage.setTitle("Stadt");
         Button schmiede = new Button("Schmiede");
@@ -29,7 +26,7 @@ public class StadtController extends Application {
         Button schenke = new Button("Schenke");
         schenke.setOnAction(e -> hauptStage.setScene(schenkeSz));
         Button magieverstaerker = new Button("Magieverstärker");
-        magieverstaerker.setOnAction(e -> hauptStage.setScene(magieverstaerkerSz));
+        magieverstaerker.setOnAction(e -> zeigemagieverstaerker(hauptStage));
         Button basisCamp = new Button("Basiscamp");
         basisCamp.setOnAction(e -> hauptStage.setScene(basisCampSz));
         Button fraktionenCamps = new Button("FraktionenCamps");
@@ -57,8 +54,9 @@ public class StadtController extends Application {
     public static void zeigeSchenke(){
 
     }
-    public static void zeigemagieverstaerker(){
+    public static void zeigemagieverstaerker(Stage hauptStage){
 
+        SzenenController.setzeSzene("Magieverstärker", magieverstaerkerSz, hauptStage);
     }
     public static void zeigeBasiscamp(){
 
@@ -66,8 +64,9 @@ public class StadtController extends Application {
     public static void zeigeFraktionenCamps(){
 
     }
-    public static void zeigeTrainingsgelaende(){
-
+    public static void zeigeTrainingsgelaende(Stage hauptStage){
+        Button trainiere = new Button("Trainiere");
+        SzenenController.setzeSzene("Trainingsgelände", trainingsGelaendeSz, hauptStage);
     }
     public static void zeigeMarkt(){
 

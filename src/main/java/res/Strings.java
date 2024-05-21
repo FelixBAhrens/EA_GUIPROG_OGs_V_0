@@ -14,5 +14,6 @@ public interface Strings {
     String STRING_EINFACH = "Einfach";
     String STRING_NORMAL = "Normal";
     String STRING_SCHWER = "Schwer";
+    String SEMIKOLON = ";";
 
 }

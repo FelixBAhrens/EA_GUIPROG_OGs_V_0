@@ -54,6 +54,7 @@ public class StickMan {
 
     public void setMovingUp(boolean movingUp) {
         this.movingUp = movingUp;
+        System.out.println("movingUp: " + movingUp);
     }
 
     public boolean isMovingDown() {

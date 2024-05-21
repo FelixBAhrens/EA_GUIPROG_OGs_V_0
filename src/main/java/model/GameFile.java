@@ -1,5 +1,7 @@
 package model;
 
+import control.CharakterController;
+
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,11 +15,11 @@ import java.util.Date;
  */
 public class GameFile {
     private String fileName;
-    private Date erstellDatum;
+    //private Date erstellDatum;
 
-    public GameFile(String fileName, String erstellDatum) {}
+    public GameFile(String fileName/*, String erstellDatum*/) {}
     public String getFileName() {return fileName;}
-    public Date getErstellDatum() {return erstellDatum;}
+    //public Date getErstellDatum() {return erstellDatum;}
 
     /**
      * Methode, die eine neue GameFile mit den ihr uebergebenen Parametern erstellt.
@@ -33,13 +35,21 @@ public class GameFile {
         String filePathAndTitle = fileName + ".csv";
         try{
             FileWriter dateiSchreiber = new FileWriter(filePathAndTitle);
-            dateiSchreiber.write(erstellDatum.toString());
+            dateiSchreiber.write(erstellDatum.toString()+"\n");
+            CharakterController.erstelleDefaultCharakter();
+            dateiSchreiber.write(CharakterController.getCharakterArray()[0].toString()+"\n");
+            dateiSchreiber.write(CharakterController.getCharakterArray()[1].toString()+"\n");
+            dateiSchreiber.write(CharakterController.getCharakterArray()[2].toString()+"\n");
+            dateiSchreiber.write(CharakterController.getCharakterArray()[3].toString()+"\n");
+            dateiSchreiber.write(CharakterController.getCharakterArray()[4].toString()+"\n");
+            dateiSchreiber.write(CharakterController.getCharakterArray()[5].toString()+"\n");
+            System.out.println(CharakterController.getCharakterArray()[5].toString());
             dateiSchreiber.close();
         }
         catch(IOException e){
             e.printStackTrace();
         }
-        return leseGameFile(fileName);
+        return leseGameFile(filePathAndTitle);
     }
 
     /**
@@ -69,7 +79,7 @@ public class GameFile {
      */
     public static GameFile macheGameFileAusString(String fileInhalt){
         String[] fileInhaltsArray = fileInhalt.split(";");
-        return new GameFile(fileInhaltsArray[0], fileInhaltsArray[1]);
+        return new GameFile(fileInhaltsArray[0]/*, fileInhaltsArray[1]*/);
     }
 
     /**
@@ -81,14 +91,6 @@ public class GameFile {
         return new GameFile[0];
     }
 
-    /**
-     * Tostring-Methode fuer das Dateiformat. Habe ich erstmal so implementiert. Keine Ahnung ob die im Ende gebraucht wird.
-     * @return
-     * @Author Felix Ahrens
-     */
-    @Override
-    public String toString() {
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        return erstellDatum.toString();
-    }
+
+
 }
