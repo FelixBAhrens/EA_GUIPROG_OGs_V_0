@@ -4,7 +4,9 @@ import javafx.application.Application;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -13,6 +15,7 @@ import model.Charakter;
 import model.GameFile;
 import res.Strings;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,13 +34,14 @@ public class StartMenueController extends Application {
     private Stage hauptStage;
     private Scene startMenue;
     private Scene schwierigkeitsMenue;
-    private String schwierigkeitsgrad;
     private Scene neuesSpielDialog;
+    private Scene spielLadenMenue;
     private Scene einstellungenMenue;
 
     @Override
     public void start(Stage stage) throws Exception {
         hauptStage = stage;
+        //if (GameFile.)
         zeigeStartMenue();
         hauptStage.setScene(startMenue);
         hauptStage.show();
@@ -50,9 +54,10 @@ public class StartMenueController extends Application {
         Button einstellungen = new Button("Einstellungen");
         Button beenden = new Button("Beenden");
         fortfahren.setOnAction(e->{
-            starteSpiel(new GameFile("File1"));
+            starteSpiel(GameFile.leseGameFile("Spiel1"));
         });
         neuesSpiel.setOnAction(e->zeigeNeuesSpielDialog(hauptStage));
+        spielLaden.setOnAction(e->zeigeSpielstaende());
         einstellungen.setOnAction(e->{
             zeigeEinstellungen();
         });
@@ -63,21 +68,21 @@ public class StartMenueController extends Application {
 
         // Klassisches Menue
         // Erstellen der Menüelemente
-        javafx.scene.control.Menu fileMenu = new javafx.scene.control.Menu("Menue");
-        javafx.scene.control.MenuItem newItem = new javafx.scene.control.MenuItem("Fortfahren");
-        javafx.scene.control.MenuItem newGameItem = new javafx.scene.control.MenuItem("Neues Spiel");
-        javafx.scene.control.MenuItem loadItem = new javafx.scene.control.MenuItem("Spiel Laden");
-        javafx.scene.control.MenuItem settingItem = new javafx.scene.control.MenuItem("Einstellungen");
-        javafx.scene.control.MenuItem exitItem = new javafx.scene.control.MenuItem("Spiel Beenden");
+        Menu fileMenu = new Menu("Menue");
+        MenuItem newItem = new MenuItem("Fortfahren");
+        MenuItem newGameItem = new MenuItem("Neues Spiel");
+        MenuItem loadItem = new MenuItem("Spiel Laden");
+        MenuItem settingItem = new MenuItem("Einstellungen");
+        MenuItem exitItem = new MenuItem("Spiel Beenden");
         // Aktionen
         exitItem.setOnAction(e -> System.exit(0));
         // Hinzufügen der Menüelemente zum Menü
         fileMenu.getItems().addAll(newItem, newGameItem, loadItem, settingItem, exitItem);
 
         // Debugger Menue
-        javafx.scene.control.Menu debugMenu = new javafx.scene.control.Menu("Debug");
-        javafx.scene.control.MenuItem debugKarte = new javafx.scene.control.MenuItem("Karte");
-        javafx.scene.control.MenuItem debugKampf = new javafx.scene.control.MenuItem("Kampf");
+        Menu debugMenu = new Menu("Debug");
+        MenuItem debugKarte = new MenuItem("Karte");
+        MenuItem debugKampf = new MenuItem("Kampf");
         // Aktionen
         debugMenu.setOnAction(e-> KartenController.setzeKarte(hauptStage));
         debugMenu.setOnAction(e-> KampfController.setzeKampfKarte(hauptStage));
@@ -85,7 +90,7 @@ public class StartMenueController extends Application {
         debugMenu.getItems().addAll(debugKarte, debugKampf);
 
         // Erstellen der Menüleiste
-        javafx.scene.control.MenuBar menuBar = new MenuBar();
+        MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, debugMenu);
 
         // Erstellen des Hauptlayouts
@@ -100,68 +105,65 @@ public class StartMenueController extends Application {
     /**
      * Methode, die das Menue zeigt, mit dem der Anwender einen neuen Spielstand aufmachen kann.
      * @param hauptStage
-     * @Author Felix Ahrens
+     * @Author Felix Ahrens22
      */
     public void zeigeNeuesSpielDialog(Stage hauptStage){
+        //String schwierigkeit = frageSchwierigkeitAb();
         hauptStage.setTitle("Neues Spiel erstellen");
-        Text spielNummer_auswaehlen = new Text("Waehle deine Spielnummer selber aus");
+        //Text spielNummer_auswaehlen = new Text("Waehle deine Spielnummer selber aus");
         Button spielErstellen = new Button("Spiel Erstellen");
-        spielErstellen.setOnAction(e-> {
-            CharakterController.erstelleDefaultCharakter();
 
+        spielErstellen.setOnAction(e-> {
             try {
-                GameFile.erstelleNeueGameFile("Spiel1", new Date());
+                GameFile.erstelleNeueGameFile();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
         VBox layoutNewGame = new VBox(10);
-        layoutNewGame.getChildren().addAll(spielNummer_auswaehlen, spielErstellen);
+        layoutNewGame.getChildren().addAll(spielErstellen);
         neuesSpielDialog = new Scene(layoutNewGame, 400, 600);
         SzenenController.setzeSzene("Neues Spiel", neuesSpielDialog, hauptStage);
 
     }
 
-    public void zeigeEinstellungen(){
-        Button geburtstag = new Button("gebe dein Geburtsjahr ein");
-        Button ton = new Button("Ton an");
-        ton.setOnAction(e-> ton.setText("Ton aus"));
-        Button zurueck = new Button("Zurück");
-        VBox layout2 = new VBox(10);
-        layout2.getChildren().addAll(geburtstag, ton, zurueck);
-        Text text = new Text("4.2.1969");
-        geburtstag.setOnAction(e->{
-            layout2.getChildren().add(text);
-        });
-        zurueck.setOnAction(e->SzenenController.zurueckSzene(hauptStage));
-        einstellungenMenue = new Scene(layout2, 400, 600);
-        SzenenController.setzeSzene("Einstellungen", einstellungenMenue, hauptStage);
+    public void zeigeSpielstaende() {
+        Button neuesSpiel = new Button("Neues Spiel");
+        neuesSpiel.setOnAction(e->zeigeNeuesSpielDialog(hauptStage));
+        VBox vBox = new VBox(neuesSpiel);
+        File[] spielDateien = GameFile.gebeGameFileListeZurueck();
+        for (File datei : spielDateien){
+            Button dateiKnopf = new Button(datei.getName());
+            dateiKnopf.setOnAction(e->GameFile.leseGameFile("src/main/java/res/" + datei.getName()));
+            vBox.getChildren().add(dateiKnopf);
+        }
+        spielLadenMenue = new Scene(vBox, 400, 600);
+        hauptStage.setTitle("Spiel Laden");
+        hauptStage.setScene(spielLadenMenue);
     }
 
-    public void frageSchwierigkeitAb(){
+        public void zeigeEinstellungen () {
+            Button geburtstag = new Button("gebe dein Geburtsjahr ein");
+            Button ton = new Button("Ton an");
+            ton.setOnAction(e -> ton.setText("Ton aus"));
+            Button zurueck = new Button("Zurück");
+            VBox layout2 = new VBox(10);
+            layout2.getChildren().addAll(geburtstag, ton, zurueck);
+            Text text = new Text("4.2.1969");
+            geburtstag.setOnAction(e -> {
+                layout2.getChildren().add(text);
+            });
+            zurueck.setOnAction(e -> SzenenController.zurueckSzene(hauptStage));
+            einstellungenMenue = new Scene(layout2, 400, 600);
+            SzenenController.setzeSzene("Einstellungen", einstellungenMenue, hauptStage);
+        }
 
-        Button einfach = new Button(Strings.STRING_EINFACH);
-        einfach.setOnAction(e->setSchwierigkeitsgrad(Strings.STRING_EINFACH));
-        Button normal = new Button(Strings.STRING_NORMAL);
-        normal.setOnAction(e->setSchwierigkeitsgrad(Strings.STRING_NORMAL));
-        Button schwer = new Button(Strings.STRING_SCHWER);
-        schwer.setOnAction(e->setSchwierigkeitsgrad(Strings.STRING_SCHWER));
-        VBox layout2 = new VBox(10);
-        layout2.getChildren().addAll(einfach, normal, schwer);
-        schwierigkeitsMenue = new Scene(layout2, 400, 600);
-        SzenenController.setzeSzene("Schwierigkeitsgrad", schwierigkeitsMenue, hauptStage);
+
+        public static void zeigeStory () {
+
+        }
+
+        public void starteSpiel (GameFile spielstand){
+            StadtController.zeigeStadt(hauptStage);
+        }
     }
-
-    public void setSchwierigkeitsgrad(String schwierigkeitsgrad){
-        this.schwierigkeitsgrad = schwierigkeitsgrad;
-        System.out.println(schwierigkeitsgrad);
-    }
-
-    public static void zeigeStory(){
-
-    }
-
-    public void starteSpiel(GameFile spielstand){
-        StadtController.zeigeStadt(hauptStage);
-    }
-}

@@ -15,5 +15,6 @@ public interface Strings {
     String STRING_NORMAL = "Normal";
     String STRING_SCHWER = "Schwer";
     String SEMIKOLON = ";";
+    String DOPPELPUNKT = ":";
 
 }

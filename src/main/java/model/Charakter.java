@@ -117,12 +117,22 @@ public class Charakter {
      */
     public Charakter (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
                       int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative) {
-
+        this.name = name;
+        this.gesundheit = gesundheit;
+        this.schild = schild;
+        this.manapunkte = manapunkte;
+        this.nahkampfWert = nahkampfWert;
+        this.fernkampfWert = fernkampfWert;
+        this.fernkaempfeZahl = fernkaempfeZahl;
+        this.zahlAusweichen = zahlAusweichen;
+        this.magieResistenz = magieResistenz;
+        this.bewegungsWeite = bewegungsWeite;
+        this.initiative = initiative;
     }
 
     @Override
     public String toString(){
-        return name + Strings.SEMIKOLON + gesundheit + Strings.SEMIKOLON + schild + Strings.SEMIKOLON
+        return name + Strings.DOPPELPUNKT + gesundheit + Strings.SEMIKOLON + schild + Strings.SEMIKOLON
                 + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON + fernkaempfeZahl
                 + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON+ magieResistenz + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative;
     }

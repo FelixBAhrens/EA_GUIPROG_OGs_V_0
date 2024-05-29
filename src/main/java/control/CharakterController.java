@@ -4,7 +4,7 @@ import model.Charakter;
 import res.Konstanten;
 
 public class CharakterController {
-    private static Charakter[] charakterArray = new Charakter[6];
+    private static Charakter[] charakterArray = new Charakter[5];
     public static Charakter[] getCharakterArray() {
         return charakterArray;
     }
@@ -22,18 +22,7 @@ public class CharakterController {
                 Konstanten.DEFAULT_VALUES_LEADER[8],
                 Konstanten.DEFAULT_VALUES_LEADER[9]
                 );
-        Charakter engineer = new Charakter("Engineer",
-                Konstanten.DEFAULT_VALUES_ENGINEER[0],
-                Konstanten.DEFAULT_VALUES_ENGINEER[1],
-                Konstanten.DEFAULT_VALUES_ENGINEER[2],
-                Konstanten.DEFAULT_VALUES_ENGINEER[3],
-                Konstanten.DEFAULT_VALUES_ENGINEER[4],
-                Konstanten.DEFAULT_VALUES_ENGINEER[5],
-                Konstanten.DEFAULT_VALUES_ENGINEER[6],
-                Konstanten.DEFAULT_VALUES_ENGINEER[7],
-                Konstanten.DEFAULT_VALUES_ENGINEER[8],
-                Konstanten.DEFAULT_VALUES_ENGINEER[9]
-        );
+
         Charakter medic = new Charakter("Medic",
                 Konstanten.DEFAULT_VALUES_MEDIC[0],
                 Konstanten.DEFAULT_VALUES_MEDIC[1],
@@ -84,10 +73,9 @@ public class CharakterController {
         );
 
         charakterArray[0] = leader;
-        charakterArray[1] = engineer;
-        charakterArray[2] = medic;
-        charakterArray[3] = hunter;
-        charakterArray[4] = magician;
-        charakterArray[5] = scout;
+        charakterArray[1] = medic;
+        charakterArray[2] = hunter;
+        charakterArray[3] = magician;
+        charakterArray[4] = scout;
     }
 }
