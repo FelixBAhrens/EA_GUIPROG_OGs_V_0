@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 
 /**
@@ -47,18 +46,18 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static GameFile erstelleNeueGameFile() throws IOException {
-        String spielName = Strings.SPIEL + (gebeGameFileListeZurueck().length-1);
+        String spielName = Strings.SPIEL1 + (gebeGameFileListeZurueck().length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
             dateiSchreiber.write(spielName+"\n");
             CharakterController.erstelleDefaultCharakter();
             Charakter[] charakterArray = CharakterController.getCharakterArray();
-            dateiSchreiber.write(charakterArray[0]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[1]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[2]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[3]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[4]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[Konstanten.INT_ZERO]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[Konstanten.INT_ONE]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[Konstanten.INT_TWO]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[Konstanten.INT_THREE]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[Konstanten.INT_FOUR]+Strings.NEWLINE);
             dateiSchreiber.close();
         }
         catch(IOException e){

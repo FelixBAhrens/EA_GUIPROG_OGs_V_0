@@ -2,6 +2,7 @@ package control;
 
 import model.Charakter;
 import res.Konstanten;
+import res.Strings;
 
 public class CharakterController {
     private static Charakter[] charakterArray = new Charakter[5];
@@ -9,73 +10,76 @@ public class CharakterController {
         return charakterArray;
     }
 
-    public static void erstelleDefaultCharakter (){
-        Charakter leader = new Charakter("Leader",
-                Konstanten.DEFAULT_VALUES_LEADER[0],
-                Konstanten.DEFAULT_VALUES_LEADER[1],
-                Konstanten.DEFAULT_VALUES_LEADER[2],
-                Konstanten.DEFAULT_VALUES_LEADER[3],
-                Konstanten.DEFAULT_VALUES_LEADER[4],
-                Konstanten.DEFAULT_VALUES_LEADER[5],
-                Konstanten.DEFAULT_VALUES_LEADER[6],
-                Konstanten.DEFAULT_VALUES_LEADER[7],
-                Konstanten.DEFAULT_VALUES_LEADER[8],
-                Konstanten.DEFAULT_VALUES_LEADER[9]
-                );
-
-        Charakter medic = new Charakter("Medic",
-                Konstanten.DEFAULT_VALUES_MEDIC[0],
-                Konstanten.DEFAULT_VALUES_MEDIC[1],
-                Konstanten.DEFAULT_VALUES_MEDIC[2],
-                Konstanten.DEFAULT_VALUES_MEDIC[3],
-                Konstanten.DEFAULT_VALUES_MEDIC[4],
-                Konstanten.DEFAULT_VALUES_MEDIC[5],
-                Konstanten.DEFAULT_VALUES_MEDIC[6],
-                Konstanten.DEFAULT_VALUES_MEDIC[7],
-                Konstanten.DEFAULT_VALUES_MEDIC[8],
-                Konstanten.DEFAULT_VALUES_MEDIC[9]
-        );
-        Charakter hunter = new Charakter("Hunter",
-                Konstanten.DEFAULT_VALUES_HUNTER[0],
-                Konstanten.DEFAULT_VALUES_HUNTER[1],
-                Konstanten.DEFAULT_VALUES_HUNTER[2],
-                Konstanten.DEFAULT_VALUES_HUNTER[3],
-                Konstanten.DEFAULT_VALUES_HUNTER[4],
-                Konstanten.DEFAULT_VALUES_HUNTER[5],
-                Konstanten.DEFAULT_VALUES_HUNTER[6],
-                Konstanten.DEFAULT_VALUES_HUNTER[7],
-                Konstanten.DEFAULT_VALUES_HUNTER[8],
-                Konstanten.DEFAULT_VALUES_HUNTER[9]
-        );
-        Charakter magician = new Charakter("Magician",
-                Konstanten.DEFAULT_VALUES_MAGICIAN[0],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[1],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[2],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[3],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[4],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[5],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[6],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[7],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[8],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[9]
-        );
-        Charakter scout = new Charakter("Scout",
-                Konstanten.DEFAULT_VALUES_SCOUT[0],
-                Konstanten.DEFAULT_VALUES_SCOUT[1],
-                Konstanten.DEFAULT_VALUES_SCOUT[2],
-                Konstanten.DEFAULT_VALUES_SCOUT[3],
-                Konstanten.DEFAULT_VALUES_SCOUT[4],
-                Konstanten.DEFAULT_VALUES_SCOUT[5],
-                Konstanten.DEFAULT_VALUES_SCOUT[6],
-                Konstanten.DEFAULT_VALUES_SCOUT[7],
-                Konstanten.DEFAULT_VALUES_SCOUT[8],
-                Konstanten.DEFAULT_VALUES_SCOUT[9]
+    public static void erstelleDefaultCharakter () {
+        Charakter leader = new Charakter(Strings.LEADER,
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ZERO],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ONE],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_TWO],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_THREE],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_FOUR],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_FIVE],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_SIX],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_SEVEN],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_EIGHT],
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_NINE]
         );
 
-        charakterArray[0] = leader;
-        charakterArray[1] = medic;
-        charakterArray[2] = hunter;
-        charakterArray[3] = magician;
-        charakterArray[4] = scout;
+        Charakter medic = new Charakter(Strings.MEDIC,
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_ZERO],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_ONE],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_TWO],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_THREE],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_FOUR],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_FIVE],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_SIX],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_SEVEN],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_EIGHT],
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_NINE]
+        );
+
+        Charakter hunter = new Charakter(Strings.HUNTER,
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_ZERO],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_ONE],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_TWO],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_THREE],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_FOUR],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_FIVE],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_SIX],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_SEVEN],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_EIGHT],
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_NINE]
+        );
+
+        Charakter magician = new Charakter(Strings.MAGICIAN,
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_ZERO],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_ONE],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_TWO],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_THREE],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_FOUR],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_FIVE],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_SIX],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_SEVEN],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_EIGHT],
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_NINE]
+        );
+
+        Charakter scout = new Charakter(Strings.SCOUT,
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_ZERO],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_ONE],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_TWO],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_THREE],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_FOUR],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_FIVE],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_SIX],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_SEVEN],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_EIGHT],
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_NINE]
+        );
+
+        charakterArray[Konstanten.INT_ZERO] = leader;
+        charakterArray[Konstanten.INT_ONE] = medic;
+        charakterArray[Konstanten.INT_TWO] = hunter;
+        charakterArray[Konstanten.INT_THREE] = magician;
+        charakterArray[Konstanten.INT_FOUR] = scout;
     }
 }

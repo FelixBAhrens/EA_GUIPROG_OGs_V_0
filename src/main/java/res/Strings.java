@@ -27,6 +27,28 @@ public interface Strings {
 
     String SPIELDATEIPFAD = "src/main/java/res/";
     String CSV_ENDUNG = ".csv";
-    String SPIEL = "Spiel";
+    String SPIEL1 = "Spiel";
+
+
+    String FORTFAHREN = "Fortfahren";
+    String NEUES_SPIEL = "Neues Spiel";
+    String NEUES_SPIEL_ERSTELLEN = "Neues Spiel erstellen";
+    String SPIEL_ERSTELLEN = "Spiel erstellen";
+    String SPIEL_LADEN = "Spiel Laden";
+    String EINSTELLUNGEN = "Einstellungen";
+    String SPIEL_BEENDEN = "Spiel Beenden";
+    String ZURUECK = "Zurueck";
+    String OBJEKTSTEUERUNG_MIT_WASD = "Objektsteuerung mit WASD";
+
+    //MenueNamen
+    String START_MENUE = "Startmenue";
+    String MENUE = "MENUE";
+    String KAMPF = "Kampf";
+    String KARTE = "Karte";
+    String DEBUG = "Debug";
+    String STADT = "Stadt";
+    String SCHMIEDE = "Schmiede";
+    String SCHENKE = "Schenke";
+
 
 }

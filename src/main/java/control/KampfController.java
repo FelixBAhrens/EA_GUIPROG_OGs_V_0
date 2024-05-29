@@ -7,13 +7,14 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.StickMan;
 import res.Konstanten;
+import res.Strings;
 
 public class KampfController {
-    static StickMan stickMan1 = new StickMan(5, Color.ORANGE, 0,0, 0,false,false,false,false);
+    static StickMan stickMan1 = new StickMan(Konstanten.INT_FIVE, Color.ORANGE, Konstanten.INT_ZERO,Konstanten.INT_ZERO, Konstanten.INT_ZERO,false,false,false,false);
     private static final int WINDOW_WIDTH = Konstanten.INT_SIX_HUNDRED;
     private static final int WINDOW_HEIGHT = Konstanten.INT_EIGHT_HUNDRED;
-    private static final int OBJECT_SIZE = 45; // Definiere die groesse des Objektes
-    private static final int GRAIN_SIZE = 5;
+    private static final int OBJECT_SIZE = Konstanten.INT_FOURTY_FIVE; // Definiere die groesse des Objektes
+    private static final int GRAIN_SIZE = Konstanten.INT_FIVE;
 
     private static Pane root;
     //private static Rectangle object; // Deklariere ein Rechteck als Objekt
@@ -29,7 +30,7 @@ public class KampfController {
         setupKeyListeners(hauptStage);
         setupGameLoop(hauptStage);
         hauptStage.setScene(scene); // Setze die Szene im Hauptfenster
-        hauptStage.setTitle("Objektsteuerung mit WASD"); // Setze den Fenstertitel
+        hauptStage.setTitle(Strings.OBJEKTSTEUERUNG_MIT_WASD); // Setze den Fenstertitel
         hauptStage.show(); // Zeige das Hautfenster an
     }
 
