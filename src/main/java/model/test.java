@@ -13,14 +13,14 @@ import java.util.Random;
 public class test {
 
     private static final int WINDOW_WIDTH = Konstanten.SIX_HUNDRED;
-    private static final int WINDOW_HEIGHT = Konstanten.EIGHT_HUNDRED;
+    private static final int WINDOW_HEIGHT = Konstanten.INT_EIGHT_HUNDRED;
     private static final int OBJECT_SIZE = 45; // Definiere die Größe des Objektes
     private static final int GRAIN_SIZE = 5;
 
     private static Pane root;
     private static PlayerObject object; // Verwende die neue PlayerObject-Klasse
     private static Rectangle grain;
-    private static int gesammelteKoerner = Konstanten.ZERO;
+    private static int gesammelteKoerner = Konstanten.INT_ZERO;
     private static Scene scene;
 
     public static void setzeKarte (Stage hauptStage)

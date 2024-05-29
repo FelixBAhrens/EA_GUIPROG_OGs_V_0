@@ -1,6 +1,7 @@
 package model;
 
 import control.CharakterController;
+import res.Konstanten;
 import res.Strings;
 
 import java.io.*;
@@ -46,18 +47,18 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static GameFile erstelleNeueGameFile() throws IOException {
-        String spielName = "Spiel" + (gebeGameFileListeZurueck().length-1);
-        String spielPfad_Name = "src/main/java/res/" + spielName + ".csv";
+        String spielName = Strings.SPIEL + (gebeGameFileListeZurueck().length-1);
+        String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
             dateiSchreiber.write(spielName+"\n");
             CharakterController.erstelleDefaultCharakter();
             Charakter[] charakterArray = CharakterController.getCharakterArray();
-            dateiSchreiber.write(charakterArray[0]+"\n");
-            dateiSchreiber.write(charakterArray[1]+"\n");
-            dateiSchreiber.write(charakterArray[2]+"\n");
-            dateiSchreiber.write(charakterArray[3]+"\n");
-            dateiSchreiber.write(charakterArray[4]+"\n");
+            dateiSchreiber.write(charakterArray[0]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[1]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[2]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[3]+Strings.NEWLINE);
+            dateiSchreiber.write(charakterArray[4]+Strings.NEWLINE);
             dateiSchreiber.close();
         }
         catch(IOException e){
@@ -73,7 +74,13 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static GameFile leseGameFile(String fileName){
-        return macheGameFileAusZeilenArray(leseCSV("src/main/java/res/" + fileName + ".csv"));
+        if (!fileName.contains(Strings.CSV_ENDUNG)){
+            fileName = fileName + Strings.CSV_ENDUNG;
+        }
+        if (!fileName.contains(Strings.SPIELDATEIPFAD)){
+            fileName = Strings.SPIELDATEIPFAD + fileName;
+        }
+        return macheGameFileAusZeilenArray(leseCSV(fileName));
     }
 
     /**
@@ -107,10 +114,11 @@ public class GameFile extends File {
      */
     public static GameFile macheGameFileAusZeilenArray(String[] zeilenArray){
         try{
-            return new GameFile("src/main/java/res/" + zeilenArray[0] + ".csv", zeilenArray[0],
-                    erstelleCharakterAusCSVZeile(zeilenArray[1]) , erstelleCharakterAusCSVZeile(zeilenArray[2]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[3]), erstelleCharakterAusCSVZeile(zeilenArray[4]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[5]));
+            return new GameFile(Strings.SPIELDATEIPFAD + zeilenArray[Konstanten.INT_ZERO] + Strings.CSV_ENDUNG,
+                    zeilenArray[Konstanten.INT_ZERO],
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_ONE]) , erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TWO]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_THREE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]));
         }
         catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -124,18 +132,20 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static File[] gebeGameFileListeZurueck(){
-        File gameFileVerzeichnis = new File("src/main/java/res/");
+        File gameFileVerzeichnis = new File(Strings.SPIELDATEIPFAD);
         File[] gameFiles = gameFileVerzeichnis.listFiles();
         return gameFiles;
     }
 
     public static Charakter erstelleCharakterAusCSVZeile(String zeile){
-        Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[1].split(";"))
+        Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ONE].split(Strings.SEMIKOLON))
                 .map(String::trim)
                 .map(Integer::parseInt)
                 .toArray(Integer[]::new);
-        return new Charakter(zeile.split(Strings.DOPPELPUNKT)[0], zeilenStuecke[0], zeilenStuecke[1], zeilenStuecke[2], zeilenStuecke[3], zeilenStuecke[4],
-                zeilenStuecke[5], zeilenStuecke[6], zeilenStuecke[7], zeilenStuecke[8], zeilenStuecke[9]);
+        return new Charakter(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ZERO], zeilenStuecke[Konstanten.INT_ZERO],
+                zeilenStuecke[Konstanten.INT_ONE], zeilenStuecke[Konstanten.INT_TWO], zeilenStuecke[Konstanten.INT_THREE],
+                zeilenStuecke[Konstanten.INT_FOUR], zeilenStuecke[Konstanten.INT_FIVE], zeilenStuecke[Konstanten.INT_SIX],
+                zeilenStuecke[Konstanten.INT_SEVEN], zeilenStuecke[Konstanten.INT_EIGHT], zeilenStuecke[Konstanten.INT_NINE]);
     }
 
 }

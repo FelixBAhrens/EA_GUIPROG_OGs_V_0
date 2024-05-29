@@ -11,10 +11,22 @@ public interface Strings {
             "\n" +
             "Wirst du dich den Schatten entgegenstellen und das Licht der Hoffnung zurückbringen, oder wirst du dich den dunklen Verlockungen des Universums hingeben und deinen eigenen Weg zum Ruhm einschlagen? Die Entscheidung liegt bei dir, Kapitän. Möge die Macht mit dir sein.";
 
+    String NEWLINE = "\n";
+
+    String LEADER = "Leader";
+    String MEDIC = "Medic";
+    String HUNTER = "Hunter";
+    String MAGICIAN = "Magician";
+    String SCOUT = "Scout";
+
     String STRING_EINFACH = "Einfach";
     String STRING_NORMAL = "Normal";
     String STRING_SCHWER = "Schwer";
     String SEMIKOLON = ";";
     String DOPPELPUNKT = ":";
+
+    String SPIELDATEIPFAD = "src/main/java/res/";
+    String CSV_ENDUNG = ".csv";
+    String SPIEL = "Spiel";
 
 }
