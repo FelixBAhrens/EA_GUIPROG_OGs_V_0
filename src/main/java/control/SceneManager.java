@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class SceneManager {
     private static Stage primaryStage;
@@ -21,8 +22,23 @@ public class SceneManager {
         FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+
+        sceneStack.push(scene);
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public static void goBack ()
+    {
+        if (!sceneStack.isEmpty())
+        {
+            sceneStack.pop();
+            Scene previousScene = sceneStack.pop();
+            sceneStack.push(previousScene);
+            primaryStage.setScene(previousScene);
+        }
     }
 
     /*
