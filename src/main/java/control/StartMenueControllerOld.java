@@ -90,7 +90,7 @@ public class StartMenueControllerOld extends Application {
         MenuItem debugKampf = new MenuItem(Strings.KAMPF);
         // Aktionen
         debugMenu.setOnAction(e-> KartenController.setzeKarte(hauptStage));
-        debugMenu.setOnAction(e-> KampfController.setzeKampfKarte(hauptStage));
+        //debugMenu.setOnAction(e-> KampfController.setzeKampfKarte(hauptStage));
         // Menuelemente zum Menue hinzufuegen
         debugMenu.getItems().addAll(debugKarte, debugKampf);
 

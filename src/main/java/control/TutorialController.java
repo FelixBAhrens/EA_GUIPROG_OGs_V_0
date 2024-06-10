@@ -1,4 +1,4 @@
-package hallo;
+package control;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;

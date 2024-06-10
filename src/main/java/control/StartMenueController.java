@@ -1,5 +1,6 @@
-package hallo;
+package control;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,6 @@ public class StartMenueController
     {
         System.out.println("Einstellungen");
     }
-
     @FXML
     private void handleSpielBeenden (MouseEvent event)
     {
@@ -61,10 +61,10 @@ public class StartMenueController
     {
         try
         {
-            FXMLLoader tutorialLoader = new FXMLLoader(getClass().getResource("/resources/org.example/tutorial-view.fxml"));
+            FXMLLoader tutorialLoader = new FXMLLoader(getClass().getResource("tutorial-view.fxml"));
             Parent root = tutorialLoader.load();
 
-            TutorialController controller = tutorialLoader.getController();
+            control.TutorialController controller = tutorialLoader.getController();
             controller.setTutorialText("Tutorial Text");
 
             controller.initialize(stage, menuScene);

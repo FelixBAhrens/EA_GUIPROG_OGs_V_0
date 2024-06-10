@@ -5,10 +5,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import model.StickMan;
 import res.Konstanten;
 import res.Strings;
-
+/**
 public class KampfController {
     static StickMan stickMan1 = new StickMan(Konstanten.INT_FIVE, Color.ORANGE, Konstanten.INT_ZERO,Konstanten.INT_ZERO, Konstanten.INT_ZERO,false,false,false,false);
     private static final int WINDOW_WIDTH = Konstanten.INT_SIX_HUNDRED;
@@ -106,3 +105,4 @@ public class KampfController {
  * Vielleicht kann sich irgendwer schon Gedanken zur Realisierung machen.
  * ~Felix
  */
+
