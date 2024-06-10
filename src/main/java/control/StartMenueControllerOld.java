@@ -9,7 +9,6 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.GameFile;
 import res.Konstanten;
@@ -18,7 +17,7 @@ import res.Strings;
 import java.io.File;
 import java.io.IOException;
 
-public class StartMenueController extends Application {
+public class StartMenueControllerOld extends Application {
 
     public Stage getHauptStage() {
         return hauptStage;
@@ -113,6 +112,7 @@ public class StartMenueController extends Application {
      * @param hauptStage
      * @Author Felix Ahrens22
      */
+
     public void zeigeNeuesSpielDialog(Stage hauptStage){
         //String schwierigkeit = frageSchwierigkeitAb();
         hauptStage.setTitle(Strings.NEUES_SPIEL_ERSTELLEN);
@@ -163,3 +163,4 @@ public class StartMenueController extends Application {
             StadtController.zeigeStadt(hauptStage);
         }
     }
+
