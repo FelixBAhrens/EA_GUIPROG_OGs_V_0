@@ -3,12 +3,12 @@ package control;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class StartMenueController
 {
@@ -20,10 +20,9 @@ public class StartMenueController
     private Stage stage;
     private Scene menuScene;
 
-    public void initialize (Stage stage, Scene scene)
+    public void initialize (Stage stage)
     {
         this.stage = stage;
-        this.menuScene = menuScene;
     }
 
     @FXML
@@ -57,24 +56,8 @@ public class StartMenueController
     }
 
     @FXML
-    private void handleTutorial (MouseEvent event)
+    private void handleTutorial (MouseEvent event) throws IOException
     {
-        try
-        {
-            FXMLLoader tutorialLoader = new FXMLLoader(getClass().getResource("tutorial-view.fxml"));
-            Parent root = tutorialLoader.load();
-
-            control.TutorialController controller = tutorialLoader.getController();
-            controller.setTutorialText("Tutorial Text");
-
-            controller.initialize(stage, menuScene);
-
-            Scene tutorialScene = new Scene(root);
-            stage.setScene(tutorialScene);
-
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        SceneManager.changeScene("tutorial-view.fxml");
     }
 }

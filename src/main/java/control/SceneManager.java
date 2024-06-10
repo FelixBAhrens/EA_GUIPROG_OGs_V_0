@@ -8,14 +8,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneManager {
-    private Stage primaryStage;
+    private static Stage primaryStage;
+    private static final Stack<Scene> sceneStack = new Stack<>();
 
-    public SceneManager(Stage primaryStage) {
+    public SceneManager(Stage primaryStage)
+    {
         this.primaryStage = primaryStage;
     }
 
-    public void changeScene(String fxmlFile) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+    public static void changeScene (String fxmlFile) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

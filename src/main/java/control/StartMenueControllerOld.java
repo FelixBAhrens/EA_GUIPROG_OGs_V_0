@@ -160,7 +160,7 @@ public class StartMenueControllerOld extends Application {
         }
 
         public void starteSpiel (GameFile spielstand){
-            StadtController.zeigeStadt(hauptStage);
+            StadtControllerOld.zeigeStadt(hauptStage);
         }
     }
 

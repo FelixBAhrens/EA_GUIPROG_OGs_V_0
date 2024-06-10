@@ -14,6 +14,7 @@ public class TutorialController
     private Stage stage;
     private Scene menuScene;
 
+    @FXML
     public void initialize (Stage stage, Scene menuScene)
     {
         this.stage = stage;
@@ -23,12 +24,8 @@ public class TutorialController
     @FXML
     public void handleZurueck ()
     {
-        stage.setScene(menuScene);
+        SceneManager.goBack();
     }
 
-    public void setTutorialText (String text)
-    {
-        tutorialTextArea.setText(text);
-    }
 
 }
