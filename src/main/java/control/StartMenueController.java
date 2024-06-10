@@ -26,9 +26,8 @@ public class StartMenueController
     }
 
     @FXML
-    private void handleFortfahren (MouseEvent event)
-    {
-        System.out.println("Fortfahren");
+    private void handleFortfahren (MouseEvent event) throws IOException {
+        SceneManager.changeScene("stadt-view.fxml");
     }
 
     @FXML
