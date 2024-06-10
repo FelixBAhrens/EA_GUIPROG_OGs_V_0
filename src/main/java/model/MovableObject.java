@@ -7,7 +7,7 @@ import res.Konstanten;
 
 public abstract class MovableObject extends Rectangle
 {
-    int movementSpeed = 5;
+    int movementSpeed = Konstanten.INT_FIVE;
 
     public MovableObject (double x, double y, double width, double height, Color color, int movementSpeed)
     {

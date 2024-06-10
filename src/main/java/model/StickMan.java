@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import res.Konstanten;
 
 import javax.sound.sampled.Line;
 import javax.swing.*;
@@ -54,7 +55,6 @@ public class StickMan {
 
     public void setMovingUp(boolean movingUp) {
         this.movingUp = movingUp;
-        System.out.println("movingUp: " + movingUp);
     }
 
     public boolean isMovingDown() {
@@ -88,12 +88,12 @@ public class StickMan {
         stickmanGroup = new Group();
 
         // Erstelle den Kopf
-        Circle head = new Circle(15);
+        Circle head = new Circle(Konstanten.INT_FIFTEEN);
         head.setFill(Color.BLACK);
-        head.setCenterX(0);
-        head.setCenterY(-10 / 2 - 15);
+        head.setCenterX(Konstanten.INT_ZERO);
+        head.setCenterY(-Konstanten.INT_TEN / Konstanten.INT_TWO- Konstanten.INT_FIFTEEN);
 
-        Rectangle body = new Rectangle(10, 20, Color.BLACK);
+        Rectangle body = new Rectangle(Konstanten.INT_TEN, Konstanten.INT_TWENTY, Color.BLACK);
 
 
         // Füge alle Teile zur Gruppe hinzu
@@ -113,7 +113,7 @@ public class StickMan {
         int useThisSpeedItMayBeNew = movementSpeed;
         if ((movingUp|movingDown) && (movingLeft|movingRight))
         {
-            useThisSpeedItMayBeNew = (int)Math.sqrt((movementSpeed^2)+(movementSpeed ^2));
+            useThisSpeedItMayBeNew = (int)Math.sqrt((movementSpeed^Konstanten.INT_TWO)+(movementSpeed ^Konstanten.INT_TWO));
         }
         if (movingUp && yPos > useThisSpeedItMayBeNew)
         {

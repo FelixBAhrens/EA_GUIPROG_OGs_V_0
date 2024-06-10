@@ -39,16 +39,24 @@ public interface Strings {
     String SPIEL_BEENDEN = "Spiel Beenden";
     String ZURUECK = "Zurueck";
     String OBJEKTSTEUERUNG_MIT_WASD = "Objektsteuerung mit WASD";
+    String TRAINIERE = "Trainiere";
 
     //MenueNamen
     String START_MENUE = "Startmenue";
-    String MENUE = "MENUE";
+    String MENUE = "Menue";
     String KAMPF = "Kampf";
     String KARTE = "Karte";
     String DEBUG = "Debug";
     String STADT = "Stadt";
     String SCHMIEDE = "Schmiede";
     String SCHENKE = "Schenke";
+    String MAGIEVERSTAERKER = "Magieversterker";
+    String BASISCAMP = "Basiscamp";
+    String FRAKTIONENCAMPS = "Fraktionencamps";
+    String TRAININGSGELAENDE = "Trainingsgelaende";
+    String MARKT = "Markt";
+    String HAUPTQUARTIER = "Hauptquartier";
+
 
 
 }
