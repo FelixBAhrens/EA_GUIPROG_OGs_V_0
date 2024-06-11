@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class GameFile extends File {
     private String fileName;
+    private String schwierigkeit;
     private Charakter charakter1;
     private Charakter charakter2;
     private Charakter charakter3;
@@ -26,10 +27,11 @@ public class GameFile extends File {
     public String getFileName() {return fileName;}
 
 
-    public GameFile(String dateipfad, String fileName, Charakter charakter1, Charakter charakter2, Charakter charakter3,
+    public GameFile(String dateipfad, String fileName, String schwierigkeit, Charakter charakter1, Charakter charakter2, Charakter charakter3,
                     Charakter charakter4, Charakter charakter5) {
         super (dateipfad);
         this.fileName = fileName;
+        this.schwierigkeit = schwierigkeit;
         this.charakter1 = charakter1;
         this.charakter2 = charakter2;
         this.charakter3 = charakter3;
@@ -45,12 +47,12 @@ public class GameFile extends File {
      * @throws IOException
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueGameFile() throws IOException {
+    public static GameFile erstelleNeueGameFile(String schwierigkeit) throws IOException {
         String spielName = Strings.SPIEL1 + (gebeGameFileListeZurueck().length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
-            dateiSchreiber.write(spielName+"\n");
+            dateiSchreiber.write(spielName+"\n"+schwierigkeit);
             CharakterController.erstelleDefaultCharakter();
             Charakter[] charakterArray = CharakterController.getCharakterArray();
             dateiSchreiber.write(charakterArray[Konstanten.INT_ZERO]+Strings.NEWLINE);
@@ -115,9 +117,9 @@ public class GameFile extends File {
         try{
             return new GameFile(Strings.SPIELDATEIPFAD + zeilenArray[Konstanten.INT_ZERO] + Strings.CSV_ENDUNG,
                     zeilenArray[Konstanten.INT_ZERO],
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_ONE]) , erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TWO]),
+                    zeilenArray[Konstanten.INT_ONE], erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TWO]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_THREE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]));
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SIX]));
         }
         catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();

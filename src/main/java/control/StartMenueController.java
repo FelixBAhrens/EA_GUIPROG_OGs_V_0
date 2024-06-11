@@ -31,9 +31,8 @@ public class StartMenueController
     }
 
     @FXML
-    private void handleNeuesSpiel (MouseEvent event)
-    {
-        System.out.println("Neues Spiel");
+    private void handleNeuesSpiel (MouseEvent event) throws IOException {
+        SceneManager.changeScene("neuesSpiel-view.fxml");
     }
 
     @FXML

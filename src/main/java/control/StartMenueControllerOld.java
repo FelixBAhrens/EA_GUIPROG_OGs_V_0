@@ -120,7 +120,7 @@ public class StartMenueControllerOld extends Application {
         Button spielErstellen = new Button(Strings.SPIEL_ERSTELLEN);
         spielErstellen.setOnAction(e-> {
             try {
-                GameFile.erstelleNeueGameFile();
+                GameFile.erstelleNeueGameFile("Leicht");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
