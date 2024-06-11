@@ -42,9 +42,8 @@ public class StartMenueController
     }
 
     @FXML
-    private void handleEinstellungen (MouseEvent event)
-    {
-        System.out.println("Einstellungen");
+    private void handleEinstellungen (MouseEvent event) throws IOException {
+        SceneManager.changeScene("einstellungen-view.fxml");
     }
     @FXML
     private void handleSpielBeenden (MouseEvent event)
