@@ -1,6 +1,5 @@
 package control;
 
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -18,7 +17,7 @@ public class StartMenueController
     private Button einstellungenButton;
     private Button spielBeendenButton;
     private Stage stage;
-    private Scene menuScene;
+    private Scene menueScene;
 
     public void initialize (Stage stage)
     {
