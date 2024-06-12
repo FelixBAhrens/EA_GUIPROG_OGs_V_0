@@ -1,16 +1,30 @@
 package control;
 
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StartMenueController
+public class StartMenueController implements Initializable
 {
+    @FXML
+    private ImageView backgroundImage;
+    @FXML
     private Button fortfahrenButton;
     private Button neuesSpielButton;
     private Button spielLadenButton;
@@ -19,10 +33,6 @@ public class StartMenueController
     private Stage stage;
     private Scene menueScene;
 
-    public void initialize (Stage stage)
-    {
-        this.stage = stage;
-    }
 
     @FXML
     private void handleFortfahren (MouseEvent event) throws IOException {
@@ -55,5 +65,19 @@ public class StartMenueController
     private void handleTutorial (MouseEvent event) throws IOException
     {
         SceneManager.changeScene("tutorial-view.fxml");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // rotate
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(backgroundImage);
+        rotate.setDuration(Duration.seconds(10));
+        rotate.setCycleCount(TranslateTransition.INDEFINITE);
+        rotate.setInterpolator(Interpolator.EASE_BOTH);
+        rotate.setAutoReverse(true);
+        rotate.setByAngle(10);
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.play();
     }
 }

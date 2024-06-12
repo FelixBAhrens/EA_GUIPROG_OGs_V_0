@@ -17,6 +17,13 @@ public class SceneManager {
         this.primaryStage = primaryStage;
     }
 
+    public static Scene getVorherigeSzene () {
+        if (sceneStack.size() > 1) {
+            return sceneStack.get(sceneStack.size() - 2);
+        }
+        return null;
+    }
+
     public static void changeScene (String fxmlFile) throws IOException
     {
         FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
