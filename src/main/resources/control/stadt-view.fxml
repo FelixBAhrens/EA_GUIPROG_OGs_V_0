@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
-   <children>
-      <TabPane prefHeight="538.0" prefWidth="538.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <tabs>
-          <Tab text="Schmiede">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="schmiede-view.fxml" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Schenke">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="schenke-view.fxml" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+<AnchorPane prefHeight="547.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
+    <HBox layoutY="100.0" prefHeight="100.0" prefWidth="870.0" spacing="10">
+        <Pane fx:id="schmiede" onMouseClicked="#openSchmiede" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Schmiede" />
+        </Pane>
+        <Pane fx:id="schenke" onMouseClicked="#openSchenke" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Schenke" />
+        </Pane>
+        <Pane fx:id="magieverstaerker" onMouseClicked="#openMagieverstaerker" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Magieverstaerker" />
+        </Pane>
+        <Pane fx:id="basisCamp" onMouseClicked="#openBasisCamp" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Basis-Camp" />
+        </Pane>
+        <Pane fx:id="fraktionenCamp" onMouseClicked="#openFraktionenCamp" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Fraktionen-Camp" />
+        </Pane>
+        <Pane fx:id="trainingsgelaende" onMouseClicked="#openTrainingsgelaende" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Trainingsgelaende" />
+        </Pane>
+        <Pane fx:id="markt" onMouseClicked="#openMarkt" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Markt" />
+        </Pane>
+        <Pane fx:id="hauptquartier" onMouseClicked="#openHauptquartier" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
+            <Text text="Hauptquartier" />
+        </Pane>
+    </HBox>
+   <StackPane fx:id="hintergrundPane" layoutX="10.0" layoutY="10.0" onMouseClicked="#closeGebaeude" prefHeight="720" prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" />
+    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="60.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false">
+    </StackPane>
 </AnchorPane>
