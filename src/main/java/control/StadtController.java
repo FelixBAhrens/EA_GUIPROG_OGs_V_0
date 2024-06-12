@@ -14,6 +14,7 @@ public class StadtController {
     @FXML
     private Pane hintergrundPane;
 
+
     @FXML
     private void openSchmiede() {
         openGebaeude("schmiede-view.fxml");
@@ -52,6 +53,11 @@ public class StadtController {
     @FXML
     private void openHauptquartier() {
         openGebaeude("hauptquartier-view.fxml");
+    }
+
+    @FXML
+    private void openKarte() throws IOException {
+        SceneManager.changeScene("map-view.fxml");
     }
 
     private void openGebaeude(String fxmlFile) {

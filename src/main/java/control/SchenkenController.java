@@ -8,4 +8,22 @@ public class SchenkenController extends GebaeudeController {
 
     }
 
+    @FXML
+    public void openMedic(){
+
+    }
+
+    @FXML
+    public void openHunter(){
+
+    }
+
+    @FXML
+    public void openEngineer(){
+
+    }
+    @FXML
+    public void openScout(){
+
+    }
 }

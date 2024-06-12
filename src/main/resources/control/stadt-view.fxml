@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="547.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
     <HBox layoutY="100.0" prefHeight="100.0" prefWidth="870.0" spacing="10">
         <Pane fx:id="schmiede" onMouseClicked="#openSchmiede" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
@@ -32,8 +33,11 @@
         <Pane fx:id="hauptquartier" onMouseClicked="#openHauptquartier" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
             <Text text="Hauptquartier" />
         </Pane>
+        <Button fx:id="Karte" onMouseClicked="#openKarte">
+        </Button>
+
     </HBox>
    <StackPane fx:id="hintergrundPane" layoutX="10.0" layoutY="10.0" onMouseClicked="#closeGebaeude" prefHeight="720" prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" />
-    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="60.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false">
+    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false">
     </StackPane>
 </AnchorPane>
