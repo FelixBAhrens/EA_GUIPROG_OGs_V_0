@@ -2,7 +2,7 @@ package control;
 
 import javafx.fxml.FXML;
 
-public class MarktController {
+public class HauptquartierController {
     @FXML
     public void initialize() {
 
