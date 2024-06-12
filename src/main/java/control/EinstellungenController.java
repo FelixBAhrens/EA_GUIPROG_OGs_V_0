@@ -7,8 +7,12 @@ public class EinstellungenController {
     public void initialize (){
 
     }
+
+
     @FXML
     public void zurueckHandler(){
         SceneManager.goBack();
     }
 }
+
+

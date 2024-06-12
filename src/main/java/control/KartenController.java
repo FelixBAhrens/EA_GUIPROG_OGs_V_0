@@ -13,6 +13,8 @@ import java.util.Random;
 public class KartenController
 {
 
+    //Davids Huhn das ein Korn pickt - bitte nicht löschen!
+    /*
     private static final int WINDOW_WIDTH = Konstanten.INT_SIX_HUNDRED;
     private static final int WINDOW_HEIGHT = Konstanten.INT_EIGHT_HUNDRED;
     private static final int OBJECT_SIZE = 45; // Definiere die groesse des Objektes
@@ -167,4 +169,5 @@ public class KartenController
             }
         }.start();
     }
+     */
 }

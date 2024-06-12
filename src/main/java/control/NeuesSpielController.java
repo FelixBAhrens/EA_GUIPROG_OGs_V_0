@@ -15,9 +15,6 @@ public class NeuesSpielController {
     }
 
     @FXML
-    private Slider threePositionSlider;
-
-    @FXML
     public void initialize() {
 
     }
@@ -30,24 +27,10 @@ public class NeuesSpielController {
         System.out.println("Schwierigkeit: ");
         //SceneManager.changeScene("story-view.fxml");
     }
-    @FXML
-    public void schwierigkeitLeicht(ActionEvent event) throws IOException{
-        SceneManager.changeScene("mapController-view.fxml");
-        }
+
+
     @FXML
     public void zurueckHandler(ActionEvent event) throws IOException{
         SceneManager.goBack();
     }
-
-    public class Storycontroller {
-        @FXML
-        public void initialize() {
-
-        }
-        @FXML
-        public void handleFortfahren(ActionEvent event) throws IOException {
-            System.exit(0);
-        }
-        }
-
 }
