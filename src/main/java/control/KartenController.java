@@ -1,17 +1,135 @@
 package control;
 
 import javafx.animation.AnimationTimer;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import res.Konstanten;
 
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class KartenController
+public class KartenController implements Initializable
 {
+    private BooleanProperty wPressed = new SimpleBooleanProperty();
+    private BooleanProperty aPressed = new SimpleBooleanProperty();
+    private BooleanProperty sPressed = new SimpleBooleanProperty();
+    private BooleanProperty dPressed = new SimpleBooleanProperty();
+
+    private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
+
+    private int movementVariable = Konstanten.INT_TWO;
+
+    @FXML
+    private Rectangle shape1;
+
+    @FXML
+    private AnchorPane anchorPane;
+
+    private Scene scene;
+
+    AnimationTimer timer = new AnimationTimer()
+    {
+        @Override
+        public void handle (long timestamp)
+        {
+            if (wPressed.get())
+            {
+                shape1.setLayoutY(shape1.getLayoutY() - movementVariable);
+            }
+            if (aPressed.get())
+            {
+                shape1.setLayoutX(shape1.getLayoutX() - movementVariable);
+            }
+            if (sPressed.get())
+            {
+                shape1.setLayoutY(shape1.getY() + movementVariable);
+            }
+            if (dPressed.get())
+            {
+                shape1.setLayoutX(shape1.getX() + movementVariable);
+            }
+        }
+    };
+
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle)
+    {
+        scene = anchorPane.getScene();
+        movementSetup();
+
+        keyPressed.addListener(((observableValue, aBoolean, t1) ->
+        {
+            if (!aBoolean)
+            {
+                timer.start();
+            } else
+            {
+                timer.stop();
+            }
+        }));
+    }
+
+    public void movementSetup ()
+    {
+        scene.setOnKeyPressed(e ->
+        {
+            if (e.getCode() == KeyCode.W)
+            {
+                wPressed.set(true);
+            }
+
+            if (e.getCode() == KeyCode.A)
+            {
+                aPressed.set(true);
+            }
+
+            if (e.getCode() == KeyCode.S)
+            {
+                sPressed.set(true);
+            }
+
+            if (e.getCode() == KeyCode.D)
+            {
+                dPressed.set(true);
+            }
+        });
+
+        scene.setOnKeyReleased(e ->
+        {
+            if (e.getCode() == KeyCode.W)
+            {
+                wPressed.set(false);
+            }
+
+            if (e.getCode() == KeyCode.A)
+            {
+                aPressed.set(false);
+            }
+
+            if (e.getCode() == KeyCode.S)
+            {
+                sPressed.set(false);
+            }
+
+            if (e.getCode() == KeyCode.D)
+            {
+                dPressed.set(false);
+            }
+        });
+    }
+
 
     //Davids Huhn das ein Korn pickt - bitte nicht löschen!
     /*
