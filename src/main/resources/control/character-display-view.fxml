@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="control.CharakterController"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane fx:id="charakterDisplay" style="-fx-background-color: white" prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.CharakterController">
+   <children>
+       <VBox spacing="5">
+           <Label text="Name:"/>
+           <Label fx:id="nameLabel"/>
 
+           <Label text="Gesundheit:"/>
+           <Label fx:id="healthLabel"/>
+
+           <Label text="Schild:"/>
+           <Label fx:id="shieldLabel"/>
+
+           <Label text="Manapunkte:"/>
+           <Label fx:id="manaLabel"/>
+
+           <Label text="Nahkampf-Wert:"/>
+           <Label fx:id="closeCombatLabel"/>
+
+           <Label text="Fernkampf-Wert:"/>
+           <Label fx:id="distanceCombatLabel"/>
+
+           <Label text="Fernkampf - Anzahl:"/>
+           <Label fx:id="numberDistComLabel"/>
+
+           <Label text="Ausweichen:"/>
+           <Label fx:id="dodgeLabel"/>
+
+           <Label text="Magieresistenz:"/>
+           <Label fx:id="magResLabel"/>
+
+           <Label text="Bewegungsweite:"/>
+           <Label fx:id="reachLabel"/>
+
+           <Label text="Initiative:"/>
+           <Label fx:id="initLabel"/>
+       </VBox>
+   </children>
 </AnchorPane>
