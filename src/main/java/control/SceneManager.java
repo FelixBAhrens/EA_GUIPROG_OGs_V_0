@@ -35,6 +35,8 @@ public class SceneManager {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        root.requestFocus();
     }
 
     public static void goBack ()
