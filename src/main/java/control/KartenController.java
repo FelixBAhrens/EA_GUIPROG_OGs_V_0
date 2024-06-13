@@ -6,11 +6,14 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class KartenController implements Initializable
@@ -28,6 +31,8 @@ public class KartenController implements Initializable
 
     private static final double ROOT_2 = Math.sqrt(2);
 
+    private List<Rectangle> barriers = new ArrayList<>();
+
     @FXML
     private Rectangle shape1;
 
@@ -44,18 +49,29 @@ public class KartenController implements Initializable
 
             if (wPressed.get())
             {
-                moveY -= movementVariable;
+                if (!checkCollisionWithBarriers(shape1.getLayoutX(), shape1.getLayoutY() - movementVariable, shape1))
+                {
+                    moveY -= movementVariable;
+                }
+
             }
             if (aPressed.get())
             {
-                moveX -= movementVariable;
+                if (!checkCollisionWithBarriers(shape1.getLayoutX() - movementVariable, shape1.getLayoutY(), shape1))
+                {
+                    moveX -= movementVariable;
+                }
             }
             if (sPressed.get())
             {
-                moveY += movementVariable;
+                if (!checkCollisionWithBarriers(shape1.getLayoutX(), shape1.getLayoutY() + movementVariable, shape1))
+                {
+                    moveY += movementVariable;
+                }
             }
             if (dPressed.get())
             {
+                if (!checkCollisionWithBarriers(shape1.getLayoutX() + movementVariable, shape1.getLayoutY(), shape1))
                 moveX += movementVariable;
             }
 
@@ -85,6 +101,14 @@ public class KartenController implements Initializable
                 timer.stop();
             }
         });
+
+        for (Node node : scene.getChildren())
+        {
+            if (node instanceof Rectangle && !node.equals(shape1))
+            {
+                barriers.add((Rectangle) node);
+            }
+        }
 
         scene.requestFocus();
     }
@@ -136,5 +160,17 @@ public class KartenController implements Initializable
                 dPressed.set(false);
             }
         });
+    }
+
+    private boolean checkCollisionWithBarriers (double x, double y, Rectangle movingRectangle)
+    {
+        for (Rectangle barrier : barriers)
+        {
+            if (barrier.getBoundsInParent().intersects(x, y, movingRectangle.getWidth(), movingRectangle.getHeight()))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
