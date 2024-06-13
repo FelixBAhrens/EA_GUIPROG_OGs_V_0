@@ -1,11 +1,42 @@
 package control;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import model.Charakter;
 import res.Konstanten;
 import res.Strings;
 
 public class CharakterController {
+
+    @FXML
+    private static Label nameLabel = new Label();
+    @FXML
+    private static Label healthLabel = new Label();
+    @FXML
+    private static Label shieldLabel = new Label();
+    @FXML
+    private static Label manaLabel = new Label();
+    @FXML
+    private static Label closeCombatLabel = new Label();
+    @FXML
+    private static Label distanceCombatLabel = new Label();
+    @FXML
+    private static Label numberDistComLabel = new Label();
+    @FXML
+    private static Label dodgeLabel = new Label();
+    @FXML
+    private static Label magResLabel = new Label();
+    @FXML
+    private static Label reachLabel = new Label();
+    @FXML
+    private static Label initLabel = new Label();
+
+    @FXML
+    private AnchorPane charakterDisplay = new AnchorPane();
+
     private static Charakter[] charakterArray = new Charakter[5];
+
     public static Charakter[] getCharakterArray() {
         return charakterArray;
     }
@@ -81,5 +112,30 @@ public class CharakterController {
         charakterArray[Konstanten.INT_TWO] = hunter;
         charakterArray[Konstanten.INT_THREE] = magician;
         charakterArray[Konstanten.INT_FOUR] = scout;
+    }
+
+    @FXML
+    public void initialize() {
+        charakterDisplay.setVisible(false);
+    }
+
+    @FXML
+    public void setzeDisplaySichtbar(boolean sichtbar){
+        charakterDisplay.setVisible(sichtbar);
+    }
+
+    @FXML
+    public static void zeigeCharakterWerte(Charakter charakter) {
+        nameLabel.setText(charakter.getName());
+        healthLabel.setText(String.valueOf(charakter.getGesundheit()));
+        shieldLabel.setText(String.valueOf(charakter.getSchild()));
+        manaLabel.setText(String.valueOf(charakter.getManapunkte()));
+        closeCombatLabel.setText(String.valueOf(charakter.getNahkampfWert()));
+        distanceCombatLabel.setText(String.valueOf(charakter.getFernkampfWert()));
+        numberDistComLabel.setText(String.valueOf(charakter.getFernkaempfeZahl()));
+        dodgeLabel.setText(String.valueOf(charakter.getZahlAusweichen()));
+        magResLabel.setText(String.valueOf(charakter.getMagieResistenz()));
+        reachLabel.setText(String.valueOf(charakter.getBewegungsWeite()));
+        initLabel.setText(String.valueOf(charakter.getInitiative()));
     }
 }
