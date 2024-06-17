@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class StadtController extends ControllerController {
@@ -57,6 +58,18 @@ public class StadtController extends ControllerController {
     @FXML
     private void openKarte() throws IOException {
         SceneManager.changeScene("map-view.fxml");
+    }
+
+    @FXML
+    private void handleMouseEnter(MouseEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
+    }
+
+    @FXML
+    private void handleMouseExit(MouseEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
     }
 
     private void openGebaeude(String fxmlFile) {
