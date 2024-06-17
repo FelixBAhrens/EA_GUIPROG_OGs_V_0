@@ -29,10 +29,8 @@ public class SceneManager {
         FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-
+        //Class<CharakterController> controllerClass = loader.getController();
         sceneStack.push(scene);
-
-
         primaryStage.setScene(scene);
         primaryStage.show();
 

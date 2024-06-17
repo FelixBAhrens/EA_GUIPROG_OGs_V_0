@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="547.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
-    <HBox layoutY="100.0" prefHeight="100.0" prefWidth="870.0" spacing="10">
-        <Pane fx:id="schmiede" onMouseClicked="#openSchmiede" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Schmiede" />
-        </Pane>
-        <Pane fx:id="schenke" onMouseClicked="#openSchenke" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Schenke" />
-        </Pane>
-        <Pane fx:id="magieverstaerker" onMouseClicked="#openMagieverstaerker" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Magieverstaerker" />
-        </Pane>
-        <Pane fx:id="basisCamp" onMouseClicked="#openBasisCamp" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Basis-Camp" />
-        </Pane>
-        <Pane fx:id="fraktionenCamp" onMouseClicked="#openFraktionenCamp" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Fraktionen-Camp" />
-        </Pane>
-        <Pane fx:id="trainingsgelaende" onMouseClicked="#openTrainingsgelaende" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Trainingsgelaende" />
-        </Pane>
-        <Pane fx:id="markt" onMouseClicked="#openMarkt" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Markt" />
-        </Pane>
-        <Pane fx:id="hauptquartier" onMouseClicked="#openHauptquartier" prefHeight="100" prefWidth="100" style="-fx-background-color: lightgrey;">
-            <Text text="Hauptquartier" />
-        </Pane>
-        <Button fx:id="Karte" onMouseClicked="#openKarte">
+   <ImageView fitHeight="742.0" fitWidth="1290.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../assets/stadt_neu.png" />
+      </image>
+   </ImageView>
+    <HBox layoutY="100.0" prefHeight="100.0" prefWidth="870.0" spacing="10" />
+   <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#closeGebaeude" prefHeight="720" prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" />
+    <Button fx:id="magieverstaerkerButton" layoutX="551.0" layoutY="186.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Magieverstärker" />
+    <Button fx:id="schenkenButton" layoutX="320.0" layoutY="399.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Schenke" />
+    <Button fx:id="schmiedenButton" layoutX="208.0" layoutY="444.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Schmiede" />
+    <Button fx:id="hauptquartierButton" layoutX="435.0" layoutY="410.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Hauptquartier" />
+    <Button fx:id="basisCampButton" layoutX="601.0" layoutY="482.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Basis-Camp" />
+    <Button fx:id="fraktionenCampButton" layoutX="736.0" layoutY="532.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="FraktionenCamp" />
+    <Button fx:id="trainingsgelaendeButton" layoutX="896.0" layoutY="439.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="161.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Trainingsgelände" />
+    <Button fx:id="marktButton" layoutX="426.0" layoutY="565.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Markt" />
+    <Pane fx:id="schmiede" layoutX="214.0" layoutY="360.0" onMouseClicked="#openSchmiede" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#openSchenke" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#openMagieverstaerker" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="basisCamp" layoutX="595.0" layoutY="399.0" onMouseClicked="#openBasisCamp" prefHeight="100" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="fraktionenCamp" layoutX="736.0" layoutY="421.0" onMouseClicked="#openFraktionenCamp" prefHeight="134.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="hauptquartier" layoutX="435.0" layoutY="315.0" onMouseClicked="#openHauptquartier" prefHeight="107.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="markt" layoutX="434.0" layoutY="456.0" onMouseClicked="#openMarkt" prefHeight="100" prefWidth="143.0" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <Pane fx:id="trainingsgelaende" layoutX="870.0" layoutY="344.0" onMouseClicked="#openTrainingsgelaende" prefHeight="100" prefWidth="127.0" style="-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;" />
+    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false" />
+     <Button fx:id="Karte" layoutX="44.0" layoutY="36.0" onMouseClicked="#openKarte" text="Karte">
         </Button>
 
-    </HBox>
-   <StackPane fx:id="hintergrundPane" layoutX="10.0" layoutY="10.0" onMouseClicked="#closeGebaeude" prefHeight="720" prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" />
-    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false">
-    </StackPane>
 </AnchorPane>

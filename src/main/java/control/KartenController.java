@@ -173,4 +173,10 @@ public class KartenController implements Initializable
         }
         return false;
     }
+
+
+    @FXML
+    public void handlezurueck(){
+        SceneManager.goBack();
+    }
 }

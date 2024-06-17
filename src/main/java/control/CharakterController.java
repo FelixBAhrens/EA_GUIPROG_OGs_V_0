@@ -10,27 +10,27 @@ import res.Strings;
 public class CharakterController {
 
     @FXML
-    private static Label nameLabel = new Label();
+    private Label nameLabel = new Label();
     @FXML
-    private static Label healthLabel = new Label();
+    private Label healthLabel = new Label();
     @FXML
-    private static Label shieldLabel = new Label();
+    private Label shieldLabel = new Label();
     @FXML
-    private static Label manaLabel = new Label();
+    private Label manaLabel = new Label();
     @FXML
-    private static Label closeCombatLabel = new Label();
+    private Label closeCombatLabel = new Label();
     @FXML
-    private static Label distanceCombatLabel = new Label();
+    private Label distanceCombatLabel = new Label();
     @FXML
-    private static Label numberDistComLabel = new Label();
+    private Label numberDistComLabel = new Label();
     @FXML
-    private static Label dodgeLabel = new Label();
+    private Label dodgeLabel = new Label();
     @FXML
-    private static Label magResLabel = new Label();
+    private Label magResLabel = new Label();
     @FXML
-    private static Label reachLabel = new Label();
+    private Label reachLabel = new Label();
     @FXML
-    private static Label initLabel = new Label();
+    private Label initLabel = new Label();
 
     @FXML
     private AnchorPane charakterDisplay = new AnchorPane();
@@ -125,7 +125,7 @@ public class CharakterController {
     }
 
     @FXML
-    public static void zeigeCharakterWerte(Charakter charakter) {
+    public void zeigeCharakterWerte(Charakter charakter) {
         nameLabel.setText(charakter.getName());
         healthLabel.setText(String.valueOf(charakter.getGesundheit()));
         shieldLabel.setText(String.valueOf(charakter.getSchild()));

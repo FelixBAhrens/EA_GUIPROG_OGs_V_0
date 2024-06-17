@@ -24,6 +24,7 @@ public class GameFile extends File {
     private Charakter charakter3;
     private Charakter charakter4;
     private Charakter charakter5;
+
     public String getFileName() {return fileName;}
 
 
