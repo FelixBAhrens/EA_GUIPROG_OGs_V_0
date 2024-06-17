@@ -3,11 +3,10 @@ package control;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import control.GebaeudeController;
 
 import java.io.IOException;
 
-public class StadtController {
+public class StadtController extends ControllerController {
 
     @FXML
     private Pane gebaeudePane;

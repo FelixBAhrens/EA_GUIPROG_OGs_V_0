@@ -7,4 +7,5 @@ public class BasisCampController extends GebaeudeController {
     public void initialize() {
 
     }
+
 }

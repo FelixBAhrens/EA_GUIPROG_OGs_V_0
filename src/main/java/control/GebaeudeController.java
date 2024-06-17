@@ -1,6 +1,6 @@
 package control;
 
-public class GebaeudeController {
+public class GebaeudeController extends ControllerController{
 
     private control.StadtController stadtController;
 
