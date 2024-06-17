@@ -2,9 +2,10 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class StadtController extends ControllerController {
@@ -64,12 +65,22 @@ public class StadtController extends ControllerController {
     private void handleMouseEnter(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
+                node.setVisible(true);
+            }
+        }
     }
 
     @FXML
     private void handleMouseExit(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
+                node.setVisible(false);
+            }
+        }
     }
 
     private void openGebaeude(String fxmlFile) {
