@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class HauptquartierController extends GebaeudeController
+public class HauptquartierController extends PaneController
 {
     @FXML
     public void initialize()
@@ -14,6 +14,6 @@ public class HauptquartierController extends GebaeudeController
 
     @FXML
     public void openKarte() throws IOException {
-        SceneManager.changeScene("map-view.fxml");
+        SceneManager.changeScene("karten-view.fxml");
     }
 }

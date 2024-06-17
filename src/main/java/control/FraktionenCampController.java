@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class FraktionenCampController extends GebaeudeController{
+public class FraktionenCampController extends PaneController{
     @FXML
     public void initialize() {
 

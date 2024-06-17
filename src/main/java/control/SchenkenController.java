@@ -5,7 +5,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Charakter;
 
-public class SchenkenController extends GebaeudeController {
+public class SchenkenController extends PaneController {
 
     @FXML
     private AnchorPane charakterDisplay;

@@ -58,7 +58,7 @@ public class StadtController extends ControllerController {
 
     @FXML
     private void openKarte() throws IOException {
-        SceneManager.changeScene("map-view.fxml");
+        SceneManager.changeScene("karten-view.fxml");
     }
 
     @FXML
@@ -89,7 +89,7 @@ public class StadtController extends ControllerController {
             Pane pane = loader.load();
 
             // GebäudeController Zugriff
-            GebaeudeController controller = loader.getController();
+            PaneController controller = loader.getController();
             controller.setStadtController(this);
 
             gebaeudePane.getChildren().setAll(pane);

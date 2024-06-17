@@ -8,7 +8,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         SceneManager sceneManager = new SceneManager(primaryStage);
-        sceneManager.changeScene("menue-view.fxml");
+        sceneManager.changeScene("startMenue-view.fxml");
     }
 
     public static void main(String[] args) {

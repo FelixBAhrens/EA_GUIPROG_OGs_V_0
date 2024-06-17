@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class SchmiedenController extends GebaeudeController{
+public class SchmiedenController extends PaneController{
     @FXML
     public void initialize() {
 

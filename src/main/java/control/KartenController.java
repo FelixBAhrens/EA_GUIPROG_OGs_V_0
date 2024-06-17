@@ -5,12 +5,17 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,10 @@ import java.util.ResourceBundle;
 
 public class KartenController implements Initializable
 {
+    @FXML
+    private Pane menuePane;
+    @FXML
+    private Pane hintergrundPane;
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
@@ -178,5 +187,57 @@ public class KartenController implements Initializable
     @FXML
     public void handlezurueck(){
         SceneManager.goBack();
+    }
+
+    @FXML
+    private void openMenue ()
+    {
+       openGebaeude("menue-view.fxml");
+    }
+
+    @FXML
+    private void handleMouseEnter(MouseEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
+                node.setVisible(true);
+            }
+        }
+    }
+
+    @FXML
+    private void handleMouseExit(MouseEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
+                node.setVisible(false);
+            }
+        }
+    }
+
+    private void openGebaeude(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Pane pane = loader.load();
+
+            // GebäudeController Zugriff
+            PaneController controller = loader.getController();
+            controller.setKartenController(this);
+
+            menuePane.getChildren().setAll(pane);
+            menuePane.setVisible(true);
+            hintergrundPane.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void closeGebaeude() {
+        menuePane.setVisible(false);
+        hintergrundPane.setVisible(false);
+        menuePane.getChildren().clear();
     }
 }
