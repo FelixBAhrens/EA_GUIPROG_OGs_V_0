@@ -41,7 +41,7 @@ public class StartMenueController implements Initializable
 
     @FXML
     private void handleNeuesSpiel (MouseEvent event) throws IOException {
-        SceneManager.changeScene("neuesSpiel-view.fxml");
+        SceneManager.changeScene("schwierigkeitsWahl-view.fxml");
     }
 
     @FXML
