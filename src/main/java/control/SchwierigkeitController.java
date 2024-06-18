@@ -12,7 +12,7 @@ public class SchwierigkeitController {
     private Button mittelButton;
     private Button schwerButton;
     private Button zurueckButton;
-    private static Schwierigkeit aktuelleSchwierigkeit;
+    public static Schwierigkeit aktuelleSchwierigkeit;
 
     public enum Schwierigkeit {
         Einfach, Mittel, Schwer;
