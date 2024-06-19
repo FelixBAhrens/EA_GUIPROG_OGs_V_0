@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class StadtController extends GameMasterViewController {
+public class StadtController extends ControllerController {
 
     @FXML
     private Pane gebaeudePane;
@@ -83,7 +83,7 @@ public class StadtController extends GameMasterViewController {
         }
     }
 
-    private void openGebaeude(String fxmlFile) {
+    private void openGebaeude (String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();
