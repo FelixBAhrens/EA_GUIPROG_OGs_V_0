@@ -19,10 +19,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class KartenController implements Initializable
 {
+    @FXML
+    private Pane map;
+    @FXML
+    private Rectangle wood;
+    @FXML
+    private Rectangle gold;
+    @FXML
+    private Rectangle health;
     @FXML
     private Pane menuePane;
     @FXML
@@ -113,13 +122,55 @@ public class KartenController implements Initializable
 
         for (Node node : scene.getChildren())
         {
-            if (node instanceof Rectangle && !node.equals(shape1))
+            if (node instanceof Rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health))
             {
                 barriers.add((Rectangle) node);
             }
         }
 
         scene.requestFocus();
+        checkForCollections();
+    }
+
+    private void checkForCollections()
+    {
+        placeRandomlyWithinMap(wood);
+        placeRandomlyWithinMap(health);
+        placeRandomlyWithinMap(gold);
+    }
+
+    private void placeRandomlyWithinMap(Rectangle object)
+    {
+        Random random = new Random();
+
+        double paneWidth = map.getWidth();
+        double paneHeight = map.getHeight();
+
+        double randomX;
+        double randomY;
+        boolean intersects;
+
+        do
+        {
+            intersects = false;
+
+            randomX = random.nextDouble() * (paneWidth - object.getWidth());
+            randomY = random.nextDouble() * (paneHeight - object.getHeight());
+
+            for (Rectangle barrier : barriers)
+            {
+                if (barrier.getBoundsInParent().intersects(randomX, randomY, object.getWidth(), object.getHeight()))
+                {
+                    intersects = true;
+                    break;
+                }
+            }
+        }
+        while (intersects);
+        {
+            object.setLayoutX(randomX);
+            object.setLayoutY(randomY);
+        }
     }
 
     public void movementSetup ()
@@ -170,6 +221,8 @@ public class KartenController implements Initializable
             }
         });
     }
+
+
 
     private boolean checkCollisionWithBarriers (double x, double y, Rectangle movingRectangle)
     {
@@ -240,4 +293,6 @@ public class KartenController implements Initializable
         hintergrundPane.setVisible(false);
         menuePane.getChildren().clear();
     }
+
+
 }
