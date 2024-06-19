@@ -46,7 +46,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutX="551.0" layoutY="53.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="103.0" layoutX="369.0" layoutY="357.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="139.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="169.0" layoutX="244.0" layoutY="241.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="199.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="103.0" layoutX="199.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" width="130.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="103.0" layoutX="199.0" layoutY="360.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="97.0" layoutX="181.0" layoutY="222.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="84.0" layoutX="366.0" layoutY="229.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="43.0" layoutX="182.0" layoutY="149.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="130.0" />
@@ -58,7 +58,7 @@
             <Rectangle fx:id="gold" arcHeight="5.0" arcWidth="5.0" fill="#f5dd7c" height="12.0" layoutX="163.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
             <Rectangle fx:id="wood" arcHeight="5.0" arcWidth="5.0" fill="#835617" height="12.0" layoutX="156.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
             <Rectangle fx:id="shape1" arcHeight="5.0" arcWidth="5.0" height="12.0" layoutX="145.0" layoutY="228.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="97.0" layoutX="183.0" layoutY="361.0" stroke="BLACK" strokeType="INSIDE" width="17.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="97.0" layoutX="183.0" layoutY="361.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="17.0" />
          </children>
       </AnchorPane>
       <Button layoutX="58.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#openMenue" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="26.0" prefWidth="107.0" text="Menü" />
