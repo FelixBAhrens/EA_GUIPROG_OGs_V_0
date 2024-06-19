@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ import java.util.ResourceBundle;
 public class KartenController implements Initializable
 {
     @FXML
-    private Pane map;
+    private AnchorPane map;
     @FXML
     private Rectangle wood;
     @FXML
@@ -59,6 +60,7 @@ public class KartenController implements Initializable
 
     AnimationTimer timer = new AnimationTimer()
     {
+
         @Override
         public void handle (long timestamp)
         {
@@ -127,7 +129,6 @@ public class KartenController implements Initializable
                 barriers.add((Rectangle) node);
             }
         }
-
         scene.requestFocus();
         checkForCollections();
     }
@@ -153,9 +154,11 @@ public class KartenController implements Initializable
         do
         {
             intersects = false;
+            System.out.println(object.getWidth());
+            System.out.println(paneWidth);
 
-            randomX = random.nextDouble() * (paneWidth - object.getWidth());
-            randomY = random.nextDouble() * (paneHeight - object.getHeight());
+            randomX = random.nextInt((int) (paneWidth - object.getWidth())); //* (paneWidth - object.getWidth());
+            randomY = random.nextInt((int) (paneHeight - object.getHeight())); //* (paneHeight - object.getHeight());
 
             for (Rectangle barrier : barriers)
             {
