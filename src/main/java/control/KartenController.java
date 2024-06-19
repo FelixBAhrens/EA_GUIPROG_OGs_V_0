@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -37,12 +38,15 @@ public class KartenController implements Initializable
     private Pane menuePane;
     @FXML
     private Pane hintergrundPane;
+    @FXML
+    private TextField gesammelteObjekte;
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
     private BooleanProperty dPressed = new SimpleBooleanProperty();
+    private BooleanProperty ePressed = new SimpleBooleanProperty();
 
-    private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
+    private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed).or(ePressed);
     private BooleanBinding movingHorizontally = wPressed.or(sPressed);
     private BooleanBinding movingVertically = aPressed.or(dPressed);
 
@@ -57,6 +61,10 @@ public class KartenController implements Initializable
 
     @FXML
     private AnchorPane scene;
+
+    private int woodCount = 0;
+    private int healthCount = 0;
+    private int goldCount = 0;
 
     AnimationTimer timer = new AnimationTimer()
     {
@@ -103,6 +111,42 @@ public class KartenController implements Initializable
 
             shape1.setLayoutX(shape1.getLayoutX() + moveX);
             shape1.setLayoutY(shape1.getLayoutY() + moveY);
+
+            if (shape1.getBoundsInParent().intersects(wood.getBoundsInParent()))
+            {
+                if (ePressed.get())
+                {
+                    woodCount++;
+                    gesammelteObjekte.setText("Holz: " + woodCount + ", Gesundheit: " + healthCount + ", Gold: " + goldCount);
+                    placeRandomlyWithinMap(wood);
+                    ePressed.set(false); // E key processed
+                    System.out.println("Collected wood: " + woodCount);
+                }
+            }
+
+            if (shape1.getBoundsInParent().intersects(health.getBoundsInParent()))
+            {
+                if (ePressed.get())
+                {
+                    healthCount++;
+                    gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
+                    placeRandomlyWithinMap(health);
+                    ePressed.set(false); // E key processed
+                    System.out.println("Collected health: " + healthCount);
+                }
+            }
+
+            if (shape1.getBoundsInParent().intersects(gold.getBoundsInParent()))
+            {
+                if (ePressed.get())
+                {
+                    goldCount++;
+                    gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
+                    placeRandomlyWithinMap(gold);
+                    ePressed.set(false); // E key processed
+                    System.out.println("Collected gold: " + goldCount);
+                }
+            }
         }
     };
 
@@ -122,14 +166,14 @@ public class KartenController implements Initializable
             }
         });
 
-        for (Node node : scene.getChildren())
+        for (Node node : map.getChildren())
         {
             if (node instanceof Rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health))
             {
                 barriers.add((Rectangle) node);
             }
         }
-        scene.requestFocus();
+        map.requestFocus();
         checkForCollections();
     }
 
@@ -154,11 +198,9 @@ public class KartenController implements Initializable
         do
         {
             intersects = false;
-            System.out.println(object.getWidth());
-            System.out.println(paneWidth);
 
-            randomX = random.nextInt((int) (paneWidth - object.getWidth())); //* (paneWidth - object.getWidth());
-            randomY = random.nextInt((int) (paneHeight - object.getHeight())); //* (paneHeight - object.getHeight());
+            randomX = random.nextDouble() * (paneWidth - object.getWidth());
+            randomY = random.nextDouble() * (paneHeight - object.getHeight());
 
             for (Rectangle barrier : barriers)
             {
@@ -199,6 +241,10 @@ public class KartenController implements Initializable
             {
                 dPressed.set(true);
             }
+            if (e.getCode() == KeyCode.E)
+            {
+                ePressed.set(true);
+            }
         });
 
         scene.setOnKeyReleased(e ->
@@ -221,6 +267,10 @@ public class KartenController implements Initializable
             if (e.getCode() == KeyCode.D)
             {
                 dPressed.set(false);
+            }
+            if (e.getCode() == KeyCode.E)
+            {
+                ePressed.set(false);
             }
         });
     }
