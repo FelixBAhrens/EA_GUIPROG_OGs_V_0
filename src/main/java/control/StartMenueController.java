@@ -16,6 +16,8 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import res.Strings;
+import model.GameFile;
+import res.Strings;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,19 +36,16 @@ public class StartMenueController implements Initializable
     private Stage stage;
     private Scene menueScene;
 
+
     @FXML
     private void handleFortfahren (MouseEvent event) throws IOException {
-        /*if (SchwierigkeitController.aktuelleSchwierigkeit != null)
-        SceneManager.changeScene("stadt-view.fxml");
-        else {
-            System.out.println("Kein Spielstand vorhanden!");
-        }
-         */
-        SceneManager.changeScene("stadt-view.fxml");
+        GameFile.setzeGameFile(GameFile.gebeLetztesSpielZurueck());
+        SceneManager.changeScene(Strings.FXML_STADT);
     }
+
     @FXML
     private void handleNeuesSpiel (MouseEvent event) throws IOException {
-        SceneManager.changeScene("schwierigkeitsWahl-view.fxml");
+        SceneManager.changeScene("neuesSpiel-view.fxml");
     }
 
     @FXML
@@ -59,6 +58,7 @@ public class StartMenueController implements Initializable
     private void handleEinstellungen (MouseEvent event) throws IOException {
         SceneManager.changeScene("einstellungen-view.fxml");
     }
+
     @FXML
     private void handleSpielBeenden (MouseEvent event)
     {

@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 public class ControllerController {
 
+
     @FXML
     public void handleHilfe() throws IOException {
         SceneManager.changeScene("hilfe-view.fxml");

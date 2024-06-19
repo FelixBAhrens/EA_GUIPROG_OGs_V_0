@@ -1,14 +1,15 @@
 package Main;
 
+import control.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import control.SceneManager;
+import res.Strings;
 
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         SceneManager sceneManager = new SceneManager(primaryStage);
-        sceneManager.changeScene("startMenue-view.fxml");
+        sceneManager.changeScene(Strings.FXML_STARTMENUE);
     }
 
     public static void main(String[] args) {

@@ -83,7 +83,7 @@ public class StadtController extends ControllerController {
         }
     }
 
-    private void openGebaeude(String fxmlFile) {
+    private void openGebaeude (String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();

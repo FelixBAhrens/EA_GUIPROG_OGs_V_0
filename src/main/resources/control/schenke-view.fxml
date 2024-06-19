@@ -17,8 +17,8 @@
       <Pane fx:id="engineer" layoutX="665.0" layoutY="198.0" onMouseClicked="#openEngineer" prefHeight="265.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
       <Pane fx:id="scout" layoutX="551.0" layoutY="182.0" onMouseClicked="#openScout" prefHeight="135.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
       <Pane fx:id="hunter" layoutX="348.0" layoutY="187.0" onMouseClicked="#openHunter" prefHeight="121.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
-      <AnchorPane fx:id="charakterDisplay">
-          <fx:include source="character-display-view.fxml" />
+      <AnchorPane fx:id="charakterDisplay" visible="false">
+          <fx:include source="charakter-display-view.fxml" />
       </AnchorPane>
        <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
    </children>
