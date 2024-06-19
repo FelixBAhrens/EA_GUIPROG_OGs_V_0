@@ -2,20 +2,12 @@ package control;
 
 import javafx.fxml.FXML;
 
-public class EinstellungenController {
+public class EinstellungenController extends ControllerController{
     @FXML
     public void initialize (){
 
     }
-    @FXML
-    public void schwierigkeitAusgabeHandler(){
-        SchwierigkeitController.gebeSchwierigkeitAus();
-    }
 
-    @FXML
-    public void zurueckHandler(){
-        SceneManager.goBack();
-    }
 }
 
 
