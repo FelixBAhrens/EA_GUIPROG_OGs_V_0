@@ -45,6 +45,7 @@ public class SceneManager {
             Scene previousScene = sceneStack.pop();
             sceneStack.push(previousScene);
             primaryStage.setScene(previousScene);
+            primaryStage.show();
         }
     }
 

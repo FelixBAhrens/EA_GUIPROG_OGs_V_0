@@ -21,6 +21,7 @@ public interface Strings {
     String FXML_STORY = "story-view.fxml";
     String FXML_TRAININGSGELAENDE = "trainingsgelaende-view.fxml";
     String FXML_TUTORIAL = "tutorial-view.fxml";
+    String FXML_SPIELLADEN = "spielladen-view.fxml";
 
     String STRING_STORY = "story";
 
