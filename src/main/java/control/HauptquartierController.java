@@ -14,6 +14,6 @@ public class HauptquartierController extends PaneController
 
     @FXML
     public void openKarte() throws IOException {
-        SceneManager.changeScene("karten-view.fxml");
+        SceneManager.changeScene("karteNew-view.fxml");
     }
 }
