@@ -144,8 +144,8 @@ public class KartenController implements Initializable
     {
         Random random = new Random();
 
-        double paneWidth = map.getWidth();
-        double paneHeight = map.getHeight();
+        double paneWidth = map.getPrefWidth();
+        double paneHeight = map.getPrefHeight();
 
         double randomX;
         double randomY;
