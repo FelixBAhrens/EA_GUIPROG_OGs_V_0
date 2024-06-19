@@ -30,7 +30,7 @@ public class NeuesSpielController {
 
 
     @FXML
-    public void zurueckHandler(ActionEvent event) throws IOException{
+    public void handleZurueck(){
         SceneManager.goBack();
     }
 
