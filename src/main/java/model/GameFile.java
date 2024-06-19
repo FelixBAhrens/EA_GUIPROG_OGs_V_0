@@ -273,4 +273,19 @@ public class GameFile extends File {
         }
     }
 
+    public static void speichereSpielstand() {
+        try{
+            FileWriter dateiSchreiber = new FileWriter(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG);
+            dateiSchreiber.write(instance.fileName + Strings.NEWLINE + instance.schwierigkeit + Strings.NEWLINE);
+            dateiSchreiber.write(instance.holzRessource + Strings.SEMIKOLON + instance.goldRessource + Strings.SEMIKOLON + instance.gesundheitRessource + Strings.NEWLINE);
+            dateiSchreiber.write(instance.leader+Strings.NEWLINE + instance.medic + Strings.NEWLINE + instance.hunter +Strings.NEWLINE + instance.magician +Strings.NEWLINE + instance.scout);
+            dateiSchreiber.close();
+            System.out.println(leseCSV(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG).toString());
+        }
+        catch (IOException e){
+            System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
+            e.printStackTrace();
+        }
+    }
+
 }

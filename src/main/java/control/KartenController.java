@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class KartenController implements Initializable
+public class KartenController extends ControllerController implements Initializable
 {
     @FXML
     private AnchorPane map;
@@ -321,6 +321,8 @@ public class KartenController implements Initializable
        openGebaeude("menue-view.fxml");
     }
 
+
+
     @FXML
     private void handleMouseEnter(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
@@ -332,6 +334,7 @@ public class KartenController implements Initializable
         }
     }
 
+    //Das macht noch Probleme
     @FXML
     private void handleMouseExit(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
