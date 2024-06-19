@@ -6,12 +6,9 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.GameFile;
 import res.Strings;
@@ -24,16 +21,8 @@ public class StartMenueController implements Initializable
 {
     @FXML
     private ImageView backgroundImage;
-    @FXML
-    private Button fortfahrenButton;
-    private Button neuesSpielButton;
-    private Button spielLadenButton;
-    private Button einstellungenButton;
-    private Button spielBeendenButton;
-    private Stage stage;
-    private Scene menueScene;
 
-//@TODO Auslagern in Strings
+
     @FXML
     private void handleFortfahren (MouseEvent event) throws IOException {
         GameFile.setzeGameFile(GameFile.gebeLetztesSpielZurueck());
@@ -42,27 +31,26 @@ public class StartMenueController implements Initializable
 
     @FXML
     private void handleNeuesSpiel (MouseEvent event) throws IOException {
-        SceneManager.changeScene("neuesSpiel-view.fxml");
+        SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
     }
 
     @FXML
-    private void handleSpielLaden (MouseEvent event)
-    {
-        System.out.println("Spiel Laden");
+    private void handleSpielLaden (MouseEvent event) throws IOException {
+        SceneManager.changeScene(Strings.FXML_SPIELLADEN);
     }
 
     @FXML
     private void handleEinstellungen (MouseEvent event) throws IOException {
-        SceneManager.changeScene("einstellungen-view.fxml");
+        SceneManager.changeScene(Strings.FXML_EINSTELLUNGEN);
     }
 
     @FXML
     private void handleSpielBeenden (MouseEvent event)
     {
-        System.out.println("Spiel Beenden");
-        Platform.exit(); // Abfrage, ob Spielstand gespeichert werden soll wäre noch sinnvoll
+        Platform.exit();
     }
 
+    //Der kann jetzt raus, das Tutuorial wird ja beim neuen Spiel angezeigt
     @FXML
     private void handleTutorial (MouseEvent event) throws IOException
     {
