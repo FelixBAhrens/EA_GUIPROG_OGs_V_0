@@ -7,7 +7,10 @@ public class EinstellungenController {
     public void initialize (){
 
     }
-
+    @FXML
+    public void schwierigkeitAusgabeHandler(){
+        SchwierigkeitController.gebeSchwierigkeitAus();
+    }
 
     @FXML
     public void zurueckHandler(){

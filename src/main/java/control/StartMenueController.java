@@ -33,15 +33,17 @@ public class StartMenueController implements Initializable
     private Stage stage;
     private Scene menueScene;
 
-
     @FXML
     private void handleFortfahren (MouseEvent event) throws IOException {
+        if (SchwierigkeitController.aktuelleSchwierigkeit != null)
         SceneManager.changeScene("stadt-view.fxml");
+        else {
+            System.out.println("Kein Spielstand vorhanden!");
+        }
     }
-
     @FXML
     private void handleNeuesSpiel (MouseEvent event) throws IOException {
-        SceneManager.changeScene("neuesSpiel-view.fxml");
+        SceneManager.changeScene("schwierigkeitsWahl-view.fxml");
     }
 
     @FXML
