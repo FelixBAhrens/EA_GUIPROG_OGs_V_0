@@ -9,7 +9,7 @@ import java.io.IOException;
  * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet
  * @author Felix
  */
-public class ControllerController extends GameMasterViewController {
+public class ControllerController {
 
 
 
