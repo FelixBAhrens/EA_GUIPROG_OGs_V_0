@@ -1,6 +1,7 @@
 package control;
 
 import javafx.fxml.FXML;
+import model.GameFile;
 import res.Strings;
 
 import java.io.IOException;
@@ -22,6 +23,9 @@ public class ControllerController {
         SceneManager.goBack();
     }
 
-
+    @FXML
+    public void speichereSpielstand(){
+        GameFile.speichereSpielstand();
+    }
 
 }
