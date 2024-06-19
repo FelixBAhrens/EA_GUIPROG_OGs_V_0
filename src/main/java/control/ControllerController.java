@@ -8,7 +8,7 @@ import java.io.IOException;
  * Trust me on this, it will be pure greatness.
  * @author Felix
  */
-public class ControllerController extends GameMasterViewController {
+public class ControllerController {
 
 
     @FXML
