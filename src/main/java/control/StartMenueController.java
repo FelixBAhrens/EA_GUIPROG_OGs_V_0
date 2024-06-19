@@ -6,16 +6,13 @@ import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import res.Strings;
 import model.GameFile;
 import res.Strings;
 
@@ -36,7 +33,7 @@ public class StartMenueController implements Initializable
     private Stage stage;
     private Scene menueScene;
 
-
+//@TODO Auslagern in Strings
     @FXML
     private void handleFortfahren (MouseEvent event) throws IOException {
         GameFile.setzeGameFile(GameFile.gebeLetztesSpielZurueck());
