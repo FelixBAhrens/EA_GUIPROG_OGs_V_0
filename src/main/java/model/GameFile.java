@@ -1,6 +1,7 @@
 package model;
 
 import control.CharakterController;
+import control.SceneManager;
 import res.Konstanten;
 import res.Strings;
 
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 /**
  * GameFile habe ich mir ausgedacht, um die Spielstaende zu speichern. Instanzen der Klasse GameFile sind Spielstaende.
  *  Ich habe bisher erst den DateiNamen und das Erstelldatum als Parameter. Wie in der PROG-EA werden diese in einer
@@ -17,27 +17,100 @@ import java.util.List;
  * @Author Felix Ahrens
  */
 public class GameFile extends File {
+    // Singleton der Gamefile -----------------------------
+    private static GameFile instance;
+
+    public static GameFile getInstance() throws Exception {
+        if (instance != null) {
+            return instance;
+        }
+        else {
+            throw new Exception(Strings.FEHLERMELDUNG_GAMEFILE);
+        }
+    }
+    public static void setzeGameFile(GameFile gameFile){
+        instance = gameFile;
+    }
+
+    //------------------------------------------------------
+
     private String fileName;
     private String schwierigkeit;
-    private Charakter charakter1;
-    private Charakter charakter2;
-    private Charakter charakter3;
-    private Charakter charakter4;
-    private Charakter charakter5;
+    private Charakter leader;
+    private Charakter medic;
+    private Charakter hunter;
+    private Charakter magician;
+    private Charakter scout;
+
+    public String getSchwierigkeit() {
+        return schwierigkeit;
+    }
+
+    public void setSchwierigkeit(String schwierigkeit) {
+        this.schwierigkeit = schwierigkeit;
+    }
+
+    public static void setInstance(GameFile instance) {
+        GameFile.instance = instance;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Charakter getLeader() {
+        return leader;
+    }
+
+    public void setLeader(Charakter leader) {
+        this.leader = leader;
+    }
+
+    public Charakter getMedic() {
+        return medic;
+    }
+
+    public void setMedic(Charakter medic) {
+        this.medic = medic;
+    }
+
+    public Charakter getHunter() {
+        return hunter;
+    }
+
+    public void setHunter(Charakter hunter) {
+        this.hunter = hunter;
+    }
+
+    public Charakter getMagician() {
+        return magician;
+    }
+
+    public void setMagician(Charakter magician) {
+        this.magician = magician;
+    }
+
+    public Charakter getScout() {
+        return scout;
+    }
+
+    public void setScout(Charakter scout) {
+        this.scout = scout;
+    }
 
     public String getFileName() {return fileName;}
 
 
-    public GameFile(String dateipfad, String fileName, String schwierigkeit, Charakter charakter1, Charakter charakter2, Charakter charakter3,
-                    Charakter charakter4, Charakter charakter5) {
+    private GameFile(String dateipfad, String fileName, String schwierigkeit, Charakter leader, Charakter medic, Charakter hunter,
+                    Charakter magician, Charakter scout) {
         super (dateipfad);
         this.fileName = fileName;
         this.schwierigkeit = schwierigkeit;
-        this.charakter1 = charakter1;
-        this.charakter2 = charakter2;
-        this.charakter3 = charakter3;
-        this.charakter4 = charakter4;
-        this.charakter5 = charakter5;
+        this.leader = leader;
+        this.medic = medic;
+        this.hunter = hunter;
+        this.magician = magician;
+        this.scout = scout;
     }
 
 
@@ -49,11 +122,11 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static GameFile erstelleNeueGameFile(String schwierigkeit) throws IOException {
-        String spielName = Strings.SPIEL1 + (gebeGameFileListeZurueck().length-1);
+        String spielName = Strings.SPIEL + (gebeGameFileListeZurueck().length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
-            dateiSchreiber.write(spielName+"\n"+schwierigkeit);
+            dateiSchreiber.write(spielName+"\n"+schwierigkeit+"\n");
             CharakterController.erstelleDefaultCharakter();
             Charakter[] charakterArray = CharakterController.getCharakterArray();
             dateiSchreiber.write(charakterArray[Konstanten.INT_ZERO]+Strings.NEWLINE);
@@ -148,6 +221,22 @@ public class GameFile extends File {
                 zeilenStuecke[Konstanten.INT_ONE], zeilenStuecke[Konstanten.INT_TWO], zeilenStuecke[Konstanten.INT_THREE],
                 zeilenStuecke[Konstanten.INT_FOUR], zeilenStuecke[Konstanten.INT_FIVE], zeilenStuecke[Konstanten.INT_SIX],
                 zeilenStuecke[Konstanten.INT_SEVEN], zeilenStuecke[Konstanten.INT_EIGHT], zeilenStuecke[Konstanten.INT_NINE]);
+    }
+
+    /**
+     * Methode, die die neueste GameFile zurueckgeben soll. Tut sie aber noch nicht.
+     * @return
+     * @throws IOException
+     */
+    public static GameFile gebeLetztesSpielZurueck() throws IOException {
+        try{
+            return leseGameFile(Strings.SPIEL + Konstanten.INT_ONE + Strings.CSV_ENDUNG);
+        }
+        catch (NullPointerException e){
+            System.out.println(Strings.FEHLERMELDUNG_DATEI);
+            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
+            return null;
+        }
     }
 
 }

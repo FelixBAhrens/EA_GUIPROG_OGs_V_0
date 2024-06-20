@@ -3,8 +3,9 @@ package control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 import model.GameFile;
+import res.Strings;
 
 import java.io.IOException;
 
@@ -20,12 +21,11 @@ public class NeuesSpielController {
     }
 
     @FXML
-    public void handleKnopf(ActionEvent event) throws IOException {
-        //Button clickedButton = (Button) event.getSource();
-        //String buttonText = clickedButton.getText();
-        //schwierigkeit = buttonText;
-        System.out.println("Schwierigkeit: ");
-        //SceneManager.changeScene("story-view.fxml");
+    public void handleSchwierigkeit (MouseEvent mouseEvent) throws Exception {
+        Button source = (Button) mouseEvent.getSource();
+        System.out.println(source.getText());
+        GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(source.getText()));
+        SceneManager.changeScene(Strings.FXML_TUTORIAL);
     }
 
 
@@ -33,4 +33,5 @@ public class NeuesSpielController {
     public void zurueckHandler(ActionEvent event) throws IOException{
         SceneManager.goBack();
     }
+
 }

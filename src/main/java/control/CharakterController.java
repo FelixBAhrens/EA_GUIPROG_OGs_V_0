@@ -116,7 +116,6 @@ public class CharakterController {
 
     @FXML
     public void initialize() {
-        charakterDisplay.setVisible(false);
     }
 
     @FXML

@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class StadtController extends ControllerController {
+public class StadtController extends GameMasterViewController {
 
     @FXML
     private Pane gebaeudePane;
