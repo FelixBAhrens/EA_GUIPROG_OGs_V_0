@@ -1,7 +1,6 @@
 package control;
 
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
@@ -12,7 +11,7 @@ public class StoryController {
     }
 
     @FXML
-    public void handleFortfahren(MouseEvent event) throws IOException {
+    public void handleFortfahren() throws IOException {
         SceneManager.changeScene("stadt-view.fxml");
     }
 }

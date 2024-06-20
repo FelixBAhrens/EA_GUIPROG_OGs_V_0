@@ -3,7 +3,7 @@ package control;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import model.Charakter;
+import model.GameFile;
 
 public class SchenkenController extends PaneController {
 
@@ -19,12 +19,12 @@ public class SchenkenController extends PaneController {
     }
 
     @FXML
-    public void openMedic(){
+    public void openMedic() throws Exception {
         System.out.println("open medic");
         CharakterController charakterController = new CharakterController();
-        charakterController.zeigeCharakterWerte(new Charakter("medic", 1,1,1,1,1,1,1,1,1,1));
+        charakterController.zeigeCharakterWerte(GameFile.getInstance().getMedic());
         charakterController.setzeDisplaySichtbar(true);
-        charakterDisplay.requestFocus();
+        charakterDisplay.setVisible(true);
     }
 
     @FXML
