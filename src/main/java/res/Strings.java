@@ -10,12 +10,14 @@ public interface Strings {
     String FXML_FRAKTIONENCAMP = "fraktionen-camp-view.fxml";
     String FXML_HAUPTQUARTIER = "hauptquartier-view.fxml";
     String FXML_HILFE = "hilfe-view.fxml";
+    String FXML_KAMPF = "kampf-view.fxml";
     String FXML_KARTE = "karten-view.fxml";
     String FXML_MAGIEVERSTAERKER = "magieverstaerker-view.fxml";
     String FXML_MARKT = "markt-view.fxml";
     String FXML_NEUESSPIEL = "neuesSpiel-view.fxml";
     String FXML_SCHENKE = "schenke-view.fxml";
     String FXML_SCHMIEDE = "schmiede-view.fxml";
+    String FXML_SPEICHERN_ABFRAGE = "speichern-abfrage-view.fxml";
     String FXML_STADT = "stadt-view.fxml";
     String FXML_STARTMENUE = "startMenue-view.fxml";
     String FXML_STORY = "story-view.fxml";
@@ -38,6 +40,7 @@ public interface Strings {
     String STRING_SCHWER = "Schwer";
     String SEMIKOLON = ";";
     String DOPPELPUNKT = ":";
+    String SPACE = " ";
 
     String SPIELDATEIPFAD = "src/main/java/res/";
     String CSV_ENDUNG = ".csv";
@@ -54,6 +57,14 @@ public interface Strings {
     String ZURUECK = "Zurueck";
     String OBJEKTSTEUERUNG_MIT_WASD = "Objektsteuerung mit WASD";
     String TRAINIERE = "Trainiere";
+    String GESCHWEIFTE_KLAMMER_AUF = "{";
+    String GESCHWEIFTE_KLAMMER_ZU = "}";
+    String GAMEFILE = "Gamefile";
+    String SCHWIERIGKEIT = "Schwierigkeit";
+    String DATEINAME = "Dateiname";
+    String HOLZ = "Holz";
+    String GOLD = "Gold";
+    String GESUNDHEIT = "Gesundheit";
 
     //MenueNamen
     String START_MENUE = "Startmenue";
