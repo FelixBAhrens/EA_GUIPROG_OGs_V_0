@@ -3,7 +3,6 @@ package control;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -17,44 +16,43 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StartMenueController implements Initializable
+public class StartMenueController extends ControllerController implements Initializable
 {
     @FXML
     private ImageView backgroundImage;
 
 
     @FXML
-    private void handleFortfahren (MouseEvent event) throws IOException {
+    private void handleFortfahren () throws IOException {
         GameFile.setzeGameFile(GameFile.gebeLetztesSpielZurueck());
         SceneManager.changeScene(Strings.FXML_STADT);
     }
 
     @FXML
-    private void handleNeuesSpiel (MouseEvent event) throws IOException {
+    private void handleNeuesSpiel () throws IOException {
         SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
     }
 
     @FXML
-    private void handleSpielLaden (MouseEvent event) throws IOException {
+    private void handleSpielLaden () throws IOException {
         SceneManager.changeScene(Strings.FXML_SPIELLADEN);
     }
 
     @FXML
-    private void handleEinstellungen (MouseEvent event) throws IOException {
+    private void handleEinstellungen () throws IOException {
         SceneManager.changeScene(Strings.FXML_EINSTELLUNGEN);
     }
 
     @FXML
-    private void handleSpielBeenden (MouseEvent event)
-    {
-        Platform.exit();
+    private void handleSpielBeenden () throws IOException {
+        SceneManager.changeScene(Strings.FXML_SPEICHERN_ABFRAGE);
     }
 
     //Der kann jetzt raus, das Tutuorial wird ja beim neuen Spiel angezeigt
     @FXML
     private void handleTutorial (MouseEvent event) throws IOException
     {
-        SceneManager.changeScene("tutorial-view.fxml");
+        SceneManager.changeScene(Strings.FXML_TUTORIAL);
     }
 
     @Override
