@@ -1,17 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.TrainingsGelaendeController">
     <children>
         <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
-        <Text layoutX="207.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände">
+        <Text layoutX="-40.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände" wrappingWidth="190.6348876953125">
             <font>
-                <Font size="46.0" />
+                <Font size="26.0" />
             </font>
         </Text>
+      <HBox layoutX="178.0" layoutY="3.0" prefHeight="396.0" prefWidth="349.0">
+         <children>
+            <VBox prefHeight="396.0" prefWidth="133.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="118.0" text="Gesundheit:" />
+                  <ProgressBar fx:id="gesundheitBar" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="2.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <ProgressBar layoutX="10.0" layoutY="175.0" prefHeight="0.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <ProgressBar layoutX="10.0" layoutY="27.0" prefHeight="0.0" prefWidth="125.0" progress="0.0" />
+                  <Label layoutX="10.0" layoutY="57.0" prefHeight="17.0" prefWidth="118.0" text="Schild:" />
+                  <ProgressBar fx:id="schildBar" layoutX="10.0" layoutY="79.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Manapunkte:" />
+                  <ProgressBar fx:id="manapunkteBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Nahkampfwert:" />
+                  <ProgressBar fx:id="nahkampfWertBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="146.0" prefHeight="17.0" prefWidth="118.0" text="Fernkampfwert:" />
+                  <ProgressBar fx:id="fernkampfWertBar" layoutX="10.0" layoutY="163.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="183.0" prefHeight="17.0" prefWidth="118.0" text="Fernkämpfe:" />
+                  <ProgressBar fx:id="fernkaempfeZahlBar" layoutX="10.0" layoutY="200.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="220.0" prefHeight="17.0" prefWidth="118.0" text="Ausweicher:" />
+                  <ProgressBar fx:id="zahlAusweichenBar" layoutX="10.0" layoutY="237.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="257.0" prefHeight="17.0" prefWidth="118.0" text="Magieresistenz:" />
+                  <ProgressBar fx:id="magieResistenzBar" layoutX="10.0" layoutY="274.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                     <VBox.margin>
+                        <Insets bottom="7.0" />
+                     </VBox.margin>
+                  </ProgressBar>
+                  <Label layoutX="10.0" layoutY="294.0" prefHeight="17.0" prefWidth="118.0" text="Bewegungsweite:" />
+                  <ProgressBar fx:id="bewegungsWeiteBar" layoutX="10.0" layoutY="311.0" prefHeight="20.0" prefWidth="125.0" progress="0.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="396.0" prefWidth="45.0">
+               <children>
+                  <Label fx:id="gesundheit" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="schild" layoutX="10.0" layoutY="27.0" onMouseClicked="#schildVerbessern" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="manapunkte" layoutX="10.0" layoutY="71.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="nahkampfWert" layoutX="10.0" layoutY="115.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="fernkampfWert" layoutX="10.0" layoutY="159.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="fernkaempfeZahl" layoutX="10.0" layoutY="203.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="zahlAusweichen" layoutX="10.0" layoutY="247.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="magieResistenz" layoutX="10.0" layoutY="291.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="bewegungsWeite" layoutX="10.0" layoutY="335.0" prefHeight="20.0" text="Label">
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="396.0" prefWidth="168.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#gesundheitVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <VBox.margin>
+                        <Insets top="17.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#schildVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#manapunkteVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#nahkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#fernkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#fernkaempfeZahlVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#zahlAusweichenVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#magieResistenzVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#bewegungsWeiteVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Text fx:id="gesammelteObjekte" layoutX="4.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="169.38309478759766" />
     </children>
 </AnchorPane>
