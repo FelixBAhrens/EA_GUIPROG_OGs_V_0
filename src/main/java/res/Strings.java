@@ -80,5 +80,6 @@ public interface Strings {
     String FEHLERMELDUNG_DATEI = "Datei existiert nicht";
     String FEHLERMELDUNG_SCHWIERIGKEIT = "Schwierigkeit konnte nicht interpretiert werden";
     String FEHLERMELDUNG_GAMEFILE = "Gamefile existiert nicht";
+    String FEHLERMELDUNG_SPEICHERN = "Speichern fehlgeschlagen";
 
 }

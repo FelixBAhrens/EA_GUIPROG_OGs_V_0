@@ -36,6 +36,9 @@ public class GameFile extends File {
 
     private String fileName;
     private String schwierigkeit;
+    private int holzRessource;
+    private int goldRessource;
+    private int gesundheitRessource;
     private Charakter leader;
     private Charakter medic;
     private Charakter hunter;
@@ -56,6 +59,30 @@ public class GameFile extends File {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public int getHolzRessource() {
+        return holzRessource;
+    }
+
+    public void setHolzRessource(int holzRessource) {
+        this.holzRessource = holzRessource;
+    }
+
+    public int getGoldRessource() {
+        return goldRessource;
+    }
+
+    public void setGoldRessource(int goldRessource) {
+        this.goldRessource = goldRessource;
+    }
+
+    public int getGesundheitRessource() {
+        return gesundheitRessource;
+    }
+
+    public void setGesundheitRessource(int gesundheitRessource) {
+        this.gesundheitRessource = gesundheitRessource;
     }
 
     public Charakter getLeader() {
@@ -101,11 +128,14 @@ public class GameFile extends File {
     public String getFileName() {return fileName;}
 
 
-    private GameFile(String dateipfad, String fileName, String schwierigkeit, Charakter leader, Charakter medic, Charakter hunter,
-                    Charakter magician, Charakter scout) {
+    private GameFile(String dateipfad, String fileName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Charakter leader, Charakter medic, Charakter hunter,
+                     Charakter magician, Charakter scout) {
         super (dateipfad);
         this.fileName = fileName;
         this.schwierigkeit = schwierigkeit;
+        this.holzRessource = holzRessource;
+        this.goldRessource = goldRessource;
+        this.gesundheitRessource = gesundheitRessource;
         this.leader = leader;
         this.medic = medic;
         this.hunter = hunter;
@@ -126,7 +156,8 @@ public class GameFile extends File {
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
-            dateiSchreiber.write(spielName+"\n"+schwierigkeit+"\n");
+            dateiSchreiber.write(spielName + Strings.NEWLINE + schwierigkeit + Strings.NEWLINE);
+            dateiSchreiber.write(Konstanten.DEFAULT_VALUE_HOLZ + Strings.SEMIKOLON + Konstanten.DEFAULT_VALUE_GOLD + Strings.SEMIKOLON + Konstanten.DEFAULT_VALUE_GESUNDHEIT + Strings.NEWLINE);
             CharakterController.erstelleDefaultCharakter();
             Charakter[] charakterArray = CharakterController.getCharakterArray();
             dateiSchreiber.write(charakterArray[Konstanten.INT_ZERO]+Strings.NEWLINE);
@@ -191,9 +222,12 @@ public class GameFile extends File {
         try{
             return new GameFile(Strings.SPIELDATEIPFAD + zeilenArray[Konstanten.INT_ZERO] + Strings.CSV_ENDUNG,
                     zeilenArray[Konstanten.INT_ZERO],
-                    zeilenArray[Konstanten.INT_ONE], erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TWO]),
+                    zeilenArray[Konstanten.INT_ONE],
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[0]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[1]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[2]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_THREE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SIX]));
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SIX]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SEVEN]));
         }
         catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -236,6 +270,21 @@ public class GameFile extends File {
             System.out.println(Strings.FEHLERMELDUNG_DATEI);
             SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
             return null;
+        }
+    }
+
+    public static void speichereSpielstand() {
+        try{
+            FileWriter dateiSchreiber = new FileWriter(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG);
+            dateiSchreiber.write(instance.fileName + Strings.NEWLINE + instance.schwierigkeit + Strings.NEWLINE);
+            dateiSchreiber.write(instance.holzRessource + Strings.SEMIKOLON + instance.goldRessource + Strings.SEMIKOLON + instance.gesundheitRessource + Strings.NEWLINE);
+            dateiSchreiber.write(instance.leader+Strings.NEWLINE + instance.medic + Strings.NEWLINE + instance.hunter +Strings.NEWLINE + instance.magician +Strings.NEWLINE + instance.scout);
+            dateiSchreiber.close();
+            System.out.println(leseCSV(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG).toString());
+        }
+        catch (IOException e){
+            System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
+            e.printStackTrace();
         }
     }
 

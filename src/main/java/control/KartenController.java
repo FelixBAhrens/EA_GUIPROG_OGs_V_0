@@ -15,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import model.GameFile;
+import res.Konstanten;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +25,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class KartenController implements Initializable
+public class KartenController extends ControllerController implements Initializable
 {
     @FXML
     private AnchorPane map;
@@ -115,6 +117,11 @@ public class KartenController implements Initializable
             {
                 if (ePressed.get())
                 {
+                    try {
+                        GameFile.getInstance().setHolzRessource(GameFile.getInstance().getHolzRessource() + Konstanten.INT_ONE);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     woodCount++;
                     gesammelteObjekte.setText("Holz: " + woodCount + ", Gesundheit: " + healthCount + ", Gold: " + goldCount);
                     placeRandomlyWithinMap(wood);
@@ -127,6 +134,11 @@ public class KartenController implements Initializable
             {
                 if (ePressed.get())
                 {
+                    try {
+                        GameFile.getInstance().setGesundheitRessource(GameFile.getInstance().getGesundheitRessource() + Konstanten.INT_ONE);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     healthCount++;
                     gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
                     placeRandomlyWithinMap(health);
@@ -139,11 +151,20 @@ public class KartenController implements Initializable
             {
                 if (ePressed.get())
                 {
+                    try {
+                        GameFile.getInstance().setGoldRessource(GameFile.getInstance().getGoldRessource() + Konstanten.INT_ONE);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     goldCount++;
                     gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
                     placeRandomlyWithinMap(gold);
                     ePressed.set(false); // E key processed
-                    System.out.println("Collected gold: " + goldCount);
+                    try {
+                        System.out.println("Gesammelt: " + goldCount + "Gesamt: " + GameFile.getInstance().getGoldRessource());
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }
@@ -300,6 +321,8 @@ public class KartenController implements Initializable
        openGebaeude("menue-view.fxml");
     }
 
+
+
     @FXML
     private void handleMouseEnter(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
@@ -311,6 +334,7 @@ public class KartenController implements Initializable
         }
     }
 
+    //Das macht noch Probleme
     @FXML
     private void handleMouseExit(MouseEvent event) {
         Pane pane = (Pane) event.getSource();

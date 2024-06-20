@@ -28,10 +28,13 @@ public interface Konstanten {
     int INT_SIX_HUNDRED = 600;
     int INT_EIGHT_HUNDRED = 800;
 
-
+    int DEFAULT_VALUE_HOLZ = 100;
+    int DEFAULT_VALUE_GOLD = 10;
+    int DEFAULT_VALUE_GESUNDHEIT = 50;
     int[] DEFAULT_VALUES_LEADER = {7, 1, 0, 7, 4, 3, 6, 5, 6, 7};
     int[] DEFAULT_VALUES_MEDIC = {8,1,0,4,2,1,5,6,5,5};
     int[] DEFAULT_VALUES_HUNTER = {6,1,0,3,9,8,7,5,6,3};
     int[] DEFAULT_VALUES_MAGICIAN = {5,1,0,2,8,7,4,7,5,6};
     int[] DEFAULT_VALUES_SCOUT = {4,1,0,6,5,5,8,5,8,7};
+
 }
