@@ -18,7 +18,7 @@ public class Charakter {
     private int zahlAusweichen;
     private int magieResistenz;
     private int bewegungsWeite;
-    private int initiative;
+    private int initiative; //Initiative erstmal weglassen?
 
     public int getInitiative() {
         return initiative;
