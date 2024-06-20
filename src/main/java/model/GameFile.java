@@ -1,14 +1,12 @@
 package model;
 
 import control.CharakterController;
-import control.SceneManager;
 import res.Konstanten;
 import res.Strings;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.file.Files;
+import java.util.*;
 
 /**
  * GameFile habe ich mir ausgedacht, um die Spielstaende zu speichern. Instanzen der Klasse GameFile sind Spielstaende.
@@ -152,7 +150,7 @@ public class GameFile extends File {
      * @Author Felix Ahrens
      */
     public static GameFile erstelleNeueGameFile(String schwierigkeit) throws IOException {
-        String spielName = Strings.SPIEL + (gebeGameFileListeZurueck().length-1);
+        String spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         try{
             FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
@@ -236,14 +234,13 @@ public class GameFile extends File {
     }
 
     /**
-     * Platzhalter im Body, die Methode ist noch nicht entwickelt.
+     * Methode, die alle
      * @return
      * @Author Felix Ahrens
      */
-    public static File[] gebeGameFileListeZurueck(){
-        File gameFileVerzeichnis = new File(Strings.SPIELDATEIPFAD);
-        File[] gameFiles = gameFileVerzeichnis.listFiles();
-        return gameFiles;
+    public static File[] gebeFileListeZurueck(String dateiPfad){
+        File gameFileVerzeichnis = new File(dateiPfad);
+        return gameFileVerzeichnis.listFiles();
     }
 
     public static Charakter erstelleCharakterAusCSVZeile(String zeile){
@@ -258,22 +255,37 @@ public class GameFile extends File {
     }
 
     /**
-     * Methode, die die neueste GameFile zurueckgeben soll. Tut sie aber noch nicht.
-     * @return
+     * Methode, die die GameFile zurueckgibt, die zuletzt modifiziert (also bespielt) wurde.
+     * @return die GameFile, die zuletzt bespielt wurde
      * @throws IOException
+     *
      */
     public static GameFile gebeLetztesSpielZurueck() throws IOException {
-        try{
-            return leseGameFile(Strings.SPIEL + Konstanten.INT_ONE + Strings.CSV_ENDUNG);
+        return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(sortiereAlleCSVFiles(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
+    }
+
+    public static Stack<File> sortiereAlleCSVFiles (File[] fileArray){
+        Stack<File> csvStack = new Stack<>();
+        for (File file : fileArray) {
+            if (file.getName().endsWith(Strings.CSV_ENDUNG)) {
+                csvStack.push(file);
+            }
         }
-        catch (NullPointerException e){
-            System.out.println(Strings.FEHLERMELDUNG_DATEI);
-            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
-            return null;
-        }
+        return csvStack;
+    }
+
+    public static File gebeJuengsteFileZurueck (Stack<File> fileStack) {
+        File latestCSVFile = fileStack.stream()
+                .max(Comparator.comparingLong(File::lastModified))
+                .orElse(null);
+        return latestCSVFile;
     }
 
     public static void speichereSpielstand() {
+        if (instance == null){
+            System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
+            return;
+        }
         try{
             FileWriter dateiSchreiber = new FileWriter(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG);
             dateiSchreiber.write(instance.fileName + Strings.NEWLINE + instance.schwierigkeit + Strings.NEWLINE);
@@ -286,6 +298,22 @@ public class GameFile extends File {
             System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String toString() {
+        return Strings.GAMEFILE + Strings.DOPPELPUNKT + Strings.NEWLINE +
+                Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + fileName + Strings.NEWLINE +
+                Strings.SCHWIERIGKEIT + Strings.DOPPELPUNKT + Strings.SPACE + schwierigkeit + Strings.NEWLINE +
+                Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + holzRessource + Strings.NEWLINE +
+                Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + goldRessource + Strings.NEWLINE +
+                Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + gesundheitRessource + Strings.NEWLINE +
+                leader + Strings.NEWLINE +
+                medic + Strings.NEWLINE +
+                hunter + Strings.NEWLINE +
+                magician + Strings.NEWLINE +
+                scout + Strings.NEWLINE +
+                Strings.GESCHWEIFTE_KLAMMER_ZU;
     }
 
 }

@@ -2,6 +2,7 @@ package control;
 
 import javafx.fxml.FXML;
 import model.GameFile;
+import res.Konstanten;
 import res.Strings;
 
 import java.io.IOException;
@@ -27,6 +28,11 @@ public class ControllerController {
     @FXML
     public void speichereSpielstand(){
         GameFile.speichereSpielstand();
+    }
+
+    @FXML
+    public void beendeAnwendung () {
+        System.exit(Konstanten.INT_ZERO);
     }
 
 }
