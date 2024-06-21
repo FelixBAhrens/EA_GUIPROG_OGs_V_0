@@ -14,7 +14,8 @@ import java.util.*;
  *  CSV-Datei gespeichert. Diese Klasse beinhaltet diverse Methoden um GameFiles u.A. zu Lesen, zu bearbeiten etc..
  * @Author Felix Ahrens
  */
-public class GameFile extends File {
+public class GameFile {
+
     // Singleton der Gamefile -----------------------------
     private static GameFile instance;
 
@@ -31,17 +32,28 @@ public class GameFile extends File {
     }
 
     //------------------------------------------------------
-
+    private String dateiPfad;
     private String fileName;
     private String schwierigkeit;
     private int holzRessource;
     private int goldRessource;
     private int gesundheitRessource;
+    private Artefakt statue;
+    private Artefakt falke;
+    private Artefakt ring;
     private Charakter leader;
     private Charakter medic;
     private Charakter hunter;
     private Charakter magician;
     private Charakter scout;
+
+    public String getDateiPfad() {
+        return dateiPfad;
+    }
+
+    public void setDateiPfad(String dateiPfad) {
+        this.dateiPfad = dateiPfad;
+    }
 
     public String getSchwierigkeit() {
         return schwierigkeit;
@@ -81,6 +93,30 @@ public class GameFile extends File {
 
     public void setGesundheitRessource(int gesundheitRessource) {
         this.gesundheitRessource = gesundheitRessource;
+    }
+
+    public Artefakt getStatue() {
+        return statue;
+    }
+
+    public void setStatue(Artefakt statue) {
+        this.statue = statue;
+    }
+
+    public Artefakt getRing() {
+        return ring;
+    }
+
+    public void setRing(Artefakt ring) {
+        this.ring = ring;
+    }
+
+    public Artefakt getFalke() {
+        return falke;
+    }
+
+    public void setFalke(Artefakt falke) {
+        this.falke = falke;
     }
 
     public Charakter getLeader() {
@@ -125,10 +161,12 @@ public class GameFile extends File {
 
     public String getFileName() {return fileName;}
 
+    public GameFile () {
+    }
 
     private GameFile(String dateipfad, String fileName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Charakter leader, Charakter medic, Charakter hunter,
                      Charakter magician, Charakter scout) {
-        super (dateipfad);
+        this.dateiPfad = dateipfad;
         this.fileName = fileName;
         this.schwierigkeit = schwierigkeit;
         this.holzRessource = holzRessource;
@@ -292,7 +330,7 @@ public class GameFile extends File {
             dateiSchreiber.write(instance.holzRessource + Strings.SEMIKOLON + instance.goldRessource + Strings.SEMIKOLON + instance.gesundheitRessource + Strings.NEWLINE);
             dateiSchreiber.write(instance.leader+Strings.NEWLINE + instance.medic + Strings.NEWLINE + instance.hunter +Strings.NEWLINE + instance.magician +Strings.NEWLINE + instance.scout);
             dateiSchreiber.close();
-            System.out.println(leseCSV(Strings.SPIELDATEIPFAD + instance.fileName).toString());
+            System.out.println(Strings.MELDUNG_GESPEICHERT + macheGameFileAusZeilenArray(leseCSV(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG)).toString());
         }
         catch (IOException e){
             System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
