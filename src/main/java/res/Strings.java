@@ -42,7 +42,7 @@ public interface Strings {
     String DOPPELPUNKT = ":";
     String SPACE = " ";
 
-    String SPIELDATEIPFAD = "src/main/java/res/";
+    String SPIELDATEIPFAD = "src/main/resources/GameFiles/";
     String CSV_ENDUNG = ".csv";
     String SPIEL = "Spiel";
 
@@ -65,6 +65,10 @@ public interface Strings {
     String HOLZ = "Holz";
     String GOLD = "Gold";
     String GESUNDHEIT = "Gesundheit";
+    String NAME = "Name";
+    String IMBESITZ = "Ist im Besitz";
+    String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
+    String STAERKE = "Stärke";
 
     //MenueNamen
     String START_MENUE = "Startmenue";
@@ -93,4 +97,6 @@ public interface Strings {
     String FEHLERMELDUNG_GAMEFILE = "Gamefile existiert nicht";
     String FEHLERMELDUNG_SPEICHERN = "Speichern fehlgeschlagen";
 
+    //Meldungen
+    String MELDUNG_GESPEICHERT = "Die folgende Datei wurde erfolgreich gespeichert: ";
 }

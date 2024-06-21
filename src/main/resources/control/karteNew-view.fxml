@@ -64,5 +64,6 @@
       <Button layoutX="58.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#openMenue" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="26.0" prefWidth="107.0" text="Menü" />
       <Button layoutX="58.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#speichereSpielstand" prefHeight="26.0" prefWidth="107.0" text="Speichern" />
       <TextField fx:id="gesammelteObjekte" prefHeight="26.0" prefWidth="293.0" />
+      <fx:include source="klassisches-menue-view.fxml" />
    </children>
 </AnchorPane>
