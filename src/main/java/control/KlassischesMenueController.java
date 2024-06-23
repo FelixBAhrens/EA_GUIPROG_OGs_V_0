@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import model.GameFile;
 import res.Strings;
 
-import java.io.IOException;
-
 public class KlassischesMenueController extends StartMenueController {
     @FXML
     public void initialize() {
@@ -13,22 +11,22 @@ public class KlassischesMenueController extends StartMenueController {
     }
 
     @FXML
-    public void handleDebugStadt() throws IOException {
+    public void handleDebugStadt() {
         SceneManager.changeScene(Strings.FXML_STADT);
     }
 
     @FXML
-    public void handleDebugKarte() throws IOException {
+    public void handleDebugKarte() {
         SceneManager.changeScene(Strings.FXML_KARTE);
     }
 
     @FXML
-    public void handleDebugKampf () throws IOException {
+    public void handleDebugKampf () {
         SceneManager.changeScene(Strings.FXML_KAMPF);
     }
 
     @FXML
-    public void gameFileAusgeben () throws Exception {
+    public void gameFileAusgeben () {
         System.out.println(GameFile.getInstance().toString());
     }
 

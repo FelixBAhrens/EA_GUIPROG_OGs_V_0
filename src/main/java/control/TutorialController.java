@@ -6,8 +6,6 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import res.Strings;
 
-import java.io.IOException;
-
 public class TutorialController
 {
     @FXML
@@ -23,7 +21,7 @@ public class TutorialController
     }
 
     @FXML
-    public void handleWeiter () throws IOException {
+    public void handleWeiter () {
         SceneManager.changeScene(Strings.FXML_STORY);
     }
 

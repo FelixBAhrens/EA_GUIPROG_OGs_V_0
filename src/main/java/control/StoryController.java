@@ -11,7 +11,7 @@ public class StoryController {
     }
 
     @FXML
-    public void handleFortfahren() throws IOException {
+    public void handleFortfahren() {
         SceneManager.changeScene("stadt-view.fxml");
     }
 }
