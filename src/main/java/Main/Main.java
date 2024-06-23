@@ -12,9 +12,9 @@ public class Main extends Application {
      * @author David Kien, Felix Ahrens
      */
     @Override
-    public void start(Stage primaryStage) {
-        SceneManager.initialisiereSceneManager(primaryStage);
-        SceneManager.changeScene(Strings.FXML_STARTMENUE);
+    public void start(Stage primaryStage) throws Exception {
+        SceneManager sceneManager = new SceneManager(primaryStage);
+        sceneManager.changeScene(Strings.FXML_STARTMENUE);
     }
 
     /**
