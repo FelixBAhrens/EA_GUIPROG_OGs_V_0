@@ -39,7 +39,7 @@ public class GameFile {
     private int goldRessource;
     private int gesundheitRessource;
     private Artefakt statue;
-    private Artefakt falke;
+    private Artefakt schwert;
     private Artefakt ring;
     private Charakter leader;
     private Charakter medic;
@@ -111,12 +111,12 @@ public class GameFile {
         this.ring = ring;
     }
 
-    public Artefakt getFalke() {
-        return falke;
+    public Artefakt getSchwert() {
+        return schwert;
     }
 
-    public void setFalke(Artefakt falke) {
-        this.falke = falke;
+    public void setSchwert(Artefakt schwert) {
+        this.schwert = schwert;
     }
 
     public Charakter getLeader() {
