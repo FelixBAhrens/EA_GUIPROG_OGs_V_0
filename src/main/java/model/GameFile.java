@@ -1,8 +1,11 @@
 package model;
 
+import control.ArtefaktController;
 import control.CharakterController;
+import control.SceneManager;
 import res.Konstanten;
 import res.Strings;
+import utility.MyIO;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -12,28 +15,44 @@ import java.util.*;
  * GameFile habe ich mir ausgedacht, um die Spielstaende zu speichern. Instanzen der Klasse GameFile sind Spielstaende.
  *  Ich habe bisher erst den DateiNamen und das Erstelldatum als Parameter. Wie in der PROG-EA werden diese in einer
  *  CSV-Datei gespeichert. Diese Klasse beinhaltet diverse Methoden um GameFiles u.A. zu Lesen, zu bearbeiten etc..
- * @Author Felix Ahrens
+ * @author Felix Ahrens
  */
 public class GameFile {
 
     // Singleton der Gamefile -----------------------------
+    /**
+     * Die einzelne Instanz der Klasse GameFile
+     * @author Felix Ahrens
+     */
     private static GameFile instance;
 
-    public static GameFile getInstance() throws Exception {
+    /**
+     * Getter fuer die Singleton-Instanz der Klasse GameFile
+     * @return
+     * @throws Exception
+     * @author Felix Ahrens
+     */
+    public static GameFile getInstance() {
         if (instance != null) {
             return instance;
         }
         else {
-            throw new Exception(Strings.FEHLERMELDUNG_GAMEFILE);
+            MyIO.print(Strings.FEHLERMELDUNG_GAMEFILE);
+            return null;
         }
     }
+
+    /**
+     * Setter des Singletons der Klasse GameFile.
+     * @param gameFile
+     * @author Felix Ahrens
+     */
     public static void setzeGameFile(GameFile gameFile){
         instance = gameFile;
     }
 
     //------------------------------------------------------
-    private String dateiPfad;
-    private String fileName;
+    private String filePathAndName;
     private String schwierigkeit;
     private int holzRessource;
     private int goldRessource;
@@ -47,14 +66,6 @@ public class GameFile {
     private Charakter magician;
     private Charakter scout;
 
-    public String getDateiPfad() {
-        return dateiPfad;
-    }
-
-    public void setDateiPfad(String dateiPfad) {
-        this.dateiPfad = dateiPfad;
-    }
-
     public String getSchwierigkeit() {
         return schwierigkeit;
     }
@@ -67,8 +78,8 @@ public class GameFile {
         GameFile.instance = instance;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setFilePathAndName(String filePathAndName) {
+        this.filePathAndName = filePathAndName;
     }
 
     public int getHolzRessource() {
@@ -159,19 +170,38 @@ public class GameFile {
         this.scout = scout;
     }
 
-    public String getFileName() {return fileName;}
+    public String getFilePathAndName() {return filePathAndName;}
 
     public GameFile () {
     }
 
-    private GameFile(String dateipfad, String fileName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Charakter leader, Charakter medic, Charakter hunter,
+    /**
+     * Konstruktor der Klasse GameFile
+     * @param filePathAndName
+     * @param schwierigkeit
+     * @param holzRessource
+     * @param goldRessource
+     * @param gesundheitRessource
+     * @param statue
+     * @param schwert
+     * @param ring
+     * @param leader
+     * @param medic
+     * @param hunter
+     * @param magician
+     * @param scout
+     * @author Felix Ahrens
+     */
+    private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
                      Charakter magician, Charakter scout) {
-        this.dateiPfad = dateipfad;
-        this.fileName = fileName;
+        this.filePathAndName = filePathAndName;
         this.schwierigkeit = schwierigkeit;
         this.holzRessource = holzRessource;
         this.goldRessource = goldRessource;
         this.gesundheitRessource = gesundheitRessource;
+        this.statue = statue;
+        this.schwert = schwert;
+        this.ring = ring;
         this.leader = leader;
         this.medic = medic;
         this.hunter = hunter;
@@ -183,30 +213,57 @@ public class GameFile {
     /**
      * Methode, die eine neue GameFile mit den ihr uebergebenen Parametern erstellt.
      *  Die Parameterliste ist allerdings noch lange nicht vollstaendig.
-     * @return
+     * @return Eine neue, mit den Default-Werten erstellte Instanz der Klasse GameFile
      * @throws IOException
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueGameFile(String schwierigkeit) throws IOException {
+    public static GameFile erstelleNeueGameFile(String schwierigkeit) {
         String spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
+        ArtefaktController.erstelleDefaultArtefakte();
+        Artefakt[] artefaktArray = ArtefaktController.getArtefaktArray();
+        CharakterController.erstelleDefaultCharakter();
+        Charakter[] charakterArray = CharakterController.getCharakterArray();
+        GameFile neueGameFile = new GameFile(spielPfad_Name,
+                schwierigkeit,
+                Konstanten.DEFAULT_VALUE_HOLZ,
+                Konstanten.DEFAULT_VALUE_GOLD,
+                Konstanten.DEFAULT_VALUE_GESUNDHEIT,
+                artefaktArray[Konstanten.INT_ZERO],
+                artefaktArray[Konstanten.INT_ZERO],
+                artefaktArray[Konstanten.INT_TWO],
+                charakterArray[Konstanten.INT_ZERO],
+                charakterArray[Konstanten.INT_ONE],
+                charakterArray[Konstanten.INT_TWO],
+                charakterArray[Konstanten.INT_THREE],
+                charakterArray[Konstanten.INT_FOUR]);
+        schreibeGameFile(neueGameFile);
+        return leseGameFile(spielPfad_Name);
+    }
+
+    public static void schreibeGameFile(GameFile gameFile) {
         try{
-            FileWriter dateiSchreiber = new FileWriter(spielPfad_Name);
-            dateiSchreiber.write(spielName + Strings.NEWLINE + schwierigkeit + Strings.NEWLINE);
-            dateiSchreiber.write(Konstanten.DEFAULT_VALUE_HOLZ + Strings.SEMIKOLON + Konstanten.DEFAULT_VALUE_GOLD + Strings.SEMIKOLON + Konstanten.DEFAULT_VALUE_GESUNDHEIT + Strings.NEWLINE);
-            CharakterController.erstelleDefaultCharakter();
-            Charakter[] charakterArray = CharakterController.getCharakterArray();
-            dateiSchreiber.write(charakterArray[Konstanten.INT_ZERO]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[Konstanten.INT_ONE]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[Konstanten.INT_TWO]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[Konstanten.INT_THREE]+Strings.NEWLINE);
-            dateiSchreiber.write(charakterArray[Konstanten.INT_FOUR]+Strings.NEWLINE);
+            FileWriter dateiSchreiber = new FileWriter(gameFile.filePathAndName);
+            dateiSchreiber.write(gameFile.filePathAndName + Strings.NEWLINE + gameFile.schwierigkeit + Strings.NEWLINE);
+            //Ressourcen
+            dateiSchreiber.write(gameFile.holzRessource + Strings.SEMIKOLON
+                    + gameFile.goldRessource + Strings.SEMIKOLON
+                    + gameFile.gesundheitRessource + Strings.NEWLINE);
+            //Artefakte
+            dateiSchreiber.write(gameFile.statue.toCSV() + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.schwert.toCSV() + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.ring.toCSV() + Strings.NEWLINE);
+            //Charaktere
+            dateiSchreiber.write(gameFile.leader + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.medic + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.hunter + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.magician + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.scout + Strings.NEWLINE);
             dateiSchreiber.close();
         }
         catch(IOException e){
             e.printStackTrace();
         }
-        return leseGameFile(spielPfad_Name);
     }
 
     /**
@@ -256,14 +313,20 @@ public class GameFile {
      */
     public static GameFile macheGameFileAusZeilenArray(String[] zeilenArray){
         try{
-            return new GameFile(Strings.SPIELDATEIPFAD + zeilenArray[Konstanten.INT_ZERO] + Strings.CSV_ENDUNG,
-                    zeilenArray[Konstanten.INT_ZERO],
+            return new GameFile(zeilenArray[Konstanten.INT_ZERO],
                     zeilenArray[Konstanten.INT_ONE],
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ZERO]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ONE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_TWO]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_THREE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SIX]), erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SEVEN]));
+                    erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_THREE]),
+                    erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
+                    erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SIX]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SEVEN]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_EIGHT]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_NINE]),
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TEN])
+            );
         }
         catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -272,15 +335,35 @@ public class GameFile {
     }
 
     /**
-     * Methode, die alle
+     * Methode, die alle Files in dem angegebenen Dateipfad als Array zurueckgibt.
      * @return
      * @Author Felix Ahrens
      */
-    public static File[] gebeFileListeZurueck(String dateiPfad){
+    public static File[] gebeFileListeZurueck (String dateiPfad){
         File gameFileVerzeichnis = new File(dateiPfad);
         return gameFileVerzeichnis.listFiles();
     }
 
+    /**
+     * Methode, die eine Zeile zu einem Artefakt parsed
+     * @param zeile
+     * @return
+     * @author Felix Ahrens
+     */
+    public static Artefakt erstelleArtefaktAusCSVZeile(String zeile){
+        String[] zeilenStuecke = zeile.split(Strings.SEMIKOLON);
+        return new Artefakt(zeilenStuecke[Konstanten.INT_ZERO],
+                Boolean.parseBoolean(zeilenStuecke[Konstanten.INT_ONE]),
+                Integer.parseInt(zeilenStuecke[Konstanten.INT_TWO]),
+                Integer.parseInt(zeilenStuecke[Konstanten.INT_THREE]));
+    }
+
+    /**
+     * Methode, die eine Zeile zu einem Charakter parsed
+     * @param zeile
+     * @return
+     * @author Felix Ahrens
+     */
     public static Charakter erstelleCharakterAusCSVZeile(String zeile){
         Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ONE].split(Strings.SEMIKOLON))
                 .map(String::trim)
@@ -296,13 +379,26 @@ public class GameFile {
      * Methode, die die GameFile zurueckgibt, die zuletzt modifiziert (also bespielt) wurde.
      * @return die GameFile, die zuletzt bespielt wurde
      * @throws IOException
-     *
+     * @author Felix Ahrens
      */
-    public static GameFile gebeLetztesSpielZurueck() throws IOException {
-        return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(sortiereAlleCSVFiles(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
+    public static GameFile gebeLetztesSpielZurueck() {
+        try {
+            return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(filtereAlleCSVFiles(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
+        }
+        catch (Exception e){
+            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
+            return null;
+        }
+
     }
 
-    public static Stack<File> sortiereAlleCSVFiles (File[] fileArray){
+    /**
+     * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden.
+     * @param fileArray
+     * @return
+     * @author Felix Ahrens
+     */
+    public static Stack<File> filtereAlleCSVFiles (File[] fileArray){
         Stack<File> csvStack = new Stack<>();
         for (File file : fileArray) {
             if (file.getName().endsWith(Strings.CSV_ENDUNG)) {
@@ -312,11 +408,17 @@ public class GameFile {
         return csvStack;
     }
 
+    /**
+     * Methode, die die File zurueckgibt, die zuletzt bearbeitet wurde
+     * @param fileStack
+     * @return
+     * @author Felix Ahrens
+     */
     public static File gebeJuengsteFileZurueck (Stack<File> fileStack) {
-        File latestCSVFile = fileStack.stream()
+        File juengsteFile = fileStack.stream()
                 .max(Comparator.comparingLong(File::lastModified))
                 .orElse(null);
-        return latestCSVFile;
+        return juengsteFile;
     }
 
     public static void speichereSpielstand() {
@@ -324,24 +426,13 @@ public class GameFile {
             System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
             return;
         }
-        try{
-            FileWriter dateiSchreiber = new FileWriter(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG);
-            dateiSchreiber.write(instance.fileName + Strings.NEWLINE + instance.schwierigkeit + Strings.NEWLINE);
-            dateiSchreiber.write(instance.holzRessource + Strings.SEMIKOLON + instance.goldRessource + Strings.SEMIKOLON + instance.gesundheitRessource + Strings.NEWLINE);
-            dateiSchreiber.write(instance.leader+Strings.NEWLINE + instance.medic + Strings.NEWLINE + instance.hunter +Strings.NEWLINE + instance.magician +Strings.NEWLINE + instance.scout);
-            dateiSchreiber.close();
-            System.out.println(Strings.MELDUNG_GESPEICHERT + macheGameFileAusZeilenArray(leseCSV(Strings.SPIELDATEIPFAD + instance.fileName + Strings.CSV_ENDUNG)).toString());
-        }
-        catch (IOException e){
-            System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
-            e.printStackTrace();
-        }
+        schreibeGameFile(instance);
     }
 
     @Override
     public String toString() {
         return Strings.GAMEFILE + Strings.DOPPELPUNKT + Strings.NEWLINE +
-                Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + fileName + Strings.NEWLINE +
+                Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + filePathAndName + Strings.NEWLINE +
                 Strings.SCHWIERIGKEIT + Strings.DOPPELPUNKT + Strings.SPACE + schwierigkeit + Strings.NEWLINE +
                 Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + holzRessource + Strings.NEWLINE +
                 Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + goldRessource + Strings.NEWLINE +

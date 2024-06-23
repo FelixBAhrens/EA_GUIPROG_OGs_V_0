@@ -21,7 +21,7 @@ public class NeuesSpielController {
     }
 
     @FXML
-    public void handleSchwierigkeit (MouseEvent mouseEvent) throws Exception {
+    public void handleSchwierigkeit (MouseEvent mouseEvent) {
         Button source = (Button) mouseEvent.getSource();
         System.out.println(source.getText());
         GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(source.getText()));

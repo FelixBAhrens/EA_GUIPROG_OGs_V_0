@@ -29,11 +29,20 @@ public interface Strings {
 
     String NEWLINE = "\n";
 
+    //Charaktere
     String LEADER = "Leader";
     String MEDIC = "Medic";
     String HUNTER = "Hunter";
     String MAGICIAN = "Magician";
     String SCOUT = "Scout";
+
+    //Artefakte
+    String STATUE = "Statue";
+    String SCHWERT = "Schwert";
+    String RING = "Ring";
+    String STATUE_ANGEWENDET = "Statue Angewendet";
+    String SCHWERT_ANGEWENDET = "Schwert Angewendet";
+    String RING_ANGEWENDET = "Ring Angewendet";
 
     String STRING_EINFACH = "Einfach";
     String STRING_NORMAL = "Normal";
@@ -95,8 +104,16 @@ public interface Strings {
     String FEHLERMELDUNG_DATEI = "Datei existiert nicht";
     String FEHLERMELDUNG_SCHWIERIGKEIT = "Schwierigkeit konnte nicht interpretiert werden";
     String FEHLERMELDUNG_GAMEFILE = "Gamefile existiert nicht";
+    String FEHLERMELDUNG_SCENEMANAGER = "SceneManager existiert nicht";
     String FEHLERMELDUNG_SPEICHERN = "Speichern fehlgeschlagen";
+    String FEHLERMELDUNG_ANWENDUNGEN_UEBRIG = "Alle Anwendungen aufgebraucht";
+    String FEHLERMELDUNG_ZURUECK = "Es kann nicht zurück gegangen werden.";
+    String FEHLERMELDUNG_SZENENWECHSEL = "Es ist ein Fehler beim Szenenwechsel aufgetreten";
 
     //Meldungen
     String MELDUNG_GESPEICHERT = "Die folgende Datei wurde erfolgreich gespeichert: ";
+
+    //FXML-Styles
+    String STYLE_TRANSPARENT_TURQUOISE_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;";
+    String STYLE_TRANSPARENT_TRANSPARENT_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;";
 }

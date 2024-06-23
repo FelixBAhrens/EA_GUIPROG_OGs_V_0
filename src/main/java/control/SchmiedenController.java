@@ -1,8 +1,7 @@
 package control;
 
 import javafx.fxml.FXML;
-
-import java.io.IOException;
+import model.GameFile;
 
 public class SchmiedenController extends PaneController{
     @FXML
@@ -10,8 +9,7 @@ public class SchmiedenController extends PaneController{
 
     }
 
-    @FXML
-    public void handleHilfe() throws IOException {
-        SceneManager.changeScene("hilfe-view.fxml");
+    public void gebeArteFaktAus () throws Exception {
+        System.out.println(GameFile.getInstance().getSchwert().toString());
     }
 }

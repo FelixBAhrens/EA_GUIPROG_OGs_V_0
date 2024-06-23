@@ -25,7 +25,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleDebugKarte" text="Karte" />
                   <MenuItem mnemonicParsing="false" onAction="#gameFileAusgeben" text="GameFile Ausgeben" />
                   <MenuItem mnemonicParsing="false" onAction="#handleDebugKampf" text="Kampf" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleZurueck" text="Zurück" />
                   <MenuItem mnemonicParsing="false" text="Close" />
                   <MenuItem mnemonicParsing="false" text="Close" />
                   <MenuItem mnemonicParsing="false" text="Close" />

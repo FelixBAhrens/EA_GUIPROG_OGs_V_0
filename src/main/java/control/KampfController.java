@@ -7,4 +7,9 @@ public class KampfController extends ControllerController{
     public void initialize() {
 
     }
+
+    /**
+     * README:
+     * - Artefakte koennen im Kampf angewendet werden
+     */
 }
