@@ -5,14 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import res.Strings;
 
 import java.io.IOException;
 
-/**
- * Die Klasse StadtController ist die Controllerklasse der zugehoerigen FXML-Datei "stadt-view.fxml" und steuert wesentliche Funktionen der Stadt.
- * @author Felix Ahrens
- */
 public class StadtController extends ControllerController {
 
     @FXML
@@ -23,53 +18,53 @@ public class StadtController extends ControllerController {
 
     @FXML
     private void openSchmiede() {
-        openGebaeude(Strings.FXML_SCHMIEDE);
+        openGebaeude("schmiede-view.fxml");
     }
 
     @FXML
     private void openSchenke() {
-        openGebaeude(Strings.FXML_SCHENKE);
+        openGebaeude("schenke-view.fxml");
     }
 
     @FXML
     private void openMagieverstaerker() {
-        openGebaeude(Strings.FXML_MAGIEVERSTAERKER);
+        openGebaeude("magieverstaerker-view.fxml");
     }
 
     @FXML
     private void openBasisCamp() {
-        openGebaeude(Strings.FXML_BASISCAMP);
+        openGebaeude("basis-camp-view.fxml");
     }
 
     @FXML
     private void openFraktionenCamp() {
-        openGebaeude(Strings.FXML_FRAKTIONENCAMP);
+        openGebaeude("fraktionen-camp-view.fxml");
     }
 
     @FXML
     private void openTrainingsgelaende() {
-        openGebaeude(Strings.FXML_TRAININGSGELAENDE);
+        openGebaeude("trainingsgelaende-view.fxml");
     }
 
     @FXML
     private void openMarkt() {
-        openGebaeude(Strings.FXML_MARKT);
+        openGebaeude("markt-view.fxml");
     }
 
     @FXML
     private void openHauptquartier() {
-        openGebaeude(Strings.FXML_HAUPTQUARTIER);
+        openGebaeude("hauptquartier-view.fxml");
     }
 
     @FXML
-    private void openKarte() {
-        SceneManager.changeScene(Strings.FXML_KARTE);
+    private void openKarte() throws IOException {
+        SceneManager.changeScene("karten-view.fxml");
     }
 
     @FXML
     private void handleMouseEnter(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
-        pane.setStyle(Strings.STYLE_TRANSPARENT_TURQUOISE_BORDERWIDTH);
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
         for (javafx.scene.Node node : pane.getChildren()) {
             if (node instanceof Button) {
                 node.setVisible(true);
@@ -80,7 +75,7 @@ public class StadtController extends ControllerController {
     @FXML
     private void handleMouseExit(MouseEvent event) {
         Pane pane = (Pane) event.getSource();
-        pane.setStyle(Strings.STYLE_TRANSPARENT_TRANSPARENT_BORDERWIDTH);
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
         for (javafx.scene.Node node : pane.getChildren()) {
             if (node instanceof Button) {
                 node.setVisible(false);

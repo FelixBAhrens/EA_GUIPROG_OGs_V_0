@@ -8,10 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -25,10 +23,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class KartenController extends ControllerController implements Initializable
-{
+public class KartenController extends ControllerController implements Initializable {
     @FXML
     private AnchorPane map;
+    @FXML
+    private AnchorPane scene;
     @FXML
     private Rectangle wood;
     @FXML
@@ -36,11 +35,20 @@ public class KartenController extends ControllerController implements Initializa
     @FXML
     private Rectangle health;
     @FXML
+    private Rectangle missionStarter1;
+    @FXML
+    private Rectangle missionStarter2;
+    @FXML
+    private Rectangle shape1;
+    @FXML
     private Pane menuePane;
+    @FXML
+    private Pane missionStartenPane;
     @FXML
     private Pane hintergrundPane;
     @FXML
     private TextField gesammelteObjekte;
+
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
@@ -50,151 +58,197 @@ public class KartenController extends ControllerController implements Initializa
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed).or(ePressed);
     private BooleanBinding movingHorizontally = wPressed.or(sPressed);
     private BooleanBinding movingVertically = aPressed.or(dPressed);
+    private boolean onMissionStarter = false;
 
-    private int movementVariable = 2;
-
-    private static final double ROOT_2 = Math.sqrt(2);
+    private static final double ROOT_2 = Math.sqrt(Konstanten.INT_TWO);
 
     private List<Rectangle> barriers = new ArrayList<>();
 
-    @FXML
-    private Rectangle shape1;
+    private int woodCount = Konstanten.INT_ZERO;
+    private int healthCount = Konstanten.INT_ZERO;
+    private int goldCount = Konstanten.INT_ZERO;
+    private int movementVariable = Konstanten.INT_TWO;
 
-    @FXML
-    private AnchorPane scene;
+    private PaneController paneController = new PaneController();
 
-    private int woodCount = 0;
-    private int healthCount = 0;
-    private int goldCount = 0;
+    //--------------------------------------------------------------------------
 
-    AnimationTimer timer = new AnimationTimer()
-    {
 
+
+    private final AnimationTimer timer = new AnimationTimer() {
         @Override
-        public void handle (long timestamp)
-        {
-            double moveX = 0;
-            double moveY = 0;
+        public void handle(long timestamp) {
+            double moveX = Konstanten.INT_ZERO;
+            double moveY = Konstanten.INT_ZERO;
 
-            if (wPressed.get())
-            {
-                if (!checkCollisionWithBarriers(shape1.getLayoutX(), shape1.getLayoutY() - movementVariable, shape1))
-                {
-                    moveY -= movementVariable;
-                }
-
+            if (wPressed.get()) {
+                moveY = handleMovement(shape1.getLayoutX(), shape1.getLayoutY() - movementVariable, moveY, -movementVariable);
             }
-            if (aPressed.get())
-            {
-                if (!checkCollisionWithBarriers(shape1.getLayoutX() - movementVariable, shape1.getLayoutY(), shape1))
-                {
-                    moveX -= movementVariable;
-                }
+            if (aPressed.get()) {
+                moveX = handleMovement(shape1.getLayoutX() - movementVariable, shape1.getLayoutY(), moveX, -movementVariable);
             }
-            if (sPressed.get())
-            {
-                if (!checkCollisionWithBarriers(shape1.getLayoutX(), shape1.getLayoutY() + movementVariable, shape1))
-                {
-                    moveY += movementVariable;
-                }
+            if (sPressed.get()) {
+                moveY = handleMovement(shape1.getLayoutX(), shape1.getLayoutY() + movementVariable, moveY, movementVariable);
             }
-            if (dPressed.get())
-            {
-                if (!checkCollisionWithBarriers(shape1.getLayoutX() + movementVariable, shape1.getLayoutY(), shape1))
-                moveX += movementVariable;
+            if (dPressed.get()) {
+                moveX = handleMovement(shape1.getLayoutX() + movementVariable, shape1.getLayoutY(), moveX, movementVariable);
             }
 
-            if (movingHorizontally.get() && movingVertically.get())
-            {
+            if (movingHorizontally.get() && movingVertically.get()) {
                 moveX /= ROOT_2;
                 moveY /= ROOT_2;
             }
 
-            shape1.setLayoutX(shape1.getLayoutX() + moveX);
-            shape1.setLayoutY(shape1.getLayoutY() + moveY);
-
-            if (shape1.getBoundsInParent().intersects(wood.getBoundsInParent()))
-            {
-                if (ePressed.get())
-                {
-                    try {
-                        GameFile.getInstance().setHolzRessource(GameFile.getInstance().getHolzRessource() + Konstanten.INT_ONE);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    woodCount++;
-                    gesammelteObjekte.setText("Holz: " + woodCount + ", Gesundheit: " + healthCount + ", Gold: " + goldCount);
-                    placeRandomlyWithinMap(wood);
-                    ePressed.set(false); // E key processed
-                    System.out.println("Collected wood: " + woodCount);
-                }
-            }
-
-            if (shape1.getBoundsInParent().intersects(health.getBoundsInParent()))
-            {
-                if (ePressed.get())
-                {
-                    try {
-                        GameFile.getInstance().setGesundheitRessource(GameFile.getInstance().getGesundheitRessource() + Konstanten.INT_ONE);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    healthCount++;
-                    gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
-                    placeRandomlyWithinMap(health);
-                    ePressed.set(false); // E key processed
-                    System.out.println("Collected health: " + healthCount);
-                }
-            }
-
-            if (shape1.getBoundsInParent().intersects(gold.getBoundsInParent()))
-            {
-                if (ePressed.get())
-                {
-                    try {
-                        GameFile.getInstance().setGoldRessource(GameFile.getInstance().getGoldRessource() + Konstanten.INT_ONE);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    goldCount++;
-                    gesammelteObjekte.setText("Holz: " + woodCount + System.lineSeparator() + "Gesundheit: " + healthCount + System.lineSeparator() + "Gold: " + goldCount);
-                    placeRandomlyWithinMap(gold);
-                    ePressed.set(false); // E key processed
-                    try {
-                        System.out.println("Gesammelt: " + goldCount + "Gesamt: " + GameFile.getInstance().getGoldRessource());
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
+            updateShapePosition(moveX, moveY);
+            checkForResourceCollection();
+            checkForMissionStarterCollision();
         }
     };
 
     @Override
-    public void initialize (URL url, ResourceBundle resourceBundle)
+    public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        movementSetup();
+        setupMovement();
 
-        keyPressed.addListener((observableValue, aBoolean, t1) ->
-        {
-            if (!aBoolean)
-            {
+        keyPressed.addListener((observableValue, oldValue, newValue) -> {
+            if (newValue) {
                 timer.start();
-            } else
-            {
+            } else {
                 timer.stop();
             }
         });
 
-        for (Node node : map.getChildren())
-        {
-            if (node instanceof Rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health))
-            {
-                barriers.add((Rectangle) node);
-            }
-        }
+        addBarriers();
         map.requestFocus();
         checkForCollections();
+    }
+
+    private void setupMovement()
+    {
+        scene.setOnKeyPressed(e -> setMovementKeys(e.getCode(), true));
+        scene.setOnKeyReleased(e -> setMovementKeys(e.getCode(), false));
+    }
+
+    private void setMovementKeys(KeyCode code, boolean pressed)
+    {
+        switch (code) {
+            case W -> wPressed.set(pressed);
+            case A -> aPressed.set(pressed);
+            case S -> sPressed.set(pressed);
+            case D -> dPressed.set(pressed);
+            case E -> ePressed.set(pressed);
+        }
+    }
+
+    private void checkForMissionStarterCollision() {
+        boolean intersects1 = shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent());
+        boolean intersects2 = shape1.getBoundsInParent().intersects(missionStarter2.getBoundsInParent());
+
+        if (intersects1 || intersects2) {
+            if (!onMissionStarter) {
+                onMissionStarter = true;
+                loadFXMLIntoPane(missionStartenPane, "missionStarten-view.fxml");
+            }
+        } else {
+            if (onMissionStarter) {
+                onMissionStarter = false;
+                missionStartenPane.getChildren().clear();
+            }
+        }
+    }
+
+    private void addBarriers()
+    {
+        for (Node node : map.getChildren()) {
+            if (node instanceof Rectangle rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health) && !node.equals(missionStarter1) && !node.equals(missionStarter2)) {
+                barriers.add(rectangle);
+            }
+        }
+    }
+
+    private void loadFXMLIntoPane(Pane pane, String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Pane newPane = loader.load();
+            pane.getChildren().setAll(newPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private double handleMovement(double x, double y, double move, double movementVariable)
+    {
+        if (!checkCollisionWithBarriers(x, y, shape1))
+        {
+            move += movementVariable;
+        }
+        return move;
+    }
+
+    private void updateShapePosition(double moveX, double moveY)
+    {
+        shape1.setLayoutX(shape1.getLayoutX() + moveX);
+        shape1.setLayoutY(shape1.getLayoutY() + moveY);
+    }
+
+    private void checkForResourceCollection()
+    {
+        if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
+            try
+            {
+                GameFile.getInstance().setHolzRessource(GameFile.getInstance().getHolzRessource() + 1);
+            } catch (Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        })) {
+            return;
+        }
+
+        if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, "Gesundheit", () -> healthCount++, () -> {
+            try {
+                GameFile.getInstance().setGesundheitRessource(GameFile.getInstance().getGesundheitRessource() + 1);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        })) {
+            return;
+        }
+
+        checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, "Gold", () -> goldCount++, () -> {
+            try {
+                GameFile.getInstance().setGoldRessource(GameFile.getInstance().getGoldRessource() + 1);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        //if (checkMissionStarterCollision(shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent()), missionStarter1)) {
+        //    return;
+        //}
+
+        //checkMissionStarterCollision(shape1.getBoundsInParent().intersects(missionStarter2.getBoundsInParent()), missionStarter2);
+    }
+    private boolean checkResourceCollection(boolean intersects, Rectangle resource, String resourceName, Runnable incrementCount, Runnable incrementResource) {
+        if (intersects && ePressed.get()) {
+            incrementResource(resourceName, incrementCount, incrementResource);
+            placeRandomlyWithinMap(resource);
+            ePressed.set(false);
+            return true;
+        }
+        return false;
+    }
+
+    private void incrementResource(String resourceName, Runnable incrementCount, Runnable incrementResource)
+    {
+        try {
+            incrementCount.run();
+            incrementResource.run();
+            gesammelteObjekte.setText(String.format("Holz: %d, Gesundheit: %d, Gold: %d", woodCount, healthCount, goldCount));
+            System.out.printf("Collected %s: %d%n", resourceName, woodCount + healthCount + goldCount);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void checkForCollections()
@@ -207,7 +261,6 @@ public class KartenController extends ControllerController implements Initializa
     private void placeRandomlyWithinMap(Rectangle object)
     {
         Random random = new Random();
-
         double paneWidth = map.getPrefWidth();
         double paneHeight = map.getPrefHeight();
 
@@ -215,160 +268,27 @@ public class KartenController extends ControllerController implements Initializa
         double randomY;
         boolean intersects;
 
-        do
-        {
-            intersects = false;
-
+        do {
             randomX = random.nextDouble() * (paneWidth - object.getWidth());
             randomY = random.nextDouble() * (paneHeight - object.getHeight());
-
-            for (Rectangle barrier : barriers)
-            {
-                if (barrier.getBoundsInParent().intersects(randomX, randomY, object.getWidth(), object.getHeight()))
-                {
-                    intersects = true;
-                    break;
-                }
-            }
+            double finalRandomY = randomY;
+            double finalRandomX = randomX;
+            intersects = barriers.stream().anyMatch(barrier -> barrier.getBoundsInParent().intersects(finalRandomX, finalRandomY, object.getWidth(), object.getHeight()));
         }
         while (intersects);
-        {
-            object.setLayoutX(randomX);
-            object.setLayoutY(randomY);
-        }
+
+        object.setLayoutX(randomX);
+        object.setLayoutY(randomY);
     }
 
-    public void movementSetup ()
+    private boolean checkCollisionWithBarriers(double x, double y, Rectangle movingRectangle)
     {
-        scene.setOnKeyPressed(e ->
-        {
-            if (e.getCode() == KeyCode.W)
-            {
-                wPressed.set(true);
-            }
-
-            if (e.getCode() == KeyCode.A)
-            {
-                aPressed.set(true);
-            }
-
-            if (e.getCode() == KeyCode.S)
-            {
-                sPressed.set(true);
-            }
-
-            if (e.getCode() == KeyCode.D)
-            {
-                dPressed.set(true);
-            }
-            if (e.getCode() == KeyCode.E)
-            {
-                ePressed.set(true);
-            }
-        });
-
-        scene.setOnKeyReleased(e ->
-        {
-            if (e.getCode() == KeyCode.W)
-            {
-                wPressed.set(false);
-            }
-
-            if (e.getCode() == KeyCode.A)
-            {
-                aPressed.set(false);
-            }
-
-            if (e.getCode() == KeyCode.S)
-            {
-                sPressed.set(false);
-            }
-
-            if (e.getCode() == KeyCode.D)
-            {
-                dPressed.set(false);
-            }
-            if (e.getCode() == KeyCode.E)
-            {
-                ePressed.set(false);
-            }
-        });
+        return barriers.stream().anyMatch(barrier -> barrier.getBoundsInParent().intersects(x, y, movingRectangle.getWidth(), movingRectangle.getHeight()));
     }
-
-
-
-    private boolean checkCollisionWithBarriers (double x, double y, Rectangle movingRectangle)
-    {
-        for (Rectangle barrier : barriers)
-        {
-            if (barrier.getBoundsInParent().intersects(x, y, movingRectangle.getWidth(), movingRectangle.getHeight()))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     @FXML
-    public void handlezurueck(){
+    public void handlezurueck()
+    {
         SceneManager.goBack();
     }
-
-    @FXML
-    private void openMenue ()
-    {
-       openGebaeude("menue-view.fxml");
-    }
-
-
-
-    @FXML
-    private void handleMouseEnter(MouseEvent event) {
-        Pane pane = (Pane) event.getSource();
-        pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
-                node.setVisible(true);
-            }
-        }
-    }
-
-    //Das macht noch Probleme
-    @FXML
-    private void handleMouseExit(MouseEvent event) {
-        Pane pane = (Pane) event.getSource();
-        pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
-                node.setVisible(false);
-            }
-        }
-    }
-
-    private void openGebaeude(String fxmlFile) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Pane pane = loader.load();
-
-            // GebäudeController Zugriff
-            PaneController controller = loader.getController();
-            controller.setKartenController(this);
-
-            menuePane.getChildren().setAll(pane);
-            menuePane.setVisible(true);
-            hintergrundPane.setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void closeGebaeude() {
-        menuePane.setVisible(false);
-        hintergrundPane.setVisible(false);
-        menuePane.getChildren().clear();
-    }
-
-
 }
