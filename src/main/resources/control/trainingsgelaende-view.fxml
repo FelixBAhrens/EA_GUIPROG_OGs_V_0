@@ -10,20 +10,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.TrainingsGelaendeController">
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.TrainingsGelaendeController">
     <children>
         <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
-        <Text layoutX="-40.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände" wrappingWidth="190.6348876953125">
+        <Text layoutX="18.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände" wrappingWidth="190.6348876953125">
             <font>
                 <Font size="26.0" />
             </font>
         </Text>
-      <HBox layoutX="178.0" layoutY="3.0" prefHeight="396.0" prefWidth="349.0">
+      <HBox layoutX="547.0" layoutY="83.0" prefHeight="396.0" prefWidth="318.0" scaleX="1.2" scaleY="1.2">
          <children>
             <VBox prefHeight="396.0" prefWidth="133.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="118.0" text="Gesundheit:" />
-                  <ProgressBar fx:id="gesundheitBar" prefHeight="20.0" prefWidth="125.0" progress="0.0">
+                  <ProgressBar fx:id="gesundheitBar" prefHeight="20.0" prefWidth="125.0" progress="0.41" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                                                                                          linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                                                                                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                                                                                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1); -fx-border-radius: 8; -fx-background-radius: 9;">
                      <VBox.margin>
                         <Insets bottom="2.0" />
                      </VBox.margin>
@@ -82,122 +82,149 @@
             </VBox>
             <VBox prefHeight="396.0" prefWidth="45.0">
                <children>
-                  <Label fx:id="gesundheit" prefHeight="20.0" text="Label">
+                  <Label fx:id="gesundheit" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="17.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="schild" layoutX="10.0" layoutY="27.0" onMouseClicked="#schildVerbessern" prefHeight="20.0" text="Label">
+                  <Label fx:id="schild" layoutX="10.0" layoutY="27.0" onMouseClicked="#schildVerbessern" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="manapunkte" layoutX="10.0" layoutY="71.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="manapunkte" layoutX="10.0" layoutY="71.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="nahkampfWert" layoutX="10.0" layoutY="115.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="nahkampfWert" layoutX="10.0" layoutY="115.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="fernkampfWert" layoutX="10.0" layoutY="159.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="fernkampfWert" layoutX="10.0" layoutY="159.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="fernkaempfeZahl" layoutX="10.0" layoutY="203.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="fernkaempfeZahl" layoutX="10.0" layoutY="203.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="zahlAusweichen" layoutX="10.0" layoutY="247.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="zahlAusweichen" layoutX="10.0" layoutY="247.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="magieResistenz" layoutX="10.0" layoutY="291.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="magieResistenz" layoutX="10.0" layoutY="291.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="bewegungsWeite" layoutX="10.0" layoutY="335.0" prefHeight="20.0" text="Label">
+                  <Label fx:id="bewegungsWeite" layoutX="10.0" layoutY="335.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="396.0" prefWidth="168.0">
+            <VBox prefHeight="409.0" prefWidth="139.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#gesundheitVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern (5x Gold)">
+                  <Button mnemonicParsing="false" onMouseClicked="#gesundheitVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern (5x Gold)">
                      <VBox.margin>
                         <Insets top="17.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                   </Button>
-                  <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#schildVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern (5x Gold)">
+                  <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#schildVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern (5x Gold)">
                      <font>
-                        <Font size="9.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#manapunkteVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
-                     <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#nahkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#manapunkteVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#fernkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#nahkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#fernkaempfeZahlVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#fernkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#zahlAusweichenVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#fernkaempfeZahlVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#magieResistenzVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#zahlAusweichenVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#bewegungsWeiteVerbessern" prefHeight="20.0" prefWidth="134.0" text="Verbessern ()">
+                  <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#magieResistenzVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
                      <font>
-                        <Font size="9.0" />
+                        <Font size="8.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#bewegungsWeiteVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
+                     <font>
+                        <Font size="8.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="24.0" />
