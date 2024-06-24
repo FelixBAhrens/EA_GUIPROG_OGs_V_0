@@ -12,6 +12,7 @@ public interface Strings {
     String FXML_HILFE = "hilfe-view.fxml";
     String FXML_KAMPF = "kampf-view.fxml";
     String FXML_KARTE = "karten-view.fxml";
+    String FXML_KARTENEW = "karteNew-view.fxml";
     String FXML_MAGIEVERSTAERKER = "magieverstaerker-view.fxml";
     String FXML_MARKT = "markt-view.fxml";
     String FXML_NEUESSPIEL = "neuesSpiel-view.fxml";
@@ -24,6 +25,10 @@ public interface Strings {
     String FXML_TRAININGSGELAENDE = "trainingsgelaende-view.fxml";
     String FXML_TUTORIAL = "tutorial-view.fxml";
     String FXML_SPIELLADEN = "spielladen-view.fxml";
+    String FXML_MISSION_SAMMELN = "mission-sammeln-view.fxml";
+    String FXML_MISSION_MEMORY = "mission-memory-view.fxml";
+    String FXML_MISSION_FLAPPYBIRD = "mission-flappybird-view.fxml";
+    String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
 
     String STRING_STORY = "story";
 
@@ -78,6 +83,7 @@ public interface Strings {
     String IMBESITZ = "Ist im Besitz";
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
     String STAERKE = "Stärke";
+    String TOLL = "Toll!";
 
     //MenueNamen
     String START_MENUE = "Startmenue";

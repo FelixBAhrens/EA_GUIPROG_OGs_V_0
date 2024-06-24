@@ -1,11 +1,15 @@
 package control;
 
 import javafx.fxml.FXML;
-
-import java.io.IOException;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import res.Strings;
 
 public class HauptquartierController extends PaneController
 {
+    @FXML
+    private Text detailText;
+
     @FXML
     public void initialize()
     {
@@ -13,13 +17,38 @@ public class HauptquartierController extends PaneController
     }
 
     @FXML
-    public void openKarte() {
-        SceneManager.changeScene("karteNew-view.fxml");
+    public void zeigeMissionsDetail (MouseEvent event) {
+        detailText.setText(event.getSource().toString());
     }
 
     @FXML
-    private void startFlappyBird ()
-    {
-        SceneManager.changeScene("mission-flappyBird-view.fxml");
+    public void verbergeMissionsDetails (MouseEvent event) {
+        detailText.setText("");
     }
+
+    @FXML
+    public void openKarte() {
+        SceneManager.changeScene(Strings.FXML_KARTENEW);
+    }
+
+    @FXML
+    public void ladeMissionFlappyBird  (MouseEvent event) {
+        SceneManager.changeScene(Strings.FXML_MISSION_FLAPPYBIRD);
+    }
+
+    @FXML
+    public void ladeMissionMemory (MouseEvent event) {
+        SceneManager.changeScene(Strings.FXML_MISSION_MEMORY);
+    }
+
+    @FXML
+    public void ladeMissionSammeln (MouseEvent event) {
+        SceneManager.changeScene(Strings.FXML_MISSION_SAMMELN);
+    }
+
+    @FXML
+    public void ladeMissionEndgegner  (MouseEvent event) {
+        SceneManager.changeScene(Strings.FXML_MISSION_ENDGEGNER);
+    }
+
 }
