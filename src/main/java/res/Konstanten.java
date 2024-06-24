@@ -23,6 +23,7 @@ public interface Konstanten {
     int INT_EIGHTEEN = 18;
     int INT_NINETEEN = 19;
     int INT_TWENTY = 20;
+    int INT_FOURTY = 40;
     int INT_FOURTY_FIVE = 45;
     int INT_FOUR_HUNDRED = 400;
     int INT_SIX_HUNDRED = 600;
