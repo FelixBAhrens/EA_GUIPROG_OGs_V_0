@@ -20,6 +20,7 @@
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="270.0" prefWidth="120.0">
                <children>
                   <Text layoutX="48.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flappy Bird" />
+                  <Button layoutX="33.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#startFlappyBird" text="Start" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="130.0" layoutY="10.0" prefHeight="270.0" prefWidth="120.0">

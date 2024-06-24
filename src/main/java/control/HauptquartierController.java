@@ -16,4 +16,10 @@ public class HauptquartierController extends PaneController
     public void openKarte() {
         SceneManager.changeScene("karteNew-view.fxml");
     }
+
+    @FXML
+    private void startFlappyBird ()
+    {
+        SceneManager.changeScene("mission-flappyBird-view.fxml");
+    }
 }
