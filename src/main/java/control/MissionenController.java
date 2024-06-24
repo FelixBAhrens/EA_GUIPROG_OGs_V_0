@@ -1,4 +1,11 @@
 package control;
 
-public class MissionenController {
+import javafx.fxml.FXML;
+
+public class MissionenController extends ControllerController {
+
+    @FXML
+    public void initialize (){
+
+    }
 }
