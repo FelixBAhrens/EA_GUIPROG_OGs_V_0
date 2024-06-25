@@ -7,12 +7,43 @@ import res.Strings;
 import utility.MyIO;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet
  * @author Felix
  */
-public class ControllerController {
+public class ControllerController
+{
+    private ScheduledExecutorService scheduler;
+
+    // @author David Kien
+    public ControllerController ()
+    {
+        scheduler = Executors.newScheduledThreadPool(Konstanten.INT_ONE);
+    }
+
+    // @author David Kien
+    public void startSaving ()
+    {
+        Runnable saveTask = this::speichereSpielstand;
+        scheduler.scheduleAtFixedRate(saveTask, Konstanten.INT_ZERO, Konstanten.INT_TWENTY, TimeUnit.SECONDS);
+    }
+
+    public void stopSaving ()
+    {
+        if (scheduler != null && !scheduler.isShutdown())
+        {
+            scheduler.shutdown();
+        }
+    }
+
+
+
+
+
     /**
      * Methode, die die Anfrage fuer Hilfe behandelt, indem ein Hilfe-Menue aufgerufen lassen wird.
      * @throws IOException
@@ -28,7 +59,8 @@ public class ControllerController {
      * @author Felix Ahrens
      */
     @FXML
-    public void handleZurueck(){
+    public void handleZurueck()
+    {
         try {
             SceneManager.goBack();
         } catch (RuntimeException e) {
@@ -42,6 +74,7 @@ public class ControllerController {
      */
     @FXML
     public void speichereSpielstand(){
+        System.out.println("UPDATED");
         GameFile.speichereSpielstand();
     }
 
@@ -53,4 +86,5 @@ public class ControllerController {
     public void beendeAnwendung () {
         System.exit(Konstanten.INT_ZERO);
     }
+
 }
