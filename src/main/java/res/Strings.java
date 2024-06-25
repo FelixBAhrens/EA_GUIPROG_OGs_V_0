@@ -41,6 +41,9 @@ public interface Strings {
     String MAGICIAN = "Magician";
     String SCOUT = "Scout";
 
+    //Kaempfer
+    String ENDGEGNER = "Endgegner";
+
     //Artefakte
     String STATUE = "Statue";
     String SCHWERT = "Schwert";
@@ -57,6 +60,7 @@ public interface Strings {
     String SPACE = " ";
 
     String SPIELDATEIPFAD = "src/main/resources/GameFiles/";
+    String DATEIPFAD_ENDGEGNER = "src/main/resources/assets/endgegner.png";
     String CSV_ENDUNG = ".csv";
     String SPIEL = "Spiel";
 
@@ -84,6 +88,10 @@ public interface Strings {
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
     String STAERKE = "Stärke";
     String TOLL = "Toll!";
+
+    //Kampfausgaben
+    String AMZUG_DU = "Du bist am Zug";
+    String AMZUG_GEGNER = "Dein Gegner ist am Zug";
 
     //MenueNamen
     String START_MENUE = "Startmenue";
