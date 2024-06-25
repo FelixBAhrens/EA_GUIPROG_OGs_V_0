@@ -13,6 +13,16 @@ import java.io.IOException;
  * @author Felix
  */
 public class ControllerController {
+    public void setzeGameFileInstanzLogisch() {
+        GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
+        if (gamefile != null) {
+            GameFile.setzeGameFile(gamefile);
+            SceneManager.changeScene(Strings.FXML_STADT);
+        } else {
+            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
+        }
+    }
+
     /**
      * Methode, die die Anfrage fuer Hilfe behandelt, indem ein Hilfe-Menue aufgerufen lassen wird.
      * @throws IOException

@@ -6,17 +6,22 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
+import res.Strings;
 
-import javax.swing.text.Position;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 // ControllerController
 public class KampfController extends ControllerController implements Initializable
 {
-    private Kaempfer[][] kampfSpielArray = new Kaempfer[Konstanten.INT_TWELVE][Konstanten.INT_TWELVE];
+    public static boolean endGegnerKampf;
+    private int gegnerleben = Konstanten.INT_TEN;
+    private Kaempfer spieler;
+    private Kaempfer gegner;
 
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
@@ -25,33 +30,37 @@ public class KampfController extends ControllerController implements Initializab
 
     @FXML
     private GridPane gridPane;
-    private Rectangle character;
+    @FXML
+    private Rectangle spielerRec;
+    @FXML
+    private Rectangle gegnerRec;
+    @FXML
+    private static Text amZugText;
 
-    static class PositionenUpdater implements Runnable {
 
-        @Override
-        public void run() {
+    public void initialisiereKampf (Kaempfer spieler, Kaempfer gegner) {
+        this.spieler = spieler;
+        this.gegner = gegner;
+        createMap();
+        initializeCharacter();
+        updateCharacterPosition();
 
-        }
     }
 
-    static class KampfAktionenHandler implements Runnable {
+    public void beendeKampf () {
 
-        @Override
-        public void run() {
-
-        }
     }
-
-
 
 
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
+        spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());
+        gegner = Kaempfer.erstelleEndgegner();
         createMap();
         initializeCharacter();
-        initialisiereKampfArray();
+        initialisiereGegner();
+        initialisiereKampf(spieler, gegner);
 
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
@@ -60,6 +69,27 @@ public class KampfController extends ControllerController implements Initializab
                 newScene.setOnKeyPressed(this::handleKeyPress);
             }
         }));
+    }
+
+    private void eigenZug (){
+        zeigeEigenZug();
+
+        gegnerZug();
+    }
+
+    private void gegnerZug () {
+        zeigeGegnerZug();
+
+        eigenZug();
+    }
+
+    public static void zeigeEigenZug () {
+        amZugText.setText(Strings.AMZUG_DU);
+
+    }
+
+    public static void zeigeGegnerZug () {
+        amZugText.setText(Strings.AMZUG_DU);
     }
 
     /**
@@ -86,13 +116,15 @@ public class KampfController extends ControllerController implements Initializab
      */
     private void initializeCharacter ()
     {
-        character = new Rectangle(TILE_SIZE, TILE_SIZE);
-        character.setFill(Color.RED);
-        gridPane.add(character, characterX, characterY);
+        spielerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
+        spielerRec.setFill(Color.BLUE);
+        gridPane.add(spielerRec, characterX, characterY);
     }
 
-    private void initialisiereKampfArray () {
-
+    private void initialisiereGegner () {
+        gegnerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
+        gegnerRec.setFill(Color.RED);
+        gridPane.add(gegnerRec, gegner.getxPosition(), gegner.getyPosition());
     }
 
     /**
@@ -105,46 +137,48 @@ public class KampfController extends ControllerController implements Initializab
         switch (keyEvent.getCode())
         {
             case W:
-                if (characterY > Konstanten.INT_ZERO) characterY--;
+                if (spieler.getyPosition() > Konstanten.INT_ZERO) spieler.setyPosition(spieler.getyPosition() - Konstanten.INT_ONE);
                 break;
             case A:
-                if (characterX > Konstanten.INT_ZERO) characterX--;
+                if (spieler.getxPosition() > Konstanten.INT_ZERO) spieler.setxPosition(spieler.getxPosition() - Konstanten.INT_ONE);
                 break;
             case S:
-                if (characterY < GRID_SIZE - Konstanten.INT_ONE) characterY++;
+                if (spieler.getyPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setyPosition(spieler.getyPosition() + Konstanten.INT_ONE);
                 break;
             case D:
-                if (characterX < GRID_SIZE - Konstanten.INT_ONE) characterX++;
+                if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 break;
+            case ENTER:
+                fuehreFernkampfAus();
+                System.out.println(gegnerleben);
         }
         updateCharacterPosition();
     }
 
     /**
-     * Methode zum aktualisieren der Position des Charakters
+     * Methode zum Aktualisieren der Position des Charakters
      * @author David Kien
      */
     private void updateCharacterPosition ()
     {
-        GridPane.setRowIndex(character, characterY);
-        GridPane.setColumnIndex(character, characterX);
+        GridPane.setColumnIndex(spielerRec, spieler.getxPosition());
+        GridPane.setRowIndex(spielerRec, spieler.getyPosition());
+        GridPane.setColumnIndex(gegnerRec, gegner.getxPosition());
+        GridPane.setRowIndex(gegnerRec, gegner.getyPosition());
     }
 
     /**
      * Methode zum Wirken von Magie
-     * @param character
-     * @param xPos
-     * @param yPos
+     * @param kaempfer
      */
-    private void wirkeMagie (Character character, Position xPos, Position yPos) {
+    private void wirkeMagie (Kaempfer kaempfer) {
 
     }
 
-    /**
-     * Methode, die einen Angriff ausfuehrt und den Effekt berechnet und Anwendet
-     */
-    private void fuehreAngriffAus (Character character, Position xPos, Position yPos) {
-
+    public void fuehreFernkampfAus () {
+        if (spieler.getyPosition() == gegner.getyPosition()) {
+            gegnerleben++;
+        }
     }
 
     /**
