@@ -1,6 +1,5 @@
 package control;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
@@ -9,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import res.Konstanten;
 
+import javax.swing.text.Position;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class KampfController extends ControllerController implements Initializable
 {
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
-    private static final int TILE_SIZE = 45;
+    private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
     private int characterX = Konstanten.INT_ZERO;
     private int characterY = Konstanten.INT_ZERO;
 
@@ -39,6 +39,10 @@ public class KampfController extends ControllerController implements Initializab
         }));
     }
 
+    /**
+     * CreateMap-Methode
+     * @author David Kien
+     */
     private void createMap ()
     {
         for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++)
@@ -53,6 +57,10 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
+    /**
+     * initialize Charakter - Methode
+     * @author David Kien
+     */
     private void initializeCharacter ()
     {
         character = new Rectangle(TILE_SIZE, TILE_SIZE);
@@ -60,6 +68,11 @@ public class KampfController extends ControllerController implements Initializab
         gridPane.add(character, characterX, characterY);
     }
 
+    /**
+     * Handler fuer ein KeyEvent
+     * @param keyEvent
+     * @author David Kien
+     */
     private void handleKeyPress (KeyEvent keyEvent)
     {
         switch (keyEvent.getCode())
@@ -80,10 +93,31 @@ public class KampfController extends ControllerController implements Initializab
         updateCharacterPosition();
     }
 
+    /**
+     * Methode zum aktualisieren der Position des Charakters
+     * @author David Kien
+     */
     private void updateCharacterPosition ()
     {
         GridPane.setRowIndex(character, characterY);
         GridPane.setColumnIndex(character, characterX);
+    }
+
+    /**
+     * Methode zum Wirken von Magie
+     * @param character
+     * @param xPos
+     * @param yPos
+     */
+    private void wirkeMagie (Character character, Position xPos, Position yPos) {
+
+    }
+
+    /**
+     * Methode, die einen Angriff ausfuehrt und den Effekt berechnet und Anwendet
+     */
+    private void fuehreAngriffAus (Character character, Position xPos, Position yPos) {
+
     }
 
     /**
