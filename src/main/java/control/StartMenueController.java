@@ -25,8 +25,13 @@ public class StartMenueController extends ControllerController implements Initia
      */
     @FXML
     private void handleFortfahren () {
-        GameFile.setzeGameFile(GameFile.gebeLetztesSpielZurueck());
-        SceneManager.changeScene(Strings.FXML_STADT);
+        GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
+        if (gamefile != null) {
+            GameFile.setzeGameFile(gamefile);
+            SceneManager.changeScene(Strings.FXML_STADT);
+        } else {
+            handleNeuesSpiel();
+        }
     }
 
     @FXML
