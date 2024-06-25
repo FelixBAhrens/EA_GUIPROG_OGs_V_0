@@ -1,6 +1,8 @@
 package control;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -13,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import model.GameFile;
 import res.Konstanten;
 
@@ -48,6 +51,8 @@ public class KartenController extends ControllerController implements Initializa
     private Pane hintergrundPane;
     @FXML
     private TextField gesammelteObjekte;
+    @FXML
+    private TextField missionTimer;
 
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
@@ -64,16 +69,24 @@ public class KartenController extends ControllerController implements Initializa
 
     private List<Rectangle> barriers = new ArrayList<>();
 
-    private int woodCount = Konstanten.INT_ZERO;
-    private int healthCount = Konstanten.INT_ZERO;
-    private int goldCount = Konstanten.INT_ZERO;
+    private int woodCount = GameFile.getInstance().getHolzRessource();
+    private int healthCount = GameFile.getInstance().getGesundheitRessource();
+    private int goldCount = GameFile.getInstance().getGoldRessource();
     private int movementVariable = Konstanten.INT_TWO;
+    private int timeRemaining = 90;
 
     private PaneController paneController = new PaneController();
+    private HauptquartierController hauptquartierController;
+    private boolean missionStatus;
 
     //--------------------------------------------------------------------------
 
 
+    public KartenController ()
+    {
+        this.hauptquartierController = HauptquartierController.getInstance();
+        this.missionStatus = hauptquartierController.istKarteFuerMission();
+    }
 
     private final AnimationTimer timer = new AnimationTimer() {
         @Override
@@ -108,6 +121,19 @@ public class KartenController extends ControllerController implements Initializa
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        System.out.println(missionStatus);
+        if (missionStatus)
+        {
+            healthCount = Konstanten.INT_ZERO;
+
+            missionTimer.setVisible(true);
+            startCountdown();
+            gesammelteObjekte.setText("Gesundheit: " + healthCount);
+        }
+        else
+        {
+            gesammelteObjekte.setText("Holz: " + GameFile.getInstance().getHolzRessource() + ", Gesundheit: " + GameFile.getInstance().getGesundheitRessource() + ", Gold: " + GameFile.getInstance().getGoldRessource());
+        }
         setupMovement();
 
         keyPressed.addListener((observableValue, oldValue, newValue) -> {
@@ -121,6 +147,30 @@ public class KartenController extends ControllerController implements Initializa
         addBarriers();
         map.requestFocus();
         checkForCollections();
+
+        startSaving();
+    }
+
+    private void startCountdown ()
+    {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(Konstanten.INT_ONE), event ->
+        {
+            timeRemaining--;
+            missionTimer.setText(formatTime(timeRemaining));
+            if (timeRemaining <= 0)
+            {
+                ((Timeline) event.getSource()).stop();
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    private String formatTime (int seconds)
+    {
+        int minutes = seconds / 60;
+        int secs = seconds % 60;
+        return String.format("%02d:%02d", minutes, secs);
     }
 
     private void setupMovement()
@@ -205,7 +255,8 @@ public class KartenController extends ControllerController implements Initializa
             return;
         }
 
-        if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, "Gesundheit", () -> healthCount++, () -> {
+        if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, "Gesundheit", () -> healthCount++, () ->
+        {
             try {
                 GameFile.getInstance().setGesundheitRessource(GameFile.getInstance().getGesundheitRessource() + 1);
             } catch (Exception e) {
@@ -215,7 +266,8 @@ public class KartenController extends ControllerController implements Initializa
             return;
         }
 
-        checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, "Gold", () -> goldCount++, () -> {
+        checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, "Gold", () -> goldCount++, () ->
+        {
             try {
                 GameFile.getInstance().setGoldRessource(GameFile.getInstance().getGoldRessource() + 1);
             } catch (Exception e) {
@@ -223,11 +275,6 @@ public class KartenController extends ControllerController implements Initializa
             }
         });
 
-        //if (checkMissionStarterCollision(shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent()), missionStarter1)) {
-        //    return;
-        //}
-
-        //checkMissionStarterCollision(shape1.getBoundsInParent().intersects(missionStarter2.getBoundsInParent()), missionStarter2);
     }
     private boolean checkResourceCollection(boolean intersects, Rectangle resource, String resourceName, Runnable incrementCount, Runnable incrementResource) {
         if (intersects && ePressed.get()) {
@@ -244,8 +291,14 @@ public class KartenController extends ControllerController implements Initializa
         try {
             incrementCount.run();
             incrementResource.run();
-            gesammelteObjekte.setText(String.format("Holz: %d, Gesundheit: %d, Gold: %d", woodCount, healthCount, goldCount));
-            System.out.printf("Collected %s: %d%n", resourceName, woodCount + healthCount + goldCount);
+            if (missionStatus == true)
+            {
+                gesammelteObjekte.setText(String.format("Gesundheit: %d", healthCount));
+            }
+            else
+            {
+                gesammelteObjekte.setText(String.format("Holz: %d, Gesundheit: %d, Gold: %d", woodCount, healthCount, goldCount));
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -289,6 +342,7 @@ public class KartenController extends ControllerController implements Initializa
     @FXML
     public void handlezurueck()
     {
+        stopSaving();
         SceneManager.goBack();
     }
 }
