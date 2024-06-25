@@ -6,6 +6,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import model.Kaempfer;
 import res.Konstanten;
 
 import javax.swing.text.Position;
@@ -15,6 +16,8 @@ import java.util.ResourceBundle;
 // ControllerController
 public class KampfController extends ControllerController implements Initializable
 {
+    private Kaempfer[][] kampfSpielArray = new Kaempfer[Konstanten.INT_TWELVE][Konstanten.INT_TWELVE];
+
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
     private int characterX = Konstanten.INT_ZERO;
@@ -24,11 +27,31 @@ public class KampfController extends ControllerController implements Initializab
     private GridPane gridPane;
     private Rectangle character;
 
+    static class PositionenUpdater implements Runnable {
+
+        @Override
+        public void run() {
+
+        }
+    }
+
+    static class KampfAktionenHandler implements Runnable {
+
+        @Override
+        public void run() {
+
+        }
+    }
+
+
+
+
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
         createMap();
         initializeCharacter();
+        initialisiereKampfArray();
 
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
@@ -66,6 +89,10 @@ public class KampfController extends ControllerController implements Initializab
         character = new Rectangle(TILE_SIZE, TILE_SIZE);
         character.setFill(Color.RED);
         gridPane.add(character, characterX, characterY);
+    }
+
+    private void initialisiereKampfArray () {
+
     }
 
     /**
