@@ -2,7 +2,6 @@ package model;
 
 import control.ArtefaktController;
 import control.CharakterController;
-import control.SceneManager;
 import res.Konstanten;
 import res.Strings;
 import utility.MyIO;
@@ -386,7 +385,6 @@ public class GameFile {
             return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(filtereAlleCSVFiles(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
         }
         catch (Exception e){
-            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
             return null;
         }
 
