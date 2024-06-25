@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import res.Konstanten;
 import res.Strings;
 
 public class HauptquartierController extends PaneController
@@ -51,23 +50,40 @@ public class HauptquartierController extends PaneController
 
     public boolean istKarteFuerMission ()
     {
+        System.out.println(karteFuerMission + "HHHH");
         return karteFuerMission;
     }
+
+
+
 
     @FXML
     public void initialize()
     {
+
+    }
+
+    @FXML
+    public void missionStartenPaneInitialisieren (MouseEvent event)
+    {
+        detailText.setText(event.getSource().toString());
+
+    }
+
+    @FXML
+    public void verbergeMissionsDetails (MouseEvent event) {
+        detailText.setText("");
     }
 
     @FXML
     private void flappyBirdGewaehlt ()
     {
-        detailText.setText(Strings.FLAPPY_BIRD);
+        detailText.setText("Flappy Bird!");
 
         DropShadow glow = new DropShadow();
         glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
+        glow.setRadius(20);
+        glow.setSpread(0.6);
 
         missionStarten.setEffect(glow);
 
@@ -78,12 +94,12 @@ public class HauptquartierController extends PaneController
     private void sammelnGewaehlt ()
     {
         karteFuerMission = true;
-        detailText.setText(Strings.SAMMELN);
+        detailText.setText("Sammeln!");
 
         DropShadow glow = new DropShadow();
         glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
+        glow.setRadius(20);
+        glow.setSpread(0.6);
 
         missionStarten.setEffect(glow);
 
@@ -93,12 +109,12 @@ public class HauptquartierController extends PaneController
     @FXML
     private void memoryGewaehlt ()
     {
-        detailText.setText(Strings.MEMORY);
+        detailText.setText("Memory!");
 
         DropShadow glow = new DropShadow();
         glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
+        glow.setRadius(20);
+        glow.setSpread(0.6);
 
         missionStarten.setEffect(glow);
 
@@ -108,12 +124,12 @@ public class HauptquartierController extends PaneController
     @FXML
     private void endgegnerGewaehlt ()
     {
-        detailText.setText(Strings.ENDGEGNER);
+        detailText.setText("Endgegner!");
 
         DropShadow glow = new DropShadow();
         glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
+        glow.setRadius(20);
+        glow.setSpread(0.6);
 
         missionStarten.setEffect(glow);
 
@@ -121,8 +137,7 @@ public class HauptquartierController extends PaneController
     }
 
     @FXML
-    public void openKarte()
-    {
+    public void openKarte() {
         SceneManager.changeScene(Strings.FXML_KARTENEW);
     }
 
