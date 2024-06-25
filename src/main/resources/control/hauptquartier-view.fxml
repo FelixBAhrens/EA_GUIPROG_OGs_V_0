@@ -16,33 +16,36 @@
       </ImageView>
         <Button layoutX="571.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
         <Button fx:id="kartenButton" layoutX="452.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#openKarte" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Karte" />
-      <HBox layoutX="49.0" layoutY="82.0" prefHeight="350.0" prefWidth="900.0" spacing="10">
+      <HBox layoutX="66.0" layoutY="82.0" prefHeight="350.0" prefWidth="842.0" spacing="10">
          <children>
             <AnchorPane fx:id="missionDetailPane" prefHeight="350.0" prefWidth="200.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
-                  <Button layoutX="33.0" layoutY="188.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="missionStarten" layoutX="45.0" layoutY="236.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" text="Mission starten" />
                   <Text fx:id="detailText" layoutX="48.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="flappyBirdPane" onMouseEntered="#zeigeMissionsDetail" onMouseExited="#verbergeMissionsDetails" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+            <AnchorPane fx:id="flappyBirdPane" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="48.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flappy Bird" />
-                  <Button layoutX="33.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#startFlappyBird" text="Start" />
+                  <Button fx:id="flappyBirdWaehlen" layoutX="51.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#flappyBirdGewaehlt" text="Auswählen" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="sammelPane" onMouseEntered="#zeigeMissionsDetail" onMouseExited="#verbergeMissionsDetails" layoutX="130.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+            <AnchorPane fx:id="sammelPane" layoutX="130.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="8.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammeln nach Zeit" />
+                  <Button fx:id="sammelnWaehlen" layoutX="33.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#sammelnGewaehlt" text="Auswählen" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="memoryPane" onMouseClicked="#ladeMissionMemory" onMouseEntered="#zeigeMissionsDetail" onMouseExited="#verbergeMissionsDetails" layoutX="250.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+            <AnchorPane fx:id="memoryPane" layoutX="250.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="48.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory" />
+                  <Button fx:id="memoryWaehlen" layoutX="48.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#memoryGewaehlt" text="Auswählen" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="endgegnerPane" onMouseEntered="#zeigeMissionsDetail" onMouseExited="#verbergeMissionsDetails" layoutX="370.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+            <AnchorPane fx:id="endgegnerPane" layoutX="370.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="4.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endgegner besiegen" />
+                  <Button fx:id="endgegnerWaehlen" layoutX="48.0" layoutY="213.0" mnemonicParsing="false" onMouseClicked="#endgegnerGewaehlt" text="Auswählen" />
                </children>
             </AnchorPane>
          </children>
