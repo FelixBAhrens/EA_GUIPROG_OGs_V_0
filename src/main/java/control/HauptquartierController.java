@@ -12,6 +12,7 @@ import res.Strings;
 
 public class HauptquartierController extends PaneController
 {
+    private static HauptquartierController instance;
     @FXML
     private Text detailText;
 
@@ -34,6 +35,26 @@ public class HauptquartierController extends PaneController
     private AnchorPane memoryPane;
     @FXML
     private AnchorPane endgegnerPane;
+    private boolean karteFuerMission = false;
+
+    public HauptquartierController ()
+    {
+        instance = this;
+    }
+
+    public static HauptquartierController getInstance()
+    {
+        return instance;
+    }
+
+
+    public boolean istKarteFuerMission ()
+    {
+        System.out.println(karteFuerMission + "HHHH");
+        return karteFuerMission;
+    }
+
+
 
 
     @FXML
@@ -72,6 +93,7 @@ public class HauptquartierController extends PaneController
     @FXML
     private void sammelnGewaehlt ()
     {
+        karteFuerMission = true;
         detailText.setText("Sammeln!");
 
         DropShadow glow = new DropShadow();
@@ -81,7 +103,7 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setEffect(glow);
 
-        missionStarten.setOnMouseClicked(e -> SceneManager.changeScene(Strings.FXML_MISSION_SAMMELN));
+        missionStarten.setOnMouseClicked(e -> SceneManager.changeScene(Strings.FXML_KARTENEW));
     }
 
     @FXML
@@ -117,26 +139,6 @@ public class HauptquartierController extends PaneController
     @FXML
     public void openKarte() {
         SceneManager.changeScene(Strings.FXML_KARTENEW);
-    }
-
-    @FXML
-    public void ladeMissionFlappyBird  (MouseEvent event) {
-        SceneManager.changeScene(Strings.FXML_MISSION_FLAPPYBIRD);
-    }
-
-    @FXML
-    public void ladeMissionMemory (MouseEvent event) {
-        SceneManager.changeScene(Strings.FXML_MISSION_MEMORY);
-    }
-
-    @FXML
-    public void ladeMissionSammeln (MouseEvent event) {
-        SceneManager.changeScene(Strings.FXML_MISSION_SAMMELN);
-    }
-
-    @FXML
-    public void ladeMissionEndgegner  (MouseEvent event) {
-        SceneManager.changeScene(Strings.FXML_MISSION_ENDGEGNER);
     }
 
 }

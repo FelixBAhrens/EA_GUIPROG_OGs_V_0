@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="562.5" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.HauptquartierController">
@@ -26,26 +27,42 @@
             </AnchorPane>
             <AnchorPane fx:id="flappyBirdPane" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
-                  <Text layoutX="48.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flappy Bird" />
-                  <Button fx:id="flappyBirdWaehlen" layoutX="51.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#flappyBirdGewaehlt" text="Auswählen" />
+                  <Text layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rette alle">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Text>
+                  <Button fx:id="flappyBirdWaehlen" layoutX="36.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#flappyBirdGewaehlt" prefHeight="35.0" text="Auswählen" />
+                  <Text layoutX="5.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Im abgestürzten Flugzeug befindet sich ein verschlüsseltes Funkgerät. Entschlüssele es um Hilfe zu holen und alle zu retten!" textAlignment="CENTER" wrappingWidth="138.5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="sammelPane" layoutX="130.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
-                  <Text layoutX="8.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sammeln nach Zeit" />
-                  <Button fx:id="sammelnWaehlen" layoutX="33.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#sammelnGewaehlt" text="Auswählen" />
+                  <Text layoutX="24.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Es geht um Zeit">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Text>
+                  <Button fx:id="sammelnWaehlen" layoutX="36.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#sammelnGewaehlt" prefHeight="35.0" text="Auswählen" />
+                  <Text layoutX="9.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Ein Inselbewohner ist schwer verletzt und benötigt dringend 20 Gesundheitspakete. Aber Achtung nach 90 Sekunden ist es bereits zu spät!" textAlignment="CENTER" wrappingWidth="131.5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="memoryPane" layoutX="250.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="48.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory" />
-                  <Button fx:id="memoryWaehlen" layoutX="48.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#memoryGewaehlt" text="Auswählen" />
+                  <Button fx:id="memoryWaehlen" layoutX="36.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#memoryGewaehlt" prefHeight="35.0" text="Auswählen" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="endgegnerPane" layoutX="370.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                <children>
                   <Text layoutX="4.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endgegner besiegen" />
-                  <Button fx:id="endgegnerWaehlen" layoutX="48.0" layoutY="213.0" mnemonicParsing="false" onMouseClicked="#endgegnerGewaehlt" text="Auswählen" />
+                  <Button fx:id="endgegnerWaehlen" layoutX="36.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#endgegnerGewaehlt" prefHeight="35.0" text="Auswählen" />
                </children>
             </AnchorPane>
          </children>
