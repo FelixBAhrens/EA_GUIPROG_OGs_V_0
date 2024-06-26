@@ -11,7 +11,8 @@ public class Kaempfer extends Charakter {
     private boolean istAmZug;
     private String imageURL;
 
-    public int getxPosition() {
+    public int getxPosition()
+    {
         return xPosition;
     }
 

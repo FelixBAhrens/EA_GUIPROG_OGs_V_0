@@ -121,7 +121,12 @@ public class KampfController extends ControllerController implements Initializab
         gridPane.add(spielerRec, characterX, characterY);
     }
 
-    private void initialisiereGegner () {
+    /**
+     * InitialisiereGegner methode
+     * @author Felix Ahrens
+     */
+    private void initialisiereGegner ()
+    {
         gegnerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
         gegnerRec.setFill(Color.RED);
         gridPane.add(gegnerRec, gegner.getxPosition(), gegner.getyPosition());

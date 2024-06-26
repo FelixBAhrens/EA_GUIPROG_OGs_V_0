@@ -49,7 +49,7 @@ public interface Strings {
     String SCOUT = "Scout";
 
     //Kaempfer
-    String ENDGEGNER = "Endgegner";
+
 
     //Artefakte
     String STATUE = "Statue";
