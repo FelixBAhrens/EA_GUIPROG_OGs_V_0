@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import res.Konstanten;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -17,16 +18,19 @@ public class SceneManager {
         this.primaryStage = primaryStage;
     }
 
-    public static Scene getVorherigeSzene () {
-        if (sceneStack.size() > 1) {
-            return sceneStack.get(sceneStack.size() - 2);
+    public static Scene getVorherigeSzene ()
+    {
+        if (sceneStack.size() > Konstanten.INT_ONE)
+        {
+            return sceneStack.get(sceneStack.size() - Konstanten.INT_TWO);
         }
         return null;
     }
 
     public static void changeScene (String fxmlFile)
     {
-        try {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -36,7 +40,9 @@ public class SceneManager {
             primaryStage.show();
 
             root.requestFocus();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }

@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import model.Bird;
+import res.Konstanten;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,9 +30,9 @@ public class MissionFlappyBirdController implements Initializable
     @FXML
     private Text score;
 
-    private double accelerationTime = 0;
-    private int gameTime = 0;
-    private int scoreCounter = 0;
+    private double accelerationTime = Konstanten.INT_ZERO;
+    private int gameTime = Konstanten.INT_ZERO;
+    private int scoreCounter = Konstanten.INT_ZERO;
 
     private Bird birdComponent;
     private ObstaclesHandler obstaclesHandler;
@@ -40,17 +41,19 @@ public class MissionFlappyBirdController implements Initializable
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        int jumpHeight = 75;
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        int jumpHeight = Konstanten.INT_FOURTYFIVE;
         birdComponent = new Bird(bird, jumpHeight);
-        double planeHeight = 600;
-        double planeWidth = 400;
+        double planeHeight = Konstanten.INT_SIX_HUNDRED;
+        double planeWidth = Konstanten.INT_FOUR_HUNDRED;
         obstaclesHandler = new ObstaclesHandler(plane, planeHeight, planeWidth);
 
-        gameLoop = new AnimationTimer() {
+        gameLoop = new AnimationTimer()
+        {
             @Override
-            public void handle(long l) {
+            public void handle(long l)
+            {
                 update();
             }
         };
@@ -61,57 +64,69 @@ public class MissionFlappyBirdController implements Initializable
     }
 
     @FXML
-    void pressed(KeyEvent event) {
-        if(event.getCode() == KeyCode.SPACE){
+    void pressed(KeyEvent event)
+    {
+        if(event.getCode() == KeyCode.SPACE)
+        {
             birdComponent.fly();
-            accelerationTime = 0;
+            accelerationTime = Konstanten.INT_ZERO;
         }
     }
 
 
     //Called every game frame
-    private void update() {
+    private void update()
+    {
         gameTime++;
         accelerationTime++;
-        double yDelta = 0.02;
+        double yDelta = Konstanten.ZERO_POINT_ZERO_TWO;
         birdComponent.moveBirdY(yDelta * accelerationTime);
 
-        if(pointChecker(obstacles, bird)){
+        if(pointChecker(obstacles, bird))
+        {
             scoreCounter++;
             score.setText(String.valueOf(scoreCounter));
         }
 
         obstaclesHandler.moveObstacles(obstacles);
-        if(gameTime % 500 == 0){
+
+        if(gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO)
+        {
             obstacles.addAll(obstaclesHandler.createObstacles());
         }
 
-        if(birdComponent.isBirdDead(obstacles, plane)){
+        if(birdComponent.isBirdDead(obstacles, plane))
+        {
             resetGame();
         }
     }
 
     //Everything called once, at the game start
-    private void load(){
+    private void load()
+    {
         obstacles.addAll(obstaclesHandler.createObstacles());
     }
 
-    private void resetGame(){
-        bird.setY(0);
+    private void resetGame()
+    {
+        bird.setY(Konstanten.INT_ZERO);
         plane.getChildren().removeAll(obstacles);
         obstacles.clear();
-        gameTime = 0;
-        accelerationTime = 0;
-        scoreCounter = 0;
+        gameTime = Konstanten.INT_ZERO;
+        accelerationTime = Konstanten.INT_ZERO;
+        scoreCounter = Konstanten.INT_ZERO;
         score.setText(String.valueOf(scoreCounter));
     }
 
 
 
-    private boolean pointChecker(ArrayList<Rectangle> obstacles, Rectangle bird){
-        for (Rectangle obstacle: obstacles) {
+    private boolean pointChecker(ArrayList<Rectangle> obstacles, Rectangle bird)
+    {
+        for (Rectangle obstacle: obstacles)
+        {
             int birdPositionX = (int) (bird.getLayoutX() + bird.getX());
-            if(((int)(obstacle.getLayoutX() + obstacle.getX()) == birdPositionX)){
+            if(((int)(obstacle.getLayoutX() + obstacle.getX()) == birdPositionX))
+            {
                 return true;
             }
         }

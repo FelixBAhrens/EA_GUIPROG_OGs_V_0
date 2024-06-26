@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
+import res.Strings;
 
 import java.security.KeyPair;
 
@@ -101,7 +102,7 @@ public class TrainingsGelaendeController extends PaneController {
             throw new RuntimeException(e);
         }
 
-        gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
 
         try
         {
@@ -157,7 +158,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 schildPoints++;
                 GameFile.getInstance().getLeader().setGesundheit(gesundheitPoints);
                 gesundheit.setText(String.valueOf(gesundheitPoints));
@@ -178,9 +179,9 @@ public class TrainingsGelaendeController extends PaneController {
         {
             if (!(schildPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
             {
-                gesammeltesGold -= 5;
+                gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setHolzRessource(gesammeltesHolz);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 schildPoints++;
                 GameFile.getInstance().getLeader().setGesundheit(schildPoints);
                 schild.setText(String.valueOf(schildPoints));
@@ -203,7 +204,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 manapunktePoints++;
                 GameFile.getInstance().getLeader().setManapunkte(manapunktePoints);
                 manapunkte.setText(String.valueOf(manapunktePoints));
@@ -227,7 +228,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 nahkampfWertPoints++;
                 GameFile.getInstance().getLeader().setNahkampfWert(nahkampfWertPoints);
                 nahkampfWert.setText(String.valueOf(nahkampfWertPoints));
@@ -251,7 +252,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 fernkampfWertPoints++;
                 GameFile.getInstance().getLeader().setFernkampfWert(fernkampfWertPoints);
                 fernkampfWert.setText(String.valueOf(fernkampfWertPoints));
@@ -275,7 +276,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 fernkaempfeZahlPoints++;
                 GameFile.getInstance().getLeader().setFernkaempfeZahl(fernkaempfeZahlPoints);
                 fernkaempfeZahl.setText(String.valueOf(fernkaempfeZahlPoints));
@@ -299,7 +300,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 zahlAusweichenPoints++;
                 GameFile.getInstance().getLeader().setZahlAusweichen(zahlAusweichenPoints);
                 zahlAusweichen.setText(String.valueOf(zahlAusweichenPoints));
@@ -323,7 +324,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 magieResistenzPoints++;
                 GameFile.getInstance().getLeader().setMagieResistenz(magieResistenzPoints);
                 magieResistenz.setText(String.valueOf(magieResistenzPoints));
@@ -347,7 +348,7 @@ public class TrainingsGelaendeController extends PaneController {
             {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText("Holz: " + gesammeltesHolz + ", Nahrung: " + gesammelteNahrung + ", Gold: " + gesammeltesGold);
+                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 bewegungsWeitePoints++;
                 GameFile.getInstance().getLeader().setBewegungsWeite(bewegungsWeitePoints);
                 bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));

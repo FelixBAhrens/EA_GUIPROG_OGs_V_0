@@ -65,7 +65,8 @@ public class ControllerController
      * @author Felix Ahrens
      */
     @FXML
-    public void handleZurueck(){
+    public void handleZurueck()
+    {
         try {
             SceneManager.goBack();
         } catch (RuntimeException e) {
@@ -79,6 +80,7 @@ public class ControllerController
      */
     @FXML
     public void speichereSpielstand(){
+        System.out.println("UPDATED");
         GameFile.speichereSpielstand();
     }
 
@@ -90,4 +92,5 @@ public class ControllerController
     public void beendeAnwendung () {
         System.exit(Konstanten.INT_ZERO);
     }
+
 }
