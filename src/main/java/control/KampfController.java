@@ -18,8 +18,19 @@ import java.util.ResourceBundle;
 // ControllerController
 public class KampfController extends ControllerController implements Initializable
 {
+    public enum KampfTyp {
+        ENDGEGNER_KAMPF(Strings.ENDGEGNER),
+        ANDERER_KAMPF(Strings.ANDERER);
+        private final String beschreibung;
+
+        KampfTyp(String beschreibung) {
+            this.beschreibung = beschreibung;
+        }
+    }
+
+    public static KampfTyp kampfTyp;
     public static boolean endGegnerKampf;
-    private int gegnerleben = Konstanten.INT_TEN;
+    private int gegnerleben;
     private Kaempfer spieler;
     private Kaempfer gegner;
 
@@ -38,12 +49,28 @@ public class KampfController extends ControllerController implements Initializab
     private static Text amZugText;
 
 
-    public void initialisiereKampf (Kaempfer spieler, Kaempfer gegner) {
-        this.spieler = spieler;
-        this.gegner = gegner;
+    public void initialisiereKampf ()
+    {
+        switch (kampfTyp)
+        {
+            case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
+            case ANDERER_KAMPF -> starteAndererKampf();
+        }
+    }
+
+    public void starteEndgegnerKampf ()
+    {
+        gegnerleben = Konstanten.INT_TEN;
+        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());;
+        this.gegner = Kaempfer.erstelleEndgegner();;
         createMap();
         initializeCharacter();
+        initialisiereGegner();
         updateCharacterPosition();
+
+    }
+
+    public void starteAndererKampf () {
 
     }
 
@@ -55,12 +82,10 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
-        spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());
-        gegner = Kaempfer.erstelleEndgegner();
-        createMap();
+        initialisiereKampf();
         initializeCharacter();
         initialisiereGegner();
-        initialisiereKampf(spieler, gegner);
+
 
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
@@ -118,7 +143,7 @@ public class KampfController extends ControllerController implements Initializab
     {
         spielerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
         spielerRec.setFill(Color.BLUE);
-        gridPane.add(spielerRec, characterX, characterY);
+        gridPane.add(spielerRec, spieler.getxPosition(), spieler.getyPosition());
     }
 
     /**
@@ -182,7 +207,8 @@ public class KampfController extends ControllerController implements Initializab
 
     public void fuehreFernkampfAus () {
         if (spieler.getyPosition() == gegner.getyPosition()) {
-            gegnerleben++;
+            gegnerleben--;
+            System.out.println(gegnerleben);
         }
     }
 
