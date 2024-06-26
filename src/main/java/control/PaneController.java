@@ -15,7 +15,8 @@ public class PaneController extends ControllerController
     //--------------------------------------------------------------------------
 
 
-    public void setStadtController(StadtController stadtController) {
+    public void setStadtController(StadtController stadtController)
+    {
         this.stadtController = stadtController;
     }
 

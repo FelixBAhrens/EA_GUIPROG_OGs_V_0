@@ -34,11 +34,16 @@ public interface Konstanten {
     double ZERO_POINT_SIX = 0.6;
     double ZERO_POINT_ZERO_TWO = 0.02;
     int INT_FIVE_HUNDRED = 500;
+    int INT_TWENTY_FIVE = 25;
+    int INT_TWO_HUNDRED = 200;
+    int INT_FIFTY = 50;
+    int INT_ONE_HUNDRED = 100;
 
     //Ressource
     int DEFAULT_VALUE_HOLZ = 100;
     int DEFAULT_VALUE_GOLD = 10;
     int DEFAULT_VALUE_GESUNDHEIT = 50;
+    double ZERO_POINT_SEVEN_FIVE = 0.75;
 
     //Charakter
     int[] DEFAULT_VALUES_LEADER = {7, 1, 0, 7, 4, 3, 6, 5, 6, 7};

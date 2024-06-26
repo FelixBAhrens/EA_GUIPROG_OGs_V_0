@@ -18,15 +18,6 @@ public class SceneManager {
         this.primaryStage = primaryStage;
     }
 
-    public static Scene getVorherigeSzene ()
-    {
-        if (sceneStack.size() > Konstanten.INT_ONE)
-        {
-            return sceneStack.get(sceneStack.size() - Konstanten.INT_TWO);
-        }
-        return null;
-    }
-
     public static void changeScene (String fxmlFile)
     {
         try
@@ -34,7 +25,6 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            //Class<CharakterController> controllerClass = loader.getController();
             sceneStack.push(scene);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -58,15 +48,4 @@ public class SceneManager {
             primaryStage.show();
         }
     }
-
-    /*
-    public <T> T changeSceneAndGetController(String fxmlFile) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        return loader.getController();
-    }
-     */
 }
