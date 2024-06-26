@@ -39,6 +39,7 @@ public interface Strings {
     String SAMMELN = "Sammeln!";
 
     String STRING_STORY = "story";
+    String OPEN_MEDIC = "open medic";
 
     String NEWLINE = "\n";
 
@@ -48,6 +49,7 @@ public interface Strings {
     String HUNTER = "Hunter";
     String MAGICIAN = "Magician";
     String SCOUT = "Scout";
+    String UPDATED = "UPDATED!";
 
     //Kaempfer
 
