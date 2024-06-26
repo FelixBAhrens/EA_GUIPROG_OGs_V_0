@@ -7,7 +7,7 @@ import res.Strings;
 
 public class CharakterController {
 
-    private static Charakter[] charakterArray = new Charakter[5];
+    private static Charakter[] charakterArray = new Charakter[Konstanten.INT_FIVE];
 
     public static Charakter[] getCharakterArray() {
         return charakterArray;

@@ -29,7 +29,7 @@ public class SchenkenController extends PaneController {
 
     @FXML
     public void openMedic() throws Exception {
-        System.out.println("open medic");
+        System.out.println(Strings.OPEN_MEDIC);
         charakterDisplayController.zeigeCharakterWerte(GameFile.getInstance().getMedic());
         System.out.println(GameFile.getInstance().getMedic().toString());
         charakterDisplayController.setzeDisplaySichtbar(true);
