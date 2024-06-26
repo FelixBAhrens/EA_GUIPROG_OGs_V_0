@@ -2,6 +2,7 @@ package control;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import res.Konstanten;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,22 +15,22 @@ public class ObstaclesHandler
     private double planeWidth;
     Random random = new Random();
 
-    public ObstaclesHandler(AnchorPane plane, double planeHeight, double planeWidth) {
+    public ObstaclesHandler(AnchorPane plane, double planeHeight, double planeWidth)
+    {
         this.plane = plane;
         this.planeHeight = planeHeight;
         this.planeWidth = planeWidth;
     }
 
-    public ArrayList<Rectangle> createObstacles(){
-
-        int width = 25;
+    public ArrayList<Rectangle> createObstacles()
+    {
+        int width = Konstanten.INT_TWENTY_FIVE;
         double xPos = planeWidth;
-        double space = 200;
-        double recTopHeight = random.nextInt((int)(planeHeight - space - 100)) + 50;
+        double space = Konstanten.INT_TWO_HUNDRED;
+        double recTopHeight = random.nextInt((int)(planeHeight - space - Konstanten.INT_ONE_HUNDRED)) + Konstanten.INT_FIFTY;
         double recBottomHeight = planeHeight - space - recTopHeight;
 
-        //                                     x      y   width   height
-        Rectangle rectangleTop = new Rectangle(xPos,0,width,recTopHeight);
+        Rectangle rectangleTop = new Rectangle(xPos,Konstanten.INT_ZERO,width,recTopHeight);
         Rectangle rectangleBottom = new Rectangle(xPos, recTopHeight + space, width, recBottomHeight);
 
         plane.getChildren().addAll(rectangleTop,rectangleBottom);
@@ -37,14 +38,17 @@ public class ObstaclesHandler
     }
 
 
-    public void moveObstacles(ArrayList<Rectangle> obstacles){
+    public void moveObstacles(ArrayList<Rectangle> obstacles)
+    {
 
         ArrayList<Rectangle> outOfScreen = new ArrayList<>();
 
-        for (Rectangle rectangle: obstacles) {
-            moveRectangle(rectangle, - 0.75);
+        for (Rectangle rectangle: obstacles)
+        {
+            moveRectangle(rectangle, - Konstanten.ZERO_POINT_SEVEN_FIVE);
 
-            if(rectangle.getX() <= -rectangle.getWidth()){
+            if(rectangle.getX() <= -rectangle.getWidth())
+            {
                 outOfScreen.add(rectangle);
             }
         }
@@ -52,7 +56,8 @@ public class ObstaclesHandler
         plane.getChildren().removeAll(outOfScreen);
     }
 
-    private void moveRectangle(Rectangle rectangle, double amount){
+    private void moveRectangle(Rectangle rectangle, double amount)
+    {
         rectangle.setX(rectangle.getX() + amount);
     }
 }

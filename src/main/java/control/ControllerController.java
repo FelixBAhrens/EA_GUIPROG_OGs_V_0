@@ -79,8 +79,8 @@ public class ControllerController
      * @author Felix Ahrens
      */
     @FXML
-    public void speichereSpielstand(){
-        System.out.println("UPDATED");
+    public void speichereSpielstand()
+    {
         GameFile.speichereSpielstand();
     }
 
