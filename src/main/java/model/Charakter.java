@@ -14,7 +14,7 @@ public class Charakter {
     private int manapunkte;
     private int nahkampfWert;
     private int fernkampfWert;
-    private int fernkaempfeZahl;
+    private int fernkaempfeVerbleibenZahl;
     private int zahlAusweichen;
     private int magieResistenz;
     private int bewegungsWeite;
@@ -52,12 +52,12 @@ public class Charakter {
         this.zahlAusweichen = zahlAusweichen;
     }
 
-    public int getFernkaempfeZahl() {
-        return fernkaempfeZahl;
+    public int getFernkaempfeVerbleibenZahl() {
+        return fernkaempfeVerbleibenZahl;
     }
 
-    public void setFernkaempfeZahl(int fernkaempfeZahl) {
-        this.fernkaempfeZahl = fernkaempfeZahl;
+    public void setFernkaempfeVerbleibenZahl(int fernkaempfeVerbleibenZahl) {
+        this.fernkaempfeVerbleibenZahl = fernkaempfeVerbleibenZahl;
     }
 
     public int getFernkampfWert() {
@@ -116,14 +116,14 @@ public class Charakter {
      * @Author Felix Ahrens
      */
     public Charakter (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
-                      int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative) {
+                      int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative) {
         this.name = name;
         this.gesundheit = gesundheit;
         this.schild = schild;
         this.manapunkte = manapunkte;
         this.nahkampfWert = nahkampfWert;
         this.fernkampfWert = fernkampfWert;
-        this.fernkaempfeZahl = fernkaempfeZahl;
+        this.fernkaempfeVerbleibenZahl = fernkaempfeVerbleibenZahl;
         this.zahlAusweichen = zahlAusweichen;
         this.magieResistenz = magieResistenz;
         this.bewegungsWeite = bewegungsWeite;
@@ -133,7 +133,7 @@ public class Charakter {
     @Override
     public String toString(){
         return name + Strings.DOPPELPUNKT + gesundheit + Strings.SEMIKOLON + schild + Strings.SEMIKOLON
-                + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON + fernkaempfeZahl
+                + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON + fernkaempfeVerbleibenZahl
                 + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON+ magieResistenz + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative;
     }
 }

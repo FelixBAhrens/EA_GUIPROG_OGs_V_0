@@ -3,14 +3,10 @@ package control;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
-
-import java.security.KeyPair;
 
 public class TrainingsGelaendeController extends PaneController {
 
@@ -111,7 +107,7 @@ public class TrainingsGelaendeController extends PaneController {
             manapunktePoints = GameFile.getInstance().getLeader().getManapunkte();
             nahkampfWertPoints = GameFile.getInstance().getLeader().getNahkampfWert();
             fernkampfWertPoints = GameFile.getInstance().getLeader().getFernkampfWert();
-            fernkaempfeZahlPoints = GameFile.getInstance().getLeader().getFernkaempfeZahl();
+            fernkaempfeZahlPoints = GameFile.getInstance().getLeader().getFernkaempfeVerbleibenZahl();
             zahlAusweichenPoints = GameFile.getInstance().getLeader().getZahlAusweichen();
             magieResistenzPoints = GameFile.getInstance().getLeader().getMagieResistenz();
             bewegungsWeitePoints = GameFile.getInstance().getLeader().getBewegungsWeite();
@@ -278,7 +274,7 @@ public class TrainingsGelaendeController extends PaneController {
                 GameFile.getInstance().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
                 fernkaempfeZahlPoints++;
-                GameFile.getInstance().getLeader().setFernkaempfeZahl(fernkaempfeZahlPoints);
+                GameFile.getInstance().getLeader().setFernkaempfeVerbleibenZahl(fernkaempfeZahlPoints);
                 fernkaempfeZahl.setText(String.valueOf(fernkaempfeZahlPoints));
                 fernkaempfeZahlBar.setProgress((double) fernkaempfeZahlPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
