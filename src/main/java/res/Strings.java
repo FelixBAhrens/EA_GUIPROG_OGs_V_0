@@ -34,6 +34,7 @@ public interface Strings {
     String RESOURCES_PERCENTS_DS = "Holz: %d, Gesundheit: %d, Gold: %d";
     String MEMORY = "Memory!";
     String ENDGEGNER = "Endgegner!";
+    String ANDERER = "Anderer";
     String FLAPPY_BIRD = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
 
