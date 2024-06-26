@@ -3,9 +3,9 @@ package res;
 public interface Strings {
 
 
-    String FXML_ARENA = "arena-view.fxml";
+
     String FXML_BASISCAMP = "basis-camp-view.fxml";
-    String FXML_CHARAKTERDISPLAY = "charakter-display-view.fxml";
+    String FXML_CHARAKTERDISPLAY = "charakter-view.fxml";
     String FXML_EINSTELLUNGEN = "einstellungen-view.fxml";
     String FXML_FRAKTIONENCAMP = "fraktionen-camp-view.fxml";
     String FXML_HAUPTQUARTIER = "hauptquartier-view.fxml";
@@ -30,19 +30,14 @@ public interface Strings {
     String FXML_MISSION_FLAPPYBIRD = "mission-flappybird-view.fxml";
     String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
     String FXML_MISSION_STARTEN = "missionStarten-view.fxml";
-    String FXML_PLAYER_REBORN = "player-reborn-view.fxml";
-
-    //--------------
     String GESUNDHEIT_PERCENT_D = "Gesundheit: %d";
     String RESOURCES_PERCENTS_DS = "Holz: %d, Gesundheit: %d, Gold: %d";
     String MEMORY = "Memory!";
     String ENDGEGNER = "Endgegner!";
-    String ANDERER = "Anderer";
     String FLAPPY_BIRD = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
 
     String STRING_STORY = "story";
-    String OPEN_MEDIC = "open medic";
 
     String NEWLINE = "\n";
 
@@ -52,10 +47,6 @@ public interface Strings {
     String HUNTER = "Hunter";
     String MAGICIAN = "Magician";
     String SCOUT = "Scout";
-    String UPDATED = "UPDATED!";
-
-    //Kaempfer
-
 
     //Artefakte
     String STATUE = "Statue";
@@ -64,8 +55,6 @@ public interface Strings {
     String STATUE_ANGEWENDET = "Statue Angewendet";
     String SCHWERT_ANGEWENDET = "Schwert Angewendet";
     String RING_ANGEWENDET = "Ring Angewendet";
-    String ARTEFAKT = "Artefakt";
-
 
     String STRING_EINFACH = "Einfach";
     String STRING_NORMAL = "Normal";
@@ -75,7 +64,6 @@ public interface Strings {
     String SPACE = " ";
 
     String SPIELDATEIPFAD = "src/main/resources/GameFiles/";
-    String DATEIPFAD_ENDGEGNER = "src/main/resources/assets/endgegner.png";
     String CSV_ENDUNG = ".csv";
     String SPIEL = "Spiel";
 
@@ -103,18 +91,6 @@ public interface Strings {
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
     String STAERKE = "Stärke";
     String TOLL = "Toll!";
-    String TOT = "Tot";
-    String EINGABEAUFFORDERUNG_SCHWIERIGKEIT = "Schwierigkeit nicht gewählt";
-    String PREISE = "Preise:";
-    String GOLDPREIS = "Goldpreis: ";
-    String GESUNDHEITSPREIS = "Gesundheitspreis: ";
-    String INHOLZ = "*alle Angaben in Holz";
-    String GOLD_BUTTON = "goldButton";
-    String GESUNDHEIT_BUTTON = "gesundheitButton";
-
-    //Kampfausgaben
-    String AMZUG_DU = "Du bist am Zug";
-    String AMZUG_GEGNER = "Dein Gegner ist am Zug";
 
     //MenueNamen
     String START_MENUE = "Startmenue";
@@ -136,9 +112,6 @@ public interface Strings {
     String GOLD_SPACE_KOMMA = ", Gold: ";
     String GESUNDHEIT_SPACE_KOMMA = ", Gesundheit: ";
     String FORMAT_TIME = "%02d:%02d";
-    String ENTFERNUNG = "Entfernung: ";
-    String GEGNER_GESUNDHEIT = "Gegner Gesundheit: ";
-    String SPIELER_GESUNDHEIT = "Spieler Gesundheit: ";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";

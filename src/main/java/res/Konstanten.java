@@ -28,23 +28,17 @@ public interface Konstanten {
     int INT_FOURTY_FIVE = 45;
     int INT_SIXTY = 60;
     int INT_NINETY = 90;
-    int INT_ONE_HUNDRED = 100;
     int INT_FOUR_HUNDRED = 400;
     int INT_SIX_HUNDRED = 600;
     int INT_EIGHT_HUNDRED = 800;
     double ZERO_POINT_SIX = 0.6;
     double ZERO_POINT_ZERO_TWO = 0.02;
     int INT_FIVE_HUNDRED = 500;
-    int INT_ONE_THOUSAND = 1000;
-    int INT_TWENTY_FIVE = 25;
-    int INT_TWO_HUNDRED = 200;
-    int INT_FIFTY = 50;
 
     //Ressource
     int DEFAULT_VALUE_HOLZ = 100;
     int DEFAULT_VALUE_GOLD = 10;
     int DEFAULT_VALUE_GESUNDHEIT = 50;
-    double ZERO_POINT_SEVEN_FIVE = 0.75;
 
     //Charakter
     int[] DEFAULT_VALUES_LEADER = {7, 1, 0, 7, 4, 3, 6, 5, 6, 7};
