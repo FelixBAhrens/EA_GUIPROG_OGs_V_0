@@ -50,7 +50,7 @@ public class CharakterDisplayController {
         manaLabel.setText(String.valueOf(charakter.getManapunkte()));
         closeCombatLabel.setText(String.valueOf(charakter.getNahkampfWert()));
         distanceCombatLabel.setText(String.valueOf(charakter.getFernkampfWert()));
-        numberDistComLabel.setText(String.valueOf(charakter.getFernkaempfeZahl()));
+        numberDistComLabel.setText(String.valueOf(charakter.getFernkaempfeVerbleibenZahl()));
         dodgeLabel.setText(String.valueOf(charakter.getZahlAusweichen()));
         magResLabel.setText(String.valueOf(charakter.getMagieResistenz()));
         reachLabel.setText(String.valueOf(charakter.getBewegungsWeite()));

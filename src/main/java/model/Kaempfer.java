@@ -85,14 +85,14 @@ public class Kaempfer extends Charakter {
         if (charakter.getName().equals(Strings.LEADER)) {
             istLeader = true;
         }
-        return new Kaempfer(charakter.getName(), charakter.getGesundheit(), charakter.getSchild(), charakter.getManapunkte(),
-                charakter.getNahkampfWert(), charakter.getFernkampfWert(), charakter.getFernkaempfeZahl(), charakter.getZahlAusweichen(),
+        return new Kaempfer(charakter.getName(), charakter.getGesundheit() * Konstanten.INT_TEN, charakter.getSchild(), charakter.getManapunkte(),
+                charakter.getNahkampfWert(), charakter.getFernkampfWert(), charakter.getFernkaempfeVerbleibenZahl(), charakter.getZahlAusweichen(),
                 charakter.getMagieResistenz(), charakter.getBewegungsWeite(), charakter.getInitiative(),
                 Konstanten.INT_ZERO, Konstanten.INT_ZERO, istLeader, true, Strings.DATEIPFAD_ENDGEGNER);
     }
 
     public static Kaempfer erstelleEndgegner () {
-        return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
+        return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_ONE_HUNDRED, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);
     }

@@ -30,6 +30,9 @@ public interface Strings {
     String FXML_MISSION_FLAPPYBIRD = "mission-flappybird-view.fxml";
     String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
     String FXML_MISSION_STARTEN = "missionStarten-view.fxml";
+    String FXML_PLAYER_REBORN = "player-reborn-view.fxml";
+
+    //--------------
     String GESUNDHEIT_PERCENT_D = "Gesundheit: %d";
     String RESOURCES_PERCENTS_DS = "Holz: %d, Gesundheit: %d, Gold: %d";
     String MEMORY = "Memory!";
@@ -61,6 +64,8 @@ public interface Strings {
     String STATUE_ANGEWENDET = "Statue Angewendet";
     String SCHWERT_ANGEWENDET = "Schwert Angewendet";
     String RING_ANGEWENDET = "Ring Angewendet";
+    String ARTEFAKT = "Artefakt";
+
 
     String STRING_EINFACH = "Einfach";
     String STRING_NORMAL = "Normal";
@@ -98,6 +103,7 @@ public interface Strings {
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
     String STAERKE = "Stärke";
     String TOLL = "Toll!";
+    String TOT = "Tot";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
@@ -123,6 +129,9 @@ public interface Strings {
     String GOLD_SPACE_KOMMA = ", Gold: ";
     String GESUNDHEIT_SPACE_KOMMA = ", Gesundheit: ";
     String FORMAT_TIME = "%02d:%02d";
+    String ENTFERNUNG = "Entfernung: ";
+    String GEGNER_GESUNDHEIT = "Gegner Gesundheit: ";
+    String SPIELER_GESUNDHEIT = "Spieler Gesundheit: ";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";
