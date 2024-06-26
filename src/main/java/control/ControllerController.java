@@ -7,12 +7,39 @@ import res.Strings;
 import utility.MyIO;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet
  * @author Felix
  */
-public class ControllerController {
+public class ControllerController
+{
+    private ScheduledExecutorService scheduler;
+
+    // @author David Kien
+    public ControllerController ()
+    {
+        scheduler = Executors.newScheduledThreadPool(Konstanten.INT_ONE);
+    }
+
+    // @author David Kien
+    public void startSaving ()
+    {
+        Runnable saveTask = this::speichereSpielstand;
+        scheduler.scheduleAtFixedRate(saveTask, Konstanten.INT_ZERO, Konstanten.INT_TWENTY, TimeUnit.SECONDS);
+    }
+
+    public void stopSaving ()
+    {
+        if (scheduler != null && !scheduler.isShutdown())
+        {
+            scheduler.shutdown();
+        }
+    }
+
     public void setzeGameFileInstanzLogisch() {
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
         if (gamefile != null) {
