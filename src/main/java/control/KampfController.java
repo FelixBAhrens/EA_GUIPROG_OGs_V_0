@@ -29,15 +29,11 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public static KampfTyp kampfTyp;
-    public static boolean endGegnerKampf;
-    private int gegnerleben;
     private Kaempfer spieler;
     private Kaempfer gegner;
 
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
-    private int characterX = Konstanten.INT_ZERO;
-    private int characterY = Konstanten.INT_ZERO;
 
     @FXML
     private GridPane gridPane;
@@ -60,14 +56,12 @@ public class KampfController extends ControllerController implements Initializab
 
     public void starteEndgegnerKampf ()
     {
-        gegnerleben = Konstanten.INT_TEN;
         this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());;
-        this.gegner = Kaempfer.erstelleEndgegner();;
-        createMap();
+        this.gegner = Kaempfer.erstelleEndgegner();
+
         initializeCharacter();
         initialisiereGegner();
         updateCharacterPosition();
-
     }
 
     public void starteAndererKampf () {
@@ -82,11 +76,8 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
+        createMap();
         initialisiereKampf();
-        initializeCharacter();
-        initialisiereGegner();
-
-
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
             if (newScene != null)
@@ -96,25 +87,30 @@ public class KampfController extends ControllerController implements Initializab
         }));
     }
 
+    @FXML
     private void eigenZug (){
         zeigeEigenZug();
 
-        gegnerZug();
+        //gegnerZug();
     }
 
     private void gegnerZug () {
         zeigeGegnerZug();
-
+        attackiere(gegner, spieler);
         eigenZug();
     }
 
-    public static void zeigeEigenZug () {
-        amZugText.setText(Strings.AMZUG_DU);
+    public void zeigeEigenZug () {
+        System.out.println(Strings.AMZUG_DU);
+        System.out.println(Strings.SPIELER_GESUNDHEIT + spieler.getGesundheit());
+        //amZugText.setText(Strings.AMZUG_DU);
 
     }
 
-    public static void zeigeGegnerZug () {
-        amZugText.setText(Strings.AMZUG_DU);
+    public void zeigeGegnerZug () {
+        System.out.println(Strings.AMZUG_GEGNER);
+        System.out.println(Strings.GEGNER_GESUNDHEIT + gegner.getGesundheit());
+        //amZugText.setText(Strings.AMZUG_GEGNER);
     }
 
     /**
@@ -179,10 +175,14 @@ public class KampfController extends ControllerController implements Initializab
                 if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 break;
             case ENTER:
-                fuehreFernkampfAus();
-                System.out.println(gegnerleben);
+                attackiere(spieler, gegner);
+                break;
+            case P:
+                wendeArtefaktAn(spieler, gegner);
+                break;
         }
         updateCharacterPosition();
+        gegnerZug();
     }
 
     /**
@@ -205,10 +205,47 @@ public class KampfController extends ControllerController implements Initializab
 
     }
 
-    public void fuehreFernkampfAus () {
-        if (spieler.getyPosition() == gegner.getyPosition()) {
-            gegnerleben--;
-            System.out.println(gegnerleben);
+    public void attackiere(Kaempfer angreifer, Kaempfer verteidiger) {
+        verwalteSchaden(angreifer, verteidiger);
+    }
+
+    public void wendeArtefaktAn (Kaempfer angreifer, Kaempfer verteidiger) {
+        System.out.println(Strings.ARTEFAKT);
+    }
+
+    public void verwalteSchaden (Kaempfer angreifer, Kaempfer verteidiger) {
+        int xentf = Math.abs(angreifer.getxPosition()-verteidiger.getxPosition());
+        int yentf = Math.abs(angreifer.getyPosition()-verteidiger.getyPosition());
+        double entfernung = Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO))+(Math.pow(yentf, Konstanten.INT_TWO)));
+        int schaden = Konstanten.INT_ZERO;
+        if (entfernung <= Konstanten.INT_THREE) {
+            schaden = angreifer.getNahkampfWert();
+        } else if (entfernung < Konstanten.INT_SIX & angreifer.getFernkaempfeVerbleibenZahl() > Konstanten.INT_ZERO) {
+            schaden = angreifer.getFernkampfWert();
+        }
+
+        verteidiger.setGesundheit(verteidiger.getGesundheit() - schaden);
+        checkeLebtNoch(verteidiger);
+    }
+
+    public void checkeLebtNoch (Kaempfer verwundeter) {
+        if (verwundeter.getGesundheit() <= Konstanten.INT_ZERO) {
+            System.out.println(Strings.TOT);
+            if (spieler.getGesundheit() <= Konstanten.INT_ZERO) {
+                SceneManager.changeScene(Strings.FXML_PLAYER_REBORN);
+            }
+            if (gegner.getGesundheit() <= Konstanten.INT_ZERO) {
+                SceneManager.changeScene(Strings.FXML_HAUPTQUARTIER);
+            }
+        }
+    }
+
+    public void halteAn (long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            // Unterbrechung behandeln
+            e.printStackTrace();
         }
     }
 
