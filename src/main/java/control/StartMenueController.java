@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import model.GameFile;
+import res.Konstanten;
 import res.Strings;
 
 import java.net.URL;
@@ -65,11 +66,11 @@ public class StartMenueController extends ControllerController implements Initia
         // rotate
         RotateTransition rotate = new RotateTransition();
         rotate.setNode(backgroundImage);
-        rotate.setDuration(Duration.seconds(10));
+        rotate.setDuration(Duration.seconds(Konstanten.INT_TEN));
         rotate.setCycleCount(TranslateTransition.INDEFINITE);
         rotate.setInterpolator(Interpolator.EASE_BOTH);
         rotate.setAutoReverse(true);
-        rotate.setByAngle(10);
+        rotate.setByAngle(Konstanten.INT_TEN);
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.play();
     }

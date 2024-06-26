@@ -29,6 +29,13 @@ public interface Strings {
     String FXML_MISSION_MEMORY = "mission-memory-view.fxml";
     String FXML_MISSION_FLAPPYBIRD = "mission-flappybird-view.fxml";
     String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
+    String FXML_MISSION_STARTEN = "missionStarten-view.fxml";
+    String GESUNDHEIT_PERCENT_D = "Gesundheit: %d";
+    String RESOURCES_PERCENTS_DS = "Holz: %d, Gesundheit: %d, Gold: %d";
+    String MEMORY = "Memory!";
+    String ENDGEGNER = "Endgegner!";
+    String FLAPPY_BIRD = "Flappy Bird!";
+    String SAMMELN = "Sammeln!";
 
     String STRING_STORY = "story";
 
@@ -100,6 +107,11 @@ public interface Strings {
     String TRAININGSGELAENDE = "Trainingsgelaende";
     String MARKT = "Markt";
     String HAUPTQUARTIER = "Hauptquartier";
+    String GESUNDHEIT_SPACE = "Gesundheit: ";
+    String HOLZ_SPACE = "Holz: ";
+    String GOLD_SPACE_KOMMA = ", Gold: ";
+    String GESUNDHEIT_SPACE_KOMMA = ", Gesundheit: ";
+    String FORMAT_TIME = "%02d:%02d";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";
