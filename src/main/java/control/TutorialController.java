@@ -21,7 +21,8 @@ public class TutorialController
     }
 
     @FXML
-    public void handleWeiter () {
+    public void handleWeiter ()
+    {
         SceneManager.changeScene(Strings.FXML_STORY);
     }
 
