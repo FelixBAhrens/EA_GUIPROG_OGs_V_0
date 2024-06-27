@@ -3,9 +3,9 @@ package res;
 public interface Strings {
 
 
-
+    String FXML_ARENA = "arena-view.fxml";
     String FXML_BASISCAMP = "basis-camp-view.fxml";
-    String FXML_CHARAKTERDISPLAY = "charakter-view.fxml";
+    String FXML_CHARAKTERDISPLAY = "charakter-display-view.fxml";
     String FXML_EINSTELLUNGEN = "einstellungen-view.fxml";
     String FXML_FRAKTIONENCAMP = "fraktionen-camp-view.fxml";
     String FXML_HAUPTQUARTIER = "hauptquartier-view.fxml";
@@ -104,6 +104,7 @@ public interface Strings {
     String STAERKE = "Stärke";
     String TOLL = "Toll!";
     String TOT = "Tot";
+    String EINGABEAUFFORDERUNG_SCHWIERIGKEIT = "Schwierigkeit nicht gewählt";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";

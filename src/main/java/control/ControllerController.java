@@ -93,4 +93,10 @@ public class ControllerController
         System.exit(Konstanten.INT_ZERO);
     }
 
+    @FXML
+    public void speichereSpielstandUndBeendeSpiel(){
+        GameFile.speichereSpielstand();
+        beendeAnwendung();
+    }
+
 }

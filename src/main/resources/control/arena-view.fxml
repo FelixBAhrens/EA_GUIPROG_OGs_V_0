@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ArenaController">
+   <children>
+      <ImageView fitHeight="726.0" fitWidth="1286.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/arena.png" />
+         </image></ImageView>
+      <Button fx:id="zurueckButton" layoutX="14.0" layoutY="662.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)), linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)), linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)), linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Zurück" />
+      <fx:include source="klassisches-menue-view.fxml" />
+   </children>
+</AnchorPane>

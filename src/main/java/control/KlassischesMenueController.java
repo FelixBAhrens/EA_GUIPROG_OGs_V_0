@@ -26,6 +26,11 @@ public class KlassischesMenueController extends StartMenueController {
     }
 
     @FXML
+    public void handleDebugArena () {
+        SceneManager.changeScene(Strings.FXML_ARENA);
+    }
+
+    @FXML
     public void handleDebugEndgegner () {
         setzeGameFileInstanzLogisch();
         SceneManager.changeScene(Strings.FXML_MISSION_ENDGEGNER);
