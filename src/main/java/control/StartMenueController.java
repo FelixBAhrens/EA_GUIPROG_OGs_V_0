@@ -1,21 +1,11 @@
 package control;
 
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import javafx.scene.transform.Rotate;
-import javafx.util.Duration;
 import model.GameFile;
-import res.Konstanten;
 import res.Strings;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class StartMenueController extends ControllerController implements Initializable
+public class StartMenueController extends ControllerController
 {
     @FXML
     private ImageView backgroundImage;
@@ -46,6 +36,11 @@ public class StartMenueController extends ControllerController implements Initia
     }
 
     @FXML
+    private void handleArena () {
+        SceneManager.changeScene(Strings.FXML_ARENA);
+    }
+
+    @FXML
     private void handleEinstellungen () {
         SceneManager.changeScene(Strings.FXML_EINSTELLUNGEN);
     }
@@ -55,23 +50,4 @@ public class StartMenueController extends ControllerController implements Initia
         SceneManager.changeScene(Strings.FXML_SPEICHERN_ABFRAGE);
     }
 
-    /**
-     * Override der Initialize-Methode des implementierten Interfaces "Initializable"
-     * @param url
-     * @param resourceBundle
-     * @author Felix Ahrens
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // rotate
-        RotateTransition rotate = new RotateTransition();
-        rotate.setNode(backgroundImage);
-        rotate.setDuration(Duration.seconds(Konstanten.INT_TEN));
-        rotate.setCycleCount(TranslateTransition.INDEFINITE);
-        rotate.setInterpolator(Interpolator.EASE_BOTH);
-        rotate.setAutoReverse(true);
-        rotate.setByAngle(Konstanten.INT_TEN);
-        rotate.setAxis(Rotate.Z_AXIS);
-        rotate.play();
-    }
 }
