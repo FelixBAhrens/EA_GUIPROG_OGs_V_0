@@ -105,6 +105,12 @@ public interface Strings {
     String TOLL = "Toll!";
     String TOT = "Tot";
     String EINGABEAUFFORDERUNG_SCHWIERIGKEIT = "Schwierigkeit nicht gewählt";
+    String PREISE = "Preise:";
+    String GOLDPREIS = "Goldpreis: ";
+    String GESUNDHEITSPREIS = "Gesundheitspreis: ";
+    String INHOLZ = "*alle Angaben in Holz";
+    String GOLD_BUTTON = "goldButton";
+    String GESUNDHEIT_BUTTON = "gesundheitButton";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";

@@ -11,6 +11,7 @@ import java.io.IOException;
 public class SchenkenController extends PaneController {
 
 
+    @FXML
     private AnchorPane charakterDisplay;
     private CharakterDisplayController charakterDisplayController;
 
