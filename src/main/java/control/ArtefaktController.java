@@ -9,7 +9,7 @@ import res.Strings;
  * @Author Felix Ahrens
  */
 public class ArtefaktController {
-    private static Artefakt[] artefaktArray = new Artefakt[3];
+    private static Artefakt[] artefaktArray = new Artefakt[Konstanten.INT_THREE];
 
     public static Artefakt[] getArtefaktArray() {
         return artefaktArray;

@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="plane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pressed" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionFlappyBirdController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#pressed" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionFlappyBirdController">
    <children>
-      <Rectangle fx:id="bird" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="75.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
-      <Text fx:id="score" layoutX="118.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="163.2734375">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </Text>
+      <ImageView fitHeight="745.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/hintergrund.png" />
+         </image></ImageView>
+      <AnchorPane fx:id="plane" layoutX="477.0" layoutY="118.0" prefHeight="484.0" prefWidth="325.0" style="-fx-background-color: rgba(245, 245, 220, 0.9);">
+         <children>
+            <Text fx:id="score" layoutX="81.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="163.2734375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="bird" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="74.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

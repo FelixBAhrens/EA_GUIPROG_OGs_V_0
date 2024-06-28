@@ -46,5 +46,6 @@
 
 //FXML-Elemente//----------------------------------------------------------------------------
 -Knopf
-    <Button fx:id="nameButton" layoutX="551.0" layoutY="186.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="text" />
+    <Button fx:id="zurueckButton" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: rgba(14, 141, 128, 0.3); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000;" text="Zurück" />
+
 -
