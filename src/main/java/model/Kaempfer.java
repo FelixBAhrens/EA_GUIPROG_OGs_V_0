@@ -11,7 +11,8 @@ public class Kaempfer extends Charakter {
     private boolean istAmZug;
     private String imageURL;
 
-    public int getxPosition() {
+    public int getxPosition()
+    {
         return xPosition;
     }
 
@@ -64,7 +65,8 @@ public class Kaempfer extends Charakter {
      * @param zahlAusweichen
      * @param magieResistenz
      * @param bewegungsWeite
-     * @param initiative      weitere parameter
+     * @param initiative
+     * weitere parameter
      * @Author Felix Ahrens
      */
     public Kaempfer(String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
@@ -89,7 +91,7 @@ public class Kaempfer extends Charakter {
                 Konstanten.INT_ZERO, Konstanten.INT_ZERO, istLeader, true, Strings.DATEIPFAD_ENDGEGNER);
     }
 
-    public static Kaempfer erstelleEndgegner() {
+    public static Kaempfer erstelleEndgegner () {
         return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_ONE_HUNDRED, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);
