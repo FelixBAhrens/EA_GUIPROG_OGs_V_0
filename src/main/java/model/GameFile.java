@@ -216,7 +216,8 @@ public class GameFile {
      * @throws IOException
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueGameFile(String schwierigkeit) {
+    public static GameFile erstelleNeueGameFile (String schwierigkeit)
+    {
         String spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length-1);
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
         ArtefaktController.erstelleDefaultArtefakte();
@@ -229,7 +230,7 @@ public class GameFile {
                 Konstanten.DEFAULT_VALUE_GOLD,
                 Konstanten.DEFAULT_VALUE_GESUNDHEIT,
                 artefaktArray[Konstanten.INT_ZERO],
-                artefaktArray[Konstanten.INT_ZERO],
+                artefaktArray[Konstanten.INT_ONE],
                 artefaktArray[Konstanten.INT_TWO],
                 charakterArray[Konstanten.INT_ZERO],
                 charakterArray[Konstanten.INT_ONE],

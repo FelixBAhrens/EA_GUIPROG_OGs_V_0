@@ -18,7 +18,7 @@ public class Artefakt extends GameFile {
         this.name = name;
     }
 
-    public boolean isImBesitz() {
+    public boolean istImBesitz() {
         return imBesitz;
     }
 

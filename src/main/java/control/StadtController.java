@@ -65,6 +65,10 @@ public class StadtController extends ControllerController {
         openGebaeude(Strings.FXML_HAUPTQUARTIER);
     }
 
+    /**
+     * @TODO Strings
+     * @param event
+     */
     @FXML
     private void handleMouseEnter(MouseEvent event)
     {
@@ -79,6 +83,10 @@ public class StadtController extends ControllerController {
         }
     }
 
+    /**
+     * @TODO Strings
+     * @param event
+     */
     @FXML
     private void handleMouseExit(MouseEvent event)
     {
