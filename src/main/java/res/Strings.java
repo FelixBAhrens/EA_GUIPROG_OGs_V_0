@@ -139,6 +139,9 @@ public interface Strings {
     String ENTFERNUNG = "Entfernung: ";
     String GEGNER_GESUNDHEIT = "Gegner Gesundheit: ";
     String SPIELER_GESUNDHEIT = "Spieler Gesundheit: ";
+    String SCHWERT_PANE = "schwertPane";
+    String STATUE_PANE = "statuePane";
+    String RING_PANE = "ringPane";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";
@@ -161,4 +164,6 @@ public interface Strings {
     //FXML-Styles
     String STYLE_TRANSPARENT_TURQUOISE_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;";
     String STYLE_TRANSPARENT_TRANSPARENT_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;";
+    String STYLE_BORDER_ORANGE = "-fx-border-color: orange";
+    String STYLE_BORDER_TRANSPARENT = "-fx-border-color: transparent";
 }

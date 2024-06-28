@@ -20,6 +20,12 @@ public class MarktController extends PaneController {
     @FXML
     public ProgressBar gesundheitsBar;
     @FXML
+    public Label holzInventarLabel;
+    @FXML
+    public Label goldInventarLabel;
+    @FXML
+    public Label gesundheitsInventarLabel;
+    @FXML
     public Label goldPreisLabel;
     @FXML
     public Label gesundheitsPreisLabel;
@@ -46,10 +52,13 @@ public class MarktController extends PaneController {
      */
     public void updateDisplay () {
         GameFile instanz = GameFile.getInstance();
-        holzBar.setProgress(instanz.getHolzRessource()/ Konstanten.INT_TWO_HUNDRED);
-        goldBar.setProgress(instanz.getGoldRessource()/ Konstanten.INT_TWO_HUNDRED);
-        gesundheitsBar.setProgress(instanz.getGesundheitRessource()/ Konstanten.INT_TWO_HUNDRED);
-        goldPreisLabel.setText(Strings.GOLDPREIS + String.valueOf(goldPreis));
+        holzBar.setProgress((double) instanz.getHolzRessource() / Konstanten.INT_ONE_HUNDRED);
+        goldBar.setProgress((double) instanz.getGoldRessource() / Konstanten.INT_ONE_HUNDRED);
+        gesundheitsBar.setProgress((double) instanz.getGesundheitRessource() / Konstanten.INT_ONE_HUNDRED);
+        holzInventarLabel.setText(Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE+ instanz.getHolzRessource());
+        goldInventarLabel.setText(Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE+ instanz.getGoldRessource());
+        gesundheitsInventarLabel.setText(Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE+ instanz.getGesundheitRessource());
+        goldPreisLabel.setText(Strings.GOLDPREIS + goldPreis);
         gesundheitsPreisLabel.setText(Strings.GESUNDHEITSPREIS + String.valueOf(gesundheitsPreis));
     }
 
@@ -67,17 +76,18 @@ public class MarktController extends PaneController {
     public void kaufe (MouseEvent mouseEvent) {
         GameFile instanz = GameFile.getInstance();
         String buttonID = ((Button) mouseEvent.getSource()).getId();
-        if (buttonID.equals(Strings.GOLD_BUTTON) && instanz.getHolzRessource()>goldPreis){
+        if (buttonID.equals(Strings.GOLD_BUTTON) && instanz.getHolzRessource() >= goldPreis){
             instanz.setGoldRessource(instanz.getGoldRessource() + Konstanten.INT_ONE);
+            instanz.setHolzRessource(instanz.getHolzRessource() - goldPreis);
         }
-        else if (buttonID.equals(Strings.GESUNDHEIT_BUTTON) && instanz.getHolzRessource()>goldPreis){
-            instanz.setHolzRessource(instanz.getGesundheitRessource() + Konstanten.INT_ONE);
+        else if (buttonID.equals(Strings.GESUNDHEIT_BUTTON) && instanz.getHolzRessource() >= gesundheitsPreis){
+            instanz.setGesundheitRessource(instanz.getGesundheitRessource() + Konstanten.INT_ONE);
+            instanz.setHolzRessource(instanz.getHolzRessource() - gesundheitsPreis);
         }
         else {
             fehlerMeldungsText.setVisible(true);
         }
         updatePreise();
         updateDisplay();
-        System.out.println(instanz.toString());
     }
 }
