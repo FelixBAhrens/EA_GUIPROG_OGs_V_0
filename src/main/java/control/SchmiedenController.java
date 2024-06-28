@@ -41,7 +41,7 @@ public class SchmiedenController extends PaneController {
      */
     public Artefakt findeArtefaktAusID (String ID)
     {
-        GameFile instanz = GameFile.getInstanz();
+        GameFile instanz = GameFile.getInstance();
         switch (ID) {
             case (Strings.SCHWERT_PANE): {
                 return instanz.getSchwert();
@@ -66,6 +66,6 @@ public class SchmiedenController extends PaneController {
     }
 
     public void gebeArteFaktAus () {
-        System.out.println(GameFile.getInstanz().getSchwert().toString());
+        System.out.println(GameFile.getInstance().getSchwert().toString());
     }
 }

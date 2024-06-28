@@ -51,7 +51,7 @@ public class MarktController extends PaneController {
      * @author Felix Ahrens
      */
     public void updateDisplay () {
-        GameFile instanz = GameFile.getInstanz();
+        GameFile instanz = GameFile.getInstance();
         holzBar.setProgress((double) instanz.getHolzRessource() / Konstanten.INT_ONE_HUNDRED);
         goldBar.setProgress((double) instanz.getGoldRessource() / Konstanten.INT_ONE_HUNDRED);
         gesundheitsBar.setProgress((double) instanz.getGesundheitRessource() / Konstanten.INT_ONE_HUNDRED);
@@ -74,7 +74,7 @@ public class MarktController extends PaneController {
      */
     @FXML
     public void kaufe (MouseEvent mouseEvent) {
-        GameFile instanz = GameFile.getInstanz();
+        GameFile instanz = GameFile.getInstance();
         String buttonID = ((Button) mouseEvent.getSource()).getId();
         if (buttonID.equals(Strings.GOLD_BUTTON) && instanz.getHolzRessource() >= goldPreis){
             instanz.setGoldRessource(instanz.getGoldRessource() + Konstanten.INT_ONE);
