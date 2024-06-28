@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import model.Bird;
@@ -14,7 +13,6 @@ import res.Konstanten;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class MissionFlappyBirdController implements Initializable
@@ -43,6 +41,9 @@ public class MissionFlappyBirdController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        Rectangle clip = new Rectangle(plane.getPrefWidth(), plane.getPrefHeight());
+        plane.setClip(clip);
+
         int jumpHeight = Konstanten.INT_FOURTYFIVE;
         birdComponent = new Bird(bird, jumpHeight);
         double planeHeight = Konstanten.INT_SIX_HUNDRED;
