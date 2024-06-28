@@ -1,53 +1,122 @@
 package control;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import res.Strings;
 
-public class StadtController extends Application {
-    static Scene stadtSz;
-    static Scene schmiedeSz;
-    static Scene schenkeSz;
-    static Scene magieverstaerkerSz;
-    static Scene basisCampSz;
-    static Scene fraktionenCampsSz;
-    static Scene trainingsGelaendeSz;
-    static Scene marktSz;
-    static Scene hauptquartierSz;
+import java.io.IOException;
 
-    @Override
-    public void start(Stage stadtFenster) throws Exception {
+public class StadtController extends ControllerController {
 
-    }
-    public static void zeigeStadt(Stage hauptStage){
-        Button schmiede = new Button("Schmiede");
-        schmiede.setOnAction(e -> hauptStage.setScene(schmiedeSz));
-        Button schenke = new Button("Schenke");
-        schenke.setOnAction(e -> hauptStage.setScene(schenkeSz));
-        Button magieverstaerker = new Button("Magieverstärker");
-        magieverstaerker.setOnAction(e -> hauptStage.setScene(magieverstaerkerSz));
-        Button basisCamp = new Button("Basiscamp");
-        basisCamp.setOnAction(e -> hauptStage.setScene(basisCampSz));
-        Button fraktionenCamps = new Button("FraktionenCamps");
-        fraktionenCamps.setOnAction(e->hauptStage.setScene(fraktionenCampsSz));
-        Button trainingsGelaende = new Button("Trainingsgelände");
-        trainingsGelaende.setOnAction(e->hauptStage.setScene(trainingsGelaendeSz));
-        Button markt = new Button("Markt");
-        markt.setOnAction(e->hauptStage.setScene(marktSz));
-        Button hauptquartier = new Button("Hauptquartier");
-        hauptquartier.setOnAction(e->hauptStage.setScene(hauptquartierSz));
-        HBox haeuser = new HBox(schmiede, schenke, magieverstaerker, basisCamp, fraktionenCamps, trainingsGelaende, markt, hauptquartier);
+    @FXML
+    private Pane gebaeudePane;
+    @FXML
+    private Pane hintergrundPane;
 
-        stadtSz = new Scene(haeuser, 400, 200);
-        hauptStage.setScene(stadtSz);
 
-        hauptStage.setScene(stadtSz);
-        hauptStage.show();
+    @FXML
+    private void openSchmiede()
+    {
+        openGebaeude(Strings.FXML_SCHMIEDE);
     }
 
-    public static void setupSchmiede(){
+    @FXML
+    private void openSchenke()
+    {
+        openGebaeude(Strings.FXML_SCHENKE);
+    }
 
+    @FXML
+    private void openMagieverstaerker()
+    {
+        openGebaeude(Strings.FXML_MAGIEVERSTAERKER);
+    }
+
+    @FXML
+    private void openBasisCamp()
+    {
+        openGebaeude(Strings.FXML_BASISCAMP);
+    }
+
+    @FXML
+    private void openFraktionenCamp()
+    {
+        openGebaeude(Strings.FXML_FRAKTIONENCAMP);
+    }
+
+    @FXML
+    private void openTrainingsgelaende()
+    {
+        openGebaeude(Strings.FXML_TRAININGSGELAENDE);
+    }
+
+    @FXML
+    private void openMarkt()
+    {
+        openGebaeude(Strings.FXML_MARKT);
+    }
+
+    @FXML
+    private void openHauptquartier()
+    {
+        openGebaeude(Strings.FXML_HAUPTQUARTIER);
+    }
+
+    @FXML
+    private void handleMouseEnter(MouseEvent event)
+    {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
+                node.setVisible(true);
+            }
+        }
+    }
+
+    @FXML
+    private void handleMouseExit(MouseEvent event)
+    {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
+                node.setVisible(false);
+            }
+        }
+    }
+
+    private void openGebaeude (String fxmlFile)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Pane pane = loader.load();
+
+            // GebäudeController Zugriff
+            PaneController controller = loader.getController();
+            controller.setStadtController(this);
+
+            gebaeudePane.getChildren().setAll(pane);
+            gebaeudePane.setVisible(true);
+            hintergrundPane.setVisible(true);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void closeGebaeude()
+    {
+        gebaeudePane.setVisible(false);
+        hintergrundPane.setVisible(false);
+        gebaeudePane.getChildren().clear();
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="control.ControllerController" prefHeight="720.0" prefWidth="1280.0">
+    <children>
+        <VBox alignment="CENTER" spacing="20.0" layoutX="150.0" layoutY="100.0">
+            <children>
+                <Label text="Möchtest Du das Spiel speichern?" />
+                <HBox spacing="10.0" alignment="CENTER">
+                    <children>
+                        <Button text="Ja" onAction="#speichereSpielstandUndBeendeSpiel" />
+                        <Button text="Nein" onAction="#beendeAnwendung" />
+                        <Button text="Zurück" onAction="#handleZurueck" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

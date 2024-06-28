@@ -1,22 +1,28 @@
 package Main;
 
-import control.StartMenueController;
+import control.SceneManager;
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import res.Strings;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+public class Main extends Application {
+    /**
+     * Start-Methode, die die Application startet, indem der SceneManager initialisiert und mit diesem dann das StartMenue aufgerufen wird.
+     * @param primaryStage
+     * @author David Kien, Felix Ahrens
+     */
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        SceneManager sceneManager = new SceneManager(primaryStage);
+        sceneManager.changeScene(Strings.FXML_STARTMENUE);
+    }
 
-
-
-public class Main {
-
-    public static void main(String[] args) throws Exception {
-        StartMenueController.launch(StartMenueController.class, args);
+    /**
+     * Main-methode des Programms
+     * @param args
+     * @author David Kien
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 }
