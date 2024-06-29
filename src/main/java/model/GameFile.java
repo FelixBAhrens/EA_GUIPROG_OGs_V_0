@@ -64,6 +64,7 @@ public class GameFile {
     private Charakter hunter;
     private Charakter magician;
     private Charakter scout;
+    private boolean fraktionenCampFreigeschaltet;
 
     public String getSchwierigkeit() {
         return schwierigkeit;
@@ -171,6 +172,14 @@ public class GameFile {
 
     public String getFilePathAndName() {return filePathAndName;}
 
+    public boolean fraktionenCampIstFreigeschaltet() {
+        return fraktionenCampFreigeschaltet;
+    }
+
+    public void setFraktionenCampFreigeschaltet(boolean fraktionenCampFreigeschaltet) {
+        this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
+    }
+
     public GameFile () {
     }
 
@@ -189,10 +198,11 @@ public class GameFile {
      * @param hunter
      * @param magician
      * @param scout
+     * @param fraktionenCampFreigeschaltet
      * @author Felix Ahrens
      */
     private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
-                     Charakter magician, Charakter scout) {
+                     Charakter magician, Charakter scout, boolean fraktionenCampFreigeschaltet) {
         this.filePathAndName = filePathAndName;
         this.schwierigkeit = schwierigkeit;
         this.holzRessource = holzRessource;
@@ -206,6 +216,7 @@ public class GameFile {
         this.hunter = hunter;
         this.magician = magician;
         this.scout = scout;
+        this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
     }
 
 
@@ -236,7 +247,8 @@ public class GameFile {
                 charakterArray[Konstanten.INT_ONE],
                 charakterArray[Konstanten.INT_TWO],
                 charakterArray[Konstanten.INT_THREE],
-                charakterArray[Konstanten.INT_FOUR]);
+                charakterArray[Konstanten.INT_FOUR],
+                false);
         schreibeGameFile(neueGameFile);
         return leseGameFile(spielPfad_Name);
     }
@@ -259,6 +271,7 @@ public class GameFile {
             dateiSchreiber.write(gameFile.hunter + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.magician + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.scout + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.fraktionenCampFreigeschaltet + Strings.NEWLINE);
             dateiSchreiber.close();
         }
         catch(IOException e){
@@ -325,7 +338,8 @@ public class GameFile {
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_SEVEN]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_EIGHT]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_NINE]),
-                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TEN])
+                    erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TEN]),
+                    Boolean.valueOf(zeilenArray[Konstanten.INT_ELEVEN])
             );
         }
         catch (ArrayIndexOutOfBoundsException e){
@@ -441,6 +455,7 @@ public class GameFile {
                 hunter + Strings.NEWLINE +
                 magician + Strings.NEWLINE +
                 scout + Strings.NEWLINE +
+                fraktionenCampFreigeschaltet + Strings.NEWLINE +
                 Strings.GESCHWEIFTE_KLAMMER_ZU;
     }
 
