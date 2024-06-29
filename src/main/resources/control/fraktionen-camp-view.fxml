@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
 <AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.FraktionenCampController">
     <children>
         <Text layoutX="201.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fraktionen-Camp">
@@ -15,26 +11,6 @@
                 <Font size="46.0" />
             </font>
         </Text>
-        <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0">
-            <children>
-                <ImageView fitHeight="563.0" fitWidth="1090.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../assets/baustelle.png" />
-                    </image>
-                </ImageView>
-                <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0" style="-fx-background-color: rgba(245, 245, 220, 0.9);">
-                    <children>
-                        <Button onAction="#schalteBaustelleFrei" layoutX="38.0" layoutY="335.0" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);" mnemonicParsing="false" text="Baustelle freischalten" />
-                        <Text layoutX="73.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baustelle">
-                            <font>
-                                <Font name="System Bold" size="18.0" />
-                            </font>
-                        </Text>
-                        <TextArea layoutX="11.0" layoutY="92.0" prefHeight="100.0" prefWidth="200.0" text="Du hast dieses Gebäude&#10;noch nicht aufgebaut!&#10;&#10;Schalte es jetzt frei für 50 Holz&#10;und 5 Gold!" />
-                        <Label layoutX="11.0" layoutY="221.0" prefHeight="35.0" prefWidth="200.0" text="Label" />
-                    </children>
-                </AnchorPane>
-            </children>
-        </AnchorPane>
+      <fx:include source="baustelle-view.fxml" fx:id="baustelle" visible="true" />
     </children>
 </AnchorPane>
