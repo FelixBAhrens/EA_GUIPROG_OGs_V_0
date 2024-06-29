@@ -98,5 +98,4 @@ public class ControllerController
         GameFile.speichereSpielstand();
         beendeAnwendung();
     }
-
 }
