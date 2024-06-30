@@ -3,6 +3,7 @@ package control;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import model.GameFile;
+import res.Konstanten;
 
 /**
  * Controllerklasse der "fraktionen-camp-view.fxml".
@@ -18,6 +19,16 @@ public class FraktionenCampController extends PaneController {
         }
         else {
             baustelle.setVisible(true);
+        }
+    }
+
+    @FXML
+    public void schalteBaustelleFrei () {
+        GameFile instanz = GameFile.getInstance();
+        if (instanz.getHolzRessource() >= Konstanten.INT_FIFTY && instanz.getGoldRessource() >= Konstanten.INT_FIVE) {
+            instanz.setHolzRessource(instanz.getHolzRessource()-Konstanten.INT_FIFTY);
+            instanz.setGoldRessource(instanz.getGoldRessource()-Konstanten.INT_FIVE);
+            baustelle.setVisible(false);
         }
     }
 }
