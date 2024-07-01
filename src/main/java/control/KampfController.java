@@ -101,6 +101,7 @@ public class KampfController extends ControllerController implements Initializab
         initializeCharacter();
         initialisiereGegner();
         updateCharacterPosition();
+        updateKampfAnchorPanes();
     }
 
     /**
@@ -270,7 +271,9 @@ public class KampfController extends ControllerController implements Initializab
         }
 
         verteidiger.setGesundheit(verteidiger.getGesundheit() - schaden);
+        updateKampfAnchorPanes();
         checkeLebtNoch();
+
     }
 
     /**
@@ -318,7 +321,9 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public void updateKampfAnchorPanes () {
-
+        kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit()/(double)Konstanten.INT_ONE_HUNDRED);
+        gegnerGesundheitsBar.setProgress((double)gegner.getGesundheit()/(double) Konstanten.INT_ONE_HUNDRED);
+        System.out.println(gegner.getGesundheit());
     }
 
     /**
