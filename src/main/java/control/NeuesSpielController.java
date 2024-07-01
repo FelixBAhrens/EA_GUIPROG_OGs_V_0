@@ -56,17 +56,17 @@ public class NeuesSpielController extends ControllerController{
             if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER)) {
                 System.out.println(schwierigkeitsLabel.getText());
                 schwierigkeit = schwierigkeitsLabel.getText();
-                schwierigkeitsAnchPane.setVisible(false);
-                spielNameAnchPane.setVisible(true);
             }
             else {
                 schwierigkeitsLabel.setText(Strings.EINGABEAUFFORDERUNG_SCHWIERIGKEIT);
                 schwierigkeitsLabel.setVisible(true);
             }
+            schwierigkeitsAnchPane.setVisible(false);
+            spielNameAnchPane.setVisible(true);
         }
         else if (!schwierigkeitsAnchPane.isVisible() && spielNameAnchPane.isVisible()) {
-            GameFile.setzeInstanz(GameFile.erstelleNeueGameFile(spielNameText.getText(), schwierigkeit));
-            SzenenManager.wechseleSzene(Strings.FXML_TUTORIAL);
+            GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(spielNameText.getText(), schwierigkeit));
+            SceneManager.changeScene(Strings.FXML_TUTORIAL);
         }
     }
 

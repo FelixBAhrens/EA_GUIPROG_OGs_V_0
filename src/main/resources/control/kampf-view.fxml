@@ -2,97 +2,30 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
     <children>
-      <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/rasen.png" />
          </image>
       </ImageView>
-        <Button fx:id="zurueckButton" layoutX="14.0" layoutY="662.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);" text="Zurück" />
-      <GridPane fx:id="gridPane" layoutX="370.0" layoutY="75.0" prefHeight="540.0" prefWidth="540.0" style="-fx-background-color: lightgray">
+        <Button fx:id="zurueckButton" layoutX="500.0" layoutY="644.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);" text="Zurück" />
+      <GridPane fx:id="gridPane" layoutX="244.0" layoutY="41.0" prefHeight="479.0" prefWidth="511.0" style="-fx-background-color: lightgray">
          <columnConstraints>
             <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints />
-         </rowConstraints>
-      </GridPane>
-      <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="94.0" prefHeight="532.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
-         <children>
-            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
-            <HBox layoutY="45.0" prefHeight="487.0" prefWidth="269.0">
-               <children>
-                  <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
-                     <children>
-                        <Text fx:id="kaempferGesundheitsText" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText1" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText2" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText3" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText4" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText5" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText6" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText7" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText8" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText9" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="487.0" prefWidth="164.0" spacing="10">
-                     <children>
-                        <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar4" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar5" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar6" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar7" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar8" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar9" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="gegnerPane" layoutX="957.0" layoutY="92.0" prefHeight="532.0" prefWidth="309.0" style="-fx-background-color: rgba(64, 234, 240, 0.7)">
-         <children>
-             <ProgressBar fx:id="gegnerGesundheitsBar" layoutX="128.0" layoutY="95.0" prefHeight="20.0" prefWidth="125.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-            <Label fx:id="gegnerStats" layoutX="14.0" layoutY="55.0" prefHeight="103.0" prefWidth="171.0" text="G_Stats" />
-            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegner" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="kampfStartDialog" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="true">
-          <children>
-              <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0" style="-fx-background-color: rgba(255, 238, 191, 1);">
-                  <children>
-                      <Text fx:id="Text" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kampf Start Dialog" />
-                      <Button fx:id="kampfStartButton" layoutX="224.0" layoutY="512.0" mnemonicParsing="false" onAction="#initialisiereKampf" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Start" />
-                  </children>
-              </AnchorPane>
-          </children>
-      </AnchorPane>
-      <AnchorPane fx:id="kampfEndeDialog" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
-          <children>
-              <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0" style="-fx-background-color: rgba(255, 238, 191, 1);">
-                  <children>
-                      <Text fx:id="siegerText" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hat gewonnen!" />
-                      <Button fx:id="fortfahrenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#verlasseKampfSzene" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Fortfahren" visible="true" />
-                  </children>
-              </AnchorPane>
-          </children>
-      </AnchorPane>
-      <fx:include source="klassisches-menue-view.fxml" />
+         </rowConstraints></GridPane>
+      <Text fx:id="amZugText" layoutX="489.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: black; -fx-font-size: 12; -fx-font-style: white" text="kampf" visible="true" />
+      <Label layoutX="36.0" layoutY="82.0" prefHeight="386.0" prefWidth="171.0" text="Label" />
     </children>
 </AnchorPane>

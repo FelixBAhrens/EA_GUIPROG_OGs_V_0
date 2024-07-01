@@ -219,22 +219,21 @@ public class GameFile {
         this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
     }
 
-
     /**
      * Methode, die eine neue GameFile mit den ihr uebergebenen Parametern erstellt.
-     *  Die Parameterliste ist allerdings noch lange nicht vollstaendig.
      * @return Eine neue, mit den Default-Werten erstellte Instanz der Klasse GameFile
      * @throws IOException
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueGameFile (String schwierigkeit)
+    public static GameFile erstelleNeueGameFile (String spielName, String schwierigkeit)
     {
-        String spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length-1);
+        if (spielName.length()<Konstanten.INT_ONE)
+        {
+            spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length-1);
+        }
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
-        ArtefaktController.erstelleDefaultArtefakte();
-        Artefakt[] artefaktArray = ArtefaktController.getArtefaktArray();
-        CharakterController.erstelleDefaultCharakter();
-        Charakter[] charakterArray = CharakterController.getCharakterArray();
+        Artefakt[] artefaktArray = ArtefaktController.erstelleDefaultArtefakte();
+        Charakter[] charakterArray = CharakterController.erstelleDefaultCharakter();
         GameFile neueGameFile = new GameFile(spielPfad_Name,
                 schwierigkeit,
                 Konstanten.DEFAULT_VALUE_HOLZ,
