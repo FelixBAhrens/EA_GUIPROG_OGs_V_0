@@ -50,7 +50,7 @@
                   </VBox>
                   <VBox prefHeight="487.0" prefWidth="164.0" spacing="10">
                      <children>
-                         <ProgressBar fx:id="kaempferGesundheitBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                         <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                         <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                         <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />

@@ -16,7 +16,9 @@
       <AnchorPane layoutX="334.0" layoutY="157.0" prefHeight="405.0" prefWidth="611.0" style="-fx-background-color: rgba(245, 245, 220, 0.9);">
          <children>
             <Text layoutX="269.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Reborn" />
-            <Button id="stadtKnopf" onAction="#handleZurStadt" layoutX="85.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: rgba(241, 194, 105, 1);" text="Stadt" />
+            <Text layoutX="83.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dein Spieler ist gestorben. Möchtest du diesen wiederbeleben? Dabei  werden alle Werte auf die Anfangswerte zurückgesetzt." wrappingWidth="430.8033447265625" />
+            <Button id="stadtKnopf" layoutX="193.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleZurStadt" style="-fx-background-color: rgba(241, 194, 105, 1);" text="Wiederbeleben und zurück zur Stadt" />
+            <Button id="beendenKnopf" layoutX="252.0" layoutY="310.0" mnemonicParsing="false" onAction="#beendeAnwendung" style="-fx-background-color: rgba(241, 194, 105, 1);" text="Spiel Beenden" />
          </children>
       </AnchorPane>
    </children>
