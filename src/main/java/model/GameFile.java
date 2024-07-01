@@ -280,7 +280,6 @@ public class GameFile {
 
     /**
      * Methode, die eine bestimmte gespeicherte GameFile lesen kann.
-     * @param fileName
      * @return
      * @Author Felix Ahrens
      */
