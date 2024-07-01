@@ -33,7 +33,8 @@ public class KlassischesMenueController extends StartMenueController {
     @FXML
     public void handleDebugEndgegner () {
         setzeGameFileInstanzLogisch();
-        SceneManager.changeScene(Strings.FXML_MISSION_ENDGEGNER);
+        KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
+        SceneManager.changeScene(Strings.FXML_KAMPF);
     }
 
     @FXML
