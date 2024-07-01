@@ -3,19 +3,26 @@ package control;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
 public class NeuesSpielController extends ControllerController{
-    private String schwierigkeit;
-    public String getSchwierigkeit(){
-        return schwierigkeit;
-    }
+    private static String spielName;
+    private static String schwierigkeit;
     @FXML
     public Slider schwierigkeitsSlider;
     @FXML
     public Label schwierigkeitsLabel;
+    @FXML
+    public AnchorPane spielNameAnchPane;
+    @FXML
+    public AnchorPane schwierigkeitsAnchPane;
+    @FXML
+    public TextField spielNameText;
+
 
     @FXML
     private void initialize() {
@@ -39,21 +46,45 @@ public class NeuesSpielController extends ControllerController{
 
     /**
      * Methode zum Fortfahren
-     * Die Methode holt sich den Text des sliders, der der ausgewählten Schwierigkeit entspricht und
-     *  erstellt damit eine neue GameFile die auch als Singleton gesetzt wird. Dann wird das Tutorial
-     *  geladen.
+     * Abhaengig von der AnchorPane, die gerade visible ist, wird entweder die Schwierigkeit gesetzt oder die GameFile mit
+     * der eingegebenen Schwierigkeit und dem eingegebenen Dateinamen erstellt
      * @author David Kien, Felix Ahrens
      */
     @FXML
     public void handleFortfahren () {
-        if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER)) {
-            System.out.println(schwierigkeitsLabel.getText());
-            GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(schwierigkeitsLabel.getText()));
+        if (schwierigkeitsAnchPane.isVisible()) {
+            if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER)) {
+                System.out.println(schwierigkeitsLabel.getText());
+                schwierigkeit = schwierigkeitsLabel.getText();
+            }
+            else {
+                schwierigkeitsLabel.setText(Strings.EINGABEAUFFORDERUNG_SCHWIERIGKEIT);
+                schwierigkeitsLabel.setVisible(true);
+            }
+            schwierigkeitsAnchPane.setVisible(false);
+            spielNameAnchPane.setVisible(true);
+        }
+        else if (!schwierigkeitsAnchPane.isVisible() && spielNameAnchPane.isVisible()) {
+            GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(spielNameText.getText(), schwierigkeit));
             SceneManager.changeScene(Strings.FXML_TUTORIAL);
         }
-        else {
-            schwierigkeitsLabel.setText(Strings.EINGABEAUFFORDERUNG_SCHWIERIGKEIT);
-            schwierigkeitsLabel.setVisible(true);
+    }
+
+    /**
+     * Override der "handleZurueck"-methode aus "ControllerController". Dadurch wird zusaetzliche Funktionalitaet implementiert, da hier ueber
+     * Zurueck-Buttons zwischen AnchorPanes, die verschiedene Nutzereingaben fordern, innerhalb der Szene gewechselt werden kann.
+     * @precondition
+     * @postcontidion
+     * @author Felix Ahrens
+     */
+    @Override
+    public void handleZurueck () {
+        if (schwierigkeitsAnchPane.isVisible()){
+            handleZurueck();
+        } else if (spielNameAnchPane.isVisible()) {
+            spielNameAnchPane.setVisible(false);
+            schwierigkeitsAnchPane.setVisible(true);
         }
     }
+
 }

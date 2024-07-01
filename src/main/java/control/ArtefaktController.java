@@ -15,7 +15,7 @@ public class ArtefaktController {
         return artefaktArray;
     }
 
-    public static void erstelleDefaultArtefakte () {
+    public static Artefakt[] erstelleDefaultArtefakte () {
         Artefakt statue = new Artefakt(Strings.STATUE,
                 false,
                 Konstanten.DEFAULT_VALUES_STATUE[Konstanten.INT_ZERO],
@@ -37,6 +37,7 @@ public class ArtefaktController {
         artefaktArray[Konstanten.INT_ZERO] = statue;
         artefaktArray[Konstanten.INT_ONE] = schwert;
         artefaktArray[Konstanten.INT_TWO] = ring;
+        return artefaktArray;
     }
 
 

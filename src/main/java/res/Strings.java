@@ -40,6 +40,7 @@ public interface Strings {
     String ANDERER = "Anderer";
     String FLAPPY_BIRD = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
+    String EMPTY = "";
 
     String STRING_STORY = "story";
     String OPEN_MEDIC = "open medic";
