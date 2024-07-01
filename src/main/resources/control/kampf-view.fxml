@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,14 +10,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
     <children>
-      <ImageView fitHeight="656.0" fitWidth="1003.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/rasen.png" />
          </image>
       </ImageView>
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleZurueck" text="Zurück" />
+        <Button fx:id="zurueckButton" layoutX="500.0" layoutY="644.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);" text="Zurück" />
       <GridPane fx:id="gridPane" layoutX="244.0" layoutY="41.0" prefHeight="479.0" prefWidth="511.0" style="-fx-background-color: lightgray">
          <columnConstraints>
             <ColumnConstraints />
@@ -24,8 +25,7 @@
          <rowConstraints>
             <RowConstraints />
          </rowConstraints></GridPane>
-      <AnchorPane id="timeline" layoutX="32.0" layoutY="61.0" prefHeight="409.0" prefWidth="157.0" />
-      <Text fx:id="amZugText" layoutX="489.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: black; -fx-font-size: 12; -fx-font-style: white" text="kampf" visible="false" />
-      <Button onMouseClicked="#eigenZug" layoutX="32.0" layoutY="508.0" mnemonicParsing="false" text="Start" />
+      <Text fx:id="amZugText" layoutX="489.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: black; -fx-font-size: 12; -fx-font-style: white" text="kampf" visible="true" />
+      <Label layoutX="36.0" layoutY="82.0" prefHeight="386.0" prefWidth="171.0" text="Label" />
     </children>
 </AnchorPane>
