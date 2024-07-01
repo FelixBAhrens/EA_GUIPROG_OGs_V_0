@@ -4,14 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
@@ -25,8 +22,7 @@ public class KampfController extends ControllerController implements Initializab
 {
     public enum KampfTyp {
         ENDGEGNER_KAMPF(Strings.ENDGEGNER),
-        ANDERER_KAMPF(Strings.ANDERER),
-        ARENA_KAMPF(Strings.ARENA);
+        ANDERER_KAMPF(Strings.ANDERER);
         private final String beschreibung;
 
         KampfTyp(String beschreibung) {
@@ -35,16 +31,14 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public static KampfTyp kampfTyp;
-    private static Kaempfer spieler;
-    private static Kaempfer gegner;
+    private Kaempfer spieler;
+    private Kaempfer gegner;
 
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
 
     private static String nachKampfSzenenName;
 
-    @FXML
-    public ImageView hintergrund;
     @FXML
     private GridPane gridPane;
     @FXML
@@ -55,8 +49,6 @@ public class KampfController extends ControllerController implements Initializab
     public AnchorPane kampfStartDialog;
     @FXML
     public AnchorPane kampfEndeDialog;
-    @FXML
-    public Text siegerText;
 
     @FXML
     public AnchorPane kaempferPane;
@@ -74,19 +66,23 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, um den Kampf zu initialisieren.
-     * @author David Kien, Felix Ahrens
+     * @author David Kien
      */
-    @FXML
     public void initialisiereKampf ()
     {
-        kampfStartDialog.setVisible(false);
-        createMap();
         switch (kampfTyp)
         {
             case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
             case ANDERER_KAMPF -> starteAndererKampf();
-            case ARENA_KAMPF -> starteArenaKampf();
         }
+    }
+
+    /**
+     * Methode, um den Dialog vor Kampfbeginn zu initialisieren.
+     * @author Felix Ahrens
+     */
+    public void initialisiereKampfStartDialog (){
+        kampfStartDialog.setVisible(true);
     }
 
     /**
@@ -95,35 +91,21 @@ public class KampfController extends ControllerController implements Initializab
      */
     public void starteEndgegnerKampf ()
     {
-        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
+        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());;
         this.gegner = Kaempfer.erstelleEndgegner();
 
-        initialisiereCharacter();
+        initializeCharacter();
         initialisiereGegner();
         updateCharacterPosition();
-        updateKampfAnchorPanes();
     }
 
     /**
      * PLATZHALTER
-     * Methode um einen anderen Kampf zu starten
+     * Methode um einen anderen Kampf zu starten, etwa in der Arena
      * @author Felix Ahrens
      */
     public void starteAndererKampf () {
 
-    }
-
-    /**
-     * Methode, um den Stand-Alone-Kampf ueber Netzwerk zu starten.
-     * @author Felix Ahrens
-     */
-    public void starteArenaKampf () {
-        //String imagePath = getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm();
-        Image bild = new Image(getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm());
-        hintergrund.setImage(bild);
-        //this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());
-        //this.gegner
-        //Schnittstelle zum Netzwerk. Hier müssen die gegnerischen Werte dann geladen werden
     }
 
     /**
@@ -132,7 +114,7 @@ public class KampfController extends ControllerController implements Initializab
      * @author Felix Ahrens
      */
     public void beendeKampf (Kaempfer sieger) {
-        siegerText.setText(sieger.getName() + Strings.HAT_GEWONNEN);
+
         kampfEndeDialog.setVisible(true);
     }
 
@@ -145,7 +127,8 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
-        kampfStartDialog.setVisible(true);
+        createMap();
+        initialisiereKampf();
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
             if (newScene != null)
@@ -163,7 +146,7 @@ public class KampfController extends ControllerController implements Initializab
 
     @FXML
     public void verlasseKampfSzene () {
-        SzenenManager.wechseleSzene(nachKampfSzenenName);
+        SceneManager.changeScene(nachKampfSzenenName);
     }
 
     private void gegnerZug () {
@@ -195,7 +178,7 @@ public class KampfController extends ControllerController implements Initializab
      * initialize Charakter - Methode
      * @author David Kien
      */
-    private void initialisiereCharacter()
+    private void initializeCharacter ()
     {
         spielerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
         spielerRec.setFill(Color.BLUE);
@@ -234,7 +217,7 @@ public class KampfController extends ControllerController implements Initializab
             case D:
                 if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 break;
-            case Q:
+            case ENTER:
                 attackiere(spieler, gegner);
                 break;
             case P:
@@ -285,9 +268,7 @@ public class KampfController extends ControllerController implements Initializab
         }
 
         verteidiger.setGesundheit(verteidiger.getGesundheit() - schaden);
-        updateKampfAnchorPanes();
         checkeLebtNoch();
-
     }
 
     /**
@@ -335,9 +316,7 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public void updateKampfAnchorPanes () {
-        kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit()/(double)Konstanten.INT_ONE_HUNDRED);
-        gegnerGesundheitsBar.setProgress((double)gegner.getGesundheit()/(double) Konstanten.INT_ONE_HUNDRED);
-        System.out.println(gegner.getGesundheit());
+
     }
 
     /**
