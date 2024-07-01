@@ -3,7 +3,7 @@ package control;
 import javafx.fxml.FXML;
 import res.Strings;
 
-public class PlayerRebornController extends ControllerController{
+public class PlayerRebornController {
     @FXML
     public void initialize() {
 
@@ -11,6 +11,6 @@ public class PlayerRebornController extends ControllerController{
 
     @FXML
     public void handleZurStadt(){
-        SzenenManager.wechseleSzene(Strings.FXML_STADT);
+        SceneManager.changeScene(Strings.FXML_STADT);
     }
 }

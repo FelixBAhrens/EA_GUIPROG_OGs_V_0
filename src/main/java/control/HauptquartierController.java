@@ -69,7 +69,7 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setEffect(glow);
 
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_MISSION_FLAPPYBIRD));
+        missionStarten.setOnMouseClicked(e -> SceneManager.changeScene(Strings.FXML_MISSION_FLAPPYBIRD));
     }
 
     @FXML
@@ -85,7 +85,7 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setEffect(glow);
 
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_KARTENEW));
+        missionStarten.setOnMouseClicked(e -> SceneManager.changeScene(Strings.FXML_KARTENEW));
     }
 
     @FXML
@@ -100,7 +100,7 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setEffect(glow);
 
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_MISSION_MEMORY));
+        missionStarten.setOnMouseClicked(e -> SceneManager.changeScene(Strings.FXML_MISSION_MEMORY));
     }
 
     @FXML
@@ -117,13 +117,13 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setOnMouseClicked(e -> {
             KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-            SzenenManager.wechseleSzene(Strings.FXML_KAMPF);});
+            SceneManager.changeScene(Strings.FXML_KAMPF);});
     }
 
     @FXML
     public void openKarte()
     {
-        SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
+        SceneManager.changeScene(Strings.FXML_KARTENEW);
     }
 
 }

@@ -66,15 +66,19 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, um den Kampf zu initialisieren.
-     * @author David Kien
+     * @author David Kien, Felix Ahrens
      */
+    @FXML
     public void initialisiereKampf ()
     {
+        kampfStartDialog.setVisible(false);
+        createMap();
         switch (kampfTyp)
         {
             case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
             case ANDERER_KAMPF -> starteAndererKampf();
         }
+
     }
 
     /**
@@ -114,7 +118,6 @@ public class KampfController extends ControllerController implements Initializab
      * @author Felix Ahrens
      */
     public void beendeKampf (Kaempfer sieger) {
-
         kampfEndeDialog.setVisible(true);
     }
 
@@ -127,8 +130,7 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
-        createMap();
-        initialisiereKampf();
+        kampfStartDialog.setVisible(true);
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
             if (newScene != null)
