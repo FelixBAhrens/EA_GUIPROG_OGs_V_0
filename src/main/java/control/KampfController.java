@@ -2,11 +2,13 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
@@ -35,6 +37,8 @@ public class KampfController extends ControllerController implements Initializab
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
 
+    private static String nachKampfSzenenName;
+
     @FXML
     private GridPane gridPane;
     @FXML
@@ -42,9 +46,28 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     private Rectangle gegnerRec;
     @FXML
-    private static Text amZugText;
+    public AnchorPane kampfStartDialog;
+    @FXML
+    public AnchorPane kampfEndeDialog;
 
+    @FXML
+    public AnchorPane kaempferPane;
+    @FXML
+    public Label kaempferStats;
+    @FXML
+    public ProgressBar kaempferGesundheitsBar;
 
+    @FXML
+    public AnchorPane gegnerPane;
+    @FXML
+    public Label gegnerStats;
+    @FXML
+    public ProgressBar gegnerGesundheitsBar;
+
+    /**
+     * Methode, um den Kampf zu initialisieren.
+     * @author David Kien
+     */
     public void initialisiereKampf ()
     {
         switch (kampfTyp)
@@ -54,6 +77,18 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
+    /**
+     * Methode, um den Dialog vor Kampfbeginn zu initialisieren.
+     * @author Felix Ahrens
+     */
+    public void initialisiereKampfStartDialog (){
+        kampfStartDialog.setVisible(true);
+    }
+
+    /**
+     * Methode, um den Endgegnerkampf zu initialisieren
+     * @author David Kien, Felix Ahrens
+     */
     public void starteEndgegnerKampf ()
     {
         this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());;
@@ -64,15 +99,31 @@ public class KampfController extends ControllerController implements Initializab
         updateCharacterPosition();
     }
 
+    /**
+     * PLATZHALTER
+     * Methode um einen anderen Kampf zu starten, etwa in der Arena
+     * @author Felix Ahrens
+     */
     public void starteAndererKampf () {
 
     }
 
-    public void beendeKampf () {
+    /**
+     * Methode zum abschliessen des Kampfes. Der Sieger wurde von der checkeLebtNoch-Methode ermittelt.
+     * @param sieger
+     * @author Felix Ahrens
+     */
+    public void beendeKampf (Kaempfer sieger) {
 
+        kampfEndeDialog.setVisible(true);
     }
 
-
+    /**
+     * Initialize-Methode, deren Verwendung fuer FXML-Controllerklassen verpflichtend ist.
+     * @param location
+     * @param resources
+     * @author David Kien, Felix Ahrens
+     */
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
@@ -89,28 +140,20 @@ public class KampfController extends ControllerController implements Initializab
 
     @FXML
     private void eigenZug (){
-        zeigeEigenZug();
 
         //gegnerZug();
     }
 
+    @FXML
+    public void verlasseKampfSzene () {
+        SceneManager.changeScene(nachKampfSzenenName);
+    }
+
     private void gegnerZug () {
-        zeigeGegnerZug();
+
+        bewegeGegnerDynamisch();
         attackiere(gegner, spieler);
         eigenZug();
-    }
-
-    public void zeigeEigenZug () {
-        System.out.println(Strings.AMZUG_DU);
-        System.out.println(Strings.SPIELER_GESUNDHEIT + spieler.getGesundheit());
-        //amZugText.setText(Strings.AMZUG_DU);
-
-    }
-
-    public void zeigeGegnerZug () {
-        System.out.println(Strings.AMZUG_GEGNER);
-        System.out.println(Strings.GEGNER_GESUNDHEIT + gegner.getGesundheit());
-        //amZugText.setText(Strings.AMZUG_GEGNER);
     }
 
     /**
@@ -225,21 +268,62 @@ public class KampfController extends ControllerController implements Initializab
         }
 
         verteidiger.setGesundheit(verteidiger.getGesundheit() - schaden);
-        checkeLebtNoch(verteidiger);
+        checkeLebtNoch();
     }
 
-    public void checkeLebtNoch (Kaempfer verwundeter) {
-        if (verwundeter.getGesundheit() <= Konstanten.INT_ZERO) {
-            System.out.println(Strings.TOT);
-            if (spieler.getGesundheit() <= Konstanten.INT_ZERO) {
-                SceneManager.changeScene(Strings.FXML_PLAYER_REBORN);
+    /**
+     * Methode, die ueberprueft, ob einer der im Kampf Beteiligten einen Gesundheitswert kleiner eins hat.
+     *  Ist dies der Fall, wird
+     * @param
+     * @author Felix Ahrens
+     */
+    public void checkeLebtNoch () {
+        if (spieler.getGesundheit() < Konstanten.INT_ONE) {
+            nachKampfSzenenName = Strings.FXML_PLAYER_REBORN;
+            beendeKampf(gegner);
+        }
+        else if (gegner.getGesundheit() < Konstanten.INT_ONE) {
+            nachKampfSzenenName = Strings.FXML_HAUPTQUARTIER;
+            beendeKampf(spieler);
+        }
+    }
+
+    /**
+     * Methode, mit der der Gegner den kuerzesten Weg zum Spieler nimmt.
+     * @author Felix Ahrens
+     */
+    public void bewegeGegnerDynamisch (){
+        int gegnerX = gegner.getxPosition();
+        int gegnerY = gegner.getyPosition();
+        int spielerX = spieler.getxPosition();
+        int spielerY = spieler.getyPosition();
+        int xDiff = spielerX - gegnerX;
+        int yDiff = spielerY - gegnerY;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > Konstanten.INT_ZERO && gegnerX + Konstanten.INT_ONE < GRID_SIZE) {
+                gegner.setxPosition(gegnerX + Konstanten.INT_ONE);
+            } else if (xDiff < Konstanten.INT_ZERO && gegnerX - Konstanten.INT_ONE >= Konstanten.INT_ZERO) {
+                gegner.setxPosition(gegnerX - Konstanten.INT_ONE);
             }
-            if (gegner.getGesundheit() <= Konstanten.INT_ZERO) {
-                SceneManager.changeScene(Strings.FXML_HAUPTQUARTIER);
+        } else {
+            if (yDiff > Konstanten.INT_ZERO && gegnerY + Konstanten.INT_ONE < GRID_SIZE) {
+                gegner.setyPosition(gegnerY + Konstanten.INT_ONE);
+            } else if (yDiff < Konstanten.INT_ZERO && gegnerY - Konstanten.INT_ONE >= Konstanten.INT_ZERO) {
+                gegner.setyPosition(gegnerY - Konstanten.INT_ONE);
             }
         }
     }
 
+    public void updateKampfAnchorPanes () {
+
+    }
+
+    /**
+     * Methode zum warten.
+     * @param ms
+     * @author Felix Ahrens
+     */
     public void halteAn (long ms) {
         try {
             Thread.sleep(ms);
@@ -248,9 +332,4 @@ public class KampfController extends ControllerController implements Initializab
             e.printStackTrace();
         }
     }
-
-    /**
-     * README:
-     * - Artefakte koennen im Kampf angewendet werden
-     */
 }
