@@ -13,7 +13,7 @@ public class CharakterController {
         return charakterArray;
     }
 
-    public static void erstelleDefaultCharakter () {
+    public static Charakter[] erstelleDefaultCharakter () {
         Charakter leader = new Charakter(Strings.LEADER,
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ZERO],
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ONE],
@@ -84,6 +84,7 @@ public class CharakterController {
         charakterArray[Konstanten.INT_TWO] = hunter;
         charakterArray[Konstanten.INT_THREE] = magician;
         charakterArray[Konstanten.INT_FOUR] = scout;
+        return charakterArray;
     }
 
     @FXML
