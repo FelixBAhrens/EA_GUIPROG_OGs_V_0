@@ -23,13 +23,13 @@ public class TutorialController
     @FXML
     public void handleWeiter ()
     {
-        SceneManager.changeScene(Strings.FXML_STORY);
+        SzenenManager.wechseleSzene(Strings.FXML_STORY);
     }
 
     @FXML
     public void handleZurueck ()
     {
-        SceneManager.goBack();
+        SzenenManager.szeneZurueck();
     }
 
 

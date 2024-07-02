@@ -40,9 +40,15 @@ public class ControllerController
         }
     }
 
-
-
-
+    public void setzeGameFileInstanzLogisch() {
+        GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
+        if (gamefile != null) {
+            GameFile.setzeGameFile(gamefile);
+            SzenenManager.wechseleSzene(Strings.FXML_STADT);
+        } else {
+            SzenenManager.wechseleSzene(Strings.FXML_NEUESSPIEL);
+        }
+    }
 
     /**
      * Methode, die die Anfrage fuer Hilfe behandelt, indem ein Hilfe-Menue aufgerufen lassen wird.
@@ -51,7 +57,7 @@ public class ControllerController
      */
     @FXML
     public void handleHilfe() {
-        SceneManager.changeScene(Strings.FXML_HILFE);
+        SzenenManager.wechseleSzene(Strings.FXML_HILFE);
     }
 
     /**
@@ -61,11 +67,9 @@ public class ControllerController
     @FXML
     public void handleZurueck()
     {
-        try
-        {
-            SceneManager.goBack();
-        } catch (RuntimeException e)
-        {
+        try {
+            SzenenManager.szeneZurueck();
+        } catch (RuntimeException e) {
             MyIO.print(Strings.FEHLERMELDUNG_ZURUECK);
         }
     }
@@ -85,8 +89,7 @@ public class ControllerController
      * @author Felix Ahrens
      */
     @FXML
-    public void beendeAnwendung ()
-    {
+    public void beendeAnwendung () {
         System.exit(Konstanten.INT_ZERO);
     }
 

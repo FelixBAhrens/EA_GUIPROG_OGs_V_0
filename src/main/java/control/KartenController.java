@@ -382,6 +382,6 @@ public class KartenController extends ControllerController implements Initializa
     public void handlezurueck()
     {
         stopSaving();
-        SceneManager.goBack();
+        SzenenManager.szeneZurueck();
     }
 }

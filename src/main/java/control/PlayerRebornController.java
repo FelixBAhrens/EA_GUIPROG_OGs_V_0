@@ -11,6 +11,6 @@ public class PlayerRebornController extends ControllerController{
 
     @FXML
     public void handleZurStadt(){
-        SceneManager.changeScene(Strings.FXML_STADT);
+        SzenenManager.wechseleSzene(Strings.FXML_STADT);
     }
 }

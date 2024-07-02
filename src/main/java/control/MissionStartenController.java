@@ -8,7 +8,7 @@ public class MissionStartenController
     @FXML
     private void handleJa () throws Exception
     {
-        SceneManager.changeScene(Strings.FXML_KAMPF);
+        SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
     @FXML
