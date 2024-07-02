@@ -33,11 +33,13 @@ public interface Strings {
     String FXML_PLAYER_REBORN = "player-reborn-view.fxml";
 
     //--------------
+    String ARENA_BILDPFAD = "/assets/arena.png";
     String GESUNDHEIT_PERCENT_D = "Gesundheit: %d";
     String RESOURCES_PERCENTS_DS = "Holz: %d, Gesundheit: %d, Gold: %d";
     String MEMORY = "Memory!";
     String ENDGEGNER = "Endgegner!";
     String ANDERER = "Anderer";
+    String ARENA = "Arena";
     String FLAPPY_BIRD = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
     String EMPTY = "";
@@ -112,6 +114,7 @@ public interface Strings {
     String INHOLZ = "*alle Angaben in Holz";
     String GOLD_BUTTON = "goldButton";
     String GESUNDHEIT_BUTTON = "gesundheitButton";
+    String HAT_GEWONNEN = " hat gewonnen!";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
