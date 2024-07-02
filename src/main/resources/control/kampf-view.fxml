@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
     <children>
-      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/rasen.png" />
          </image>

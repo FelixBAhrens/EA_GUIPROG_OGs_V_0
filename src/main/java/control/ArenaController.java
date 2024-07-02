@@ -19,6 +19,6 @@ public class ArenaController extends ControllerController {
     @FXML
     public void handleFortfahren (){
         KampfController.kampfTyp = KampfController.KampfTyp.ARENA_KAMPF;
-        SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
+        SceneManager.changeScene(Strings.FXML_KAMPF);
     }
 }

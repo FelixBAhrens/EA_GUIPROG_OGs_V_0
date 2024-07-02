@@ -99,10 +99,8 @@ public interface Strings {
     String SCHWIERIGKEIT = "Schwierigkeit";
     String DATEINAME = "Dateiname";
     String HOLZ = "Holz";
-    String STEIN = "Stein";
     String GOLD = "Gold";
     String GESUNDHEIT = "Gesundheit";
-    String BANONAS = "Banonas";
     String NAME = "Name";
     String IMBESITZ = "Ist im Besitz";
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
@@ -117,7 +115,6 @@ public interface Strings {
     String GOLD_BUTTON = "goldButton";
     String GESUNDHEIT_BUTTON = "gesundheitButton";
     String HAT_GEWONNEN = " hat gewonnen!";
-    String IP = "IP";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
@@ -159,12 +156,11 @@ public interface Strings {
     String FEHLERMELDUNG_DATEI = "Datei existiert nicht";
     String FEHLERMELDUNG_SCHWIERIGKEIT = "Schwierigkeit konnte nicht interpretiert werden";
     String FEHLERMELDUNG_GAMEFILE = "Gamefile existiert nicht";
-    String FEHLERMELDUNG_SCENEMANAGER = "SzenenManager existiert nicht";
+    String FEHLERMELDUNG_SCENEMANAGER = "SceneManager existiert nicht";
     String FEHLERMELDUNG_SPEICHERN = "Speichern fehlgeschlagen";
     String FEHLERMELDUNG_ANWENDUNGEN_UEBRIG = "Alle Anwendungen aufgebraucht";
     String FEHLERMELDUNG_ZURUECK = "Es kann nicht zurück gegangen werden.";
     String FEHLERMELDUNG_SZENENWECHSEL = "Es ist ein Fehler beim Szenenwechsel aufgetreten";
-    String FEHLERMELDUNG_IP = "Die IP konnte nicht ermittelt werden.";
 
     //Meldungen
     String MELDUNG_GESPEICHERT = "Die folgende Datei wurde erfolgreich gespeichert: ";
