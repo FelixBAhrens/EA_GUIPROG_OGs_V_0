@@ -12,29 +12,29 @@ public class KlassischesMenueController extends StartMenueController {
 
     @FXML
     public void handleDebugStadt() {
-        SceneManager.changeScene(Strings.FXML_STADT);
+        SzenenManager.wechseleSzene(Strings.FXML_STADT);
     }
 
     @FXML
     public void handleDebugKarte() {
-        SceneManager.changeScene(Strings.FXML_KARTE);
+        SzenenManager.wechseleSzene(Strings.FXML_KARTE);
     }
 
     @FXML
     public void handleDebugKampf () {
-        SceneManager.changeScene(Strings.FXML_KAMPF);
+        SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
     @FXML
     public void handleDebugArena () {
-        SceneManager.changeScene(Strings.FXML_ARENA);
+        SzenenManager.wechseleSzene(Strings.FXML_ARENA);
     }
 
     @FXML
     public void handleDebugEndgegner () {
         setzeGameFileInstanzLogisch();
         KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-        SceneManager.changeScene(Strings.FXML_KAMPF);
+        SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
     @FXML

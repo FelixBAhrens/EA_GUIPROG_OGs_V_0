@@ -44,9 +44,9 @@ public class ControllerController
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
         if (gamefile != null) {
             GameFile.setzeGameFile(gamefile);
-            SceneManager.changeScene(Strings.FXML_STADT);
+            SzenenManager.wechseleSzene(Strings.FXML_STADT);
         } else {
-            SceneManager.changeScene(Strings.FXML_NEUESSPIEL);
+            SzenenManager.wechseleSzene(Strings.FXML_NEUESSPIEL);
         }
     }
 
@@ -57,7 +57,7 @@ public class ControllerController
      */
     @FXML
     public void handleHilfe() {
-        SceneManager.changeScene(Strings.FXML_HILFE);
+        SzenenManager.wechseleSzene(Strings.FXML_HILFE);
     }
 
     /**
@@ -68,7 +68,7 @@ public class ControllerController
     public void handleZurueck()
     {
         try {
-            SceneManager.goBack();
+            SzenenManager.szeneZurueck();
         } catch (RuntimeException e) {
             MyIO.print(Strings.FEHLERMELDUNG_ZURUECK);
         }

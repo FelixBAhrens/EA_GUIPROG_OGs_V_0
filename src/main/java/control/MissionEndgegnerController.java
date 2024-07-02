@@ -12,6 +12,6 @@ public class MissionEndgegnerController {
     @FXML
     public void starteKampf () {
         KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-        SceneManager.changeScene(Strings.FXML_KAMPF);
+        SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 }

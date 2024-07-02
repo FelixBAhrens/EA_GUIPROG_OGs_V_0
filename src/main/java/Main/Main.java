@@ -1,20 +1,20 @@
 package Main;
 
-import control.SceneManager;
+import control.SzenenManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import res.Strings;
 
 public class Main extends Application {
     /**
-     * Start-Methode, die die Application startet, indem der SceneManager initialisiert und mit diesem dann das StartMenue aufgerufen wird.
+     * Start-Methode, die die Application startet, indem der SzenenManager initialisiert und mit diesem dann das StartMenue aufgerufen wird.
      * @param primaryStage
      * @author David Kien, Felix Ahrens
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        SceneManager sceneManager = new SceneManager(primaryStage);
-        sceneManager.changeScene(Strings.FXML_STARTMENUE);
+        SzenenManager szenenManager = new SzenenManager(primaryStage);
+        szenenManager.wechseleSzene(Strings.FXML_STARTMENUE);
     }
 
     /**

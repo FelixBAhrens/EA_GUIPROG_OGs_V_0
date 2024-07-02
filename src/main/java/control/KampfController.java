@@ -163,7 +163,7 @@ public class KampfController extends ControllerController implements Initializab
 
     @FXML
     public void verlasseKampfSzene () {
-        SceneManager.changeScene(nachKampfSzenenName);
+        SzenenManager.wechseleSzene(nachKampfSzenenName);
     }
 
     private void gegnerZug () {
