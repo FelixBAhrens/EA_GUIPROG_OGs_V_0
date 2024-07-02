@@ -156,7 +156,7 @@ public interface Strings {
     String FEHLERMELDUNG_DATEI = "Datei existiert nicht";
     String FEHLERMELDUNG_SCHWIERIGKEIT = "Schwierigkeit konnte nicht interpretiert werden";
     String FEHLERMELDUNG_GAMEFILE = "Gamefile existiert nicht";
-    String FEHLERMELDUNG_SCENEMANAGER = "SceneManager existiert nicht";
+    String FEHLERMELDUNG_SCENEMANAGER = "SzenenManager existiert nicht";
     String FEHLERMELDUNG_SPEICHERN = "Speichern fehlgeschlagen";
     String FEHLERMELDUNG_ANWENDUNGEN_UEBRIG = "Alle Anwendungen aufgebraucht";
     String FEHLERMELDUNG_ZURUECK = "Es kann nicht zurück gegangen werden.";
