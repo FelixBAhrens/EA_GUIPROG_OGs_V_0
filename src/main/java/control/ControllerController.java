@@ -1,6 +1,7 @@
 package control;
 
 import javafx.fxml.FXML;
+import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
@@ -58,6 +59,28 @@ public class ControllerController
     @FXML
     public void handleHilfe() {
         SzenenManager.wechseleSzene(Strings.FXML_HILFE);
+    }
+
+    /**
+     * Methode, um eine Transaktion, also einen Kauf durchzufuehren. muss noch um die neuen ressourcen ergänzt werden
+     * @param charakter
+     * @param holz
+     * @param stein
+     * @param gold
+     * @param banonas
+     * @param gesundheit
+     * @return
+     * @author Felix Ahrens
+     */
+    public boolean fuehreTransaktionDurch (Charakter charakter, int holz, int stein, int gold, int banonas, int gesundheit){
+        GameFile instanz = GameFile.gebeLetztesSpielZurueck();
+        if (instanz.getHolzRessource() > holz){
+            instanz.setHolzRessource(instanz.getHolzRessource() - holz);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
