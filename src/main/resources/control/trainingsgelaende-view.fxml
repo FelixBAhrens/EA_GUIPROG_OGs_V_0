@@ -22,7 +22,6 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </ProgressBar>
-                  <ProgressBar layoutX="10.0" layoutY="27.0" prefHeight="0.0" prefWidth="125.0" progress="0.0" />
                   <Label layoutX="10.0" layoutY="57.0" prefHeight="17.0" prefWidth="118.0" text="Schild:" />
                   <ProgressBar fx:id="schildBar" layoutX="10.0" layoutY="79.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
                      <VBox.margin>
