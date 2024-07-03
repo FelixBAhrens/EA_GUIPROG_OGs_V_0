@@ -99,8 +99,10 @@ public interface Strings {
     String SCHWIERIGKEIT = "Schwierigkeit";
     String DATEINAME = "Dateiname";
     String HOLZ = "Holz";
+    String STEIN = "Stein";
     String GOLD = "Gold";
     String GESUNDHEIT = "Gesundheit";
+    String BANONAS = "Banonas";
     String NAME = "Name";
     String IMBESITZ = "Ist im Besitz";
     String ANZAHL_ANWENDUNGEN = "Anzahl anwendungen";
