@@ -54,8 +54,10 @@ public class GameFile {
     private String filePathAndName;
     private String schwierigkeit;
     private int holzRessource;
+    private int steinRessource;
     private int goldRessource;
     private int gesundheitRessource;
+    private int banonasRessource;
     private Artefakt statue;
     private Artefakt schwert;
     private Artefakt ring;
@@ -65,6 +67,8 @@ public class GameFile {
     private Charakter magician;
     private Charakter scout;
     private boolean fraktionenCampFreigeschaltet;
+    private int trainingsgelaendeLevel;
+    private int magieverstaerkerLevel;
 
     public String getSchwierigkeit() {
         return schwierigkeit;
@@ -90,6 +94,14 @@ public class GameFile {
         this.holzRessource = holzRessource;
     }
 
+    public int getSteinRessource() {
+        return steinRessource;
+    }
+
+    public void setSteinRessource(int steinRessource) {
+        this.steinRessource = steinRessource;
+    }
+
     public int getGoldRessource() {
         return goldRessource;
     }
@@ -104,6 +116,14 @@ public class GameFile {
 
     public void setGesundheitRessource(int gesundheitRessource) {
         this.gesundheitRessource = gesundheitRessource;
+    }
+
+    public int getBanonasRessource() {
+        return banonasRessource;
+    }
+
+    public void setBanonasRessource(int banonaRessource) {
+        this.banonasRessource = banonaRessource;
     }
 
     public Artefakt getStatue() {
@@ -180,11 +200,27 @@ public class GameFile {
         this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
     }
 
+    public int getTrainingsgelaendeLevel() {
+        return trainingsgelaendeLevel;
+    }
+
+    public void setTrainingsgelaendeLevel(int trainingsgelaendeLevel) {
+        this.trainingsgelaendeLevel = trainingsgelaendeLevel;
+    }
+
+    public int getMagieverstaerkerLevel() {
+        return magieverstaerkerLevel;
+    }
+
+    public void setMagieverstaerkerLevel(int magieverstaerkerLevel) {
+        this.magieverstaerkerLevel = magieverstaerkerLevel;
+    }
+
     public GameFile () {
     }
 
     /**
-     * Konstruktor der Klasse GameFile
+     *
      * @param filePathAndName
      * @param schwierigkeit
      * @param holzRessource
@@ -199,15 +235,16 @@ public class GameFile {
      * @param magician
      * @param scout
      * @param fraktionenCampFreigeschaltet
-     * @author Felix Ahrens
      */
-    private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int goldRessource, int gesundheitRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
-                     Charakter magician, Charakter scout, boolean fraktionenCampFreigeschaltet) {
+    private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int steinRessource, int goldRessource, int gesundheitRessource, int banonasRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
+                     Charakter magician, Charakter scout, boolean fraktionenCampFreigeschaltet, int trainingsgelaendeLevel, int magieverstaerkerLevel) {
         this.filePathAndName = filePathAndName;
         this.schwierigkeit = schwierigkeit;
         this.holzRessource = holzRessource;
+        this.steinRessource = steinRessource;
         this.goldRessource = goldRessource;
         this.gesundheitRessource = gesundheitRessource;
+        this.banonasRessource = banonasRessource;
         this.statue = statue;
         this.schwert = schwert;
         this.ring = ring;
@@ -217,6 +254,8 @@ public class GameFile {
         this.magician = magician;
         this.scout = scout;
         this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
+        this.trainingsgelaendeLevel = trainingsgelaendeLevel;
+        this.magieverstaerkerLevel = magieverstaerkerLevel;
     }
 
     /**
@@ -237,8 +276,10 @@ public class GameFile {
         GameFile neueGameFile = new GameFile(spielPfad_Name,
                 schwierigkeit,
                 Konstanten.DEFAULT_VALUE_HOLZ,
+                Konstanten.DEFAULT_VALUE_STEIN,
                 Konstanten.DEFAULT_VALUE_GOLD,
                 Konstanten.DEFAULT_VALUE_GESUNDHEIT,
+                Konstanten.DEFAULT_VALUE_BANANAS,
                 artefaktArray[Konstanten.INT_ZERO],
                 artefaktArray[Konstanten.INT_ONE],
                 artefaktArray[Konstanten.INT_TWO],
@@ -247,7 +288,9 @@ public class GameFile {
                 charakterArray[Konstanten.INT_TWO],
                 charakterArray[Konstanten.INT_THREE],
                 charakterArray[Konstanten.INT_FOUR],
-                false);
+                false,
+                Konstanten.INT_ZERO,
+                Konstanten.INT_ZERO);
         schreibeGameFile(neueGameFile);
         return leseGameFile(spielPfad_Name);
     }
@@ -258,8 +301,11 @@ public class GameFile {
             dateiSchreiber.write(gameFile.filePathAndName + Strings.NEWLINE + gameFile.schwierigkeit + Strings.NEWLINE);
             //Ressourcen
             dateiSchreiber.write(gameFile.holzRessource + Strings.SEMIKOLON
+                    + gameFile.steinRessource + Strings.SEMIKOLON
                     + gameFile.goldRessource + Strings.SEMIKOLON
-                    + gameFile.gesundheitRessource + Strings.NEWLINE);
+                    + gameFile.gesundheitRessource + Strings.SEMIKOLON
+                    + gameFile.banonasRessource + Strings.SEMIKOLON
+                    + Strings.NEWLINE);
             //Artefakte
             dateiSchreiber.write(gameFile.statue.toCSV() + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.schwert.toCSV() + Strings.NEWLINE);
@@ -271,6 +317,8 @@ public class GameFile {
             dateiSchreiber.write(gameFile.magician + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.scout + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.fraktionenCampFreigeschaltet + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.trainingsgelaendeLevel + Strings.NEWLINE);
+            dateiSchreiber.write(gameFile.magieverstaerkerLevel + Strings.NEWLINE);
             dateiSchreiber.close();
         }
         catch(IOException e){
@@ -323,12 +371,15 @@ public class GameFile {
      * @Author Felix Ahrens
      */
     public static GameFile macheGameFileAusZeilenArray(String[] zeilenArray){
+        System.out.println(zeilenArray[11]);
         try{
             return new GameFile(zeilenArray[Konstanten.INT_ZERO],
                     zeilenArray[Konstanten.INT_ONE],
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ZERO]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ONE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_TWO]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_THREE]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_FOUR]),
                     erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_THREE]),
                     erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_FOUR]),
                     erstelleArtefaktAusCSVZeile(zeilenArray[Konstanten.INT_FIVE]),
@@ -337,8 +388,9 @@ public class GameFile {
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_EIGHT]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_NINE]),
                     erstelleCharakterAusCSVZeile(zeilenArray[Konstanten.INT_TEN]),
-                    Boolean.valueOf(zeilenArray[Konstanten.INT_ELEVEN])
-            );
+                    Boolean.valueOf(zeilenArray[Konstanten.INT_ELEVEN]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_TWELVE]),
+                    Integer.parseInt(zeilenArray[Konstanten.INT_THIRTEEN]));
         }
         catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
@@ -446,15 +498,18 @@ public class GameFile {
                 Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + filePathAndName + Strings.NEWLINE +
                 Strings.SCHWIERIGKEIT + Strings.DOPPELPUNKT + Strings.SPACE + schwierigkeit + Strings.NEWLINE +
                 Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + holzRessource + Strings.NEWLINE +
+                Strings.STEIN + Strings.DOPPELPUNKT + Strings.SPACE + steinRessource + Strings.NEWLINE +
                 Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + goldRessource + Strings.NEWLINE +
                 Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + gesundheitRessource + Strings.NEWLINE +
+                Strings.BANONAS + Strings.DOPPELPUNKT + Strings.SPACE + banonasRessource + Strings.NEWLINE +
                 leader + Strings.NEWLINE +
                 medic + Strings.NEWLINE +
                 hunter + Strings.NEWLINE +
                 magician + Strings.NEWLINE +
                 scout + Strings.NEWLINE +
                 fraktionenCampFreigeschaltet + Strings.NEWLINE +
-                Strings.GESCHWEIFTE_KLAMMER_ZU;
+                trainingsgelaendeLevel + Strings.NEWLINE +
+                magieverstaerkerLevel + Strings.NEWLINE;
     }
 
 }

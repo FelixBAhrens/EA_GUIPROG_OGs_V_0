@@ -161,9 +161,6 @@ public class TrainingsGelaendeController extends PaneController {
     }
 
 
-
-
-
     @FXML
     private void schildVerbessern ()
     {
