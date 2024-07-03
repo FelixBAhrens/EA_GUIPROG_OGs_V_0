@@ -41,9 +41,11 @@ public interface Konstanten {
     int INT_FIFTY = 50;
 
     //Ressource
-    int DEFAULT_VALUE_HOLZ = 100;
+    int DEFAULT_VALUE_HOLZ = 50;
+    int DEFAULT_VALUE_STEIN = 20;
     int DEFAULT_VALUE_GOLD = 10;
     int DEFAULT_VALUE_GESUNDHEIT = 50;
+    int DEFAULT_VALUE_BANANAS = 0;
     double ZERO_POINT_SEVEN_FIVE = 0.75;
 
     //Charakter
