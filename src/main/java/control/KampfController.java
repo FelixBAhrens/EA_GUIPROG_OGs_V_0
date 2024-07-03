@@ -234,7 +234,7 @@ public class KampfController extends ControllerController implements Initializab
             case D:
                 if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 break;
-            case ENTER:
+            case Q:
                 attackiere(spieler, gegner);
                 break;
             case P:
