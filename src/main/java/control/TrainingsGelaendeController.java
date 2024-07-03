@@ -3,6 +3,7 @@ package control;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import model.GameFile;
 import res.Konstanten;
@@ -69,6 +70,10 @@ public class TrainingsGelaendeController extends PaneController {
 
     @FXML
     private ProgressBar zahlAusweichenBar;
+
+    @FXML
+    public AnchorPane baustelle;
+
     private int price = Konstanten.INT_FIVE;
 
     private int gesundheitPoints;
@@ -112,9 +117,6 @@ public class TrainingsGelaendeController extends PaneController {
             magieResistenzPoints = GameFile.getInstance().getLeader().getMagieResistenz();
             bewegungsWeitePoints = GameFile.getInstance().getLeader().getBewegungsWeite();
 
-            gesundheit.setText(String.valueOf(gesundheitPoints));
-            gesundheitBar.setProgress((double) gesundheitPoints / Konstanten.INT_TEN);
-
             schild.setText(String.valueOf(schildPoints));
             schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
 
@@ -145,28 +147,22 @@ public class TrainingsGelaendeController extends PaneController {
         }
     }
 
+
     @FXML
-    private void gesundheitVerbessern ()
-    {
-        try
-        {
-            if (!(gesundheitPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstance().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                schildPoints++;
-                GameFile.getInstance().getLeader().setGesundheit(gesundheitPoints);
-                gesundheit.setText(String.valueOf(gesundheitPoints));
-                gesundheitBar.setProgress((double) gesundheitPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+    public void zeigeVerbessern(){
+        baustelle.setVisible(true);
     }
+
+    @FXML
+    public void verbessereGebaeude(){
+        //hier transaktion
+        //Hier trainingsgelaende verbessern
+        baustelle.setVisible(false);
+    }
+
+
+
+
 
     @FXML
     private void schildVerbessern ()
