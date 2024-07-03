@@ -1,7 +1,6 @@
 package control;
 
 import javafx.fxml.FXML;
-import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
@@ -62,8 +61,7 @@ public class ControllerController
     }
 
     /**
-     * Methode, um eine Transaktion, also einen Kauf durchzufuehren. muss noch um die neuen ressourcen ergänzt werden
-     * @param charakter
+     * Methode, um eine Transaktion, also einen Kauf durchzufuehren, wenn dieser moeglich ist.
      * @param holz
      * @param stein
      * @param gold
@@ -72,10 +70,14 @@ public class ControllerController
      * @return
      * @author Felix Ahrens
      */
-    public boolean fuehreTransaktionDurch (Charakter charakter, int holz, int stein, int gold, int banonas, int gesundheit){
+    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit){
         GameFile instanz = GameFile.gebeLetztesSpielZurueck();
-        if (instanz.getHolzRessource() > holz){
+        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas){
             instanz.setHolzRessource(instanz.getHolzRessource() - holz);
+            instanz.setSteinRessource(instanz.getSteinRessource() - stein);
+            instanz.setGoldRessource(instanz.getGoldRessource() - gold);
+            instanz.setGesundheitRessource(instanz.getGesundheitRessource() - gesundheit);
+            instanz.setBanonasRessource(instanz.getBanonasRessource() - banonas);
             return true;
         }
         else {

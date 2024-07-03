@@ -155,9 +155,16 @@ public class TrainingsGelaendeController extends PaneController {
 
     @FXML
     public void verbessereGebaeude(){
-        //hier transaktion
-        //Hier trainingsgelaende verbessern
-        baustelle.setVisible(false);
+        /*
+        if (fuehreTransaktionDurchWennMoeglich(10,0,1,0,0)){
+            //Hier trainingsgelaende verbessern
+            baustelle.setVisible(false);
+        } else {
+            baustellentext.setText(Kannste nicht kaufen)
+        }
+         */
+
+
     }
 
 
