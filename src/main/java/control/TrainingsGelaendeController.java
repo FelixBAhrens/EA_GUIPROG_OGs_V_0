@@ -85,8 +85,8 @@ public class TrainingsGelaendeController extends PaneController {
     @FXML
     public void initialize()
     {
+        GameFile.getInstance().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
         speichereSpielstand();
-
         try
         {
             gesammeltesHolz = GameFile.getInstance().getHolzRessource();

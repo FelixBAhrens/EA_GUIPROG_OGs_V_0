@@ -8,6 +8,7 @@ public class MissionStartenController
     @FXML
     private void handleJa () throws Exception
     {
+        KampfController.kampfTyp = KampfController.KampfTyp.ANDERER_KAMPF;
         SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
