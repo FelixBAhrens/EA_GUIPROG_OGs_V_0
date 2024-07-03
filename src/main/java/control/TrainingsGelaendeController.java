@@ -14,6 +14,8 @@ public class TrainingsGelaendeController extends PaneController {
     private int gesammeltesHolz;
     private int gesammelteNahrung;
     private int gesammeltesGold;
+    private int eigenschaftsUpgradePreis;
+
     @FXML
     private Text gesammelteObjekte;
 
@@ -90,7 +92,7 @@ public class TrainingsGelaendeController extends PaneController {
     @FXML
     public void initialize()
     {
-        GameFile.getInstance().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+        bestimmmeVerbesserungsPreise();
         speichereSpielstand();
         try
         {
@@ -147,6 +149,17 @@ public class TrainingsGelaendeController extends PaneController {
         }
     }
 
+    /**
+     * Eigenschaft, die den Preis fuer ein EigenschaftsUpgrade abhaengig von der eingestellten Schwierigkeit setzt.
+     * @author Felix Ahrens
+     */
+    public void bestimmmeVerbesserungsPreise(){
+        switch (GameFile.getInstance().getSchwierigkeit()){
+            case Strings.STRING_EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
+            case Strings.STRING_NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
+            case Strings.STRING_SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
+        }
+    }
 
     @FXML
     public void zeigeVerbessern(){
@@ -164,6 +177,25 @@ public class TrainingsGelaendeController extends PaneController {
         }
          */
 
+
+    }
+
+    /**
+     * Methode, die eine Eigenschaft generell verbessert, abhaengig vom Buttontext, der sie aufruft.
+     *
+     * @precondition die texte auf den Buttons muessen mit den String-Namen im Interface Strings uebereinstimmen.
+     * @postcondition Die zugehoerige Eigenschaft des jeweiligen Buttons wurde verbessert
+     * @author Felix Ahrens
+     */
+    @FXML
+    public void verbessereEigenschaft(){
+
+        if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO)){
+            //Hier Verbesserung
+
+        } else {
+
+        }
 
     }
 
