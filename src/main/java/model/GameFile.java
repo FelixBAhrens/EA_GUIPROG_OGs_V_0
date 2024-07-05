@@ -52,7 +52,7 @@ public class GameFile {
         instanz = gameFile;
     }
 
-    //------------------------------------------------------
+    //Parameter der Klasse GameFile
     private String filePathAndName;
     private String schwierigkeit;
     private int holzRessource;
@@ -72,171 +72,453 @@ public class GameFile {
     private int trainingsgelaendeLevel;
     private int magieverstaerkerLevel;
 
+    /**
+     * Getter fuer die Schwierigkeit. Gibt die Schwierigkeit zurueck.
+     * @precondition Die Schwierigkeit muss als String in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable schwierigkeit als String zurueckgegeben.
+     * @return Die Schwierigkeit als String.
+     * @Author Felix Ahrens
+     */
     public String getSchwierigkeit() {
         return schwierigkeit;
     }
 
+    /**
+     * Setter fuer die Schwierigkeit. Setzt die Schwierigkeit auf den der Methode als String uebergebenen Wert.
+     * @precondition Die Schwierigkeit muss als String in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param schwierigkeit Die Schwierigkeit als String, auf den die Klassenvariable "schwierigkeit" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setSchwierigkeit(String schwierigkeit) {
         this.schwierigkeit = schwierigkeit;
     }
 
-    public static void setInstanz(GameFile instanz) {
-        GameFile.instanz = instanz;
-    }
-
+    /**
+     * Setter fuer den Dateipfad und Namen. Setzt den Dateipfad und Namen auf den der Methode als String uebergebenen Wert.
+     * @precondition Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param filePathAndName Der Dateipfad und Name als String, auf den die Klassenvariable "filePathAndName" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setFilePathAndName(String filePathAndName) {
         this.filePathAndName = filePathAndName;
     }
 
+    /**
+     * Getter fuer die HolzRessource. Gibt die HolzRessource zurueck.
+     * @precondition Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable holzRessource als int zurueckgegeben.
+     * @return Die HolzRessource als int.
+     * @Author Felix Ahrens
+     */
     public int getHolzRessource() {
         return holzRessource;
     }
 
+    /**
+     * Setter fuer die HolzRessource. Setzt die HolzRessource auf den der Methode als int uebergebenen Wert.
+     * @precondition Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte HolzRessource stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param holzRessource Die HolzRessource als int, auf den die Klassenvariable "holzRessource" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setHolzRessource(int holzRessource) {
         this.holzRessource = holzRessource;
     }
 
+    /**
+     * Getter fuer die SteinRessource. Gibt die SteinRessource zurueck.
+     * @precondition Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable steinRessource als int zurueckgegeben.
+     * @return Die SteinRessource als int.
+     * @Author Felix Ahrens
+     */
     public int getSteinRessource() {
         return steinRessource;
     }
 
+    /**
+     * Setter fuer die SteinRessource. Setzt die SteinRessource auf den der Methode als int uebergebenen Wert.
+     * @precondition Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte SteinRessource stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param steinRessource Die SteinRessource als int, auf den die Klassenvariable "steinRessource" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setSteinRessource(int steinRessource) {
         this.steinRessource = steinRessource;
     }
 
+    /**
+     * Getter fuer die GoldRessource. Gibt die GoldRessource zurueck.
+     * @precondition Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable goldRessource als int zurueckgegeben.
+     * @return Die GoldRessource als int.
+     * @Author Felix Ahrens
+     */
     public int getGoldRessource() {
         return goldRessource;
     }
 
+    /**
+     * Setter fuer die GoldRessource. Setzt die GoldRessource auf den der Methode als int uebergebenen Wert.
+     * @precondition Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte GoldRessource stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param goldRessource Die GoldRessource als int, auf den die Klassenvariable "goldRessource" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setGoldRessource(int goldRessource) {
         this.goldRessource = goldRessource;
     }
 
+    /**
+     * Getter fuer die GesundheitRessource. Gibt die GesundheitRessource zurueck.
+     * @precondition Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable gesundheitRessource als int zurueckgegeben.
+     * @return Die GesundheitRessource als int.
+     * @Author Felix Ahrens
+     */
     public int getGesundheitRessource() {
         return gesundheitRessource;
     }
 
+    /**
+     * Setter fuer die GesundheitRessource. Setzt die GesundheitRessource auf den der Methode als int uebergebenen Wert.
+     * @precondition Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte GesundheitRessource stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param gesundheitRessource Die GesundheitRessource als int, auf den die Klassenvariable "gesundheitRessource" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setGesundheitRessource(int gesundheitRessource) {
         this.gesundheitRessource = gesundheitRessource;
     }
 
+    /**
+     * Getter fuer die BanonasRessource. Gibt die BanonasRessource zurueck.
+     * @precondition Die BanonasRessource muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable banonasRessource als int zurueckgegeben.
+     * @return Die BanonasRessource als int.
+     * @Author Felix Ahrens
+     */
     public int getBanonasRessource() {
         return banonasRessource;
     }
 
+    /**
+     * Setter fuer die BanonasRessource. Setzt die BanonasRessource auf den der Methode als int uebergebenen Wert.
+     * @precondition Die BanonasRessource muss als Integer in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte BanonasRessource stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param banonaRessource Die BanonasRessource als int, auf den die Klassenvariable "banonasRessource" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setBanonasRessource(int banonaRessource) {
         this.banonasRessource = banonaRessource;
     }
 
+    /**
+     * Getter fuer die Statue. Gibt die Statue zurueck.
+     * @precondition Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable statue als Artefakt zurueckgegeben.
+     * @return Die Statue als Artefakt.
+     * @Author Felix Ahrens
+     */
     public Artefakt getStatue() {
         return statue;
     }
 
-    public void setStatue(Artefakt statue) {
+    /**
+     * Setter fuer die Statue. Setzt die Statue auf den der Methode als Artefakt uebergebenen Wert.
+     * @precondition Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Die in der Klasse gespeicherte Statue stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param statue Die Statue als Artefakt, auf den die Klassenvariable "statue" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
+    public void setStatue (Artefakt statue) {
         this.statue = statue;
     }
 
+    /**
+     * Getter fuer den Ring. Gibt den Ring zurueck.
+     * @precondition Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable ring als Artefakt zurueckgegeben.
+     * @return Der Ring als Artefakt.
+     * @Author Felix Ahrens
+     */
     public Artefakt getRing() {
         return ring;
     }
 
+    /**
+     * Setter fuer den Ring. Setzt den Ring auf den der Methode als Artefakt uebergebenen Wert.
+     * @precondition Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Ring stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param ring Der Ring als Artefakt, auf den die Klassenvariable "ring" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setRing(Artefakt ring) {
         this.ring = ring;
     }
 
+    /**
+     * Getter fuer das Schwert. Gibt das Schwert zurueck.
+     * @precondition Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable schwert als Artefakt zurueckgegeben.
+     * @return Das Schwert als Artefakt.
+     * @Author Felix Ahrens
+     */
     public Artefakt getSchwert() {
         return schwert;
     }
 
+    /**
+     * Setter fuer das Schwert. Setzt das Schwert auf den der Methode als Artefakt uebergebenen Wert.
+     * @precondition Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @postcondition Das in der Klasse gespeicherte Schwert stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param schwert Das Schwert als Artefakt, auf den die Klassenvariable "schwert" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setSchwert(Artefakt schwert) {
         this.schwert = schwert;
     }
 
+    /**
+     * Getter fuer den Leader. Gibt den Leader zurueck.
+     * @precondition Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable leader als Charakter zurueckgegeben.
+     * @return Der Leader als Charakter.
+     * @Author Felix Ahrens
+     */
     public Charakter getLeader() {
         return leader;
     }
 
+    /**
+     * Setter fuer den Leader. Setzt den Leader auf den der Methode als Charakter uebergebenen Wert.
+     * @precondition Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Leader stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param leader Der Leader als Charakter, auf den die Klassenvariable "leader" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setLeader(Charakter leader) {
         this.leader = leader;
     }
 
+    /**
+     * Getter fuer den Medic. Gibt den Medic zurueck.
+     * @precondition Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable medic als Charakter zurueckgegeben.
+     * @return Der Medic als Charakter.
+     * @Author Felix Ahrens
+     */
     public Charakter getMedic() {
         return medic;
     }
 
+    /**
+     * Setter fuer den Medic. Setzt den Medic auf den der Methode als Charakter uebergebenen Wert.
+     * @precondition Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Medic stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param medic Der Medic als Charakter, auf den die Klassenvariable "medic" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setMedic(Charakter medic) {
         this.medic = medic;
     }
 
+    /**
+     * Getter fuer den Hunter. Gibt den Hunter zurueck.
+     * @precondition Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable hunter als Charakter zurueckgegeben.
+     * @return Der Hunter als Charakter.
+     * @Author Felix Ahrens
+     */
     public Charakter getHunter() {
         return hunter;
     }
 
+    /**
+     * Setter fuer den Hunter. Setzt den Hunter auf den der Methode als Charakter uebergebenen Wert.
+     * @precondition Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Hunter stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param hunter Der Hunter als Charakter, auf den die Klassenvariable "hunter" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setHunter(Charakter hunter) {
         this.hunter = hunter;
     }
 
+    /**
+     * Getter fuer den Magician. Gibt den Magician zurueck.
+     * @precondition Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable magician als Charakter zurueckgegeben.
+     * @return Der Magician als Charakter.
+     * @Author Felix Ahrens
+     */
     public Charakter getMagician() {
         return magician;
     }
 
+    /**
+     * Setter fuer den Magician. Setzt den Magician auf den der Methode als Charakter uebergebenen Wert.
+     * @precondition Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Magician stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param magician Der Magician als Charakter, auf den die Klassenvariable "magician" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setMagician(Charakter magician) {
         this.magician = magician;
     }
 
+    /**
+     * Getter fuer den Scout. Gibt den Scout zurueck.
+     * @precondition Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable scout als Charakter zurueckgegeben.
+     * @return Der Scout als Charakter.
+     * @Author Felix Ahrens
+     */
     public Charakter getScout() {
         return scout;
     }
 
+    /**
+     * Setter fuer den Scout. Setzt den Scout auf den der Methode als Charakter uebergebenen Wert.
+     * @precondition Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Scout stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param scout Der Scout als Charakter, auf den die Klassenvariable "scout" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setScout(Charakter scout) {
         this.scout = scout;
     }
 
-    public String getFilePathAndName() {return filePathAndName;}
+    /**
+     * Getter fuer den Dateipfad und Namen. Gibt den Dateipfad und Namen zurueck.
+     * @precondition Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable filePathAndName als String zurueckgegeben.
+     * @return Der Dateipfad und Name als String.
+     * @Author Felix Ahrens
+     */
+    public String getFilePathAndName() {
+        return filePathAndName;
+    }
 
+    /**
+     * Ueberprueft, ob das FraktionenCamp freigeschaltet ist.
+     * @precondition Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable fraktionenCampFreigeschaltet als boolean zurueckgegeben.
+     * @return Der Status des FraktionenCamps als boolean.
+     * @Author Felix Ahrens
+     */
     public boolean fraktionenCampIstFreigeschaltet() {
         return fraktionenCampFreigeschaltet;
     }
 
+    /**
+     * Setter fuer den Status des FraktionenCamps. Setzt den Status des FraktionenCamps auf den der Methode als boolean uebergebenen Wert.
+     * @precondition Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
+     * @postcondition Der in der Klasse gespeicherte Status des FraktionenCamps stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param fraktionenCampFreigeschaltet Der Status des FraktionenCamps als boolean, auf den die Klassenvariable "fraktionenCampFreigeschaltet" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setFraktionenCampFreigeschaltet(boolean fraktionenCampFreigeschaltet) {
         this.fraktionenCampFreigeschaltet = fraktionenCampFreigeschaltet;
     }
 
+    /**
+     * Getter fuer das TrainingsgelaendeLevel. Gibt das TrainingsgelaendeLevel zurueck.
+     * @precondition Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable trainingsgelaendeLevel als int zurueckgegeben.
+     * @return Das TrainingsgelaendeLevel als int.
+     * @Author Felix Ahrens
+     */
     public int getTrainingsgelaendeLevel() {
         return trainingsgelaendeLevel;
     }
 
+    /**
+     * Setter fuer das TrainingsgelaendeLevel. Setzt das TrainingsgelaendeLevel auf den der Methode als int uebergebenen Wert.
+     * @precondition Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Das in der Klasse gespeicherte TrainingsgelaendeLevel stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param trainingsgelaendeLevel Das TrainingsgelaendeLevel als int, auf den die Klassenvariable "trainingsgelaendeLevel" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setTrainingsgelaendeLevel(int trainingsgelaendeLevel) {
         this.trainingsgelaendeLevel = trainingsgelaendeLevel;
     }
 
+    /**
+     * Getter fuer das MagieverstaerkerLevel. Gibt das MagieverstaerkerLevel zurueck.
+     * @precondition Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Es wurde der Inhalt der Variable magieverstaerkerLevel als int zurueckgegeben.
+     * @return Das MagieverstaerkerLevel als int.
+     * @Author Felix Ahrens
+     */
     public int getMagieverstaerkerLevel() {
         return magieverstaerkerLevel;
     }
 
+    /**
+     * Setter fuer das MagieverstaerkerLevel. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen Wert.
+     * @precondition Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
+     * @postcondition Das in der Klasse gespeicherte MagieverstaerkerLevel stimmt mit dem Parameter ueberein, der der Methode
+     *  beim Aufruf uebergeben wurde.
+     * @param magieverstaerkerLevel Das MagieverstaerkerLevel als int, auf den die Klassenvariable "magieverstaerkerLevel" gesetzt werden soll.
+     * @Author Felix Ahrens
+     */
     public void setMagieverstaerkerLevel(int magieverstaerkerLevel) {
         this.magieverstaerkerLevel = magieverstaerkerLevel;
     }
 
+    /**
+     * Default Konstruktor von GameFile
+     * @Author Felix Ahrens
+     */
     public GameFile () {
     }
 
     /**
-     *
-     * @param filePathAndName
-     * @param schwierigkeit
-     * @param holzRessource
-     * @param goldRessource
-     * @param gesundheitRessource
-     * @param statue
-     * @param schwert
-     * @param ring
-     * @param leader
-     * @param medic
-     * @param hunter
-     * @param magician
-     * @param scout
-     * @param fraktionenCampFreigeschaltet
+     * Konstruktor der Klasse GameFile. Bekommt alle Werte, mit der die GameFile erstellt wird, uebergeben.
+     *  Gibt eine neue Instanz der Klasse GameFile zurueck.
+     * @precondition Die Datentypen der uebergebenen Parameter muessen in der Reihenfolge mit denen der Instanzvariablen
+     *  uebereinstimmen. Die Variablen muessen in der Klasse existieren.
+     * @postcondition Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten
+     *  erstellt und zurueckgegeben.
+     * @param filePathAndName Dateipfad- und name, um auf den Dateipfad der CSV-Datei der GameFile zugreifen zu koennen
+     * @param schwierigkeit Die Schwierigkeit des Spielstands
+     * @param holzRessource Die Anzahl an Holzressourcen des Spielstands
+     * @param steinRessource Die Anzahl an Steinressourcen des Spielstandes
+     * @param goldRessource Die Anzahl an Goldressourcen des Spielstands
+     * @param gesundheitRessource Die Anzahl an Gesundheitsressourcen des Spielstands
+     * @param banonasRessource Die Anzahl an Banonasressourcen des Spielstandes
+     * @param statue Die Instanz "statue" der Klasse "Artefakt" des Spielstands
+     * @param schwert Die Instanz "schwert" der Klasse "Artefakt" des Spielstands
+     * @param ring Die Instanz "ring" der Klasse "Artefakt" des Spielstands
+     * @param leader Die Instanz "leader" der Klasse "Charakter" des Spielstands
+     * @param medic Die Instanz "medic" der Klasse "Charakter" des Spielstands
+     * @param hunter Die Instanz "hunter" der Klasse "Charakter" des Spielstands
+     * @param magician Die Instanz "magician" der Klasse "Charakter" des Spielstands
+     * @param scout Die Instanz "scout" der Klasse "Charakter" des Spielstands
+     * @param fraktionenCampFreigeschaltet Der boolesche Wert, ob das Fraktionencamp im Spiel freigeschaltet wurde
+     * @param trainingsgelaendeLevel Das Level, in dem sich das verbesserbare Trainingsgelaende befindet
+     * @param magieverstaerkerLevel Das Level, in dem sich der verbesserbare Magieverstaerker befindet
+     * @Author Felix Ahrens
      */
     private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int steinRessource, int goldRessource, int gesundheitRessource, int banonasRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
                      Charakter magician, Charakter scout, boolean fraktionenCampFreigeschaltet, int trainingsgelaendeLevel, int magieverstaerkerLevel) {
@@ -261,12 +543,15 @@ public class GameFile {
     }
 
     /**
-     * Methode, die eine neue GameFile mit den ihr uebergebenen Parametern erstellt.
+     * Methode, die eine neue GameFile mit den ihr uebergebenen Parametern erstellt. Fuer die nicht angegebenen Werte
+     *  werden die Standartwerte aus der jeweiligen Klasse verwendet, etwa bei Charakteren oder Artefakten.
+     * @precondition Der Konstruktor der GameFile muss existieren und die uebergebenen Werte in der gleichen Reihenfolge
+     *  "akzeptieren" und verwenden koennen. Die der Methode uebergebenen Werte muessen Strings fuer den Spielnamen und
+     *  die Schwierigkeit sein
      * @return Eine neue, mit den Default-Werten erstellte Instanz der Klasse GameFile
-     * @throws IOException
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueGameFile (String spielName, String schwierigkeit)
+    public static GameFile erstelleNeueDefaultGameFile(String spielName, String schwierigkeit)
     {
         if (spielName.length()<Konstanten.INT_ONE)
         {
