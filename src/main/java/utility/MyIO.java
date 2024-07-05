@@ -37,10 +37,13 @@ public class MyIO
      */
     public static void print (String text)
     {
-        if (verboseMode) {
-            if (timeStamp) {
+        if (verboseMode)
+        {
+            if (timeStamp)
+            {
                 System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT)) + PROMPT + text);
-            } else {
+            } else
+            {
                 System.out.println(text);
             }
         }

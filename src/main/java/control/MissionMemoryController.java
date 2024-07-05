@@ -56,14 +56,17 @@ public class MissionMemoryController
     public void handleStein (MouseEvent event)
     {
         ImageView stein = (ImageView) event.getSource();
-        if (!ersterSteinUmgedreht) {
+        if (!ersterSteinUmgedreht)
+        {
             ersterStein = stein;
             ersterSteinUmgedreht = true;
             System.out.println(ersterSteinUmgedreht);
-        } else {
+        } else
+        {
             System.out.println(ersterStein.getId().toString().charAt(Konstanten.INT_FIVE));
             System.out.println(stein.getId().toString().charAt(Konstanten.INT_FIVE));
-            if (ersterStein.getId().toString().charAt(Konstanten.INT_FIVE) == (stein.getId().toString().charAt(Konstanten.INT_FIVE))) {
+            if (ersterStein.getId().toString().charAt(Konstanten.INT_FIVE) == (stein.getId().toString().charAt(Konstanten.INT_FIVE)))
+            {
                 System.out.println(Strings.TOLL);
 
                 ersterStein.setVisible(false);

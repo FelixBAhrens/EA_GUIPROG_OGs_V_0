@@ -95,17 +95,20 @@ public class TrainingsGelaendeController extends PaneController
     {
         bestimmmeVerbesserungsPreise();
         speichereSpielstand();
-        try {
+        try
+        {
             gesammeltesHolz = GameFile.getInstanz().getHolzRessource();
             gesammelteNahrung = GameFile.getInstanz().getGesundheitRessource();
             gesammeltesGold = GameFile.getInstanz().getGoldRessource();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
         gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
 
-        try {
+        try
+        {
             gesundheitPoints = GameFile.getInstanz().getLeader().getGesundheit();
             schildPoints = GameFile.getInstanz().getLeader().getSchild();
             manapunktePoints = GameFile.getInstanz().getLeader().getManapunkte();
@@ -139,7 +142,8 @@ public class TrainingsGelaendeController extends PaneController
 
             bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));
             bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
     }
@@ -151,7 +155,8 @@ public class TrainingsGelaendeController extends PaneController
      */
     public void bestimmmeVerbesserungsPreise ()
     {
-        switch (GameFile.getInstanz().getSchwierigkeit()) {
+        switch (GameFile.getInstanz().getSchwierigkeit())
+        {
             case EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
             case NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
             case SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
@@ -190,10 +195,12 @@ public class TrainingsGelaendeController extends PaneController
     public void verbessereEigenschaft ()
     {
 
-        if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO)) {
+        if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
+        {
             //Hier Verbesserung
 
-        } else {
+        } else
+        {
 
         }
 
@@ -203,8 +210,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void schildVerbessern ()
     {
-        try {
-            if (!(schildPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(schildPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setHolzRessource(gesammeltesHolz);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -214,7 +223,8 @@ public class TrainingsGelaendeController extends PaneController
                 schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
     }
@@ -222,8 +232,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void manapunkteVerbessern ()
     {
-        try {
-            if (!(manapunktePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(manapunktePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -233,7 +245,8 @@ public class TrainingsGelaendeController extends PaneController
                 manapunkteBar.setProgress((double) manapunktePoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -242,8 +255,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void nahkampfWertVerbessern ()
     {
-        try {
-            if (!(nahkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(nahkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -253,7 +268,8 @@ public class TrainingsGelaendeController extends PaneController
                 nahkampfWertBar.setProgress((double) nahkampfWertPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -262,8 +278,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void fernkampfWertVerbessern ()
     {
-        try {
-            if (!(fernkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(fernkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -273,7 +291,8 @@ public class TrainingsGelaendeController extends PaneController
                 fernkampfWertBar.setProgress((double) fernkampfWertPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -282,8 +301,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void fernkaempfeZahlVerbessern ()
     {
-        try {
-            if (!(fernkaempfeZahlPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(fernkaempfeZahlPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -293,7 +314,8 @@ public class TrainingsGelaendeController extends PaneController
                 fernkaempfeZahlBar.setProgress((double) fernkaempfeZahlPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -302,8 +324,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void zahlAusweichenVerbessern ()
     {
-        try {
-            if (!(zahlAusweichenPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(zahlAusweichenPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -313,7 +337,8 @@ public class TrainingsGelaendeController extends PaneController
                 zahlAusweichenBar.setProgress((double) zahlAusweichenPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -322,8 +347,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void magieResistenzVerbessern ()
     {
-        try {
-            if (!(magieResistenzPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(magieResistenzPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -333,7 +360,8 @@ public class TrainingsGelaendeController extends PaneController
                 magieResistenzBar.setProgress((double) magieResistenzPoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 
@@ -342,8 +370,10 @@ public class TrainingsGelaendeController extends PaneController
     @FXML
     private void bewegungsWeiteVerbessern ()
     {
-        try {
-            if (!(bewegungsWeitePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE) {
+        try
+        {
+            if (!(bewegungsWeitePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
+            {
                 gesammeltesGold -= Konstanten.INT_FIVE;
                 GameFile.getInstanz().setGoldRessource(gesammeltesGold);
                 gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -353,7 +383,8 @@ public class TrainingsGelaendeController extends PaneController
                 bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
                 speichereSpielstand();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
 

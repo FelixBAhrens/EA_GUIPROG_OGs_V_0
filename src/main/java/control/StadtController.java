@@ -75,8 +75,10 @@ public class StadtController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(true);
             }
         }
@@ -91,8 +93,10 @@ public class StadtController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(false);
             }
         }
@@ -100,7 +104,8 @@ public class StadtController extends ControllerController
 
     private void openGebaeude (String fxmlFile)
     {
-        try {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();
 
@@ -111,7 +116,8 @@ public class StadtController extends ControllerController
             gebaeudePane.getChildren().setAll(pane);
             gebaeudePane.setVisible(true);
             hintergrundPane.setVisible(true);
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }

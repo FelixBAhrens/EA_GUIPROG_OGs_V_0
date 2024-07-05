@@ -35,7 +35,8 @@ public class ControllerController
 
     public void stopSaving ()
     {
-        if (scheduler != null && !scheduler.isShutdown()) {
+        if (scheduler != null && !scheduler.isShutdown())
+        {
             scheduler.shutdown();
         }
     }
@@ -43,10 +44,12 @@ public class ControllerController
     public void setzeGameFileInstanzLogisch ()
     {
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
-        if (gamefile != null) {
+        if (gamefile != null)
+        {
             GameFile.setzeInstanz(gamefile);
             SzenenManager.wechseleSzene(Strings.FXML_STADT);
-        } else {
+        } else
+        {
             SzenenManager.wechseleSzene(Strings.FXML_NEUESSPIEL);
         }
     }
@@ -77,14 +80,16 @@ public class ControllerController
     public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit)
     {
         GameFile instanz = GameFile.gebeLetztesSpielZurueck();
-        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas) {
+        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas)
+        {
             instanz.setHolzRessource(instanz.getHolzRessource() - holz);
             instanz.setSteinRessource(instanz.getSteinRessource() - stein);
             instanz.setGoldRessource(instanz.getGoldRessource() - gold);
             instanz.setGesundheitRessource(instanz.getGesundheitRessource() - gesundheit);
             instanz.setBanonasRessource(instanz.getBanonasRessource() - banonas);
             return true;
-        } else {
+        } else
+        {
             return false;
         }
     }
@@ -97,9 +102,11 @@ public class ControllerController
     @FXML
     public void handleZurueck ()
     {
-        try {
+        try
+        {
             SzenenManager.szeneZurueck();
-        } catch (RuntimeException e) {
+        } catch (RuntimeException e)
+        {
             MyIO.print(Strings.FEHLERMELDUNG_ZURUECK);
         }
     }
@@ -110,9 +117,11 @@ public class ControllerController
     @FXML
     public void handleSpielBeenden ()
     {
-        if (GameFile.getInstanz() != null) {
+        if (GameFile.getInstanz() != null)
+        {
             SzenenManager.wechseleSzene(Strings.FXML_SPEICHERN_ABFRAGE);
-        } else {
+        } else
+        {
             System.exit(Konstanten.INT_ZERO);
         }
     }

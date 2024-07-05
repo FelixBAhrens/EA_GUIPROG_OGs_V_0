@@ -93,7 +93,8 @@ public class Kaempfer extends Charakter
     public static Kaempfer macheNeuenKaempferAusCharakter (Charakter charakter)
     {
         boolean istLeader = false;
-        if (charakter.getName().equals(Strings.LEADER)) {
+        if (charakter.getName().equals(Strings.LEADER))
+        {
             istLeader = true;
         }
         return new Kaempfer(charakter.getName(), charakter.getGesundheit() * Konstanten.INT_TEN, charakter.getSchild(), charakter.getManapunkte(),

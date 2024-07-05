@@ -36,10 +36,12 @@ public class EinstellungenController extends ControllerController
      */
     public void zeigeIp ()
     {
-        try {
+        try
+        {
             InetAddress ip = InetAddress.getLocalHost();
             ipLabel.setText(Strings.IP + Strings.DOPPELPUNKT + Strings.SPACE + ip.getHostAddress().toString());
-        } catch (UnknownHostException e) {
+        } catch (UnknownHostException e)
+        {
             MyIO.print(Strings.FEHLERMELDUNG_IP);
         }
     }

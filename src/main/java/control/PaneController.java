@@ -37,8 +37,10 @@ public class PaneController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(true);
             }
         }
@@ -55,8 +57,10 @@ public class PaneController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle(Strings.STYLE_BORDER_ORANGE);
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(true);
             }
         }
@@ -70,8 +74,10 @@ public class PaneController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(false);
             }
         }
@@ -88,8 +94,10 @@ public class PaneController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle(Strings.STYLE_BORDER_TRANSPARENT);
-        for (javafx.scene.Node node : pane.getChildren()) {
-            if (node instanceof Button) {
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
                 node.setVisible(false);
             }
         }
@@ -97,21 +105,25 @@ public class PaneController extends ControllerController
 
     public void openPane (String fxmlFile, Pane targetPane, Pane backgroundPane)
     {
-        try {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();
 
             PaneController controller = loader.getController();
-            if (kartenController != null) {
+            if (kartenController != null)
+            {
                 controller.setKartenController(kartenController);
-            } else if (stadtController != null) {
+            } else if (stadtController != null)
+            {
                 controller.setStadtController(stadtController);
             }
 
             targetPane.getChildren().setAll(pane);
             targetPane.setVisible(true);
             backgroundPane.setVisible(true);
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }

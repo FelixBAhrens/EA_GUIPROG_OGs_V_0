@@ -29,7 +29,8 @@ public class SzenenManager
      */
     public static void wechseleSzene (String fxmlDatei)
     {
-        try {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(SzenenManager.class.getResource(fxmlDatei));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -37,7 +38,8 @@ public class SzenenManager
             hauptStage.setScene(scene);
             hauptStage.show();
             root.requestFocus();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             MyIO.print(Strings.FEHLERMELDUNG_SZENENWECHSEL);
         }
     }
@@ -49,7 +51,8 @@ public class SzenenManager
      */
     public static void szeneZurueck ()
     {
-        if (!szenenStack.isEmpty()) {
+        if (!szenenStack.isEmpty())
+        {
             szenenStack.pop();
             Scene previousScene = szenenStack.pop();
             szenenStack.push(previousScene);
