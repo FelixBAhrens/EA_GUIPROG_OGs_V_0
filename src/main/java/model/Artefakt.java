@@ -56,7 +56,7 @@ public class Artefakt extends GameFile {
      * @Author Felix Ahrens
      */
     public void wendeArtefaktAn () throws Exception {
-        Charakter leader = GameFile.getInstance().getLeader();
+        Charakter leader = GameFile.getInstanz().getLeader();
         if (anwendungenUebrig > Konstanten.INT_ZERO){
             switch (this.getName()){
                 case Strings.STATUE:

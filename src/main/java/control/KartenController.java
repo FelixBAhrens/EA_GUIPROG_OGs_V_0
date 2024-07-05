@@ -70,9 +70,9 @@ public class KartenController extends ControllerController implements Initializa
 
     private List<Rectangle> barriers = new ArrayList<>();
 
-    private int woodCount = GameFile.getInstance().getHolzRessource();
-    private int healthCount = GameFile.getInstance().getGesundheitRessource();
-    private int goldCount = GameFile.getInstance().getGoldRessource();
+    private int woodCount = GameFile.getInstanz().getHolzRessource();
+    private int healthCount = GameFile.getInstanz().getGesundheitRessource();
+    private int goldCount = GameFile.getInstanz().getGoldRessource();
     private int movementVariable = Konstanten.INT_TWO;
     private int timeRemaining = Konstanten.INT_NINETY;
 
@@ -143,7 +143,7 @@ public class KartenController extends ControllerController implements Initializa
         }
         else
         {
-            gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstance().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstance().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstance().getGoldRessource());
+            gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
         }
         setupMovement();
 
@@ -271,7 +271,7 @@ public class KartenController extends ControllerController implements Initializa
         if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
             try
             {
-                GameFile.getInstance().setHolzRessource(GameFile.getInstance().getHolzRessource() + Konstanten.INT_ONE);
+                GameFile.getInstanz().setHolzRessource(GameFile.getInstanz().getHolzRessource() + Konstanten.INT_ONE);
             } catch (Exception e)
             {
                 throw new RuntimeException(e);
@@ -285,7 +285,7 @@ public class KartenController extends ControllerController implements Initializa
         {
             try
             {
-                GameFile.getInstance().setGesundheitRessource(GameFile.getInstance().getGesundheitRessource() + Konstanten.INT_ONE);
+                GameFile.getInstanz().setGesundheitRessource(GameFile.getInstanz().getGesundheitRessource() + Konstanten.INT_ONE);
             }
             catch (Exception e)
             {
@@ -300,7 +300,7 @@ public class KartenController extends ControllerController implements Initializa
         {
             try
             {
-                GameFile.getInstance().setGoldRessource(GameFile.getInstance().getGoldRessource() + Konstanten.INT_ONE);
+                GameFile.getInstanz().setGoldRessource(GameFile.getInstanz().getGoldRessource() + Konstanten.INT_ONE);
             }
             catch (Exception e)
             {
