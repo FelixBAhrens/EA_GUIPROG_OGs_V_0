@@ -65,7 +65,7 @@ public class NeuesSpielController extends ControllerController{
             }
         }
         else if (!schwierigkeitsAnchPane.isVisible() && spielNameAnchPane.isVisible()) {
-            GameFile.setzeGameFile(GameFile.erstelleNeueGameFile(spielNameText.getText(), schwierigkeit));
+            GameFile.setzeInstanz(GameFile.erstelleNeueGameFile(spielNameText.getText(), schwierigkeit));
             SzenenManager.wechseleSzene(Strings.FXML_TUTORIAL);
         }
     }

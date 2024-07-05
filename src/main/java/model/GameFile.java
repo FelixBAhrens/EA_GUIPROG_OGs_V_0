@@ -11,29 +11,28 @@ import java.nio.file.Files;
 import java.util.*;
 
 /**
- * GameFile habe ich mir ausgedacht, um die Spielstaende zu speichern. Instanzen der Klasse GameFile sind Spielstaende.
- *  Ich habe bisher erst den DateiNamen und das Erstelldatum als Parameter. Wie in der PROG-EA werden diese in einer
- *  CSV-Datei gespeichert. Diese Klasse beinhaltet diverse Methoden um GameFiles u.A. zu Lesen, zu bearbeiten etc..
+ * Die Klasse GameFile ermoeglicht die Verwendung von Spielstanden als Instanz dieser Klasse. Die GameFile-Instanz ist
+ *  dabei ein Singleton, da immer nur ein Spielstand zurzeit bespielt werden soll. Auf die (vorher gesetzte) Instanz
+ *  kann von ueberall im Programm aus zugegriffen werden.
  * @author Felix Ahrens
  */
 public class GameFile {
-
-    // Singleton der Gamefile -----------------------------
     /**
-     * Die einzelne Instanz der Klasse GameFile
+     * GameFile ist ein Singleton. Dies ist die einzige Instanz der Klasse GameFile. Sie muss zu Spielstart durch die
+     *  Methode "setzeInstanz" gesetzt werden.
      * @author Felix Ahrens
      */
-    private static GameFile instance;
+    private static GameFile instanz;
 
     /**
-     * Getter fuer die Singleton-Instanz der Klasse GameFile
-     * @return
+     * Getter fuer die Singleton-Instanz der Klasse GameFile,
+     * @return Die einzige Instanz der Klasse GameFile, sofern diese vorher ueber "setzeInstanz" gesetzt wurde.
      * @throws Exception
      * @author Felix Ahrens
      */
-    public static GameFile getInstance() {
-        if (instance != null) {
-            return instance;
+    public static GameFile getInstanz() {
+        if (instanz != null) {
+            return instanz;
         }
         else {
             MyIO.print(Strings.FEHLERMELDUNG_GAMEFILE);
@@ -42,12 +41,15 @@ public class GameFile {
     }
 
     /**
-     * Setter des Singletons der Klasse GameFile.
-     * @param gameFile
+     * Setter des Singletons der Klasse GameFile. Diese Methode muss bei Spielstart aufgerufen werden, um einen spielbaren
+     *  Spielstand als Singleton zu setzen, damit Methoden von ueberall aus der Anwendung auf die Spieldateien zugreifen
+     *  koennen.
+     * @param gameFile Die Instanz der Klasse GameFile, die als Singleton gesetzt werden soll.
+     * @precondition
      * @author Felix Ahrens
      */
-    public static void setzeGameFile(GameFile gameFile){
-        instance = gameFile;
+    public static void setzeInstanz (GameFile gameFile){
+        instanz = gameFile;
     }
 
     //------------------------------------------------------
@@ -78,8 +80,8 @@ public class GameFile {
         this.schwierigkeit = schwierigkeit;
     }
 
-    public static void setInstance(GameFile instance) {
-        GameFile.instance = instance;
+    public static void setInstanz(GameFile instanz) {
+        GameFile.instanz = instanz;
     }
 
     public void setFilePathAndName(String filePathAndName) {
@@ -455,6 +457,8 @@ public class GameFile {
 
     }
 
+
+
     /**
      * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden.
      * @param fileArray
@@ -485,11 +489,11 @@ public class GameFile {
     }
 
     public static void speichereSpielstand() {
-        if (instance == null){
+        if (instanz == null){
             System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
             return;
         }
-        schreibeGameFile(instance);
+        schreibeGameFile(instanz);
     }
 
     @Override
