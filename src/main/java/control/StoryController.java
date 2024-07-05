@@ -3,14 +3,17 @@ package control;
 import javafx.fxml.FXML;
 import res.Strings;
 
-public class StoryController {
+public class StoryController
+{
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 
     @FXML
-    public void handleFortfahren() {
+    public void handleFortfahren ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_STADT);
     }
 }

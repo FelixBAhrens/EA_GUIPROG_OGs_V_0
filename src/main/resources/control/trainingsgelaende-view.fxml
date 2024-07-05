@@ -6,228 +6,282 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.TrainingsGelaendeController">
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.TrainingsGelaendeController">
     <children>
-        <Text layoutX="20.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände" wrappingWidth="213.301513671875">
+        <Text layoutX="20.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainingsgelände"
+              wrappingWidth="213.301513671875">
             <font>
-                <Font size="26.0" />
+                <Font size="26.0"/>
             </font>
         </Text>
-      <HBox layoutX="547.0" layoutY="83.0" prefHeight="396.0" prefWidth="318.0" scaleX="1.2" scaleY="1.2">
-         <children>
-            <VBox prefHeight="396.0" prefWidth="133.0">
-               <children>
-                  <ProgressBar layoutX="10.0" layoutY="175.0" prefHeight="0.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="57.0" prefHeight="17.0" prefWidth="118.0" text="Schild:" />
-                  <ProgressBar fx:id="schildBar" layoutX="10.0" layoutY="79.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Manapunkte:" />
-                  <ProgressBar fx:id="manapunkteBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Nahkampfwert:" />
-                  <ProgressBar fx:id="nahkampfWertBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="146.0" prefHeight="17.0" prefWidth="118.0" text="Fernkampfwert:" />
-                  <ProgressBar fx:id="fernkampfWertBar" layoutX="10.0" layoutY="163.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="183.0" prefHeight="17.0" prefWidth="118.0" text="Fernkämpfe:" />
-                  <ProgressBar fx:id="fernkaempfeZahlBar" layoutX="10.0" layoutY="200.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="220.0" prefHeight="17.0" prefWidth="118.0" text="Ausweicher:" />
-                  <ProgressBar fx:id="zahlAusweichenBar" layoutX="10.0" layoutY="237.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="257.0" prefHeight="17.0" prefWidth="118.0" text="Magieresistenz:" />
-                  <ProgressBar fx:id="magieResistenzBar" layoutX="10.0" layoutY="274.0" prefHeight="20.0" prefWidth="125.0" progress="0.0">
-                     <VBox.margin>
-                        <Insets bottom="7.0" />
-                     </VBox.margin>
-                  </ProgressBar>
-                  <Label layoutX="10.0" layoutY="294.0" prefHeight="17.0" prefWidth="118.0" text="Bewegungsweite:" />
-                  <ProgressBar fx:id="bewegungsWeiteBar" layoutX="10.0" layoutY="311.0" prefHeight="20.0" prefWidth="125.0" progress="0.0" />
-               </children>
-            </VBox>
-            <VBox prefHeight="396.0" prefWidth="45.0">
-               <children>
-                  <Label fx:id="schild" layoutX="10.0" layoutY="27.0" onMouseClicked="#schildVerbessern" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="manapunkte" layoutX="10.0" layoutY="71.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nahkampfWert" layoutX="10.0" layoutY="115.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="fernkampfWert" layoutX="10.0" layoutY="159.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="fernkaempfeZahl" layoutX="10.0" layoutY="203.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="zahlAusweichen" layoutX="10.0" layoutY="247.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="magieResistenz" layoutX="10.0" layoutY="291.0" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="bewegungsWeite" prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
-                     <VBox.margin>
-                        <Insets top="17.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="372.0" prefWidth="139.0">
-               <children>
-                  <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#schildVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern (5x Gold)">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#manapunkteVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#nahkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false" onMouseClicked="#fernkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#fernkaempfeZahlVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#zahlAusweichenVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#magieResistenzVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#bewegungsWeiteVerbessern" prefHeight="20.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;" text="Verbessern ()">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="24.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <Text fx:id="gesammelteObjekte" layoutX="20.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="169.38309478759766" />
-      <Button fx:id="buttonZeigeVerbesserung" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" onAction="#zeigeVerbessern" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Trainingsgelände verbessern." />
-      <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0" visible="false">
-         <children>
-            <ImageView fitHeight="563.0" fitWidth="1090.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/baustelle.png" />
-               </image>
-            </ImageView>
-            <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0" style="-fx-background-color: rgba(245, 245, 220, 0.9);">
-               <children>
-                  <Button onAction="#verbessereGebaeude" layoutX="48.0" layoutY="335.0" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);" mnemonicParsing="false" text="FraktionenCamp verbessern" />
-                  <Text layoutX="73.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baustelle">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <TextArea layoutX="11.0" layoutY="92.0" prefHeight="100.0" prefWidth="200.0" text="Du kannst das Trainingsgelände verbessern, um einen größeren Trainingserfolg erzielen zu können.;Schalte es jetzt frei für 50 Holz, 10 Stein&#10;und 5 Gold!" />
-                  <Label layoutX="11.0" layoutY="221.0" prefHeight="35.0" prefWidth="200.0" text="Label" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+        <HBox layoutX="547.0" layoutY="83.0" prefHeight="396.0" prefWidth="318.0" scaleX="1.2" scaleY="1.2">
+            <children>
+                <VBox prefHeight="396.0" prefWidth="133.0">
+                    <children>
+                        <ProgressBar layoutX="10.0" layoutY="175.0" prefHeight="0.0" prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="57.0" prefHeight="17.0" prefWidth="118.0" text="Schild:"/>
+                        <ProgressBar fx:id="schildBar" layoutX="10.0" layoutY="79.0" prefHeight="20.0" prefWidth="125.0"
+                                     progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Manapunkte:"/>
+                        <ProgressBar fx:id="manapunkteBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="109.0" prefHeight="17.0" prefWidth="118.0" text="Nahkampfwert:"/>
+                        <ProgressBar fx:id="nahkampfWertBar" layoutX="10.0" layoutY="126.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="146.0" prefHeight="17.0" prefWidth="118.0"
+                               text="Fernkampfwert:"/>
+                        <ProgressBar fx:id="fernkampfWertBar" layoutX="10.0" layoutY="163.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="183.0" prefHeight="17.0" prefWidth="118.0" text="Fernkämpfe:"/>
+                        <ProgressBar fx:id="fernkaempfeZahlBar" layoutX="10.0" layoutY="200.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="220.0" prefHeight="17.0" prefWidth="118.0" text="Ausweicher:"/>
+                        <ProgressBar fx:id="zahlAusweichenBar" layoutX="10.0" layoutY="237.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="257.0" prefHeight="17.0" prefWidth="118.0"
+                               text="Magieresistenz:"/>
+                        <ProgressBar fx:id="magieResistenzBar" layoutX="10.0" layoutY="274.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets bottom="7.0"/>
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label layoutX="10.0" layoutY="294.0" prefHeight="17.0" prefWidth="118.0"
+                               text="Bewegungsweite:"/>
+                        <ProgressBar fx:id="bewegungsWeiteBar" layoutX="10.0" layoutY="311.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0.0"/>
+                    </children>
+                </VBox>
+                <VBox prefHeight="396.0" prefWidth="45.0">
+                    <children>
+                        <Label fx:id="schild" layoutX="10.0" layoutY="27.0" onMouseClicked="#schildVerbessern"
+                               prefHeight="20.0" style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="manapunkte" layoutX="10.0" layoutY="71.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="nahkampfWert" layoutX="10.0" layoutY="115.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="fernkampfWert" layoutX="10.0" layoutY="159.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="fernkaempfeZahl" layoutX="10.0" layoutY="203.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="zahlAusweichen" layoutX="10.0" layoutY="247.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="magieResistenz" layoutX="10.0" layoutY="291.0" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="bewegungsWeite" prefHeight="20.0"
+                               style="-fx-text-fill: #000000; -fx-font-weight: bold;" text="Label">
+                            <VBox.margin>
+                                <Insets top="17.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="372.0" prefWidth="139.0">
+                    <children>
+                        <Button layoutX="10.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#schildVerbessern"
+                                prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern (5x Gold)">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="71.0" mnemonicParsing="false"
+                                onMouseClicked="#manapunkteVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="115.0" mnemonicParsing="false"
+                                onMouseClicked="#nahkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="159.0" mnemonicParsing="false"
+                                onMouseClicked="#fernkampfWertVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="203.0" mnemonicParsing="false"
+                                onMouseClicked="#fernkaempfeZahlVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="247.0" mnemonicParsing="false"
+                                onMouseClicked="#zahlAusweichenVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false"
+                                onMouseClicked="#magieResistenzVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false"
+                                onMouseClicked="#bewegungsWeiteVerbessern" prefHeight="20.0" prefWidth="134.0"
+                                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-background-insets: 0,1,2,3; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #000000;"
+                                text="Verbessern ()">
+                            <font>
+                                <Font size="8.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="24.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <Text fx:id="gesammelteObjekte" layoutX="20.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
+              wrappingWidth="169.38309478759766"/>
+        <Button fx:id="buttonZeigeVerbesserung" layoutX="58.0" layoutY="281.0" mnemonicParsing="false"
+                onAction="#zeigeVerbessern" prefHeight="44.0" prefWidth="160.0"
+                style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; "
+                text="Trainingsgelände verbessern."/>
+        <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0" visible="false">
+            <children>
+                <ImageView fitHeight="563.0" fitWidth="1090.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/baustelle.png"/>
+                    </image>
+                </ImageView>
+                <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0"
+                            style="-fx-background-color: rgba(245, 245, 220, 0.9);">
+                    <children>
+                        <Button onAction="#verbessereGebaeude" layoutX="48.0" layoutY="335.0" prefHeight="44.0"
+                                prefWidth="160.0"
+                                style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);"
+                                mnemonicParsing="false" text="FraktionenCamp verbessern"/>
+                        <Text layoutX="73.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baustelle">
+                            <font>
+                                <Font name="System Bold" size="18.0"/>
+                            </font>
+                        </Text>
+                        <TextArea layoutX="11.0" layoutY="92.0" prefHeight="100.0" prefWidth="200.0"
+                                  text="Du kannst das Trainingsgelände verbessern, um einen größeren Trainingserfolg erzielen zu können.;Schalte es jetzt frei für 50 Holz, 10 Stein&#10;und 5 Gold!"/>
+                        <Label layoutX="11.0" layoutY="221.0" prefHeight="35.0" prefWidth="200.0" text="Label"/>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

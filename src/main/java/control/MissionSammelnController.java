@@ -1,4 +1,5 @@
 package control;
 
-public class MissionSammelnController {
+public class MissionSammelnController
+{
 }

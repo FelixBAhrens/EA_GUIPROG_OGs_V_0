@@ -11,15 +11,19 @@ import res.Konstanten;
 import res.Strings;
 
 
-public class SchmiedenController extends PaneController {
+public class SchmiedenController extends PaneController
+{
     @FXML
     public AnchorPane artefaktDisplay;
+
     /**
      * Methode zum Anzeigen des Artefaktes
+     *
      * @param event
      */
     @FXML
-    public void zeigeArtefaktDetails (MouseEvent event) {
+    public void zeigeArtefaktDetails (MouseEvent event)
+    {
         aktualisiereDisplayInformation(findeArtefaktAusID(((Pane) event.getSource()).getId()));
         artefaktDisplay.setVisible(true);
     }
@@ -28,13 +32,14 @@ public class SchmiedenController extends PaneController {
     {
         Label label = (Label) artefaktDisplay.getChildren().get(Konstanten.INT_ONE);
         label.setText(Strings.NAME + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.getName() + Strings.NEWLINE
-        + Strings.IMBESITZ + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.istImBesitz() + Strings.NEWLINE
-        + Strings.ANZAHL_ANWENDUNGEN + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.getAnwendungenUebrig() + Strings.NEWLINE
-        + Strings.STAERKE + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.getStaerke());
+                + Strings.IMBESITZ + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.istImBesitz() + Strings.NEWLINE
+                + Strings.ANZAHL_ANWENDUNGEN + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.getAnwendungenUebrig() + Strings.NEWLINE
+                + Strings.STAERKE + Strings.DOPPELPUNKT + Strings.SPACE + artefakt.getStaerke());
     }
 
     /**
      * Methode, die abhhaengig von der uebergebenen ID das entsprechende Artefakt heraussucht
+     *
      * @param ID
      * @return das Artefakt, das der ID des Aufrufenden Elements entspricht.
      * @author Felix Ahrens
@@ -58,14 +63,17 @@ public class SchmiedenController extends PaneController {
 
     /**
      * Initialize-Methode der Controllerklasse fuer die "schmiede-view.fxml".
+     *
      * @author Felix Ahrens
      */
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 
-    public void gebeArteFaktAus () {
+    public void gebeArteFaktAus ()
+    {
         System.out.println(GameFile.getInstanz().getSchwert().toString());
     }
 }

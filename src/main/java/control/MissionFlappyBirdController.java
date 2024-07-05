@@ -39,7 +39,7 @@ public class MissionFlappyBirdController implements Initializable
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    public void initialize (URL url, ResourceBundle resourceBundle)
     {
         Rectangle clip = new Rectangle(plane.getPrefWidth(), plane.getPrefHeight());
         plane.setClip(clip);
@@ -53,7 +53,7 @@ public class MissionFlappyBirdController implements Initializable
         gameLoop = new AnimationTimer()
         {
             @Override
-            public void handle(long l)
+            public void handle (long l)
             {
                 update();
             }
@@ -65,10 +65,9 @@ public class MissionFlappyBirdController implements Initializable
     }
 
     @FXML
-    void pressed(KeyEvent event)
+    void pressed (KeyEvent event)
     {
-        if(event.getCode() == KeyCode.SPACE)
-        {
+        if (event.getCode() == KeyCode.SPACE) {
             birdComponent.fly();
             accelerationTime = Konstanten.INT_ZERO;
         }
@@ -76,39 +75,36 @@ public class MissionFlappyBirdController implements Initializable
 
 
     //Called every game frame
-    private void update()
+    private void update ()
     {
         gameTime++;
         accelerationTime++;
         double yDelta = Konstanten.ZERO_POINT_ZERO_TWO;
         birdComponent.moveBirdY(yDelta * accelerationTime);
 
-        if(pointChecker(obstacles, bird))
-        {
+        if (pointChecker(obstacles, bird)) {
             scoreCounter++;
             score.setText(String.valueOf(scoreCounter));
         }
 
         obstaclesHandler.moveObstacles(obstacles);
 
-        if(gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO)
-        {
+        if (gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO) {
             obstacles.addAll(obstaclesHandler.createObstacles());
         }
 
-        if(birdComponent.isBirdDead(obstacles, plane))
-        {
+        if (birdComponent.isBirdDead(obstacles, plane)) {
             resetGame();
         }
     }
 
     //Everything called once, at the game start
-    private void load()
+    private void load ()
     {
         obstacles.addAll(obstaclesHandler.createObstacles());
     }
 
-    private void resetGame()
+    private void resetGame ()
     {
         bird.setY(Konstanten.INT_ZERO);
         plane.getChildren().removeAll(obstacles);
@@ -120,14 +116,11 @@ public class MissionFlappyBirdController implements Initializable
     }
 
 
-
-    private boolean pointChecker(ArrayList<Rectangle> obstacles, Rectangle bird)
+    private boolean pointChecker (ArrayList<Rectangle> obstacles, Rectangle bird)
     {
-        for (Rectangle obstacle: obstacles)
-        {
+        for (Rectangle obstacle : obstacles) {
             int birdPositionX = (int) (bird.getLayoutX() + bird.getX());
-            if(((int)(obstacle.getLayoutX() + obstacle.getX()) == birdPositionX))
-            {
+            if (((int) (obstacle.getLayoutX() + obstacle.getX()) == birdPositionX)) {
                 return true;
             }
         }

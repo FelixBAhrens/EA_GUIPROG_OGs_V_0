@@ -5,7 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import model.Charakter;
 
-public class CharakterDisplayController {
+public class CharakterDisplayController
+{
     @FXML
     private Label nameLabel = new Label();
     @FXML
@@ -33,17 +34,20 @@ public class CharakterDisplayController {
     private AnchorPane charakterDisplay;
 
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 
     @FXML
-    public void setzeDisplaySichtbar(boolean sichtbar){
+    public void setzeDisplaySichtbar (boolean sichtbar)
+    {
         charakterDisplay.setVisible(sichtbar);
     }
 
     @FXML
-    public void zeigeCharakterWerte(Charakter charakter) {
+    public void zeigeCharakterWerte (Charakter charakter)
+    {
         nameLabel.setText(charakter.getName());
         healthLabel.setText(String.valueOf(charakter.getGesundheit()));
         shieldLabel.setText(String.valueOf(charakter.getSchild()));

@@ -7,7 +7,8 @@ import res.Konstanten;
 import res.Strings;
 
 
-public class MissionMemoryController {
+public class MissionMemoryController
+{
     private boolean ersterSteinUmgedreht = false;
     private ImageView ersterStein;
 
@@ -45,14 +46,15 @@ public class MissionMemoryController {
     private ImageView stein7b;
 
 
-
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 
     @FXML
-    public void handleStein (MouseEvent event) {
+    public void handleStein (MouseEvent event)
+    {
         ImageView stein = (ImageView) event.getSource();
         if (!ersterSteinUmgedreht) {
             ersterStein = stein;

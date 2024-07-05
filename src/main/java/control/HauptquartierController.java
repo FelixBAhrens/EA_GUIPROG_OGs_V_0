@@ -41,7 +41,7 @@ public class HauptquartierController extends PaneController
         instance = this;
     }
 
-    public static HauptquartierController getInstance()
+    public static HauptquartierController getInstance ()
     {
         return instance;
     }
@@ -53,7 +53,7 @@ public class HauptquartierController extends PaneController
     }
 
     @FXML
-    public void initialize()
+    public void initialize ()
     {
     }
 
@@ -117,11 +117,12 @@ public class HauptquartierController extends PaneController
 
         missionStarten.setOnMouseClicked(e -> {
             KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-            SzenenManager.wechseleSzene(Strings.FXML_KAMPF);});
+            SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
+        });
     }
 
     @FXML
-    public void openKarte()
+    public void openKarte ()
     {
         SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
     }

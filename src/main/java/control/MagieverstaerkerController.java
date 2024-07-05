@@ -2,9 +2,11 @@ package control;
 
 import javafx.fxml.FXML;
 
-public class MagieverstaerkerController extends PaneController {
+public class MagieverstaerkerController extends PaneController
+{
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 }

@@ -4,41 +4,49 @@ import javafx.fxml.FXML;
 import model.GameFile;
 import res.Strings;
 
-public class KlassischesMenueController extends StartMenueController {
+public class KlassischesMenueController extends StartMenueController
+{
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
 
     }
 
     @FXML
-    public void handleDebugStadt() {
+    public void handleDebugStadt ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_STADT);
     }
 
     @FXML
-    public void handleDebugKarte() {
+    public void handleDebugKarte ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_KARTE);
     }
 
     @FXML
-    public void handleDebugKampf () {
+    public void handleDebugKampf ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
     @FXML
-    public void handleDebugArena () {
+    public void handleDebugArena ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_ARENA);
     }
 
     @FXML
-    public void handleDebugEndgegner () {
+    public void handleDebugEndgegner ()
+    {
         setzeGameFileInstanzLogisch();
         KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
         SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
     }
 
     @FXML
-    public void gameFileAusgeben () {
+    public void gameFileAusgeben ()
+    {
         System.out.println(GameFile.getInstanz().toString());
     }
 

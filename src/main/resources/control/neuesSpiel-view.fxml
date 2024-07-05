@@ -9,37 +9,63 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.NeuesSpielController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.NeuesSpielController">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/neues-flugzeug.png" />
+                <Image url="@../assets/neues-flugzeug.png"/>
             </image>
         </ImageView>
-        <AnchorPane fx:id="schwierigkeitsAnchPane" layoutX="72.0" layoutY="113.0" prefHeight="401.0" prefWidth="276.0" style="-fx-background-color: rgba(255, 238, 191, 1)">
+        <AnchorPane fx:id="schwierigkeitsAnchPane" layoutX="72.0" layoutY="113.0" prefHeight="401.0" prefWidth="276.0"
+                    style="-fx-background-color: rgba(255, 238, 191, 1)">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-16.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Bitte wähle den Schwierigkeitsgrad">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-16.0"
+                       style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; "
+                       text="Bitte wähle den Schwierigkeitsgrad">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="20.0"/>
                     </font>
                 </Label>
-                <Label fx:id="schwierigkeitsLabel" layoutX="20.0" layoutY="200.0" prefHeight="44.0" prefWidth="235.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" visible="true" />
-                <Slider fx:id="schwierigkeitsSlider" layoutX="46.0" layoutY="116.0" majorTickUnit="1" max="3" min="1" minorTickCount="0" prefHeight="42.0" prefWidth="184.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" value="2" />
-                <Button fx:id="fortfahrenButton1" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleFortfahren" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Fortfahren" />
-                <Button fx:id="zurueckButton" layoutX="58.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Zurück" />
+                <Label fx:id="schwierigkeitsLabel" layoutX="20.0" layoutY="200.0" prefHeight="44.0" prefWidth="235.0"
+                       style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;"
+                       visible="true"/>
+                <Slider fx:id="schwierigkeitsSlider" layoutX="46.0" layoutY="116.0" majorTickUnit="1" max="3" min="1"
+                        minorTickCount="0" prefHeight="42.0" prefWidth="184.0" showTickLabels="true"
+                        showTickMarks="true" snapToTicks="true"
+                        style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;"
+                        value="2"/>
+                <Button fx:id="fortfahrenButton1" layoutX="58.0" layoutY="281.0" mnemonicParsing="false"
+                        onAction="#handleFortfahren" prefHeight="44.0" prefWidth="160.0"
+                        style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; "
+                        text="Fortfahren"/>
+                <Button fx:id="zurueckButton" layoutX="58.0" layoutY="342.0" mnemonicParsing="false"
+                        onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0"
+                        style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; "
+                        text="Zurück"/>
             </children>
         </AnchorPane>
-      <AnchorPane fx:id="spielNameAnchPane" layoutX="72.0" layoutY="113.0" prefHeight="401.0" prefWidth="276.0" style="-fx-background-color: rgba(255, 238, 191, 1)" visible="false">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-16.0" prefHeight="44.0" prefWidth="276.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" text="Bitte gib den Spielnamen ein">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-             <Button fx:id="fortfahrenButton2" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleFortfahren" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" text="Fortfahren" />
-             <Button fx:id="zurueckButtonAlt" layoutX="58.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Zurück" />
-             <TextField fx:id="spielNameText" layoutX="16.0" layoutY="71.0" prefHeight="44.0" prefWidth="235.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" />
-         </children>
-      </AnchorPane>
+        <AnchorPane fx:id="spielNameAnchPane" layoutX="72.0" layoutY="113.0" prefHeight="401.0" prefWidth="276.0"
+                    style="-fx-background-color: rgba(255, 238, 191, 1)" visible="false">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-16.0" prefHeight="44.0" prefWidth="276.0"
+                       style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;"
+                       text="Bitte gib den Spielnamen ein">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="fortfahrenButton2" layoutX="58.0" layoutY="281.0" mnemonicParsing="false"
+                        onAction="#handleFortfahren" prefHeight="44.0" prefWidth="160.0"
+                        style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;"
+                        text="Fortfahren"/>
+                <Button fx:id="zurueckButtonAlt" layoutX="58.0" layoutY="342.0" mnemonicParsing="false"
+                        onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0"
+                        style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; "
+                        text="Zurück"/>
+                <TextField fx:id="spielNameText" layoutX="16.0" layoutY="71.0" prefHeight="44.0" prefWidth="235.0"
+                           style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;"/>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

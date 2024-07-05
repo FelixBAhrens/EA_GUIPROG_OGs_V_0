@@ -7,46 +7,98 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
-   <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/stadt_neu.png" />
-      </image>
-   </ImageView>
-   <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
-   <Pane fx:id="schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#openSchmiede" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="schmiedenButton" layoutX="-6.0" layoutY="72.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Schmiede" visible="false" />
-      </children></Pane>
-   <Pane fx:id="schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#openSchenke" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="schenkenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Schenke" visible="false" />
-      </children></Pane>
-   <Pane fx:id="magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#openMagieverstaerker" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="magieverstaerkerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Magieverstärker" visible="false" />
-      </children></Pane>
-   <Pane fx:id="basisCamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#openBasisCamp" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="basisCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Basis-Camp" visible="false" />
-      </children></Pane>
-   <Pane fx:id="fraktionenCamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#openFraktionenCamp" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="134.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="fraktionenCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Fraktionen-Camp" visible="false" />
-      </children></Pane>
-   <Pane fx:id="hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#openHauptquartier" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="107.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="hauptquartierButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Hauptquartier" visible="false" />
-      </children></Pane>
-   <Pane fx:id="markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#openMarkt" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="143.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="marktButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Markt" visible="false" />
-      </children></Pane>
-   <Pane fx:id="trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#openTrainingsgelaende" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="119.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
-      <children>
-         <Button fx:id="TrainingsCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Trainingsgelände" visible="false" />
-      </children></Pane>
-   <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#closeGebaeude" prefHeight="720" prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false" />
-   <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0" style="-fx-background-color: #ffeebf;" visible="false" />
-   <fx:include source="klassisches-menue-view.fxml" />
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
+    <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../assets/stadt_neu.png"/>
+        </image>
+    </ImageView>
+    <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
+            style="-fx-background-color: orange;" text="?"/>
+    <Pane fx:id="schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#openSchmiede"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="schmiedenButton" layoutX="-6.0" layoutY="72.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Schmiede" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#openSchenke"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="schenkenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Schenke" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#openMagieverstaerker"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="magieverstaerkerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                    prefHeight="27.0" prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Magieverstärker" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="basisCamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#openBasisCamp"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="135.0"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="basisCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Basis-Camp" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="fraktionenCamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#openFraktionenCamp"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="134.0" prefWidth="135.0"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="fraktionenCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Fraktionen-Camp" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#openHauptquartier"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="107.0" prefWidth="135.0"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="hauptquartierButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Hauptquartier" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#openMarkt" onMouseEntered="#handleMouseEnter"
+          onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="143.0"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="marktButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Markt" visible="false"/>
+        </children>
+    </Pane>
+    <Pane fx:id="trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#openTrainingsgelaende"
+          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="119.0" prefWidth="135.0"
+          style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">
+        <children>
+            <Button fx:id="TrainingsCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
+                    prefWidth="112.0"
+                    style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
+                    text="Trainingsgelände" visible="false"/>
+        </children>
+    </Pane>
+    <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#closeGebaeude" prefHeight="720"
+               prefWidth="1280" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false"/>
+    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0"
+               style="-fx-background-color: #ffeebf;" visible="false"/>
+    <fx:include source="klassisches-menue-view.fxml"/>
 </AnchorPane>

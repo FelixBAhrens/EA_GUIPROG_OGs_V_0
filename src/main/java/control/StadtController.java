@@ -9,7 +9,8 @@ import res.Strings;
 
 import java.io.IOException;
 
-public class StadtController extends ControllerController {
+public class StadtController extends ControllerController
+{
 
     @FXML
     private Pane gebaeudePane;
@@ -18,84 +19,80 @@ public class StadtController extends ControllerController {
 
 
     @FXML
-    private void openSchmiede()
+    private void openSchmiede ()
     {
         openGebaeude(Strings.FXML_SCHMIEDE);
     }
 
     @FXML
-    private void openSchenke()
+    private void openSchenke ()
     {
         openGebaeude(Strings.FXML_SCHENKE);
     }
 
     @FXML
-    private void openMagieverstaerker()
+    private void openMagieverstaerker ()
     {
         openGebaeude(Strings.FXML_MAGIEVERSTAERKER);
     }
 
     @FXML
-    private void openBasisCamp()
+    private void openBasisCamp ()
     {
         openGebaeude(Strings.FXML_BASISCAMP);
     }
 
     @FXML
-    private void openFraktionenCamp()
+    private void openFraktionenCamp ()
     {
         openGebaeude(Strings.FXML_FRAKTIONENCAMP);
     }
 
     @FXML
-    private void openTrainingsgelaende()
+    private void openTrainingsgelaende ()
     {
         openGebaeude(Strings.FXML_TRAININGSGELAENDE);
     }
 
     @FXML
-    private void openMarkt()
+    private void openMarkt ()
     {
         openGebaeude(Strings.FXML_MARKT);
     }
 
     @FXML
-    private void openHauptquartier()
+    private void openHauptquartier ()
     {
         openGebaeude(Strings.FXML_HAUPTQUARTIER);
     }
 
     /**
-     * @TODO Strings
      * @param event
+     * @TODO Strings
      */
     @FXML
-    private void handleMouseEnter(MouseEvent event)
+    private void handleMouseEnter (MouseEvent event)
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: turquoise; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren())
-        {
-            if (node instanceof Button)
-            {
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
                 node.setVisible(true);
             }
         }
     }
 
     /**
-     * @TODO Strings
      * @param event
+     * @TODO Strings
      */
     @FXML
-    private void handleMouseExit(MouseEvent event)
+    private void handleMouseExit (MouseEvent event)
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;");
-        for (javafx.scene.Node node : pane.getChildren())
-        {
-            if (node instanceof Button)
-            {
+        for (javafx.scene.Node node : pane.getChildren()) {
+            if (node instanceof Button) {
                 node.setVisible(false);
             }
         }
@@ -103,8 +100,7 @@ public class StadtController extends ControllerController {
 
     private void openGebaeude (String fxmlFile)
     {
-        try
-        {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();
 
@@ -115,13 +111,12 @@ public class StadtController extends ControllerController {
             gebaeudePane.getChildren().setAll(pane);
             gebaeudePane.setVisible(true);
             hintergrundPane.setVisible(true);
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void closeGebaeude()
+    public void closeGebaeude ()
     {
         gebaeudePane.setVisible(false);
         hintergrundPane.setVisible(false);

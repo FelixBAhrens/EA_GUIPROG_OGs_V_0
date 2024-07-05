@@ -8,7 +8,8 @@ import res.Strings;
 
 import java.io.IOException;
 
-public class SchenkenController extends PaneController {
+public class SchenkenController extends PaneController
+{
 
 
     @FXML
@@ -17,7 +18,8 @@ public class SchenkenController extends PaneController {
 
 
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Strings.FXML_CHARAKTERDISPLAY));
         try {
             charakterDisplay = loader.load();
@@ -29,7 +31,8 @@ public class SchenkenController extends PaneController {
 
 
     @FXML
-    public void openMedic() throws Exception {
+    public void openMedic () throws Exception
+    {
         System.out.println(Strings.OPEN_MEDIC);
         charakterDisplayController.zeigeCharakterWerte(GameFile.getInstanz().getMedic());
         System.out.println(GameFile.getInstanz().getMedic().toString());
@@ -38,16 +41,20 @@ public class SchenkenController extends PaneController {
     }
 
     @FXML
-    public void openHunter(){
+    public void openHunter ()
+    {
 
     }
 
     @FXML
-    public void openEngineer(){
+    public void openEngineer ()
+    {
 
     }
+
     @FXML
-    public void openScout(){
+    public void openScout ()
+    {
 
     }
 }
