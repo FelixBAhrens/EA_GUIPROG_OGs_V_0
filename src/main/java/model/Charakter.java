@@ -2,7 +2,8 @@ package model;
 
 import res.Strings;
 
-public class Charakter {
+public class Charakter
+{
     /*Parameter eines Charakters. Hab da erstmal alle aus der Aufgabenstellung abgeschrieben, müssen noch auf
         Vollständigkeit überprüft werden.*/
     private String name;
@@ -20,103 +21,126 @@ public class Charakter {
     private int bewegungsWeite;
     private int initiative; //Initiative erstmal weglassen?
 
-    public int getInitiative() {
+    public int getInitiative ()
+    {
         return initiative;
     }
 
-    public void setInitiative(int initiative) {
+    public void setInitiative (int initiative)
+    {
         this.initiative = initiative;
     }
 
-    public int getBewegungsWeite() {
+    public int getBewegungsWeite ()
+    {
         return bewegungsWeite;
     }
 
-    public void setBewegungsWeite(int bewegungsWeite) {
+    public void setBewegungsWeite (int bewegungsWeite)
+    {
         this.bewegungsWeite = bewegungsWeite;
     }
 
-    public int getMagieResistenz() {
+    public int getMagieResistenz ()
+    {
         return magieResistenz;
     }
 
-    public void setMagieResistenz(int magieResistenz) {
+    public void setMagieResistenz (int magieResistenz)
+    {
         this.magieResistenz = magieResistenz;
     }
 
-    public int getZahlAusweichen() {
+    public int getZahlAusweichen ()
+    {
         return zahlAusweichen;
     }
 
-    public void setZahlAusweichen(int zahlAusweichen) {
+    public void setZahlAusweichen (int zahlAusweichen)
+    {
         this.zahlAusweichen = zahlAusweichen;
     }
 
-    public int getFernkaempfeVerbleibenZahl() {
+    public int getFernkaempfeVerbleibenZahl ()
+    {
         return fernkaempfeVerbleibenZahl;
     }
 
-    public void setFernkaempfeVerbleibenZahl(int fernkaempfeVerbleibenZahl) {
+    public void setFernkaempfeVerbleibenZahl (int fernkaempfeVerbleibenZahl)
+    {
         this.fernkaempfeVerbleibenZahl = fernkaempfeVerbleibenZahl;
     }
 
-    public int getFernkampfWert() {
+    public int getFernkampfWert ()
+    {
         return fernkampfWert;
     }
 
-    public void setFernkampfWert(int fernkampfWert) {
+    public void setFernkampfWert (int fernkampfWert)
+    {
         this.fernkampfWert = fernkampfWert;
     }
 
-    public int getNahkampfWert() {
+    public int getNahkampfWert ()
+    {
         return nahkampfWert;
     }
 
-    public void setNahkampfWert(int nahkampfWert) {
+    public void setNahkampfWert (int nahkampfWert)
+    {
         this.nahkampfWert = nahkampfWert;
     }
 
-    public int getManapunkte() {
+    public int getManapunkte ()
+    {
         return manapunkte;
     }
 
-    public void setManapunkte(int manapunkte) {
+    public void setManapunkte (int manapunkte)
+    {
         this.manapunkte = manapunkte;
     }
 
-    public int getSchild() {
+    public int getSchild ()
+    {
         return schild;
     }
 
-    public void setSchild(int schild) {
+    public void setSchild (int schild)
+    {
         this.schild = schild;
     }
 
-    public int getGesundheit() {
+    public int getGesundheit ()
+    {
         return gesundheit;
     }
 
-    public void setGesundheit(int gesundheit) {
+    public void setGesundheit (int gesundheit)
+    {
         this.gesundheit = gesundheit;
     }
 
-    public String getName() {
+    public String getName ()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName (String name)
+    {
         this.name = name;
     }
 
 
-
     /**
      * Konstruktor der Klasse Charakter
+     *
      * @param name Der Name des Charakters, der zurueckgegeben werden soll
      * @Author Felix Ahrens
      */
     public Charakter (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
-                      int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative) {
+                      int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative)
+    {
         this.name = name;
         this.gesundheit = gesundheit;
         this.schild = schild;
@@ -131,14 +155,14 @@ public class Charakter {
     }
 
     @Override
-    public String toString(){
+    public String toString ()
+    {
         return name + Strings.DOPPELPUNKT + gesundheit + Strings.SEMIKOLON + schild + Strings.SEMIKOLON
                 + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON + fernkaempfeVerbleibenZahl
-                + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON+ magieResistenz + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative;
+                + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON + magieResistenz + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative;
     }
 }
 
 /**
- * VORSCHLAG
- * Personen sind Instanzen der Klasse Charakter und uebernehmen dessen Eigenschaften.
+ * VORSCHLAG Personen sind Instanzen der Klasse Charakter und uebernehmen dessen Eigenschaften.
  */

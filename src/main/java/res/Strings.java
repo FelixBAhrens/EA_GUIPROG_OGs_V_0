@@ -1,6 +1,7 @@
 package res;
 
-public interface Strings {
+public interface Strings
+{
 
 
     String FXML_ARENA = "arena-view.fxml";

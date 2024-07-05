@@ -12,35 +12,33 @@ public class Bird
     private int jumpHeight;
     CollisionHandler collisionHandler = new CollisionHandler();
 
-    public Bird(Rectangle bird, int jumpHeight)
+    public Bird (Rectangle bird, int jumpHeight)
     {
         this.bird = bird;
         this.jumpHeight = jumpHeight;
     }
 
-    public void fly()
+    public void fly ()
     {
         double movement = -jumpHeight;
-        if(bird.getLayoutY() + bird.getY() <= jumpHeight)
-        {
+        if (bird.getLayoutY() + bird.getY() <= jumpHeight) {
             movement = -(bird.getLayoutY() + bird.getY());
         }
 
         moveBirdY(movement);
     }
 
-    public void moveBirdY(double positionChange)
+    public void moveBirdY (double positionChange)
     {
         bird.setY(bird.getY() + positionChange);
     }
 
-    public boolean isBirdDead(ArrayList<Rectangle> obstacles, AnchorPane plane)
+    public boolean isBirdDead (ArrayList<Rectangle> obstacles, AnchorPane plane)
     {
         double birdY = bird.getLayoutY() + bird.getY();
 
-        if(collisionHandler.collisionDetection(obstacles, bird))
-        {
-            return  true;
+        if (collisionHandler.collisionDetection(obstacles, bird)) {
+            return true;
         }
 
         return birdY >= plane.getHeight();

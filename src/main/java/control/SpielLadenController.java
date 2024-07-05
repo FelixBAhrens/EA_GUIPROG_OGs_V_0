@@ -5,13 +5,16 @@ import model.GameFile;
 
 import java.io.IOException;
 
-public class SpielLadenController extends ControllerController {
+public class SpielLadenController extends ControllerController
+{
     @FXML
-    public void initialize()  {
+    public void initialize ()
+    {
     }
 
     @FXML
-    public void handleKnopf() throws IOException{
+    public void handleKnopf () throws IOException
+    {
         System.out.println(GameFile.gebeLetztesSpielZurueck());
     }
 

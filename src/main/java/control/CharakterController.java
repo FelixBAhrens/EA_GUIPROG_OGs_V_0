@@ -5,15 +5,18 @@ import model.Charakter;
 import res.Konstanten;
 import res.Strings;
 
-public class CharakterController {
+public class CharakterController
+{
 
     private static Charakter[] charakterArray = new Charakter[Konstanten.INT_FIVE];
 
-    public static Charakter[] getCharakterArray() {
+    public static Charakter[] getCharakterArray ()
+    {
         return charakterArray;
     }
 
-    public static Charakter[] erstelleDefaultCharakter () {
+    public static Charakter[] erstelleDefaultCharakter ()
+    {
         Charakter leader = new Charakter(Strings.LEADER,
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ZERO],
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_ONE],
@@ -88,7 +91,8 @@ public class CharakterController {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize ()
+    {
     }
 
 }

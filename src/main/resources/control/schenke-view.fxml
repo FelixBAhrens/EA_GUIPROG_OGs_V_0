@@ -4,22 +4,28 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SchenkenController">
-   <children>
-      <StackPane>
-          <ImageView fitHeight="562.5" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                  <Image url="@../assets/schenke.png" />
-              </image>
-          </ImageView>
-      </StackPane>
-      <Pane fx:id="medic" layoutX="206.0" layoutY="214.0" onMouseClicked="#openMedic" prefHeight="251.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
-      <Pane fx:id="engineer" layoutX="665.0" layoutY="198.0" onMouseClicked="#openEngineer" prefHeight="265.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
-      <Pane fx:id="scout" layoutX="551.0" layoutY="182.0" onMouseClicked="#openScout" prefHeight="135.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
-      <Pane fx:id="hunter" layoutX="348.0" layoutY="187.0" onMouseClicked="#openHunter" prefHeight="121.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
-      <AnchorPane fx:id="charakterDisplay" visible="false">
-          <fx:include source="charakter-display-view.fxml" />
-      </AnchorPane>
-       <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
-   </children>
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SchenkenController">
+    <children>
+        <StackPane>
+            <ImageView fitHeight="562.5" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/schenke.png"/>
+                </image>
+            </ImageView>
+        </StackPane>
+        <Pane fx:id="medic" layoutX="206.0" layoutY="214.0" onMouseClicked="#openMedic" prefHeight="251.0"
+              prefWidth="130.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="engineer" layoutX="665.0" layoutY="198.0" onMouseClicked="#openEngineer" prefHeight="265.0"
+              prefWidth="130.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="scout" layoutX="551.0" layoutY="182.0" onMouseClicked="#openScout" prefHeight="135.0"
+              prefWidth="104.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="hunter" layoutX="348.0" layoutY="187.0" onMouseClicked="#openHunter" prefHeight="121.0"
+              prefWidth="104.0" style="-fx-background-color: transparent;"/>
+        <AnchorPane fx:id="charakterDisplay" visible="false">
+            <fx:include source="charakter-display-view.fxml"/>
+        </AnchorPane>
+        <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
+                style="-fx-background-color: orange;" text="?"/>
+    </children>
 </AnchorPane>

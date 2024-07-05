@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet
+ *
  * @author Felix
  */
 public class ControllerController
@@ -34,13 +35,13 @@ public class ControllerController
 
     public void stopSaving ()
     {
-        if (scheduler != null && !scheduler.isShutdown())
-        {
+        if (scheduler != null && !scheduler.isShutdown()) {
             scheduler.shutdown();
         }
     }
 
-    public void setzeGameFileInstanzLogisch() {
+    public void setzeGameFileInstanzLogisch ()
+    {
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
         if (gamefile != null) {
             GameFile.setzeInstanz(gamefile);
@@ -52,16 +53,19 @@ public class ControllerController
 
     /**
      * Methode, die die Anfrage fuer Hilfe behandelt, indem ein Hilfe-Menue aufgerufen lassen wird.
+     *
      * @throws IOException
      * @author Felix Ahrens
      */
     @FXML
-    public void handleHilfe() {
+    public void handleHilfe ()
+    {
         SzenenManager.wechseleSzene(Strings.FXML_HILFE);
     }
 
     /**
      * Methode, um eine Transaktion, also einen Kauf durchzufuehren, wenn dieser moeglich ist.
+     *
      * @param holz
      * @param stein
      * @param gold
@@ -70,27 +74,28 @@ public class ControllerController
      * @return
      * @author Felix Ahrens
      */
-    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit){
+    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit)
+    {
         GameFile instanz = GameFile.gebeLetztesSpielZurueck();
-        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas){
+        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas) {
             instanz.setHolzRessource(instanz.getHolzRessource() - holz);
             instanz.setSteinRessource(instanz.getSteinRessource() - stein);
             instanz.setGoldRessource(instanz.getGoldRessource() - gold);
             instanz.setGesundheitRessource(instanz.getGesundheitRessource() - gesundheit);
             instanz.setBanonasRessource(instanz.getBanonasRessource() - banonas);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     /**
      * Methode, die die Zurueck-Funktionalitaet beinhaltet
+     *
      * @author Felix Ahrens
      */
     @FXML
-    public void handleZurueck()
+    public void handleZurueck ()
     {
         try {
             SzenenManager.szeneZurueck();
@@ -103,8 +108,9 @@ public class ControllerController
      *
      */
     @FXML
-    public void handleSpielBeenden(){
-        if (GameFile.getInstanz() != null){
+    public void handleSpielBeenden ()
+    {
+        if (GameFile.getInstanz() != null) {
             SzenenManager.wechseleSzene(Strings.FXML_SPEICHERN_ABFRAGE);
         } else {
             System.exit(Konstanten.INT_ZERO);
@@ -114,25 +120,29 @@ public class ControllerController
 
     /**
      * Methode, die den aktuellen Spielstand von einer entsprechenden Methode in der Klasse GameFile speichern laesst.
+     *
      * @author Felix Ahrens
      */
     @FXML
-    public void speichereSpielstand()
+    public void speichereSpielstand ()
     {
         GameFile.speichereSpielstand();
     }
 
     /**
      * Methode, die die Anwendung mit dem Exit-Code null beendet
+     *
      * @author Felix Ahrens
      */
     @FXML
-    public void beendeAnwendung () {
+    public void beendeAnwendung ()
+    {
         System.exit(Konstanten.INT_ZERO);
     }
 
     @FXML
-    public void speichereSpielstandUndBeendeSpiel(){
+    public void speichereSpielstandUndBeendeSpiel ()
+    {
         GameFile.speichereSpielstand();
         beendeAnwendung();
     }

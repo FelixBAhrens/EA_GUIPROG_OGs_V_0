@@ -3,7 +3,8 @@ package model;
 import res.Konstanten;
 import res.Strings;
 
-public class Kaempfer extends Charakter {
+public class Kaempfer extends Charakter
+{
 
     private int xPosition;
     private int yPosition;
@@ -11,44 +12,53 @@ public class Kaempfer extends Charakter {
     private boolean istAmZug;
     private String imageURL;
 
-    public int getxPosition()
+    public int getxPosition ()
     {
         return xPosition;
     }
 
-    public void setxPosition(int xPosition) {
+    public void setxPosition (int xPosition)
+    {
         this.xPosition = xPosition;
     }
 
-    public int getyPosition() {
+    public int getyPosition ()
+    {
         return yPosition;
     }
 
-    public void setyPosition(int yPosition) {
+    public void setyPosition (int yPosition)
+    {
         this.yPosition = yPosition;
     }
 
-    public boolean isIstLeader() {
+    public boolean isIstLeader ()
+    {
         return istLeader;
     }
 
-    public void setIstLeader(boolean istLeader) {
+    public void setIstLeader (boolean istLeader)
+    {
         this.istLeader = istLeader;
     }
 
-    public boolean isIstAmZug() {
+    public boolean isIstAmZug ()
+    {
         return istAmZug;
     }
 
-    public void setIstAmZug(boolean istAmZug) {
+    public void setIstAmZug (boolean istAmZug)
+    {
         this.istAmZug = istAmZug;
     }
 
-    public String getImageURL() {
+    public String getImageURL ()
+    {
         return imageURL;
     }
 
-    public void setImageURL(String imageURL) {
+    public void setImageURL (String imageURL)
+    {
         this.imageURL = imageURL;
     }
 
@@ -65,13 +75,13 @@ public class Kaempfer extends Charakter {
      * @param zahlAusweichen
      * @param magieResistenz
      * @param bewegungsWeite
-     * @param initiative
-     * weitere parameter
+     * @param initiative      weitere parameter
      * @Author Felix Ahrens
      */
-    public Kaempfer(String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
-                    int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative,
-                    int xPosition, int yPosition, boolean istLeader, boolean istAmZug, String imageURL) {
+    public Kaempfer (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
+                     int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative,
+                     int xPosition, int yPosition, boolean istLeader, boolean istAmZug, String imageURL)
+    {
         super(name, gesundheit, schild, manapunkte, nahkampfWert, fernkampfWert, fernkaempfeZahl, zahlAusweichen, magieResistenz, bewegungsWeite, initiative);
         this.xPosition = xPosition;
         this.yPosition = yPosition;
@@ -80,7 +90,8 @@ public class Kaempfer extends Charakter {
         this.imageURL = imageURL;
     }
 
-    public static Kaempfer macheNeuenKaempferAusCharakter(Charakter charakter) {
+    public static Kaempfer macheNeuenKaempferAusCharakter (Charakter charakter)
+    {
         boolean istLeader = false;
         if (charakter.getName().equals(Strings.LEADER)) {
             istLeader = true;
@@ -91,7 +102,8 @@ public class Kaempfer extends Charakter {
                 Konstanten.INT_ZERO, Konstanten.INT_ZERO, istLeader, true, Strings.DATEIPFAD_ENDGEGNER);
     }
 
-    public static Kaempfer erstelleEndgegner () {
+    public static Kaempfer erstelleEndgegner ()
+    {
         return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_ONE_HUNDRED, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);

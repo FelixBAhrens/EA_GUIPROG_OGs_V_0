@@ -8,21 +8,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SpielLadenController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SpielLadenController">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/neues-flugzeug.png" />
+                <Image url="@../assets/neues-flugzeug.png"/>
             </image>
         </ImageView>
         <VBox layoutX="72.0" layoutY="114.0" prefHeight="298.0" prefWidth="371.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 16px; -fx-text-fill: #FFFFFF;" text="Spielstände">
+                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 16px; -fx-text-fill: #FFFFFF;"
+                       text="Spielstände">
                     <font>
-                        <Font size="20.0" />
-                    </font></Label>
-                <Button fx:id="zurueckButton" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="80.0" prefWidth="160.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Zurück" />
-                <Button fx:id="pushKnopf" layoutX="10.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#handleKnopf" prefHeight="80.0" prefWidth="160.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="push me" />
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="zurueckButton" layoutX="10.0" layoutY="57.0" mnemonicParsing="false"
+                        onMouseClicked="#handleZurueck" prefHeight="80.0" prefWidth="160.0"
+                        style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+                        text="Zurück"/>
+                <Button fx:id="pushKnopf" layoutX="10.0" layoutY="57.0" mnemonicParsing="false"
+                        onMouseClicked="#handleKnopf" prefHeight="80.0" prefWidth="160.0"
+                        style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+                        text="push me"/>
             </children>
         </VBox>
     </children>

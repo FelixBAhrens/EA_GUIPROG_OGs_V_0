@@ -75,7 +75,7 @@ public enum ConsoleColor
     }
 
     @Override
-    public String toString()
+    public String toString ()
     {
         return code;
     }

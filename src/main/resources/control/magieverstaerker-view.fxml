@@ -8,12 +8,14 @@
 
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="control.MagieverstaerkerController" prefHeight="400.0" prefWidth="600.0">
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="control.MagieverstaerkerController" prefHeight="400.0" prefWidth="600.0">
     <children>
-        <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe" style="-fx-background-color: orange;" text="?" />
+        <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
+                style="-fx-background-color: orange;" text="?"/>
         <Text layoutX="201.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magieverstärker">
             <font>
-                <Font size="46.0" />
+                <Font size="46.0"/>
             </font>
         </Text>
     </children>

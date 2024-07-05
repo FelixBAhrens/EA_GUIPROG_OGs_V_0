@@ -5,40 +5,41 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="25.0" prefWidth="148.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KlassischesMenueController">
-   <children>
-      <MenuBar >
-        <menus>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Spiel">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleFortfahren" text="Fortfahren" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleNeuesSpiel" text="Neues Spiel" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSpielLaden" text="Spiel Laden" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleArena" text="Arena" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleEinstellungen" text="Einstellungen" />
-                  <MenuItem mnemonicParsing="false" onAction="#speichereSpielstand" text="Speichern" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSpielBeenden" text="Spiel Beenden" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Debug">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleDebugStadt" text="Stadt" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleDebugKarte" text="Karte" />
-                  <MenuItem mnemonicParsing="false" onAction="#gameFileAusgeben" text="GameFile Ausgeben" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleDebugKampf" text="Kampf" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleZurueck" text="Zurück" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleDebugEndgegner" text="endgegnerKampf" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleDebugArena" text="Arena" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Hilfe">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleHilfe" text="Hilfe" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </children>
+<AnchorPane prefHeight="25.0" prefWidth="148.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="control.KlassischesMenueController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Spiel">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleFortfahren" text="Fortfahren"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleNeuesSpiel" text="Neues Spiel"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpielLaden" text="Spiel Laden"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleArena" text="Arena"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleEinstellungen" text="Einstellungen"/>
+                        <MenuItem mnemonicParsing="false" onAction="#speichereSpielstand" text="Speichern"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpielBeenden" text="Spiel Beenden"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Debug">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDebugStadt" text="Stadt"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDebugKarte" text="Karte"/>
+                        <MenuItem mnemonicParsing="false" onAction="#gameFileAusgeben" text="GameFile Ausgeben"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDebugKampf" text="Kampf"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleZurueck" text="Zurück"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDebugEndgegner" text="endgegnerKampf"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDebugArena" text="Arena"/>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Hilfe">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleHilfe" text="Hilfe"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
 </AnchorPane>

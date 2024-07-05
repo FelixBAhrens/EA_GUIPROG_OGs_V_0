@@ -4,45 +4,55 @@ import res.Konstanten;
 import res.Strings;
 import utility.MyIO;
 
-public class Artefakt extends GameFile {
+public class Artefakt extends GameFile
+{
     private String name;
     private boolean imBesitz;
     private int anwendungenUebrig;
     private int staerke;
 
-    public String getName() {
+    public String getName ()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName (String name)
+    {
         this.name = name;
     }
 
-    public boolean istImBesitz() {
+    public boolean istImBesitz ()
+    {
         return imBesitz;
     }
 
-    public void setImBesitz(boolean imBesitz) {
+    public void setImBesitz (boolean imBesitz)
+    {
         this.imBesitz = imBesitz;
     }
 
-    public int getAnwendungenUebrig() {
+    public int getAnwendungenUebrig ()
+    {
         return anwendungenUebrig;
     }
 
-    public void setAnwendungenUebrig(int anwendungenUebrig) {
+    public void setAnwendungenUebrig (int anwendungenUebrig)
+    {
         this.anwendungenUebrig = anwendungenUebrig;
     }
 
-    public int getStaerke() {
+    public int getStaerke ()
+    {
         return staerke;
     }
 
-    public void setStaerke(int staerke) {
+    public void setStaerke (int staerke)
+    {
         this.staerke = staerke;
     }
 
-    public Artefakt (String name, boolean imBesitz, int anwendungenUebrig, int staerke) {
+    public Artefakt (String name, boolean imBesitz, int anwendungenUebrig, int staerke)
+    {
         this.name = name;
         this.imBesitz = imBesitz;
         this.anwendungenUebrig = anwendungenUebrig;
@@ -51,14 +61,16 @@ public class Artefakt extends GameFile {
 
     /**
      * Methode, die die jeweiligen Eigenschaften des Artefakts auf die GameFile anwendet.
+     *
      * @TODO zuruecksetzen der hochgesetzten Eigenschaften nach der Runde muss in der Kampf-Klasse implementiert werden
      * @TODO Anwendbarkeit auf andere Charaktere als den Leader klaeren
      * @Author Felix Ahrens
      */
-    public void wendeArtefaktAn () throws Exception {
+    public void wendeArtefaktAn () throws Exception
+    {
         Charakter leader = GameFile.getInstanz().getLeader();
-        if (anwendungenUebrig > Konstanten.INT_ZERO){
-            switch (this.getName()){
+        if (anwendungenUebrig > Konstanten.INT_ZERO) {
+            switch (this.getName()) {
                 case Strings.STATUE:
                     MyIO.print(Strings.RING_ANGEWENDET);
                     leader.setGesundheit(leader.getGesundheit() + this.getStaerke());
@@ -72,18 +84,19 @@ public class Artefakt extends GameFile {
                     MyIO.print(Strings.RING_ANGEWENDET);
                     break;
             }
-        }
-        else {
+        } else {
 
         }
     }
 
-    public String toCSV (){
+    public String toCSV ()
+    {
         return name + Strings.SEMIKOLON + imBesitz + Strings.SEMIKOLON + anwendungenUebrig + Strings.SEMIKOLON + staerke;
     }
 
     @Override
-    public String toString () {
+    public String toString ()
+    {
         return Strings.NAME + Strings.DOPPELPUNKT + Strings.SPACE + name + Strings.NEWLINE
                 + Strings.IMBESITZ + Strings.DOPPELPUNKT + Strings.SPACE + imBesitz + Strings.NEWLINE
                 + Strings.ANZAHL_ANWENDUNGEN + Strings.DOPPELPUNKT + Strings.SPACE + anwendungenUebrig + Strings.NEWLINE
