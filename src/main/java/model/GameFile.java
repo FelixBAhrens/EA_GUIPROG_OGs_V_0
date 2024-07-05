@@ -53,8 +53,16 @@ public class GameFile {
     }
 
     //Parameter der Klasse GameFile
-    private String filePathAndName;
-    private String schwierigkeit;
+    private String dateiPfadUndName;
+    public enum Schwierigkeit {
+        EINFACH(Strings.STRING_EINFACH),
+        NORMAL(Strings.STRING_NORMAL),
+        SCHWER(Strings.STRING_SCHWER);
+
+        Schwierigkeit(String schwierigkeit) {
+        }
+    }
+    private Schwierigkeit schwierigkeit;
     private int holzRessource;
     private int steinRessource;
     private int goldRessource;
@@ -73,25 +81,25 @@ public class GameFile {
     private int magieverstaerkerLevel;
 
     /**
-     * Getter fuer die Schwierigkeit. Gibt die Schwierigkeit zurueck.
-     * @precondition Die Schwierigkeit muss als String in der Klasse GameFile enthalten sein.
+     * Getter fuer die Schwierigkeit. Gibt die Schwierigkeit als String zurueck.
+     * @precondition Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
      * @postcondition Es wurde der Inhalt der Variable schwierigkeit als String zurueckgegeben.
      * @return Die Schwierigkeit als String.
      * @Author Felix Ahrens
      */
-    public String getSchwierigkeit() {
+    public Schwierigkeit getSchwierigkeit() {
         return schwierigkeit;
     }
 
     /**
-     * Setter fuer die Schwierigkeit. Setzt die Schwierigkeit auf den der Methode als String uebergebenen Wert.
-     * @precondition Die Schwierigkeit muss als String in der Klasse GameFile enthalten sein.
+     * Setter fuer die Schwierigkeit. Setzt die Schwierigkeit auf den der Methode als Enum uebergebenen Wert.
+     * @precondition Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
      * @postcondition Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode
      *  beim Aufruf uebergeben wurde.
-     * @param schwierigkeit Die Schwierigkeit als String, auf den die Klassenvariable "schwierigkeit" gesetzt werden soll.
+     * @param schwierigkeit Die Schwierigkeit als Enum, auf den die Klassenvariable "schwierigkeit" gesetzt werden soll.
      * @Author Felix Ahrens
      */
-    public void setSchwierigkeit(String schwierigkeit) {
+    public void setSchwierigkeit(Schwierigkeit schwierigkeit) {
         this.schwierigkeit = schwierigkeit;
     }
 
@@ -100,11 +108,11 @@ public class GameFile {
      * @precondition Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
      * @postcondition Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der Methode
      *  beim Aufruf uebergeben wurde.
-     * @param filePathAndName Der Dateipfad und Name als String, auf den die Klassenvariable "filePathAndName" gesetzt werden soll.
+     * @param dateiPfadUndName Der Dateipfad und Name als String, auf den die Klassenvariable "filePathAndName" gesetzt werden soll.
      * @Author Felix Ahrens
      */
-    public void setFilePathAndName(String filePathAndName) {
-        this.filePathAndName = filePathAndName;
+    public void setDateiPfadUndName(String dateiPfadUndName) {
+        this.dateiPfadUndName = dateiPfadUndName;
     }
 
     /**
@@ -413,8 +421,8 @@ public class GameFile {
      * @return Der Dateipfad und Name als String.
      * @Author Felix Ahrens
      */
-    public String getFilePathAndName() {
-        return filePathAndName;
+    public String getDateiPfadUndName() {
+        return dateiPfadUndName;
     }
 
     /**
@@ -500,7 +508,7 @@ public class GameFile {
      *  uebereinstimmen. Die Variablen muessen in der Klasse existieren.
      * @postcondition Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten
      *  erstellt und zurueckgegeben.
-     * @param filePathAndName Dateipfad- und name, um auf den Dateipfad der CSV-Datei der GameFile zugreifen zu koennen
+     * @param dateiPfadUndName Dateipfad- und name, um auf den Dateipfad der CSV-Datei der GameFile zugreifen zu koennen
      * @param schwierigkeit Die Schwierigkeit des Spielstands
      * @param holzRessource Die Anzahl an Holzressourcen des Spielstands
      * @param steinRessource Die Anzahl an Steinressourcen des Spielstandes
@@ -520,9 +528,9 @@ public class GameFile {
      * @param magieverstaerkerLevel Das Level, in dem sich der verbesserbare Magieverstaerker befindet
      * @Author Felix Ahrens
      */
-    private GameFile(String filePathAndName, String schwierigkeit, int holzRessource, int steinRessource, int goldRessource, int gesundheitRessource, int banonasRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
+    private GameFile(String dateiPfadUndName, Schwierigkeit schwierigkeit, int holzRessource, int steinRessource, int goldRessource, int gesundheitRessource, int banonasRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
                      Charakter magician, Charakter scout, boolean fraktionenCampFreigeschaltet, int trainingsgelaendeLevel, int magieverstaerkerLevel) {
-        this.filePathAndName = filePathAndName;
+        this.dateiPfadUndName = dateiPfadUndName;
         this.schwierigkeit = schwierigkeit;
         this.holzRessource = holzRessource;
         this.steinRessource = steinRessource;
@@ -551,7 +559,7 @@ public class GameFile {
      * @return Eine neue, mit den Default-Werten erstellte Instanz der Klasse GameFile
      * @Author Felix Ahrens
      */
-    public static GameFile erstelleNeueDefaultGameFile(String spielName, String schwierigkeit)
+    public static GameFile erstelleNeueDefaultGameFile(String spielName, Schwierigkeit schwierigkeit)
     {
         if (spielName.length()<Konstanten.INT_ONE)
         {
@@ -584,8 +592,8 @@ public class GameFile {
 
     public static void schreibeGameFile(GameFile gameFile) {
         try{
-            FileWriter dateiSchreiber = new FileWriter(gameFile.filePathAndName);
-            dateiSchreiber.write(gameFile.filePathAndName + Strings.NEWLINE + gameFile.schwierigkeit + Strings.NEWLINE);
+            FileWriter dateiSchreiber = new FileWriter(gameFile.dateiPfadUndName);
+            dateiSchreiber.write(gameFile.dateiPfadUndName + Strings.NEWLINE + gameFile.schwierigkeit + Strings.NEWLINE);
             //Ressourcen
             dateiSchreiber.write(gameFile.holzRessource + Strings.SEMIKOLON
                     + gameFile.steinRessource + Strings.SEMIKOLON
@@ -651,6 +659,22 @@ public class GameFile {
     }
 
     /**
+     *
+     * @param schwierigkeitsString
+     * @return
+     */
+    public static Schwierigkeit stringZuSchwierigkeitsEnum (String schwierigkeitsString) {
+        return switch (schwierigkeitsString) {
+            case Strings.STRING_EINFACH -> Schwierigkeit.EINFACH;
+            case Strings.STRING_NORMAL -> Schwierigkeit.NORMAL;
+            case Strings.STRING_SCHWER -> Schwierigkeit.SCHWER;
+            default -> {MyIO.print(Strings.FEHLERMELDUNG_SCHWIERIGKEIT);
+                yield null;
+            }
+        };
+    }
+
+    /**
      * Methode, die aus dem Inhalt eines String-Arrays eine GameFile macht.
      *  GameFiles sollen noch mehr Daten als nur die Beispieldaten Name und Datum enthalten. Dafuer braucht es aber auch
      *  noch einen selbst erstellten Standard zur Reihenfolge.
@@ -658,10 +682,9 @@ public class GameFile {
      * @Author Felix Ahrens
      */
     public static GameFile macheGameFileAusZeilenArray(String[] zeilenArray){
-        System.out.println(zeilenArray[11]);
         try{
             return new GameFile(zeilenArray[Konstanten.INT_ZERO],
-                    zeilenArray[Konstanten.INT_ONE],
+                    stringZuSchwierigkeitsEnum(zeilenArray[Konstanten.INT_ONE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ZERO]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ONE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_TWO]),
@@ -734,7 +757,7 @@ public class GameFile {
      */
     public static GameFile gebeLetztesSpielZurueck() {
         try {
-            return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(filtereAlleCSVFiles(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
+            return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(filtereAlleCSVFilesHeraus(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
         }
         catch (Exception e){
             return null;
@@ -742,15 +765,13 @@ public class GameFile {
 
     }
 
-
-
     /**
      * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden.
      * @param fileArray
      * @return
      * @author Felix Ahrens
      */
-    public static Stack<File> filtereAlleCSVFiles (File[] fileArray){
+    public static Stack<File> filtereAlleCSVFilesHeraus (File[] fileArray){
         Stack<File> csvStack = new Stack<>();
         for (File file : fileArray) {
             if (file.getName().endsWith(Strings.CSV_ENDUNG)) {
@@ -761,30 +782,49 @@ public class GameFile {
     }
 
     /**
-     * Methode, die die File zurueckgibt, die zuletzt bearbeitet wurde
-     * @param fileStack
-     * @return
+     * Methode, die die File zurueckgibt, die zuletzt bearbeitet wurde. Dazu wird aus dem Stack ein Stream erzeugt,
+     *  aus dem dann mit "max" das maximale Element herausgefiltert wird, basierend auf dem angegebenen Comparator fuer
+     *  long aus lastModified fuer alle Files, das als long in ms den Zeitpunkt der letzten Bearbeitung zurueckgibt.
+     *  Ist keine File auf dem "dateiStack", wird "null" zurueckgegeben.
+     * @precondititon Auf dem "dateiStack" muessen Files liegen.
+     * @postcondition Es wurde die File zurueckgegeben, die von allen im Stack zuletzt bearbeitet wurde.
+     * @param dateiStack Der zu untersuchende Stack dessen juengste File gefragt ist.
+     * @return die File, die auf dem dateiStack zuletzt bearbeitet wurde; oder null, wenn der Stack leer ist.
      * @author Felix Ahrens
      */
-    public static File gebeJuengsteFileZurueck (Stack<File> fileStack) {
-        File juengsteFile = fileStack.stream()
+    public static File gebeJuengsteFileZurueck (Stack<File> dateiStack) {
+        File juengsteFile = dateiStack.stream()
                 .max(Comparator.comparingLong(File::lastModified))
                 .orElse(null);
         return juengsteFile;
     }
 
+    /**
+     * Methode, die den Spielstand, also die Singleton-Instanz der GameFile, sofern gesetzt, als CSV-Datei schreiben laesst.
+     * @precondition Die Instanz muss gesetzt sein, damit der Spielstand erfolgreich gespeichert werden kann.#
+     * @postcondtition Die dem "dateiPfadUndName" entsprechende csv-Datei entspricht den Werten der Singletoninstanz.
+     * @Author Felix Ahrens
+     */
     public static void speichereSpielstand() {
         if (instanz == null){
-            System.out.println(Strings.FEHLERMELDUNG_SPEICHERN);
+            MyIO.print(Strings.FEHLERMELDUNG_SPEICHERN);
             return;
         }
         schreibeGameFile(instanz);
     }
 
+    /**
+     * Ueberschriebene "toString"-methode der GameFile, die die gesamte Instanz der GameFile in einer fuer Menschen
+     *  einfach lesbaren Version zurueckgibt. Nutzen ist hauptsaechlich die Konsolenausgabe zu Debug-Zwecken.
+     * @precondition Die gefragten Parameter muessen Parameter der GameFile sein und in der Klasse existieren.
+     * @postcondition Es wird ein String zurueckgegeben, der von Menschen einfach lesbar ist, mit Beschriftungen und Zeilenumbruechen.
+     * @return Als String eine menschlich einfach lesbare Version der Parameter der GameFile-Instanz
+     * @author Felix Ahrens
+     */
     @Override
     public String toString() {
         return Strings.GAMEFILE + Strings.DOPPELPUNKT + Strings.NEWLINE +
-                Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + filePathAndName + Strings.NEWLINE +
+                Strings.DATEINAME + Strings.DOPPELPUNKT + Strings.SPACE + dateiPfadUndName + Strings.NEWLINE +
                 Strings.SCHWIERIGKEIT + Strings.DOPPELPUNKT + Strings.SPACE + schwierigkeit + Strings.NEWLINE +
                 Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + holzRessource + Strings.NEWLINE +
                 Strings.STEIN + Strings.DOPPELPUNKT + Strings.SPACE + steinRessource + Strings.NEWLINE +

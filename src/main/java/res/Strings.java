@@ -70,9 +70,9 @@ public interface Strings {
     String ARTEFAKT = "Artefakt";
 
 
-    String STRING_EINFACH = "Einfach";
-    String STRING_NORMAL = "Normal";
-    String STRING_SCHWER = "Schwer";
+    String STRING_EINFACH = "EINFACH";
+    String STRING_NORMAL = "NORMAL";
+    String STRING_SCHWER = "SCHWER";
     String SEMIKOLON = ";";
     String DOPPELPUNKT = ":";
     String SPACE = " ";

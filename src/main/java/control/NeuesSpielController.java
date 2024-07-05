@@ -11,7 +11,7 @@ import res.Strings;
 
 public class NeuesSpielController extends ControllerController{
     private static String spielName;
-    private static String schwierigkeit;
+    private static GameFile.Schwierigkeit schwierigkeit;
     @FXML
     public Slider schwierigkeitsSlider;
     @FXML
@@ -55,7 +55,7 @@ public class NeuesSpielController extends ControllerController{
         if (schwierigkeitsAnchPane.isVisible()) {
             if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER)) {
                 System.out.println(schwierigkeitsLabel.getText());
-                schwierigkeit = schwierigkeitsLabel.getText();
+                schwierigkeit = GameFile.stringZuSchwierigkeitsEnum(schwierigkeitsLabel.getText());
                 schwierigkeitsAnchPane.setVisible(false);
                 spielNameAnchPane.setVisible(true);
             }
