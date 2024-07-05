@@ -21,7 +21,8 @@ public class Bird
     public void fly ()
     {
         double movement = -jumpHeight;
-        if (bird.getLayoutY() + bird.getY() <= jumpHeight) {
+        if (bird.getLayoutY() + bird.getY() <= jumpHeight)
+        {
             movement = -(bird.getLayoutY() + bird.getY());
         }
 
@@ -37,7 +38,8 @@ public class Bird
     {
         double birdY = bird.getLayoutY() + bird.getY();
 
-        if (collisionHandler.collisionDetection(obstacles, bird)) {
+        if (collisionHandler.collisionDetection(obstacles, bird))
+        {
             return true;
         }
 

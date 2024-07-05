@@ -69,8 +69,10 @@ public class Artefakt extends GameFile
     public void wendeArtefaktAn () throws Exception
     {
         Charakter leader = GameFile.getInstanz().getLeader();
-        if (anwendungenUebrig > Konstanten.INT_ZERO) {
-            switch (this.getName()) {
+        if (anwendungenUebrig > Konstanten.INT_ZERO)
+        {
+            switch (this.getName())
+            {
                 case Strings.STATUE:
                     MyIO.print(Strings.RING_ANGEWENDET);
                     leader.setGesundheit(leader.getGesundheit() + this.getStaerke());
@@ -84,7 +86,8 @@ public class Artefakt extends GameFile
                     MyIO.print(Strings.RING_ANGEWENDET);
                     break;
             }
-        } else {
+        } else
+        {
 
         }
     }

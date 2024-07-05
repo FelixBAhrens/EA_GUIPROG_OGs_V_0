@@ -67,7 +67,8 @@ public class MissionFlappyBirdController implements Initializable
     @FXML
     void pressed (KeyEvent event)
     {
-        if (event.getCode() == KeyCode.SPACE) {
+        if (event.getCode() == KeyCode.SPACE)
+        {
             birdComponent.fly();
             accelerationTime = Konstanten.INT_ZERO;
         }
@@ -82,18 +83,21 @@ public class MissionFlappyBirdController implements Initializable
         double yDelta = Konstanten.ZERO_POINT_ZERO_TWO;
         birdComponent.moveBirdY(yDelta * accelerationTime);
 
-        if (pointChecker(obstacles, bird)) {
+        if (pointChecker(obstacles, bird))
+        {
             scoreCounter++;
             score.setText(String.valueOf(scoreCounter));
         }
 
         obstaclesHandler.moveObstacles(obstacles);
 
-        if (gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO) {
+        if (gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO)
+        {
             obstacles.addAll(obstaclesHandler.createObstacles());
         }
 
-        if (birdComponent.isBirdDead(obstacles, plane)) {
+        if (birdComponent.isBirdDead(obstacles, plane))
+        {
             resetGame();
         }
     }
@@ -118,9 +122,11 @@ public class MissionFlappyBirdController implements Initializable
 
     private boolean pointChecker (ArrayList<Rectangle> obstacles, Rectangle bird)
     {
-        for (Rectangle obstacle : obstacles) {
+        for (Rectangle obstacle : obstacles)
+        {
             int birdPositionX = (int) (bird.getLayoutX() + bird.getX());
-            if (((int) (obstacle.getLayoutX() + obstacle.getX()) == birdPositionX)) {
+            if (((int) (obstacle.getLayoutX() + obstacle.getX()) == birdPositionX))
+            {
                 return true;
             }
         }

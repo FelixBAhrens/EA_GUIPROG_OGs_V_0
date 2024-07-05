@@ -21,10 +21,12 @@ public class SchenkenController extends PaneController
     public void initialize ()
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Strings.FXML_CHARAKTERDISPLAY));
-        try {
+        try
+        {
             charakterDisplay = loader.load();
             charakterDisplayController = loader.getController();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }

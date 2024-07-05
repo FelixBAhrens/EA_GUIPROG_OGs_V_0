@@ -98,20 +98,25 @@ public class KartenController extends ControllerController implements Initializa
             double moveX = Konstanten.INT_ZERO;
             double moveY = Konstanten.INT_ZERO;
 
-            if (wPressed.get()) {
+            if (wPressed.get())
+            {
                 moveY = handleMovement(shape1.getLayoutX(), shape1.getLayoutY() - movementVariable, moveY, -movementVariable);
             }
-            if (aPressed.get()) {
+            if (aPressed.get())
+            {
                 moveX = handleMovement(shape1.getLayoutX() - movementVariable, shape1.getLayoutY(), moveX, -movementVariable);
             }
-            if (sPressed.get()) {
+            if (sPressed.get())
+            {
                 moveY = handleMovement(shape1.getLayoutX(), shape1.getLayoutY() + movementVariable, moveY, movementVariable);
             }
-            if (dPressed.get()) {
+            if (dPressed.get())
+            {
                 moveX = handleMovement(shape1.getLayoutX() + movementVariable, shape1.getLayoutY(), moveX, movementVariable);
             }
 
-            if (movingHorizontally.get() && movingVertically.get()) {
+            if (movingHorizontally.get() && movingVertically.get())
+            {
                 moveX /= ROOT_2;
                 moveY /= ROOT_2;
             }
@@ -126,7 +131,8 @@ public class KartenController extends ControllerController implements Initializa
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         System.out.println(missionStatus);
-        if (missionStatus) {
+        if (missionStatus)
+        {
             healthCount = Konstanten.INT_ZERO;
 
             missionTimer.setVisible(true);
@@ -135,16 +141,19 @@ public class KartenController extends ControllerController implements Initializa
 
             wood.setVisible(false);
             gold.setVisible(false);
-        } else {
+        } else
+        {
             gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
         }
         setupMovement();
 
         keyPressed.addListener((observableValue, oldValue, newValue) ->
         {
-            if (newValue) {
+            if (newValue)
+            {
                 timer.start();
-            } else {
+            } else
+            {
                 timer.stop();
             }
         });
@@ -162,7 +171,8 @@ public class KartenController extends ControllerController implements Initializa
         {
             timeRemaining--;
             missionTimer.setText(formatTime(timeRemaining));
-            if (timeRemaining <= Konstanten.INT_ZERO) {
+            if (timeRemaining <= Konstanten.INT_ZERO)
+            {
                 ((Timeline) event.getSource()).stop();
             }
         }));
@@ -185,7 +195,8 @@ public class KartenController extends ControllerController implements Initializa
 
     private void setMovementKeys (KeyCode code, boolean pressed)
     {
-        switch (code) {
+        switch (code)
+        {
             case W -> wPressed.set(pressed);
             case A -> aPressed.set(pressed);
             case S -> sPressed.set(pressed);
@@ -199,13 +210,17 @@ public class KartenController extends ControllerController implements Initializa
         boolean intersects1 = shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent());
         boolean intersects2 = shape1.getBoundsInParent().intersects(missionStarter2.getBoundsInParent());
 
-        if (intersects1 || intersects2) {
-            if (!onMissionStarter) {
+        if (intersects1 || intersects2)
+        {
+            if (!onMissionStarter)
+            {
                 onMissionStarter = true;
                 loadFXMLIntoPane(missionStartenPane, Strings.FXML_MISSION_STARTEN);
             }
-        } else {
-            if (onMissionStarter) {
+        } else
+        {
+            if (onMissionStarter)
+            {
                 onMissionStarter = false;
                 missionStartenPane.getChildren().clear();
             }
@@ -214,8 +229,10 @@ public class KartenController extends ControllerController implements Initializa
 
     private void addBarriers ()
     {
-        for (Node node : map.getChildren()) {
-            if (node instanceof Rectangle rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health) && !node.equals(missionStarter1) && !node.equals(missionStarter2)) {
+        for (Node node : map.getChildren())
+        {
+            if (node instanceof Rectangle rectangle && !node.equals(shape1) && !node.equals(gold) && !node.equals(wood) && !node.equals(health) && !node.equals(missionStarter1) && !node.equals(missionStarter2))
+            {
                 barriers.add(rectangle);
             }
         }
@@ -223,18 +240,21 @@ public class KartenController extends ControllerController implements Initializa
 
     private void loadFXMLIntoPane (Pane pane, String fxmlFile)
     {
-        try {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane newPane = loader.load();
             pane.getChildren().setAll(newPane);
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
 
     private double handleMovement (double x, double y, double move, double movementVariable)
     {
-        if (!checkCollisionWithBarriers(x, y, shape1)) {
+        if (!checkCollisionWithBarriers(x, y, shape1))
+        {
             move += movementVariable;
         }
         return move;
@@ -249,31 +269,39 @@ public class KartenController extends ControllerController implements Initializa
     private void checkForResourceCollection ()
     {
         if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
-            try {
+            try
+            {
                 GameFile.getInstanz().setHolzRessource(GameFile.getInstanz().getHolzRessource() + Konstanten.INT_ONE);
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 throw new RuntimeException(e);
             }
-        })) {
+        }))
+        {
             return;
         }
 
         if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, Strings.GESUNDHEIT, () -> healthCount++, () ->
         {
-            try {
+            try
+            {
                 GameFile.getInstanz().setGesundheitRessource(GameFile.getInstanz().getGesundheitRessource() + Konstanten.INT_ONE);
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 throw new RuntimeException(e);
             }
-        })) {
+        }))
+        {
             return;
         }
 
         checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, Strings.GOLD, () -> goldCount++, () ->
         {
-            try {
+            try
+            {
                 GameFile.getInstanz().setGoldRessource(GameFile.getInstanz().getGoldRessource() + Konstanten.INT_ONE);
-            } catch (Exception e) {
+            } catch (Exception e)
+            {
                 throw new RuntimeException(e);
             }
         });
@@ -282,7 +310,8 @@ public class KartenController extends ControllerController implements Initializa
 
     private boolean checkResourceCollection (boolean intersects, Rectangle resource, String resourceName, Runnable incrementCount, Runnable incrementResource)
     {
-        if (intersects && ePressed.get()) {
+        if (intersects && ePressed.get())
+        {
             incrementResource(resourceName, incrementCount, incrementResource);
             placeRandomlyWithinMap(resource);
             ePressed.set(false);
@@ -293,15 +322,19 @@ public class KartenController extends ControllerController implements Initializa
 
     private void incrementResource (String resourceName, Runnable incrementCount, Runnable incrementResource)
     {
-        try {
+        try
+        {
             incrementCount.run();
             incrementResource.run();
-            if (missionStatus == true) {
+            if (missionStatus == true)
+            {
                 gesammelteObjekte.setText(String.format(Strings.GESUNDHEIT_PERCENT_D, healthCount));
-            } else {
+            } else
+            {
                 gesammelteObjekte.setText(String.format(Strings.RESOURCES_PERCENTS_DS, woodCount, healthCount, goldCount));
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
     }
@@ -323,7 +356,8 @@ public class KartenController extends ControllerController implements Initializa
         double randomY;
         boolean intersects;
 
-        do {
+        do
+        {
             randomX = random.nextDouble() * (paneWidth - object.getWidth());
             randomY = random.nextDouble() * (paneHeight - object.getHeight());
             double finalRandomY = randomY;

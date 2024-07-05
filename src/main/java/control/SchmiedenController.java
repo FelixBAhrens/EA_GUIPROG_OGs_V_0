@@ -47,14 +47,18 @@ public class SchmiedenController extends PaneController
     public Artefakt findeArtefaktAusID (String ID)
     {
         GameFile instanz = GameFile.getInstanz();
-        switch (ID) {
-            case (Strings.SCHWERT_PANE): {
+        switch (ID)
+        {
+            case (Strings.SCHWERT_PANE):
+            {
                 return instanz.getSchwert();
             }
-            case (Strings.STATUE_PANE): {
+            case (Strings.STATUE_PANE):
+            {
                 return instanz.getStatue();
             }
-            case (Strings.RING_PANE): {
+            case (Strings.RING_PANE):
+            {
                 return instanz.getRing();
             }
         }

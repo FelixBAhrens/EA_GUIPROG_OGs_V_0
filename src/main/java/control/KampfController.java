@@ -84,7 +84,8 @@ public class KampfController extends ControllerController implements Initializab
     {
         kampfStartDialog.setVisible(false);
         createMap();
-        switch (kampfTyp) {
+        switch (kampfTyp)
+        {
             case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
             case ANDERER_KAMPF -> starteAndererKampf();
             case ARENA_KAMPF -> starteArenaKampf();
@@ -157,7 +158,8 @@ public class KampfController extends ControllerController implements Initializab
         kampfStartDialog.setVisible(true);
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
-            if (newScene != null) {
+            if (newScene != null)
+            {
                 newScene.setOnKeyPressed(this::handleKeyPress);
             }
         }));
@@ -191,8 +193,10 @@ public class KampfController extends ControllerController implements Initializab
      */
     private void createMap ()
     {
-        for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++) {
-            for (int col = Konstanten.INT_ZERO; col < GRID_SIZE; col++) {
+        for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++)
+        {
+            for (int col = Konstanten.INT_ZERO; col < GRID_SIZE; col++)
+            {
                 Rectangle tile = new Rectangle(TILE_SIZE, TILE_SIZE);
                 tile.setFill(Color.LIGHTGRAY);
                 tile.setStroke(Color.BLACK);
@@ -233,22 +237,31 @@ public class KampfController extends ControllerController implements Initializab
      */
     private void handleKeyPress (KeyEvent keyEvent)
     {
-        switch (keyEvent.getCode()) {
+        switch (keyEvent.getCode())
+        {
             case W:
                 if (spieler.getyPosition() > Konstanten.INT_ZERO)
+                {
                     spieler.setyPosition(spieler.getyPosition() - Konstanten.INT_ONE);
+                }
                 break;
             case A:
                 if (spieler.getxPosition() > Konstanten.INT_ZERO)
+                {
                     spieler.setxPosition(spieler.getxPosition() - Konstanten.INT_ONE);
+                }
                 break;
             case S:
                 if (spieler.getyPosition() < GRID_SIZE - Konstanten.INT_ONE)
+                {
                     spieler.setyPosition(spieler.getyPosition() + Konstanten.INT_ONE);
+                }
                 break;
             case D:
                 if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE)
+                {
                     spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
+                }
                 break;
             case Q:
                 attackiere(spieler, gegner);
@@ -300,9 +313,11 @@ public class KampfController extends ControllerController implements Initializab
         int yentf = Math.abs(angreifer.getyPosition() - verteidiger.getyPosition());
         double entfernung = Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO)) + (Math.pow(yentf, Konstanten.INT_TWO)));
         int schaden = Konstanten.INT_ZERO;
-        if (entfernung <= Konstanten.INT_THREE) {
+        if (entfernung <= Konstanten.INT_THREE)
+        {
             schaden = angreifer.getNahkampfWert();
-        } else if (entfernung < Konstanten.INT_SIX & angreifer.getFernkaempfeVerbleibenZahl() > Konstanten.INT_ZERO) {
+        } else if (entfernung < Konstanten.INT_SIX & angreifer.getFernkaempfeVerbleibenZahl() > Konstanten.INT_ZERO)
+        {
             schaden = angreifer.getFernkampfWert();
         }
 
@@ -321,10 +336,12 @@ public class KampfController extends ControllerController implements Initializab
      */
     public void checkeLebtNoch ()
     {
-        if (spieler.getGesundheit() < Konstanten.INT_ONE) {
+        if (spieler.getGesundheit() < Konstanten.INT_ONE)
+        {
             nachKampfSzenenName = Strings.FXML_PLAYER_REBORN;
             beendeKampf(gegner);
-        } else if (gegner.getGesundheit() < Konstanten.INT_ONE) {
+        } else if (gegner.getGesundheit() < Konstanten.INT_ONE)
+        {
             nachKampfSzenenName = Strings.FXML_HAUPTQUARTIER;
             beendeKampf(spieler);
         }
@@ -344,16 +361,22 @@ public class KampfController extends ControllerController implements Initializab
         int xDiff = spielerX - gegnerX;
         int yDiff = spielerY - gegnerY;
 
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-            if (xDiff > Konstanten.INT_ZERO && gegnerX + Konstanten.INT_ONE < GRID_SIZE) {
+        if (Math.abs(xDiff) > Math.abs(yDiff))
+        {
+            if (xDiff > Konstanten.INT_ZERO && gegnerX + Konstanten.INT_ONE < GRID_SIZE)
+            {
                 gegner.setxPosition(gegnerX + Konstanten.INT_ONE);
-            } else if (xDiff < Konstanten.INT_ZERO && gegnerX - Konstanten.INT_ONE >= Konstanten.INT_ZERO) {
+            } else if (xDiff < Konstanten.INT_ZERO && gegnerX - Konstanten.INT_ONE >= Konstanten.INT_ZERO)
+            {
                 gegner.setxPosition(gegnerX - Konstanten.INT_ONE);
             }
-        } else {
-            if (yDiff > Konstanten.INT_ZERO && gegnerY + Konstanten.INT_ONE < GRID_SIZE) {
+        } else
+        {
+            if (yDiff > Konstanten.INT_ZERO && gegnerY + Konstanten.INT_ONE < GRID_SIZE)
+            {
                 gegner.setyPosition(gegnerY + Konstanten.INT_ONE);
-            } else if (yDiff < Konstanten.INT_ZERO && gegnerY - Konstanten.INT_ONE >= Konstanten.INT_ZERO) {
+            } else if (yDiff < Konstanten.INT_ZERO && gegnerY - Konstanten.INT_ONE >= Konstanten.INT_ZERO)
+            {
                 gegner.setyPosition(gegnerY - Konstanten.INT_ONE);
             }
         }
@@ -374,9 +397,11 @@ public class KampfController extends ControllerController implements Initializab
      */
     public void halteAn (long ms)
     {
-        try {
+        try
+        {
             Thread.sleep(ms);
-        } catch (InterruptedException e) {
+        } catch (InterruptedException e)
+        {
             // Unterbrechung behandeln
             e.printStackTrace();
         }

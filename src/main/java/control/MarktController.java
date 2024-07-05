@@ -84,13 +84,16 @@ public class MarktController extends PaneController
     {
         GameFile instanz = GameFile.getInstanz();
         String buttonID = ((Button) mouseEvent.getSource()).getId();
-        if (buttonID.equals(Strings.GOLD_BUTTON) && instanz.getHolzRessource() >= goldPreis) {
+        if (buttonID.equals(Strings.GOLD_BUTTON) && instanz.getHolzRessource() >= goldPreis)
+        {
             instanz.setGoldRessource(instanz.getGoldRessource() + Konstanten.INT_ONE);
             instanz.setHolzRessource(instanz.getHolzRessource() - goldPreis);
-        } else if (buttonID.equals(Strings.GESUNDHEIT_BUTTON) && instanz.getHolzRessource() >= gesundheitsPreis) {
+        } else if (buttonID.equals(Strings.GESUNDHEIT_BUTTON) && instanz.getHolzRessource() >= gesundheitsPreis)
+        {
             instanz.setGesundheitRessource(instanz.getGesundheitRessource() + Konstanten.INT_ONE);
             instanz.setHolzRessource(instanz.getHolzRessource() - gesundheitsPreis);
-        } else {
+        } else
+        {
             fehlerMeldungsText.setVisible(true);
         }
         updatePreise();

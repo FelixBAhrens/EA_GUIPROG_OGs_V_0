@@ -36,9 +36,11 @@ public class GameFile
      */
     public static GameFile getInstanz ()
     {
-        if (instanz != null) {
+        if (instanz != null)
+        {
             return instanz;
-        } else {
+        } else
+        {
             MyIO.print(Strings.FEHLERMELDUNG_GAMEFILE);
             return null;
         }
@@ -662,7 +664,8 @@ public class GameFile
      */
     public static GameFile erstelleNeueDefaultGameFile (String spielName, Schwierigkeit schwierigkeit)
     {
-        if (spielName.length() < Konstanten.INT_ONE) {
+        if (spielName.length() < Konstanten.INT_ONE)
+        {
             spielName = Strings.SPIEL + (gebeFileListeZurueck(Strings.SPIELDATEIPFAD).length - 1);
         }
         String spielPfad_Name = Strings.SPIELDATEIPFAD + spielName + Strings.CSV_ENDUNG;
@@ -692,7 +695,8 @@ public class GameFile
 
     public static void schreibeGameFile (GameFile gameFile)
     {
-        try {
+        try
+        {
             FileWriter dateiSchreiber = new FileWriter(gameFile.dateiPfadUndName);
             dateiSchreiber.write(gameFile.dateiPfadUndName + Strings.NEWLINE + gameFile.schwierigkeit + Strings.NEWLINE);
             //Ressourcen
@@ -716,7 +720,8 @@ public class GameFile
             dateiSchreiber.write(gameFile.trainingsgelaendeLevel + Strings.NEWLINE);
             dateiSchreiber.write(gameFile.magieverstaerkerLevel + Strings.NEWLINE);
             dateiSchreiber.close();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
@@ -729,10 +734,12 @@ public class GameFile
      */
     public static GameFile leseGameFile (String fileName)
     {
-        if (!fileName.contains(Strings.CSV_ENDUNG)) {
+        if (!fileName.contains(Strings.CSV_ENDUNG))
+        {
             fileName = fileName + Strings.CSV_ENDUNG;
         }
-        if (!fileName.contains(Strings.SPIELDATEIPFAD)) {
+        if (!fileName.contains(Strings.SPIELDATEIPFAD))
+        {
             fileName = Strings.SPIELDATEIPFAD + fileName;
         }
         return macheGameFileAusZeilenArray(leseCSV(fileName));
@@ -751,12 +758,15 @@ public class GameFile
         System.out.println(filePathAndName);
         List<String> lines = new ArrayList<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePathAndName))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePathAndName)))
+        {
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null)
+            {
                 lines.add(line);
             }
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
         return lines.toArray(new String[0]);
@@ -768,11 +778,13 @@ public class GameFile
      */
     public static Schwierigkeit stringZuSchwierigkeitsEnum (String schwierigkeitsString)
     {
-        return switch (schwierigkeitsString) {
+        return switch (schwierigkeitsString)
+        {
             case Strings.STRING_EINFACH -> Schwierigkeit.EINFACH;
             case Strings.STRING_NORMAL -> Schwierigkeit.NORMAL;
             case Strings.STRING_SCHWER -> Schwierigkeit.SCHWER;
-            default -> {
+            default ->
+            {
                 MyIO.print(Strings.FEHLERMELDUNG_SCHWIERIGKEIT);
                 yield null;
             }
@@ -789,7 +801,8 @@ public class GameFile
      */
     public static GameFile macheGameFileAusZeilenArray (String[] zeilenArray)
     {
-        try {
+        try
+        {
             return new GameFile(zeilenArray[Konstanten.INT_ZERO],
                     stringZuSchwierigkeitsEnum(zeilenArray[Konstanten.INT_ONE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWO].split(Strings.SEMIKOLON)[Konstanten.INT_ZERO]),
@@ -808,7 +821,8 @@ public class GameFile
                     Boolean.valueOf(zeilenArray[Konstanten.INT_ELEVEN]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_TWELVE]),
                     Integer.parseInt(zeilenArray[Konstanten.INT_THIRTEEN]));
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e)
+        {
             e.printStackTrace();
             return null;
         }
@@ -870,9 +884,11 @@ public class GameFile
      */
     public static GameFile gebeLetztesSpielZurueck ()
     {
-        try {
+        try
+        {
             return macheGameFileAusZeilenArray(Files.readAllLines(gebeJuengsteFileZurueck(filtereAlleCSVFilesHeraus(gebeFileListeZurueck(Strings.SPIELDATEIPFAD))).toPath()).toArray(new String[0]));
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             return null;
         }
 
@@ -888,8 +904,10 @@ public class GameFile
     public static Stack<File> filtereAlleCSVFilesHeraus (File[] fileArray)
     {
         Stack<File> csvStack = new Stack<>();
-        for (File file : fileArray) {
-            if (file.getName().endsWith(Strings.CSV_ENDUNG)) {
+        for (File file : fileArray)
+        {
+            if (file.getName().endsWith(Strings.CSV_ENDUNG))
+            {
                 csvStack.push(file);
             }
         }
@@ -926,7 +944,8 @@ public class GameFile
      */
     public static void speichereSpielstand ()
     {
-        if (instanz == null) {
+        if (instanz == null)
+        {
             MyIO.print(Strings.FEHLERMELDUNG_SPEICHERN);
             return;
         }

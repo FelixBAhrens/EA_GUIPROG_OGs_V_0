@@ -18,9 +18,11 @@ public class FraktionenCampController extends PaneController
     @FXML
     public void initialize ()
     {
-        if (GameFile.getInstanz().fraktionenCampIstFreigeschaltet()) {
+        if (GameFile.getInstanz().fraktionenCampIstFreigeschaltet())
+        {
             baustelle.setVisible(false);
-        } else {
+        } else
+        {
             baustelle.setVisible(true);
         }
     }
@@ -29,7 +31,8 @@ public class FraktionenCampController extends PaneController
     public void schalteBaustelleFrei ()
     {
         GameFile instanz = GameFile.getInstanz();
-        if (instanz.getHolzRessource() >= Konstanten.INT_FIFTY && instanz.getGoldRessource() >= Konstanten.INT_FIVE) {
+        if (instanz.getHolzRessource() >= Konstanten.INT_FIFTY && instanz.getGoldRessource() >= Konstanten.INT_FIVE)
+        {
             instanz.setHolzRessource(instanz.getHolzRessource() - Konstanten.INT_FIFTY);
             instanz.setGoldRessource(instanz.getGoldRessource() - Konstanten.INT_FIVE);
             baustelle.setVisible(false);

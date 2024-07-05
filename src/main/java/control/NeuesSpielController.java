@@ -32,7 +32,8 @@ public class NeuesSpielController extends ControllerController
             int value = newValue.intValue();
             schwierigkeitsSlider.setValue(value);
             schwierigkeitsLabel.setVisible(true);
-            switch (value) {
+            switch (value)
+            {
                 case Konstanten.INT_ONE:
                     schwierigkeitsLabel.setText(Strings.STRING_EINFACH);
                     break;
@@ -55,17 +56,21 @@ public class NeuesSpielController extends ControllerController
     @FXML
     public void handleFortfahren ()
     {
-        if (schwierigkeitsAnchPane.isVisible()) {
-            if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER)) {
+        if (schwierigkeitsAnchPane.isVisible())
+        {
+            if (schwierigkeitsLabel.getText().equals(Strings.STRING_EINFACH) || schwierigkeitsLabel.getText().equals(Strings.STRING_NORMAL) || schwierigkeitsLabel.getText().equals(Strings.STRING_SCHWER))
+            {
                 System.out.println(schwierigkeitsLabel.getText());
                 schwierigkeit = GameFile.stringZuSchwierigkeitsEnum(schwierigkeitsLabel.getText());
                 schwierigkeitsAnchPane.setVisible(false);
                 spielNameAnchPane.setVisible(true);
-            } else {
+            } else
+            {
                 schwierigkeitsLabel.setText(Strings.EINGABEAUFFORDERUNG_SCHWIERIGKEIT);
                 schwierigkeitsLabel.setVisible(true);
             }
-        } else if (!schwierigkeitsAnchPane.isVisible() && spielNameAnchPane.isVisible()) {
+        } else if (!schwierigkeitsAnchPane.isVisible() && spielNameAnchPane.isVisible())
+        {
             GameFile.setzeInstanz(GameFile.erstelleNeueDefaultGameFile(spielNameText.getText(), schwierigkeit));
             SzenenManager.wechseleSzene(Strings.FXML_TUTORIAL);
         }
@@ -83,9 +88,11 @@ public class NeuesSpielController extends ControllerController
     @Override
     public void handleZurueck ()
     {
-        if (schwierigkeitsAnchPane.isVisible()) {
+        if (schwierigkeitsAnchPane.isVisible())
+        {
             handleZurueck();
-        } else if (spielNameAnchPane.isVisible()) {
+        } else if (spielNameAnchPane.isVisible())
+        {
             spielNameAnchPane.setVisible(false);
             schwierigkeitsAnchPane.setVisible(true);
         }

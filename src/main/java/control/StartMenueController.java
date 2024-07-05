@@ -28,10 +28,12 @@ public class StartMenueController extends ControllerController
     private void handleFortfahren ()
     {
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
-        if (gamefile != null) {
+        if (gamefile != null)
+        {
             GameFile.setzeInstanz(gamefile);
             SzenenManager.wechseleSzene(Strings.FXML_STADT);
-        } else {
+        } else
+        {
             handleNeuesSpiel();
         }
     }

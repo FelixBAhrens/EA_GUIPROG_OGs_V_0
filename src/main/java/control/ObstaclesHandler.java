@@ -43,10 +43,12 @@ public class ObstaclesHandler
 
         ArrayList<Rectangle> outOfScreen = new ArrayList<>();
 
-        for (Rectangle rectangle : obstacles) {
+        for (Rectangle rectangle : obstacles)
+        {
             moveRectangle(rectangle, -Konstanten.ZERO_POINT_SEVEN_FIVE);
 
-            if (rectangle.getX() <= -rectangle.getWidth()) {
+            if (rectangle.getX() <= -rectangle.getWidth())
+            {
                 outOfScreen.add(rectangle);
             }
         }
