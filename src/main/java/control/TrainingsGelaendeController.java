@@ -155,9 +155,9 @@ public class TrainingsGelaendeController extends PaneController {
      */
     public void bestimmmeVerbesserungsPreise(){
         switch (GameFile.getInstanz().getSchwierigkeit()){
-            case Strings.STRING_EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
-            case Strings.STRING_NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
-            case Strings.STRING_SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
+            case EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
+            case NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
+            case SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
         }
     }
 
