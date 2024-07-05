@@ -39,7 +39,7 @@ public class KlassischesMenueController extends StartMenueController {
 
     @FXML
     public void gameFileAusgeben () {
-        System.out.println(GameFile.getInstance().toString());
+        System.out.println(GameFile.getInstanz().toString());
     }
 
 }

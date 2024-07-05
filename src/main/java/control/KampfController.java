@@ -95,7 +95,7 @@ public class KampfController extends ControllerController implements Initializab
      */
     public void starteEndgegnerKampf ()
     {
-        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());
+        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
         this.gegner = Kaempfer.erstelleEndgegner();
 
         initialisiereCharacter();
