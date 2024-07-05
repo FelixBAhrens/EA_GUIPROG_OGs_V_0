@@ -117,6 +117,7 @@ public interface Strings {
     String GOLD_BUTTON = "goldButton";
     String GESUNDHEIT_BUTTON = "gesundheitButton";
     String HAT_GEWONNEN = " hat gewonnen!";
+    String IP = "IP";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
@@ -163,6 +164,7 @@ public interface Strings {
     String FEHLERMELDUNG_ANWENDUNGEN_UEBRIG = "Alle Anwendungen aufgebraucht";
     String FEHLERMELDUNG_ZURUECK = "Es kann nicht zurück gegangen werden.";
     String FEHLERMELDUNG_SZENENWECHSEL = "Es ist ein Fehler beim Szenenwechsel aufgetreten";
+    String FEHLERMELDUNG_IP = "Die IP konnte nicht ermittelt werden.";
 
     //Meldungen
     String MELDUNG_GESPEICHERT = "Die folgende Datei wurde erfolgreich gespeichert: ";
