@@ -180,4 +180,8 @@ public interface Strings
     String STYLE_TRANSPARENT_TRANSPARENT_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;";
     String STYLE_BORDER_ORANGE = "-fx-border-color: orange";
     String STYLE_BORDER_TRANSPARENT = "-fx-border-color: transparent";
+    String ANHEUERN = "Anheuern";
+    String ANGEHEUERT = "Angeheuert";
+    String SCHILD = "Schild";
+    String MANAPUNKTE = "Manapunkte";
 }
