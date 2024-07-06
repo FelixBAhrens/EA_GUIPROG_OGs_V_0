@@ -19,7 +19,8 @@ public class Charakter
     private int zahlAusweichen;
     private int magieResistenz;
     private int bewegungsWeite;
-    private int initiative; //Initiative erstmal weglassen?
+    private int initiative;
+    private boolean angeheuert;
 
     public int getInitiative ()
     {
@@ -66,10 +67,7 @@ public class Charakter
         return fernkaempfeVerbleibenZahl;
     }
 
-    public void setFernkaempfeVerbleibenZahl (int fernkaempfeVerbleibenZahl)
-    {
-        this.fernkaempfeVerbleibenZahl = fernkaempfeVerbleibenZahl;
-    }
+    public void setFernkaempfeVerbleibenZahl (int fernkaempfeVerbleibenZahl) {this.fernkaempfeVerbleibenZahl = fernkaempfeVerbleibenZahl;}
 
     public int getFernkampfWert ()
     {
@@ -131,6 +129,15 @@ public class Charakter
         this.name = name;
     }
 
+    public boolean istAngeheuert ()
+    {
+        return angeheuert;
+    }
+
+    public void setAngeheuert (boolean angeheuert)
+    {
+        this.angeheuert = angeheuert;
+    }
 
     /**
      * Konstruktor der Klasse Charakter
@@ -139,7 +146,8 @@ public class Charakter
      * @Author Felix Ahrens
      */
     public Charakter (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
-                      int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative)
+                      int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite,
+                      int initiative, boolean angeheuert)
     {
         this.name = name;
         this.gesundheit = gesundheit;
@@ -152,14 +160,20 @@ public class Charakter
         this.magieResistenz = magieResistenz;
         this.bewegungsWeite = bewegungsWeite;
         this.initiative = initiative;
+        this.angeheuert = angeheuert;
+    }
+
+    public int berechnePreisInGold () {
+        return (this.nahkampfWert + this.fernkampfWert + this.bewegungsWeite + this.initiative);
     }
 
     @Override
     public String toString ()
     {
         return name + Strings.DOPPELPUNKT + gesundheit + Strings.SEMIKOLON + schild + Strings.SEMIKOLON
-                + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON + fernkaempfeVerbleibenZahl
-                + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON + magieResistenz + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative;
+                + manapunkte + Strings.SEMIKOLON + nahkampfWert + Strings.SEMIKOLON + fernkampfWert + Strings.SEMIKOLON
+                + fernkaempfeVerbleibenZahl + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON + magieResistenz
+                + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative + Strings.DOPPELPUNKT + angeheuert;
     }
 }
 

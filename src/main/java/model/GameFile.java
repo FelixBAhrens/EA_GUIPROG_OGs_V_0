@@ -865,6 +865,7 @@ public class GameFile
      */
     public static Charakter erstelleCharakterAusCSVZeile (String zeile)
     {
+        System.out.println(zeile);
         Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ONE].split(Strings.SEMIKOLON))
                 .map(String::trim)
                 .map(Integer::parseInt)
@@ -872,7 +873,8 @@ public class GameFile
         return new Charakter(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ZERO], zeilenStuecke[Konstanten.INT_ZERO],
                 zeilenStuecke[Konstanten.INT_ONE], zeilenStuecke[Konstanten.INT_TWO], zeilenStuecke[Konstanten.INT_THREE],
                 zeilenStuecke[Konstanten.INT_FOUR], zeilenStuecke[Konstanten.INT_FIVE], zeilenStuecke[Konstanten.INT_SIX],
-                zeilenStuecke[Konstanten.INT_SEVEN], zeilenStuecke[Konstanten.INT_EIGHT], zeilenStuecke[Konstanten.INT_NINE]);
+                zeilenStuecke[Konstanten.INT_SEVEN], zeilenStuecke[Konstanten.INT_EIGHT], zeilenStuecke[Konstanten.INT_NINE],
+                Boolean.valueOf(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_TWO]));
     }
 
     /**

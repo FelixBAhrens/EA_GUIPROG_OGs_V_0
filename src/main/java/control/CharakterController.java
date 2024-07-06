@@ -27,7 +27,8 @@ public class CharakterController
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_SIX],
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_SEVEN],
                 Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_EIGHT],
-                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_NINE]
+                Konstanten.DEFAULT_VALUES_LEADER[Konstanten.INT_NINE],
+                false
         );
 
         Charakter medic = new Charakter(Strings.MEDIC,
@@ -40,7 +41,8 @@ public class CharakterController
                 Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_SIX],
                 Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_SEVEN],
                 Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_EIGHT],
-                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_NINE]
+                Konstanten.DEFAULT_VALUES_MEDIC[Konstanten.INT_NINE],
+                false
         );
 
         Charakter hunter = new Charakter(Strings.HUNTER,
@@ -53,7 +55,8 @@ public class CharakterController
                 Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_SIX],
                 Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_SEVEN],
                 Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_EIGHT],
-                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_NINE]
+                Konstanten.DEFAULT_VALUES_HUNTER[Konstanten.INT_NINE],
+                false
         );
 
         Charakter magician = new Charakter(Strings.MAGICIAN,
@@ -66,7 +69,8 @@ public class CharakterController
                 Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_SIX],
                 Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_SEVEN],
                 Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_EIGHT],
-                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_NINE]
+                Konstanten.DEFAULT_VALUES_MAGICIAN[Konstanten.INT_NINE],
+                false
         );
 
         Charakter scout = new Charakter(Strings.SCOUT,
@@ -79,7 +83,8 @@ public class CharakterController
                 Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_SIX],
                 Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_SEVEN],
                 Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_EIGHT],
-                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_NINE]
+                Konstanten.DEFAULT_VALUES_SCOUT[Konstanten.INT_NINE],
+                false
         );
 
         charakterArray[Konstanten.INT_ZERO] = leader;

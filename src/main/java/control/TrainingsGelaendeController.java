@@ -5,14 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
-
-import java.security.KeyPair;
 
 public class TrainingsGelaendeController extends PaneController {
 
@@ -192,13 +189,24 @@ public class TrainingsGelaendeController extends PaneController {
         }
     }
 
+    /**
+     * Methode, die die Baustelle anzeigt.
+     * @TODO passt der zeilenumbruch im "aktuellenRessourcenstand" pruefen
+     * @Author Felix Ahrens
+     */
     @FXML
     public void zeigeVerbessern()
     {
-        aktuellerRessourcenstand.setText("Gold: " + GameFile.getInstanz().getGoldRessource() + ", Holz: " + GameFile.getInstanz().getHolzRessource());
+        aktuellerRessourcenstand.setText(Strings.GOLD + Strings.DOPPELPUNKT + GameFile.getInstanz().getGoldRessource()
+                + Strings.NEWLINE + Strings.HOLZ + Strings.DOPPELPUNKT + GameFile.getInstanz().getHolzRessource());
         baustelle.setVisible(true);
     }
 
+    /**
+     * Methode zum verbessern des gebaeudes
+     * @todo geht das nicht mit der kaufen methode?
+     *
+     */
     @FXML
     public void verbessereGebaeude()
     {
