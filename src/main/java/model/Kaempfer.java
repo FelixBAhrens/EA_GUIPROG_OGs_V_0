@@ -80,9 +80,9 @@ public class Kaempfer extends Charakter
      */
     public Kaempfer (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
                      int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative,
-                     int xPosition, int yPosition, boolean istLeader, boolean istAmZug, String imageURL)
+                     boolean angeheuert, int xPosition, int yPosition, boolean istLeader, boolean istAmZug, String imageURL)
     {
-        super(name, gesundheit, schild, manapunkte, nahkampfWert, fernkampfWert, fernkaempfeZahl, zahlAusweichen, magieResistenz, bewegungsWeite, initiative);
+        super(name, gesundheit, schild, manapunkte, nahkampfWert, fernkampfWert, fernkaempfeZahl, zahlAusweichen, magieResistenz, bewegungsWeite, initiative, angeheuert);
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.istLeader = istLeader;
@@ -99,14 +99,14 @@ public class Kaempfer extends Charakter
         }
         return new Kaempfer(charakter.getName(), charakter.getGesundheit() * Konstanten.INT_TEN, charakter.getSchild(), charakter.getManapunkte(),
                 charakter.getNahkampfWert(), charakter.getFernkampfWert(), charakter.getFernkaempfeVerbleibenZahl(), charakter.getZahlAusweichen(),
-                charakter.getMagieResistenz(), charakter.getBewegungsWeite(), charakter.getInitiative(),
+                charakter.getMagieResistenz(), charakter.getBewegungsWeite(), charakter.getInitiative(), charakter.istAngeheuert(),
                 Konstanten.INT_ZERO, Konstanten.INT_ZERO, istLeader, true, Strings.DATEIPFAD_ENDGEGNER);
     }
 
     public static Kaempfer erstelleEndgegner ()
     {
         return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_ONE_HUNDRED, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
-                Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
+                Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, false,
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);
     }
 }

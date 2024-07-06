@@ -189,13 +189,24 @@ public class TrainingsGelaendeController extends PaneController {
         }
     }
 
+    /**
+     * Methode, die die Baustelle anzeigt.
+     * @TODO passt der zeilenumbruch im "aktuellenRessourcenstand" pruefen
+     * @Author Felix Ahrens
+     */
     @FXML
     public void zeigeVerbessern()
     {
-        aktuellerRessourcenstand.setText("Gold: " + GameFile.getInstanz().getGoldRessource() + ", Holz: " + GameFile.getInstanz().getHolzRessource());
+        aktuellerRessourcenstand.setText(Strings.GOLD + Strings.DOPPELPUNKT + GameFile.getInstanz().getGoldRessource()
+                + Strings.NEWLINE + Strings.HOLZ + Strings.DOPPELPUNKT + GameFile.getInstanz().getHolzRessource());
         baustelle.setVisible(true);
     }
 
+    /**
+     * Methode zum verbessern des gebaeudes
+     * @todo geht das nicht mit der kaufen methode?
+     *
+     */
     @FXML
     public void verbessereGebaeude()
     {

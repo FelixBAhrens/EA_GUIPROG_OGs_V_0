@@ -56,7 +56,12 @@ public interface Strings
     String HUNTER = "Hunter";
     String MAGICIAN = "Magician";
     String SCOUT = "Scout";
-    String UPDATED = "UPDATED!";
+    String LEADER_LC = "leader";
+    String MEDIC_LC = "medic";
+    String HUNTER_LC = "hunter";
+    String MAGICIAN_LC = "magician";
+    String SCOUT_LC = "scout";
+
 
     //Kaempfer
 
@@ -121,6 +126,17 @@ public interface Strings
     String IP = "IP";
     String VERBESSERN = "Verbessern";
     String VERKAUFEN = "Verkaufen";
+    String SCHILD = "Schild";
+    String MANAPUNKTE = "Manapunkte";
+    String NAHKAMPFWERT = "Nahkampfwert";
+    String FERNKAMPFWERT = "Fernkampfwert";
+    String FERNKAEMPFE_VERBLEIBEND = "Verbleibende Fernkämpfe";
+    String AUSWEICHEN_ZAHL = "Zahl ausweichen";
+    String MAGIERESISTENZ = "Magieresistenz";
+    String BEWEGUNGSWEITE = "Bewegungsweite";
+    String INITIATIVE = "Initiative";
+    String ANHEUERN = "Anheuern";
+    String ANGEHEUERT = "Angeheuert";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
