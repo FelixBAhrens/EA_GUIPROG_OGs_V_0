@@ -97,6 +97,25 @@ public class Artefakt extends GameFile
         return name + Strings.SEMIKOLON + imBesitz + Strings.SEMIKOLON + anwendungenUebrig + Strings.SEMIKOLON + staerke;
     }
 
+    /**
+     * Methode, die die Kosten fuer die Verbesserung ermittelt.
+     * @precondition
+     * @return
+     * @Author Felix Ahrens
+     */
+    public int ermittleVerbesserungsKosten () {
+        return ((this.getStaerke()+this.getAnwendungenUebrig())*Konstanten.INT_FIVE);
+    }
+
+    /**
+     * Methode, die den Wert ermittelt
+     * @return den Wert des Artefakts in der Einheit "Gold"
+     * @Author Felix Ahrens
+     */
+    public int ermittleWert() {
+        return (this.getStaerke()*Konstanten.INT_TEN);
+    }
+
     @Override
     public String toString ()
     {

@@ -119,6 +119,8 @@ public interface Strings
     String GESUNDHEIT_BUTTON = "gesundheitButton";
     String HAT_GEWONNEN = " hat gewonnen!";
     String IP = "IP";
+    String VERBESSERN = "Verbessern";
+    String VERKAUFEN = "Verkaufen";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
