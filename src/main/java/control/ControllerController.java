@@ -77,10 +77,10 @@ public class ControllerController
      * @return
      * @author Felix Ahrens
      */
-    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit)
+    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold,int gesundheit, int banonas)
     {
-        GameFile instanz = GameFile.gebeLetztesSpielZurueck();
-        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas)
+        GameFile instanz = GameFile.getInstanz();
+        if ((instanz.getHolzRessource() >= holz) && instanz.getSteinRessource() >= stein && instanz.getGoldRessource() >= gold && instanz.getGesundheitRessource() >= gesundheit && instanz.getBanonasRessource() >= banonas)
         {
             instanz.setHolzRessource(instanz.getHolzRessource() - holz);
             instanz.setSteinRessource(instanz.getSteinRessource() - stein);

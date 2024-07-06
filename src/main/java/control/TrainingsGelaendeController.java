@@ -1,16 +1,20 @@
 package control;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
-public class TrainingsGelaendeController extends PaneController
-{
+import java.security.KeyPair;
+
+public class TrainingsGelaendeController extends PaneController {
 
     private int gesammeltesHolz;
     private int gesammelteNahrung;
@@ -88,11 +92,37 @@ public class TrainingsGelaendeController extends PaneController
     private int zahlAusweichenPoints;
     private int magieResistenzPoints;
     private int bewegungsWeitePoints;
+    @FXML
+    private Text aktuellerRessourcenstand;
+
+    @FXML
+    private Button schildVerbessern;
+    @FXML
+    private Button manapunkteVerbessern;
+    @FXML
+    private Button nahkampfWertVerbessern;
+    @FXML
+    private Button fernkampfWertVerbessern;
+    @FXML
+    private Button fernkaempfeZahlVerbessern;
+    @FXML
+    private Button zahlAusweichenVerbessern;
+    @FXML
+    private Button magieResistenzVerbessern;
+    @FXML
+    private Button bewegungsWeiteVerbessern;
+
+
 
 
     @FXML
-    public void initialize ()
+    public void initialize()
     {
+        GameFile instanz = GameFile.getInstanz();
+        instanz.setHolzRessource(Konstanten.INT_ONE_THOUSAND);
+        instanz.setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+        instanz.setSteinRessource(Konstanten.INT_ONE_THOUSAND);
+        instanz.setGesundheitRessource(Konstanten.INT_ONE_THOUSAND);
         bestimmmeVerbesserungsPreise();
         speichereSpielstand();
         try
@@ -100,7 +130,8 @@ public class TrainingsGelaendeController extends PaneController
             gesammeltesHolz = GameFile.getInstanz().getHolzRessource();
             gesammelteNahrung = GameFile.getInstanz().getGesundheitRessource();
             gesammeltesGold = GameFile.getInstanz().getGoldRessource();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -109,15 +140,15 @@ public class TrainingsGelaendeController extends PaneController
 
         try
         {
-            gesundheitPoints = GameFile.getInstanz().getLeader().getGesundheit();
-            schildPoints = GameFile.getInstanz().getLeader().getSchild();
-            manapunktePoints = GameFile.getInstanz().getLeader().getManapunkte();
-            nahkampfWertPoints = GameFile.getInstanz().getLeader().getNahkampfWert();
-            fernkampfWertPoints = GameFile.getInstanz().getLeader().getFernkampfWert();
-            fernkaempfeZahlPoints = GameFile.getInstanz().getLeader().getFernkaempfeVerbleibenZahl();
-            zahlAusweichenPoints = GameFile.getInstanz().getLeader().getZahlAusweichen();
-            magieResistenzPoints = GameFile.getInstanz().getLeader().getMagieResistenz();
-            bewegungsWeitePoints = GameFile.getInstanz().getLeader().getBewegungsWeite();
+            gesundheitPoints = instanz.getLeader().getGesundheit();
+            schildPoints = instanz.getLeader().getSchild();
+            manapunktePoints = instanz.getLeader().getManapunkte();
+            nahkampfWertPoints = instanz.getLeader().getNahkampfWert();
+            fernkampfWertPoints = instanz.getLeader().getFernkampfWert();
+            fernkaempfeZahlPoints = instanz.getLeader().getFernkaempfeVerbleibenZahl();
+            zahlAusweichenPoints = instanz.getLeader().getZahlAusweichen();
+            magieResistenzPoints = instanz.getLeader().getMagieResistenz();
+            bewegungsWeitePoints = instanz.getLeader().getBewegungsWeite();
 
             schild.setText(String.valueOf(schildPoints));
             schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
@@ -142,7 +173,8 @@ public class TrainingsGelaendeController extends PaneController
 
             bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));
             bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -150,13 +182,10 @@ public class TrainingsGelaendeController extends PaneController
 
     /**
      * Eigenschaft, die den Preis fuer ein EigenschaftsUpgrade abhaengig von der eingestellten Schwierigkeit setzt.
-     *
      * @author Felix Ahrens
      */
-    public void bestimmmeVerbesserungsPreise ()
-    {
-        switch (GameFile.getInstanz().getSchwierigkeit())
-        {
+    public void bestimmmeVerbesserungsPreise(){
+        switch (GameFile.getInstanz().getSchwierigkeit()){
             case EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
             case NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
             case SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
@@ -164,24 +193,23 @@ public class TrainingsGelaendeController extends PaneController
     }
 
     @FXML
-    public void zeigeVerbessern ()
+    public void zeigeVerbessern()
     {
+        aktuellerRessourcenstand.setText("Gold: " + GameFile.getInstanz().getGoldRessource() + ", Holz: " + GameFile.getInstanz().getHolzRessource());
         baustelle.setVisible(true);
     }
 
     @FXML
-    public void verbessereGebaeude ()
+    public void verbessereGebaeude()
     {
-        /*
-        if (fuehreTransaktionDurchWennMoeglich(10,0,1,0,0)){
-            //Hier trainingsgelaende verbessern
-            baustelle.setVisible(false);
-        } else {
-            baustellentext.setText(Kannste nicht kaufen)
+        if (GameFile.getInstanz().getGoldRessource() >= Konstanten.INT_FIVE && GameFile.getInstanz().getHolzRessource() >= Konstanten.INT_FIFTY && GameFile.getInstanz().getSteinRessource() >= Konstanten.INT_TEN && (GameFile.getInstanz().getTrainingsgelaendeLevel() == Konstanten.INT_ZERO))
+        {
+            GameFile.getInstanz().setGoldRessource(GameFile.getInstanz().getGoldRessource() - Konstanten.INT_FIVE);
+            GameFile.getInstanz().setHolzRessource(GameFile.getInstanz().getHolzRessource() - Konstanten.INT_FIFTY);
+            GameFile.getInstanz().setSteinRessource(GameFile.getInstanz().getSteinRessource() - Konstanten.INT_TEN);
+            GameFile.getInstanz().setTrainingsgelaendeLevel(GameFile.getInstanz().getTrainingsgelaendeLevel() + Konstanten.INT_ONE);
         }
-         */
-
-
+        baustelle.setVisible(false);
     }
 
     /**
@@ -191,203 +219,81 @@ public class TrainingsGelaendeController extends PaneController
      * @postcondition Die zugehoerige Eigenschaft des jeweiligen Buttons wurde verbessert
      * @author Felix Ahrens
      */
-    @FXML
-    public void verbessereEigenschaft ()
-    {
-
-        if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
-        {
-            //Hier Verbesserung
-
-        } else
-        {
-
-        }
-
-    }
-
 
     @FXML
-    private void schildVerbessern ()
+    private void kaufDurchfuehren (ActionEvent event)
     {
-        try
-        {
-            if (!(schildPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setHolzRessource(gesammeltesHolz);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                schildPoints++;
-                GameFile.getInstanz().getLeader().setGesundheit(schildPoints);
-                schild.setText(String.valueOf(schildPoints));
-                schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
+        Button clickedButton = (Button) event.getSource();
+        String buttonId = clickedButton.getId();
+        int TrainingsgelaendeLevel = GameFile.getInstanz().getTrainingsgelaendeLevel();
 
-    @FXML
-    private void manapunkteVerbessern ()
-    {
-        try
+        switch (buttonId)
         {
-            if (!(manapunktePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                manapunktePoints++;
-                GameFile.getInstanz().getLeader().setManapunkte(manapunktePoints);
-                manapunkte.setText(String.valueOf(manapunktePoints));
-                manapunkteBar.setProgress((double) manapunktePoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+            case "schildVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && schildPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(++schildPoints, schild, schildBar);
+                }
+                break;
 
-    }
+            case "manapunkteVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && manapunktePoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(manapunktePoints++, manapunkte, manapunkteBar);
+                }
+                break;
 
-    @FXML
-    private void nahkampfWertVerbessern ()
-    {
-        try
-        {
-            if (!(nahkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                nahkampfWertPoints++;
-                GameFile.getInstanz().getLeader().setNahkampfWert(nahkampfWertPoints);
-                nahkampfWert.setText(String.valueOf(nahkampfWertPoints));
-                nahkampfWertBar.setProgress((double) nahkampfWertPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+            case "nahkampfWertVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkampfWertPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(nahkampfWertPoints++, nahkampfWert, nahkampfWertBar);
+                }
+                break;
 
-    }
+            case "fernkampfWertVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkampfWertPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(fernkampfWertPoints++, fernkampfWert, fernkampfWertBar);
+                }
+                break;
 
-    @FXML
-    private void fernkampfWertVerbessern ()
-    {
-        try
-        {
-            if (!(fernkampfWertPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                fernkampfWertPoints++;
-                GameFile.getInstanz().getLeader().setFernkampfWert(fernkampfWertPoints);
-                fernkampfWert.setText(String.valueOf(fernkampfWertPoints));
-                fernkampfWertBar.setProgress((double) fernkampfWertPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
+            case "fernkaempfeZahlVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkaempfeZahlPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(fernkaempfeZahlPoints++, fernkaempfeZahl, fernkaempfeZahlBar);
+                }
+                break;
+
+            case "zahlAusweichenVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && zahlAusweichenPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(zahlAusweichenPoints++, zahlAusweichen, zahlAusweichenBar);
+                }
+                break;
+
+            case "magieResistenzVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && magieResistenzPoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(magieResistenzPoints++, magieResistenz, magieResistenzBar);
+                }
+                break;
+
+            case "bewegungsWeiteVerbessern":
+                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && bewegungsWeitePoints < Konstanten.INT_TEN)
+                {
+                    adjustProgress(bewegungsWeitePoints++, bewegungsWeite, bewegungsWeiteBar);
+                }
+                break;
         }
 
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
+        speichereSpielstand();
     }
 
-    @FXML
-    private void fernkaempfeZahlVerbessern ()
+    private void adjustProgress (int points, Label label, ProgressBar bar)
     {
-        try
-        {
-            if (!(fernkaempfeZahlPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                fernkaempfeZahlPoints++;
-                GameFile.getInstanz().getLeader().setFernkaempfeVerbleibenZahl(fernkaempfeZahlPoints);
-                fernkaempfeZahl.setText(String.valueOf(fernkaempfeZahlPoints));
-                fernkaempfeZahlBar.setProgress((double) fernkaempfeZahlPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-
+        System.out.println(points + " " + label.getText() + " " + bar.getProgress());
+        label.setText(String.valueOf(points));
+        bar.setProgress((double) points / (double) Konstanten.INT_TEN);
     }
-
-    @FXML
-    private void zahlAusweichenVerbessern ()
-    {
-        try
-        {
-            if (!(zahlAusweichenPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                zahlAusweichenPoints++;
-                GameFile.getInstanz().getLeader().setZahlAusweichen(zahlAusweichenPoints);
-                zahlAusweichen.setText(String.valueOf(zahlAusweichenPoints));
-                zahlAusweichenBar.setProgress((double) zahlAusweichenPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
-    private void magieResistenzVerbessern ()
-    {
-        try
-        {
-            if (!(magieResistenzPoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                magieResistenzPoints++;
-                GameFile.getInstanz().getLeader().setMagieResistenz(magieResistenzPoints);
-                magieResistenz.setText(String.valueOf(magieResistenzPoints));
-                magieResistenzBar.setProgress((double) magieResistenzPoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
-    private void bewegungsWeiteVerbessern ()
-    {
-        try
-        {
-            if (!(bewegungsWeitePoints == Konstanten.INT_TEN) && gesammeltesGold >= Konstanten.INT_FIVE)
-            {
-                gesammeltesGold -= Konstanten.INT_FIVE;
-                GameFile.getInstanz().setGoldRessource(gesammeltesGold);
-                gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-                bewegungsWeitePoints++;
-                GameFile.getInstanz().getLeader().setBewegungsWeite(bewegungsWeitePoints);
-                bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));
-                bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
-                speichereSpielstand();
-            }
-        } catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-
-    }
-
 }
