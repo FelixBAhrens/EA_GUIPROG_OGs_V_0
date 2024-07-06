@@ -896,6 +896,7 @@ public class GameFile
 
     /**
      * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden.
+     *  Dazu
      *
      * @param fileArray
      * @return
