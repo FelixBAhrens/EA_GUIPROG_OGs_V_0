@@ -5,14 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
-
-import java.security.KeyPair;
 
 public class TrainingsGelaendeController extends PaneController {
 
