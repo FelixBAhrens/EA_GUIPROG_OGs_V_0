@@ -124,19 +124,6 @@ public interface Strings
     String GESUNDHEIT_BUTTON = "gesundheitButton";
     String HAT_GEWONNEN = " hat gewonnen!";
     String IP = "IP";
-    String VERBESSERN = "Verbessern";
-    String VERKAUFEN = "Verkaufen";
-    String SCHILD = "Schild";
-    String MANAPUNKTE = "Manapunkte";
-    String NAHKAMPFWERT = "Nahkampfwert";
-    String FERNKAMPFWERT = "Fernkampfwert";
-    String FERNKAEMPFE_VERBLEIBEND = "Verbleibende Fernkämpfe";
-    String AUSWEICHEN_ZAHL = "Zahl ausweichen";
-    String MAGIERESISTENZ = "Magieresistenz";
-    String BEWEGUNGSWEITE = "Bewegungsweite";
-    String INITIATIVE = "Initiative";
-    String ANHEUERN = "Anheuern";
-    String ANGEHEUERT = "Angeheuert";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
