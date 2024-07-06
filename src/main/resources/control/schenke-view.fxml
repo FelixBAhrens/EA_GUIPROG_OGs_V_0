@@ -47,7 +47,7 @@
                            style="-fx-background-color: rgba(101, 67, 33, 0.7); -fx-border-color: #4B2E15; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #F5F5DC; -fx-alignment: center;"/>
                     <Label fx:id="initLabel" layoutX="10.0" layoutY="360.0" prefHeight="25.0" prefWidth="180.0"
                            style="-fx-background-color: rgba(101, 67, 33, 0.7); -fx-border-color: #4B2E15; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #F5F5DC; -fx-alignment: center;"/>
-                    <Button fx:id="anheuenButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern" style="-fx-background-color: beige;" text="Anheuern" />
+                    <Button fx:id="anheuernButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern" style="-fx-background-color: beige;" text="Anheuern" />
                 </VBox>
             </children>
         </AnchorPane>

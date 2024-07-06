@@ -17,7 +17,7 @@ public class SchenkenController extends PaneController
     @FXML
     private AnchorPane charakterDisplay;
     @FXML
-    public Button anheuenButton;
+    public Button anheuernButton;
 
     @FXML
     private Label nameLabel = new Label();
@@ -65,22 +65,29 @@ public class SchenkenController extends PaneController
         Charakter charakter = gebeCharakterAusID((Pane)event.getSource());
         zeigeCharakterWerteImDisplay(charakter);
         charakterDisplay.setVisible(true);
-        anheuenButton.setText(Strings.ANHEUERN + Strings.DOPPELPUNKT + Strings.SPACE + charakter.berechnePreisInGold());
+        anheuernButton.setText(Strings.ANHEUERN + Strings.DOPPELPUNKT + Strings.SPACE + charakter.berechnePreisInGold());
     }
 
     @FXML
     public void handleAnheuern (MouseEvent event){
-        if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO,
+        GameFile.getInstanz().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+        if (fuehreTransaktionDurchWennMoeglich (Konstanten.INT_ZERO, Konstanten.INT_ZERO,
                 angezeigterCharakter.berechnePreisInGold(), Konstanten.INT_ZERO,
                 Konstanten.INT_ZERO)) {
-            anheuenButton.setDisable(true);
-            anheuenButton.setText(Strings.ANGEHEUERT);
+            angezeigterCharakter.setAngeheuert(true);
+            anheuernButton.setDisable(true);
+            anheuernButton.setText(Strings.ANGEHEUERT);
         }
     }
 
     @FXML
     public void zeigeCharakterWerteImDisplay (Charakter charakter)
     {
+        if (charakter.istAngeheuert()) {
+            anheuernButton.setDisable(true);
+        } else {
+            anheuernButton.setDisable(false);
+        }
         nameLabel.setText(Strings.NAME + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getName());
         healthLabel.setText(Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getGesundheit());
         shieldLabel.setText(Strings.SCHILD + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getSchild());
