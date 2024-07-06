@@ -857,7 +857,7 @@ public class GameFile
     }
 
     /**
-     * Methode, die eine Zeile zu einem Charakter parsed
+     * Methode, die eine Zeile zu einem Charakter parsed.
      *
      * @param zeile
      * @return
@@ -865,7 +865,6 @@ public class GameFile
      */
     public static Charakter erstelleCharakterAusCSVZeile (String zeile)
     {
-        System.out.println(zeile);
         Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ONE].split(Strings.SEMIKOLON))
                 .map(String::trim)
                 .map(Integer::parseInt)

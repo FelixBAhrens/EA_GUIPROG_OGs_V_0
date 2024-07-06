@@ -2,6 +2,7 @@ package control;
 
 import javafx.fxml.FXML;
 import model.GameFile;
+import res.Konstanten;
 import res.Strings;
 
 public class KlassischesMenueController extends StartMenueController
@@ -50,4 +51,16 @@ public class KlassischesMenueController extends StartMenueController
         System.out.println(GameFile.getInstanz().toString());
     }
 
+    /**
+     * Methode zum setzen aller Ressourcen auf ein Tausend des jeweiligen Wertes.
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleInfiniteMoney (){
+        GameFile.getInstanz().setHolzRessource(Konstanten.INT_ONE_THOUSAND);
+        GameFile.getInstanz().setSteinRessource(Konstanten.INT_ONE_THOUSAND);
+        GameFile.getInstanz().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+        GameFile.getInstanz().setGesundheitRessource(Konstanten.INT_ONE_THOUSAND);
+        GameFile.getInstanz().setBanonasRessource(Konstanten.INT_ONE_THOUSAND);
+    }
 }

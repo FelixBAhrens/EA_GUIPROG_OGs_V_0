@@ -97,6 +97,25 @@ public class ControllerController
     }
 
     /**
+     * Methode, die die Machbarkeit einer Transaktion bestimmt.
+     *  Sie bekommt die Kosten der einzelnen Ressourcen uebergeben und versichert mit dem booleschen Rueckgabewert, dass
+     *  das "Konto" des Spielstandes nicht ueberzogen wird. Dazu wird fuer alle fuenf Ressourcentypen ueberprueft, dass
+     *  die im Besitz liegende Ressource nicht unter dem uebergebenen Kostenwert der jeweiligen Ressource liegt.
+     * @param holz Die Holzkosten.
+     * @param stein Die Steinkosten.
+     * @param gold Die Goldkosten.
+     * @param gesundheit Die Gesundheitskosten.
+     * @param banonas Die Banonaskosten.
+     * @return Einen Booleschen Wert, der angibt, ob eine Transaktion durchfuehrbar waere, ohne das "Ressourcenkonto"
+     *  des Spielstandes zu ueberziehen.
+     * @Author Felix Ahrens
+     */
+    public boolean transaktionIstMoeglich (int holz, int stein, int gold,int gesundheit, int banonas) {
+        GameFile instanz = GameFile.getInstanz();
+        return ((instanz.getHolzRessource() >= holz) && instanz.getSteinRessource() >= stein && instanz.getGoldRessource() >= gold && instanz.getGesundheitRessource() >= gesundheit && instanz.getBanonasRessource() >= banonas);
+    }
+
+    /**
      * Methode, die die Zurueck-Funktionalitaet beinhaltet
      *
      * @author Felix Ahrens
@@ -157,4 +176,5 @@ public class ControllerController
         GameFile.speichereSpielstand();
         beendeAnwendung();
     }
+
 }
