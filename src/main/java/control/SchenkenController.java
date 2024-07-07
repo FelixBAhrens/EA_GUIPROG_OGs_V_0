@@ -11,6 +11,11 @@ import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
+/**
+ * Die Klasse SchenkenController bildet die Controllerklasse zur FXML-Datei "schenke-view.fxml" und beinhaltet die
+ *  noetigen Methoden und Variablen zur Behandlung von Nutzereingaben und Anpassung der Gui an diese.
+ * @Author Felix Ahrens
+ */
 public class SchenkenController extends PaneController
 {
     private Charakter angezeigterCharakter;
@@ -20,27 +25,27 @@ public class SchenkenController extends PaneController
     public Button anheuernButton;
 
     @FXML
-    private Label nameLabel = new Label();
+    private Label nameLabel;
     @FXML
-    private Label healthLabel = new Label();
+    private Label healthLabel;
     @FXML
-    private Label shieldLabel = new Label();
+    private Label shieldLabel;
     @FXML
-    private Label manaLabel = new Label();
+    private Label manaLabel;
     @FXML
-    private Label closeCombatLabel = new Label();
+    private Label closeCombatLabel;
     @FXML
-    private Label distanceCombatLabel = new Label();
+    private Label distanceCombatLabel;
     @FXML
-    private Label numberDistComLabel = new Label();
+    private Label numberDistComLabel;
     @FXML
-    private Label dodgeLabel = new Label();
+    private Label dodgeLabel;
     @FXML
-    private Label magResLabel = new Label();
+    private Label magResLabel;
     @FXML
-    private Label reachLabel = new Label();
+    private Label reachLabel;
     @FXML
-    private Label initLabel = new Label();
+    private Label initLabel;
     @FXML
     public Pane medic;
     @FXML
@@ -50,6 +55,10 @@ public class SchenkenController extends PaneController
     @FXML
     public Pane hunter;
 
+    /**
+     * Initialize-Methode, die bei Controllerklassen von FXML-Dateien verpflichtend ist.
+     * @Author Felix Ahrens
+     */
     @FXML
     public void initialize ()
     {
@@ -57,20 +66,33 @@ public class SchenkenController extends PaneController
     }
 
     /**
-     * Methode zum Anzeigen der Pane "charakterDisplay"
-     * @param event
+     * Methode zum Anzeigen der Pane "charakterDisplay".
+     *  Ueber die Methode "gebeCharakterAusID" wird auf den zugehoerigen Charakter zugegriffen. Das Aktualisieren der
+     *  Charakterwerte im "charakterDisplay" wird ueber die aufgerufene Methode "zeigeCharakterWerteImDisplay" beauftragt.
+     * @param event das Event, aus dem die Methode aufgerufen wurde.
+     * @Author Felix Ahrens
      */
     @FXML
     public void openCharakter (MouseEvent event){
         Charakter charakter = gebeCharakterAusID((Pane)event.getSource());
+        angezeigterCharakter = charakter;
         zeigeCharakterWerteImDisplay(charakter);
-        charakterDisplay.setVisible(true);
-        anheuernButton.setText(Strings.ANHEUERN + Strings.DOPPELPUNKT + Strings.SPACE + charakter.berechnePreisInGold());
     }
 
+    /**
+     * Methode, die das Anheuern steuert. Aufgerufen wird diese ueber einen Klick auf den "anheuernButton"-Knopf.
+     *  Das Anheuern geschieht nur, wenn genug Gold im Besitz ist.
+     * @precondition Die Methode "fuehreTransaktionDurchWennMoeglich" muss existieren und von der Klasse
+     *  "SchenkenController" aus zugaenglich sein. Die GUI-Elemente muessen in der FXML-Datei "schenke-view.fxml"
+     *  vorhanden sein und in dieser Controllerklasse ebenso. Auf die Interfaces fuer Konstanten und Strings muss
+     *  zugegriffen werden koennen.
+     * @postcondition Der boolesche Wert "istAngeheuert" des ausgewaehlten Charakters wurde auf true gesetzt, wenn
+     *  sich die spielende Person den Charakter leisten konnte. Ueber die GUI  ist eine visuelle Bestaetigung getaetigt
+     *  worden.
+     * @Author Felix Ahrens
+     */
     @FXML
-    public void handleAnheuern (MouseEvent event){
-        GameFile.getInstanz().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+    public void handleAnheuern (){
         if (fuehreTransaktionDurchWennMoeglich (Konstanten.INT_ZERO, Konstanten.INT_ZERO,
                 angezeigterCharakter.berechnePreisInGold(), Konstanten.INT_ZERO,
                 Konstanten.INT_ZERO)) {
@@ -80,14 +102,54 @@ public class SchenkenController extends PaneController
         }
     }
 
+    /**
+     * Methode zum Aktualisieren des CharakterDisplays. Es werden die Methoden "zeigeCharakterAnheuernButtonSinnvoll"
+     *  und "setzeLabelTexte" aufgerufen, beiden wird die Instanz der Klasse Charakter, die der Methode schon beim Aufruf
+     *  uebergeben wurde, uebergeben. Beide Methoden steuern GUI-Elemente im "charakterDisplay". Zusaetzlich wird der
+     *  Charakter, der der Methode uebergeben wurde, als Klassenvariable des SchenkenControllers gesetzt.
+     * @param charakter Der Charakter, der angezeigt werden soll
+     * @Author Felix Ahrens
+     */
     @FXML
     public void zeigeCharakterWerteImDisplay (Charakter charakter)
     {
-        if (charakter.istAngeheuert()) {
+        anheuernButton.setText(Strings.ANHEUERN + Strings.DOPPELPUNKT + Strings.SPACE + charakter.berechnePreisInGold());
+        zeigeCharakterAnheuernButtonSinnvoll(charakter);
+        setzeLabelTexte(charakter);
+        charakterDisplay.setVisible(true);
+    }
+
+    /**
+     * Methode, die, abhaengig davon, ob der die booleschen Werte "istImBesitz" und "transaktionIstMoeglich" des
+     * uebergebenen Charakters true oder false ist, den Knopf mit der ID "anheuernButton" in der FXML-Datei
+     * "schenke-view.fxml" aktiviert oder deaktiviert. Grund dafuer ist, dass man einen gekauften Charakter nicht
+     *  nochmal kaufen koennen soll und der Versuch des Kaufens unterbunden werden soll, wenn man sich den Charakter
+     *  nicht leisten kann.
+     * @param charakter Der Charakter, der in der Schenke gerade ausgewaehlt ist und der in der "charakterDisplay"-Pane
+     *  angezeigt wird.
+     * @Author Felix Ahrens
+     */
+    public void zeigeCharakterAnheuernButtonSinnvoll (Charakter charakter){
+        if (charakter.istAngeheuert() || !transaktionIstMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, charakter.berechnePreisInGold(), Konstanten.INT_ZERO, Konstanten.INT_ZERO)) {
             anheuernButton.setDisable(true);
         } else {
             anheuernButton.setDisable(false);
         }
+    }
+
+    /**
+     * Methode zum Fuellen der Labels der Fxml-datei mit huebsch verpackten Charakterausgaben.
+     *  Die Methode setzt in die jeweiligen Labels jeweils einen Bezeichner und den zugehoerigen Wert der Instanz der
+     *  Klasse Charakter, die der Methode uebergeben wurde.
+     * @precondition Die Klasse Charakter muss die Variablen besitzen. Die Methode muss einen gueltigen Charakter
+     *  uebergeben bekommen. Die Labels muessen mit den korrekten IDs in der Klasse SchenkenController und in der
+     *  FXML-Datei "schenke-view.fxml" existieren.
+     * @postcondition Die Labels in der "schenke-view.fxml" zeigen die Werte an, die den Werten des Charakters entsprechen,
+     *  der der Methode uebergeben wurde.
+     * @param charakter Der Charakter, dessen Werte in die Labels gesetzt werden sollen.
+     * @Author Felix Ahrens
+     */
+    public void setzeLabelTexte (Charakter charakter){
         nameLabel.setText(Strings.NAME + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getName());
         healthLabel.setText(Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getGesundheit());
         shieldLabel.setText(Strings.SCHILD + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getSchild());
@@ -99,7 +161,6 @@ public class SchenkenController extends PaneController
         magResLabel.setText(Strings.MAGIERESISTENZ + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getMagieResistenz());
         reachLabel.setText(Strings.BEWEGUNGSWEITE + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getBewegungsWeite());
         initLabel.setText(Strings.INITIATIVE + Strings.DOPPELPUNKT + Strings.SPACE + charakter.getInitiative());
-        angezeigterCharakter = charakter;
     }
 
     /**

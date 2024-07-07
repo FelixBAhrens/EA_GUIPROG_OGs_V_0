@@ -14,8 +14,6 @@
             <Image url="@../assets/stadt_neu.png"/>
         </image>
     </ImageView>
-    <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
-            style="-fx-background-color: orange;" text="?"/>
     <Pane fx:id="schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#openSchmiede"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
           style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;">

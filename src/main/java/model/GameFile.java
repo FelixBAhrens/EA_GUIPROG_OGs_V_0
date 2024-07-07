@@ -60,6 +60,15 @@ public class GameFile
         instanz = gameFile;
     }
 
+    /**
+     * Methode, die zurueckgibt, ob die Singleton-Instanz gesetzt wurde oder nicht.
+     * @return True, wenn die "instanz" nicht "null" ist, also ein Spielstand gesetzt wurde.
+     * @Author Felix Ahrens
+     */
+    public static boolean instanzIstGesetzt (){
+        return instanz != null;
+    }
+
     //Parameter der Klasse GameFile
     private String dateiPfadUndName;
 
@@ -857,7 +866,7 @@ public class GameFile
     }
 
     /**
-     * Methode, die eine Zeile zu einem Charakter parsed
+     * Methode, die eine Zeile zu einem Charakter parsed.
      *
      * @param zeile
      * @return
@@ -865,7 +874,6 @@ public class GameFile
      */
     public static Charakter erstelleCharakterAusCSVZeile (String zeile)
     {
-        System.out.println(zeile);
         Integer[] zeilenStuecke = Arrays.stream(zeile.split(Strings.DOPPELPUNKT)[Konstanten.INT_ONE].split(Strings.SEMIKOLON))
                 .map(String::trim)
                 .map(Integer::parseInt)

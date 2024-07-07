@@ -30,7 +30,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#handleZurueck" text="Zurück"/>
                         <MenuItem mnemonicParsing="false" onAction="#handleDebugEndgegner" text="endgegnerKampf"/>
                         <MenuItem mnemonicParsing="false" onAction="#handleDebugArena" text="Arena"/>
-                        <MenuItem mnemonicParsing="false" text="Close"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleInfiniteMoney" text="INFINITE MONEY"/>
                         <MenuItem mnemonicParsing="false" text="Close"/>
                     </items>
                 </Menu>
