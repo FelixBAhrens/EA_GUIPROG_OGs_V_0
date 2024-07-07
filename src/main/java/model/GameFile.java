@@ -60,6 +60,15 @@ public class GameFile
         instanz = gameFile;
     }
 
+    /**
+     * Methode, die zurueckgibt, ob die Singleton-Instanz gesetzt wurde oder nicht.
+     * @return True, wenn die "instanz" nicht "null" ist, also ein Spielstand gesetzt wurde.
+     * @Author Felix Ahrens
+     */
+    public static boolean instanzIstGesetzt (){
+        return instanz != null;
+    }
+
     //Parameter der Klasse GameFile
     private String dateiPfadUndName;
 
