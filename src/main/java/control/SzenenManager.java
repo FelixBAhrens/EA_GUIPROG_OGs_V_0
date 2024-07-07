@@ -49,7 +49,6 @@ public class SzenenManager
         } catch (IOException e)
         {
             MyIO.print(Strings.FEHLERMELDUNG_SZENENWECHSEL);
-            e.printStackTrace();
         }
     }
 
