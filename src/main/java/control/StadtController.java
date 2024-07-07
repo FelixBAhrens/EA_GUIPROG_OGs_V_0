@@ -128,4 +128,15 @@ public class StadtController extends ControllerController
         hintergrundPane.setVisible(false);
         gebaeudePane.getChildren().clear();
     }
+
+    /**
+     * Methode zum Laden der Karte
+     * @param mouseEvent
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void openKarte (MouseEvent mouseEvent)
+    {
+        SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
+    }
 }

@@ -16,24 +16,25 @@ public class HauptquartierController extends PaneController
     private Text detailText;
 
     @FXML
-    private Button missionStarten;
+    public Button missionStarten;
     @FXML
-    private Button flappyBirdWaehlen;
+    public Button flappyBirdWaehlen;
     @FXML
-    private Button sammelnWaehlen;
+    public Button sammelnWaehlen;
     @FXML
-    private Button memoryWaehlen;
+    public Button memoryWaehlen;
     @FXML
-    private Button endgegnerWaehlen;
+    public Button endgegnerWaehlen;
 
     @FXML
-    private AnchorPane flappyBirdPane;
+    public AnchorPane flappyBirdPane;
     @FXML
-    private AnchorPane sammelPane;
+    public AnchorPane sammelPane;
     @FXML
-    private AnchorPane memoryPane;
+    public AnchorPane memoryPane;
     @FXML
-    private AnchorPane endgegnerPane;
+    public AnchorPane endgegnerPane;
+
     private boolean karteFuerMission = false;
 
     public HauptquartierController ()
