@@ -45,6 +45,19 @@ public interface Strings
     String SAMMELN = "Sammeln!";
     String EMPTY = "";
 
+    String TEXT_FLAPPY_BIRD = "Im abgestürzten Flugzeug befindet sich ein verschlüsseltes Funkgerät. Entschlüssele es um Hilfe zu holen und alle zu retten!";
+    String TEXT_SAMMELN = "Ein Inselbewohner ist schwer verletzt und benötigt dringend 20 Gesundheitspakete. Aber Achtung nach 90 Sekunden ist es bereits zu spät!";
+    String TEXT_ENDGEGNER = "Kannst du den Endgegner besiegen?";
+    String TEXT_MEMORY = "Auf einer Lichtung liegen Steinpaare. Finde alle Paare!";
+
+    //-----------------
+    String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
+    String ID_BUTTON_ENDGEGNER = "endgegnerButton";
+    String ID_BUTTON_SAMMELN = "sammelnButton";
+    String ID_BUTTON_MEMORY = "memoryButton";
+
+
+
     String STRING_STORY = "story";
     String OPEN_MEDIC = "open medic";
 
@@ -137,6 +150,7 @@ public interface Strings
     String INITIATIVE = "Initiative";
     String ANHEUERN = "Anheuern";
     String ANGEHEUERT = "Angeheuert";
+    String BELOHNUNGEN = "Belohnungen";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";

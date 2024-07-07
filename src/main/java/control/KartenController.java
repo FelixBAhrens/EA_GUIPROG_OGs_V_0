@@ -84,11 +84,6 @@ public class KartenController extends ControllerController implements Initializa
     //--------------------------------------------------------------------------
 
 
-    public KartenController ()
-    {
-        this.hauptquartierController = HauptquartierController.getInstance();
-        this.missionStatus = hauptquartierController.istKarteFuerMission();
-    }
 
     private final AnimationTimer timer = new AnimationTimer()
     {
