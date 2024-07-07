@@ -1,8 +1,8 @@
 package control;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import res.Konstanten;
 import res.Strings;
 
@@ -10,40 +10,40 @@ import res.Strings;
 public class MissionMemoryController
 {
     private boolean ersterSteinUmgedreht = false;
-    private ImageView ersterStein;
+    private AnchorPane ersterStein;
 
     @FXML
-    private ImageView stein0a;
+    private AnchorPane stein0a;
     @FXML
-    private ImageView stein0b;
+    private AnchorPane stein0b;
     @FXML
-    private ImageView stein1a;
+    private AnchorPane stein1a;
     @FXML
-    private ImageView stein1b;
+    private AnchorPane stein1b;
     @FXML
-    private ImageView stein2a;
+    private AnchorPane stein2a;
     @FXML
-    private ImageView stein2b;
+    private AnchorPane stein2b;
     @FXML
-    private ImageView stein3a;
+    private AnchorPane stein3a;
     @FXML
-    private ImageView stein3b;
+    private AnchorPane stein3b;
     @FXML
-    private ImageView stein4a;
+    private AnchorPane stein4a;
     @FXML
-    private ImageView stein4b;
+    private AnchorPane stein4b;
     @FXML
-    private ImageView stein5a;
+    private AnchorPane stein5a;
     @FXML
-    private ImageView stein5b;
+    private AnchorPane stein5b;
     @FXML
-    private ImageView stein6a;
+    private AnchorPane stein6a;
     @FXML
-    private ImageView stein6b;
+    private AnchorPane stein6b;
     @FXML
-    private ImageView stein7a;
+    private AnchorPane stein7a;
     @FXML
-    private ImageView stein7b;
+    private AnchorPane stein7b;
 
 
     @FXML
@@ -55,22 +55,22 @@ public class MissionMemoryController
     @FXML
     public void handleStein (MouseEvent event)
     {
-        ImageView stein = (ImageView) event.getSource();
+        AnchorPane steinPane = (AnchorPane) event.getSource();
         if (!ersterSteinUmgedreht)
         {
-            ersterStein = stein;
+            ersterStein = steinPane;
             ersterSteinUmgedreht = true;
             System.out.println(ersterSteinUmgedreht);
         } else
         {
             System.out.println(ersterStein.getId().toString().charAt(Konstanten.INT_FIVE));
-            System.out.println(stein.getId().toString().charAt(Konstanten.INT_FIVE));
-            if (ersterStein.getId().toString().charAt(Konstanten.INT_FIVE) == (stein.getId().toString().charAt(Konstanten.INT_FIVE)))
+            System.out.println(steinPane.getId().toString().charAt(Konstanten.INT_FIVE));
+            if (ersterStein.getId().toString().charAt(Konstanten.INT_FIVE) == (steinPane.getId().toString().charAt(Konstanten.INT_FIVE)))
             {
                 System.out.println(Strings.TOLL);
 
                 ersterStein.setVisible(false);
-                stein.setVisible(false);
+                steinPane.setVisible(false);
             }
             ersterSteinUmgedreht = false;
             System.out.println(ersterSteinUmgedreht);
