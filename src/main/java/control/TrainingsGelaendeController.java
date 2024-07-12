@@ -117,7 +117,7 @@ public class TrainingsGelaendeController extends PaneController {
     {
         GameFile instanz = GameFile.getInstanz();
         instanz.setHolzRessource(Konstanten.INT_ONE_THOUSAND);
-        instanz.setGoldRessource(Konstanten.INT_ONE_THOUSAND);
+        instanz.setGoldRessource(300);
         instanz.setSteinRessource(Konstanten.INT_ONE_THOUSAND);
         instanz.setGesundheitRessource(Konstanten.INT_ONE_THOUSAND);
         bestimmmeVerbesserungsPreise();
@@ -127,16 +127,7 @@ public class TrainingsGelaendeController extends PaneController {
             gesammeltesHolz = GameFile.getInstanz().getHolzRessource();
             gesammelteNahrung = GameFile.getInstanz().getGesundheitRessource();
             gesammeltesGold = GameFile.getInstanz().getGoldRessource();
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
 
-        gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
-
-        try
-        {
             gesundheitPoints = instanz.getLeader().getGesundheit();
             schildPoints = instanz.getLeader().getSchild();
             manapunktePoints = instanz.getLeader().getManapunkte();
@@ -146,35 +137,43 @@ public class TrainingsGelaendeController extends PaneController {
             zahlAusweichenPoints = instanz.getLeader().getZahlAusweichen();
             magieResistenzPoints = instanz.getLeader().getMagieResistenz();
             bewegungsWeitePoints = instanz.getLeader().getBewegungsWeite();
-
-            schild.setText(String.valueOf(schildPoints));
-            schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
-
-            manapunkte.setText(String.valueOf(manapunktePoints));
-            manapunkteBar.setProgress((double) manapunktePoints / Konstanten.INT_TEN);
-
-            nahkampfWert.setText(String.valueOf(nahkampfWertPoints));
-            nahkampfWertBar.setProgress((double) nahkampfWertPoints / Konstanten.INT_TEN);
-
-            fernkampfWert.setText(String.valueOf(fernkampfWertPoints));
-            fernkampfWertBar.setProgress((double) fernkampfWertPoints / Konstanten.INT_TEN);
-
-            fernkaempfeZahl.setText(String.valueOf(fernkaempfeZahlPoints));
-            fernkaempfeZahlBar.setProgress((double) fernkaempfeZahlPoints / Konstanten.INT_TEN);
-
-            zahlAusweichen.setText(String.valueOf(zahlAusweichenPoints));
-            zahlAusweichenBar.setProgress((double) zahlAusweichenPoints / Konstanten.INT_TEN);
-
-            magieResistenz.setText(String.valueOf(magieResistenzPoints));
-            magieResistenzBar.setProgress((double) magieResistenzPoints / Konstanten.INT_TEN);
-
-            bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));
-            bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
         }
         catch (Exception e)
         {
             throw new RuntimeException(e);
         }
+
+        adjustInformation();
+        updateButtonStates();
+    }
+
+    private void adjustInformation ()
+    {
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
+
+        schild.setText(String.valueOf(schildPoints));
+        schildBar.setProgress((double) schildPoints / Konstanten.INT_TEN);
+
+        manapunkte.setText(String.valueOf(manapunktePoints));
+        manapunkteBar.setProgress((double) manapunktePoints / Konstanten.INT_TEN);
+
+        nahkampfWert.setText(String.valueOf(nahkampfWertPoints));
+        nahkampfWertBar.setProgress((double) nahkampfWertPoints / Konstanten.INT_TEN);
+
+        fernkampfWert.setText(String.valueOf(fernkampfWertPoints));
+        fernkampfWertBar.setProgress((double) fernkampfWertPoints / Konstanten.INT_TEN);
+
+        fernkaempfeZahl.setText(String.valueOf(fernkaempfeZahlPoints));
+        fernkaempfeZahlBar.setProgress((double) fernkaempfeZahlPoints / Konstanten.INT_TEN);
+
+        zahlAusweichen.setText(String.valueOf(zahlAusweichenPoints));
+        zahlAusweichenBar.setProgress((double) zahlAusweichenPoints / Konstanten.INT_TEN);
+
+        magieResistenz.setText(String.valueOf(magieResistenzPoints));
+        magieResistenzBar.setProgress((double) magieResistenzPoints / Konstanten.INT_TEN);
+
+        bewegungsWeite.setText(String.valueOf(bewegungsWeitePoints));
+        bewegungsWeiteBar.setProgress((double) bewegungsWeitePoints / Konstanten.INT_TEN);
     }
 
     /**
@@ -238,64 +237,83 @@ public class TrainingsGelaendeController extends PaneController {
         switch (buttonId)
         {
             case "schildVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && schildPoints < Konstanten.INT_TEN)
+                if (schildPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++schildPoints, schild, schildBar);
                 }
                 break;
 
             case "manapunkteVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && manapunktePoints < Konstanten.INT_TEN)
+                if (manapunktePoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(manapunktePoints++, manapunkte, manapunkteBar);
+                    adjustProgress(++manapunktePoints, manapunkte, manapunkteBar);
                 }
                 break;
 
             case "nahkampfWertVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkampfWertPoints < Konstanten.INT_TEN)
+                if (fernkampfWertPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(nahkampfWertPoints++, nahkampfWert, nahkampfWertBar);
+                    adjustProgress(++nahkampfWertPoints, nahkampfWert, nahkampfWertBar);
                 }
                 break;
 
             case "fernkampfWertVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkampfWertPoints < Konstanten.INT_TEN)
+                if (fernkampfWertPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(fernkampfWertPoints++, fernkampfWert, fernkampfWertBar);
+                    adjustProgress(++fernkampfWertPoints, fernkampfWert, fernkampfWertBar);
                 }
                 break;
 
             case "fernkaempfeZahlVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && fernkaempfeZahlPoints < Konstanten.INT_TEN)
+                if (fernkaempfeZahlPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(fernkaempfeZahlPoints++, fernkaempfeZahl, fernkaempfeZahlBar);
+                    adjustProgress(++fernkaempfeZahlPoints, fernkaempfeZahl, fernkaempfeZahlBar);
                 }
                 break;
 
             case "zahlAusweichenVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && zahlAusweichenPoints < Konstanten.INT_TEN)
+                if (zahlAusweichenPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(zahlAusweichenPoints++, zahlAusweichen, zahlAusweichenBar);
+                    adjustProgress(++zahlAusweichenPoints, zahlAusweichen, zahlAusweichenBar);
                 }
                 break;
 
             case "magieResistenzVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && magieResistenzPoints < Konstanten.INT_TEN)
+                if (magieResistenzPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(magieResistenzPoints++, magieResistenz, magieResistenzBar);
+                    adjustProgress(++magieResistenzPoints, magieResistenz, magieResistenzBar);
                 }
                 break;
 
             case "bewegungsWeiteVerbessern":
-                if (fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO) && bewegungsWeitePoints < Konstanten.INT_TEN)
+                if (bewegungsWeitePoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
-                    adjustProgress(bewegungsWeitePoints++, bewegungsWeite, bewegungsWeiteBar);
+                    adjustProgress(++bewegungsWeitePoints, bewegungsWeite, bewegungsWeiteBar);
                 }
                 break;
         }
 
-        gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
+        GameFile instanz = GameFile.getInstanz();
+
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + instanz.getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + instanz.getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + instanz.getGoldRessource());
         speichereSpielstand();
+
+        updateButtonStates();
+    }
+
+    private void updateButtonStates ()
+    {
+        GameFile instanz = GameFile.getInstanz();
+        boolean genugGold = instanz.getGoldRessource() >= Konstanten.INT_FOURTY;
+
+        schildVerbessern.setDisable(schildPoints >= Konstanten.INT_TEN || !genugGold);
+        manapunkteVerbessern.setDisable(manapunktePoints >= Konstanten.INT_TEN || !genugGold);
+        nahkampfWertVerbessern.setDisable(nahkampfWertPoints >= Konstanten.INT_TEN || !genugGold);
+        fernkampfWertVerbessern.setDisable(fernkampfWertPoints >= Konstanten.INT_TEN || !genugGold);
+        fernkaempfeZahlVerbessern.setDisable(fernkaempfeZahlPoints >= Konstanten.INT_TEN || !genugGold);
+        zahlAusweichenVerbessern.setDisable(zahlAusweichenPoints >= Konstanten.INT_TEN || !genugGold);
+        magieResistenzVerbessern.setDisable(magieResistenzPoints >= Konstanten.INT_TEN || !genugGold);
+        bewegungsWeiteVerbessern.setDisable(bewegungsWeitePoints >= Konstanten.INT_TEN || !genugGold);
     }
 
     private void adjustProgress (int points, Label label, ProgressBar bar)
