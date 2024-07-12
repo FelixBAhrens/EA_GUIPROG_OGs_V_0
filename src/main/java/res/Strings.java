@@ -146,6 +146,8 @@ public interface Strings
     String TEXT_ENDGEGNER = "";
     String TEXT_MEMORY = "";
     String TEXT_SAMMELN = "";
+    String KARTE_STANDARD = "Standard Karte";
+    String MISSION_SAMMELN = "Mission Sammeln";
 
 
     String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
