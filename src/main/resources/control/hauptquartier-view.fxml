@@ -17,15 +17,14 @@
             </image>
         </ImageView>
         <Button layoutX="571.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
-                style="-fx-background-color: orange;" text="?"/>
+                styleClass="orangerStyle" text="?"/>
         <Button fx:id="kartenButton" layoutX="452.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#openKarte"
                 prefHeight="27.0" prefWidth="112.0"
-                style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;"
-                text="Karte"/>
+                styleClass="hellblauerStyle" text="Karte"/>
         <HBox layoutX="66.0" layoutY="82.0" prefHeight="350.0" prefWidth="842.0" spacing="10">
             <children>
                 <AnchorPane fx:id="missionDetailPane" prefHeight="350.0" prefWidth="200.0"
-                            style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+                            styleClass="beigerHintergrundStyle">
                     <children>
                         <Button fx:id="missionStarten" layoutX="45.0" layoutY="236.0" mnemonicParsing="false"
                                 prefHeight="35.0" prefWidth="110.0" text="Mission starten"/>
@@ -34,7 +33,7 @@
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="flappyBirdPane" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
-                            style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+                            styleClass="beigerHintergrundStyle">
                     <children>
                         <Text layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rette alle">
                             <font>
@@ -53,7 +52,7 @@
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="sammelPane" layoutX="130.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
-                            style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+                            styleClass="beigerHintergrundStyle">
                     <children>
                         <Text layoutX="24.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0"
                               text="Es geht um Zeit">
@@ -74,7 +73,7 @@
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="memoryPane" layoutX="250.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
-                            style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+                            styleClass="beigerHintergrundStyle">
                     <children>
                         <Text layoutX="48.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory"/>
                         <Button fx:id="memoryWaehlen" layoutX="36.0" layoutY="236.0" mnemonicParsing="false"
@@ -82,7 +81,7 @@
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="endgegnerPane" layoutX="370.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
-                            style="-fx-background-color: rgba(245, 245, 220, 0.7)">
+                            styleClass="beigerHintergrundStyle">
                     <children>
                         <Text layoutX="4.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0"
                               text="Endgegner besiegen"/>

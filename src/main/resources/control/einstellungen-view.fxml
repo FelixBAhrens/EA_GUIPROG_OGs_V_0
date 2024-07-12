@@ -20,7 +20,7 @@
             </image>
         </ImageView>
         <AnchorPane id="einstellungenPane" layoutX="50.0" layoutY="53.0" prefHeight="613.0" prefWidth="405.0"
-                    style="-fx-background-color: rgba(245, 245, 220, 0.9);">
+                    styleClass="beigerHintergrundStyle">
             <children>
                 <Text layoutX="158.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
                       style="-fx-fill: rgba(14, 141, 128, 0.7); -fx-font-family: 'System'; -fx-font-size: 14.0; -fx-font-weight: bold;"
@@ -81,7 +81,7 @@
         </AnchorPane>
         <Button fx:id="zurueckButton" layoutX="1073.0" layoutY="644.0" mnemonicParsing="false"
                 onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0"
-                style="-fx-background-color: #0E8D80; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.6), 5, 0.0, 0, 1);"
+                styleClass="hellblauerStyle"
                 text="Zurück"/>
     </children>
 </AnchorPane>

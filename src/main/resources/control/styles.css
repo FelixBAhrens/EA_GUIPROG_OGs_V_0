@@ -1,0 +1,75 @@
+.hellblauerStyle {
+    -fx-background-color: rgba(162, 222, 208, 1);
+    -fx-border-color: #1B4D3E;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #000000;
+}
+
+.hellblauerStyleKleineSchrift {
+    -fx-background-color: rgba(162, 222, 208, 1);
+    -fx-border-color: #1B4D3E;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 8;
+    -fx-text-fill: #000000;
+}
+
+.orangerStyle {
+    -fx-background-color: rgba(255, 165, 0, 1);
+    -fx-border-color: #1B4D3E;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #000000;
+}
+
+.beigerHintergrundStyle {
+    -fx-background-color: rgba(255, 238, 191, 1);
+    -fx-background-radius: 8;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+}
+
+.semiTransparenterBeigerHintergrundStyle {
+    -fx-background-color: rgba(255, 238, 191, 1);
+    -fx-background-radius: 8;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+}
+
+.braunerStyle {
+    -fx-background-color: rgba(101, 67, 33, 0.7);
+    -fx-border-color: #4B2E15;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #F5F5DC;
+    -fx-alignment: center;
+}
+
+.transparenterStyle {
+    -fx-background-color: transparent;
+    -fxborder-color: transparent;
+    -fxborderradius: 8;
+    -fx-background-radius: 8;
+    -fxborderradius: 2;
+}
+
+.grauerSemiTransparenterStyle {
+    -fx-background-color: rgba(0,0,0,0.5);
+}

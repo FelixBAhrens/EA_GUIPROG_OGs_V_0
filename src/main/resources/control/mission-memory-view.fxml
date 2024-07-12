@@ -52,7 +52,7 @@
         <ImageView fx:id="stein3a" fitHeight="10.0" fitWidth="10.0" layoutX="696.0" layoutY="323.0"
                    onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/stadt.jpeg"/>
+                <Image url="@../assets/stein.png"/>
             </image>
         </ImageView>
         <ImageView fx:id="stein3b" fitHeight="10.0" fitWidth="10.0" layoutX="529.0" layoutY="413.0"

@@ -15,10 +15,10 @@
             </image>
         </ImageView>
         <AnchorPane layoutX="334.0" layoutY="157.0" prefHeight="405.0" prefWidth="611.0"
-                    style="-fx-background-color: rgba(245, 245, 220, 0.9);">
+                    styleClass="beigerHintergrundStyle">
             <children>
-                <Text layoutX="269.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Reborn"/>
-                <Text layoutX="83.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                <Text layoutX="269.0" layoutY="37.0" strokeType="OUTSIDE" styleClass="orangerStyle" strokeWidth="0.0" text="Player Reborn"/>
+                <Text layoutX="83.0" layoutY="181.0" strokeType="OUTSIDE" styleClass="orangerStyle" strokeWidth="0.0"
                       text="Dein Spieler ist gestorben. Möchtest du diesen wiederbeleben? Dabei  werden alle Werte auf die Anfangswerte zurückgesetzt."
                       wrappingWidth="430.8033447265625"/>
                 <Button id="stadtKnopf" layoutX="193.0" layoutY="258.0" mnemonicParsing="false"

@@ -214,7 +214,7 @@
             </children>
         </HBox>
         <Text fx:id="gesammelteObjekte" layoutX="20.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="169.38309478759766" />
-        <Button fx:id="buttonZeigeVerbesserung" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" onAction="#zeigeVerbessern" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; " text="Trainingsgelände verbessern." />
+        <Button fx:id="buttonZeigeVerbesserung" layoutX="58.0" layoutY="281.0" mnemonicParsing="false" onAction="#zeigeVerbessern" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Trainingsgelände verbessern." />
         <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0" visible="false">
             <children>
                 <ImageView fitHeight="563.0" fitWidth="1090.0" pickOnBounds="true" preserveRatio="true">

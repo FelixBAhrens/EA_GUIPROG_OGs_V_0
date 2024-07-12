@@ -1,22 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="control.BasisCampController" prefHeight="400.0" prefWidth="600.0">
-    <children>
-        <Button layoutX="575.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#handleHilfe"
-                style="-fx-background-color: orange;" text="?"/>
-        <Text layoutX="201.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basis-Camp">
-            <font>
-                <Font size="46.0"/>
-            </font>
-        </Text>
-    </children>
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.BasisCampController">
+   <children>
+      <ImageView fitHeight="562.5" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/basiscamp.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="zurueckButtonAlt" layoutX="37.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Zurück" />
+      <AnchorPane id="einheitenAnchPane" layoutX="505.0" layoutY="101.0" prefHeight="400.0" prefWidth="312.0" styleClass="beigerHintergrundStyle">
+         <children>
+            <VBox id="einheitenVbox" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
+               <children>
+                  <HBox fx:id="HBox0" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                        <Button mnemonicParsing="false" text="-" />
+                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="HBox1" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                        <Button mnemonicParsing="false" text="-" />
+                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="HBox2" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                        <Button mnemonicParsing="false" text="-" />
+                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="HBox3" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                        <Button mnemonicParsing="false" text="-" />
+                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="HBox4" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                        <Button mnemonicParsing="false" text="-" />
+                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="einheitenDetail" layoutX="204.0" layoutY="115.0" prefHeight="314.0" prefWidth="200.0" styleClass="beigerHintergrundStyle">
+         <children>
+            <Label fx:id="detailLabel" prefHeight="206.0" prefWidth="200.0" text="Label" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

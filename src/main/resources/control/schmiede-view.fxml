@@ -16,25 +16,25 @@
         </ImageView>
         <Pane fx:id="ringPane" layoutX="510.0" layoutY="441.0" onMouseClicked="#zeigeArtefaktDetails" onMouseEntered="#handlePaneTransparencyOnMouseEntered" onMouseExited="#handlePaneTransparencyOnMouseExited" prefHeight="100" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;" visible="true">
             <children>
-                <Button fx:id="ringButton" layoutX="-6.0" layoutY="86.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Ring" visible="false" />
+                <Button fx:id="ringButton" layoutX="-6.0" layoutY="86.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="orangerStyle" text="Ring" visible="false" />
             </children>
         </Pane>
-        <Pane fx:id="statuePane" layoutX="420.0" layoutY="231.0" onMouseClicked="#zeigeArtefaktDetails" onMouseEntered="#handlePaneTransparencyOnMouseEntered" onMouseExited="#handlePaneTransparencyOnMouseExited" prefHeight="160.0" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2; " visible="true">
+        <Pane fx:id="statuePane" layoutX="420.0" layoutY="231.0" onMouseClicked="#zeigeArtefaktDetails" onMouseEntered="#handlePaneTransparencyOnMouseEntered" onMouseExited="#handlePaneTransparencyOnMouseExited" prefHeight="160.0" prefWidth="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;" visible="true">
             <children>
-                <Button fx:id="statueButton" layoutX="-6.0" layoutY="147.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Statue" visible="false" />
+                <Button fx:id="statueButton" layoutX="-6.0" layoutY="147.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="orangerStyle" text="Statue" visible="false" />
             </children>
         </Pane>
         <Pane fx:id="schwertPane" layoutX="314.0" layoutY="345.0" onMouseClicked="#zeigeArtefaktDetails" onMouseEntered="#handlePaneTransparencyOnMouseEntered" onMouseExited="#handlePaneTransparencyOnMouseExited" prefHeight="173.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;" visible="true">
             <children>
-                <Button fx:id="schwertButton" layoutX="-16.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Schwert" visible="false" />
+                <Button fx:id="schwertButton" layoutX="-16.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="orangerStyle" text="Schwert" visible="false" />
             </children>
         </Pane>
-        <AnchorPane fx:id="artefaktDisplay" visible="false" layoutX="26.0" layoutY="40.0" prefHeight="363.0" prefWidth="234.0" style="-fx-background-color: rgba(245, 245, 220, 0.9); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 10 10 10; -fx-border-radius: 8; -fx-background-radius: 8;">
+        <AnchorPane fx:id="artefaktDisplay" visible="false" layoutX="26.0" layoutY="40.0" prefHeight="363.0" prefWidth="234.0" styleClass="beigerHintergrundStyle">
             <children>
-                <Label fx:id="ueberschriftDisplay" layoutX="27.0" layoutY="14.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 16; -fx-alignment: center;" text="Eigenschaften" />
-                <Label fx:id="infoLabel" layoutX="27.0" layoutY="61.0" prefHeight="108.0" prefWidth="230.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 16; -fx-alignment: center;" />
-                <Button fx:id="verbessernButton" layoutX="38.0" layoutY="280.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="205.0" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" text="Stärke verbessern: 50 Gold" visible="false" />
-                <Button fx:id="verkaufenButton" layoutX="68.0" layoutY="323.0" mnemonicParsing="false" style="-fx-background-color: orange; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14;" text="Verkaufen: 50 Gold" visible="false" />
+                <Label fx:id="ueberschriftDisplay" layoutX="27.0" layoutY="14.0" prefHeight="34.0" prefWidth="230.0" styleClass="orangerStyle" text="Eigenschaften" />
+                <Label fx:id="infoLabel" layoutX="27.0" layoutY="61.0" prefHeight="108.0" prefWidth="230.0" styleClass="orangerStyle" />
+                <Button fx:id="verbessernButton" layoutX="38.0" layoutY="280.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="205.0" styleClass="orangerStyle" text="Stärke verbessern: 50 Gold" visible="false" />
+                <Button fx:id="verkaufenButton" layoutX="68.0" layoutY="323.0" mnemonicParsing="false" styleClass="orangerStyle" text="Verkaufen: 50 Gold" visible="false" />
             </children>
         </AnchorPane>
     </children>

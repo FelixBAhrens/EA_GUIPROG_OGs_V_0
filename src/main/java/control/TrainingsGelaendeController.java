@@ -89,6 +89,7 @@ public class TrainingsGelaendeController extends PaneController {
     private int zahlAusweichenPoints;
     private int magieResistenzPoints;
     private int bewegungsWeitePoints;
+
     @FXML
     private Text aktuellerRessourcenstand;
 
@@ -110,16 +111,10 @@ public class TrainingsGelaendeController extends PaneController {
     private Button bewegungsWeiteVerbessern;
 
 
-
-
     @FXML
     public void initialize()
     {
         GameFile instanz = GameFile.getInstanz();
-        instanz.setHolzRessource(Konstanten.INT_ONE_THOUSAND);
-        instanz.setGoldRessource(300);
-        instanz.setSteinRessource(Konstanten.INT_ONE_THOUSAND);
-        instanz.setGesundheitRessource(Konstanten.INT_ONE_THOUSAND);
         bestimmmeVerbesserungsPreise();
         speichereSpielstand();
         try
@@ -321,5 +316,7 @@ public class TrainingsGelaendeController extends PaneController {
         System.out.println(points + " " + label.getText() + " " + bar.getProgress());
         label.setText(String.valueOf(points));
         bar.setProgress((double) points / (double) Konstanten.INT_TEN);
+        adjustInformation();
+
     }
 }

@@ -137,6 +137,7 @@ public interface Strings
     String INITIATIVE = "Initiative";
     String ANHEUERN = "Anheuern";
     String ANGEHEUERT = "Angeheuert";
+    String HBOX = "HBox";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
@@ -168,6 +169,11 @@ public interface Strings
     String SCHWERT_PANE = "schwertPane";
     String STATUE_PANE = "statuePane";
     String RING_PANE = "ringPane";
+    String BC_TEXT_EINHEIT_A = "Beispieltext Einheit A";
+    String BC_TEXT_EINHEIT_B = "Beispieltext Einheit B";
+    String BC_TEXT_EINHEIT_C = "Beispieltext Einheit C";
+    String BC_TEXT_EINHEIT_D = "Beispieltext Einheit D";
+    String BC_TEXT_EINHEIT_E = "Beispieltext Einheit E";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";
@@ -184,6 +190,7 @@ public interface Strings
     String FEHLERMELDUNG_ZURUECK = "Es kann nicht zurück gegangen werden.";
     String FEHLERMELDUNG_SZENENWECHSEL = "Es ist ein Fehler beim Szenenwechsel aufgetreten";
     String FEHLERMELDUNG_IP = "Die IP konnte nicht ermittelt werden.";
+    String FEHLERMELDUNG_ID = "Die ID konnte nicht gefunden werden";
 
     //Meldungen
     String MELDUNG_GESPEICHERT = "Die folgende Datei wurde erfolgreich gespeichert: ";

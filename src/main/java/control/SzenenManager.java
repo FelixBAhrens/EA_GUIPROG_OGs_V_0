@@ -42,6 +42,7 @@ public class SzenenManager
             FXMLLoader loader = new FXMLLoader(SzenenManager.class.getResource(fxmlDatei));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(SzenenManager.class.getResource("styles.css").toExternalForm());
             szenenStack.push(scene);
             hauptStage.setScene(scene);
             hauptStage.show();
