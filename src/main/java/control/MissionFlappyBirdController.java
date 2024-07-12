@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MissionFlappyBirdController implements Initializable
+public class MissionFlappyBirdController extends ControllerController implements Initializable
 {
     AnimationTimer gameLoop;
 

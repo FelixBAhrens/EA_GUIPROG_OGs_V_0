@@ -139,6 +139,11 @@ public interface Strings
     String ANGEHEUERT = "Angeheuert";
     String HBOX = "HBox";
 
+    String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
+    String ID_BUTTON_ENDGEGNER = "endgegnerButton";
+    String ID_BUTTON_MEMORY = "memoryButton";
+    String ID_BUTTON_SAMMELN = "sammelnButton";
+
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";
     String AMZUG_GEGNER = "Dein Gegner ist am Zug";

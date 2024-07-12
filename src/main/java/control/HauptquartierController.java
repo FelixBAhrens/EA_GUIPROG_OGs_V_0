@@ -2,128 +2,152 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.effect.DropShadow;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.input.MouseEvent;
 import res.Konstanten;
 import res.Strings;
 
+
 public class HauptquartierController extends PaneController
 {
+    @FXML
+    public Label flappyBirdDetail;
+    @FXML
+    public Label sammelnDetail;
+    @FXML
+    public Label memoryDetail;
+    @FXML
+    public Label endgegnerDetail;
+
+    public enum Mission {
+        FLAPPY_BIRD(Strings.FLAPPY_BIRD),
+        ENDGEGNER(Strings.ENDGEGNER),
+        MEMORY(Strings.MEMORY),
+        SAMMELN(Strings.SAMMELN);
+
+        Mission (String missionsName)
+                {
+        }
+    }
+    private Mission missionsName;
+
     private static HauptquartierController instance;
     @FXML
-    private Text detailText;
+    private Label detailLabel;
+    @FXML
+    public Button missionStarten;
+    @FXML
+    public AnchorPane flappyBirdPane;
+    @FXML
+    public AnchorPane sammelPane;
+    @FXML
+    public AnchorPane memoryPane;
+    @FXML
+    public AnchorPane endgegnerPane;
+    @FXML
+    public AnchorPane missionDetailPane;
 
-    @FXML
-    private Button missionStarten;
-    @FXML
-    private Button flappyBirdWaehlen;
-    @FXML
-    private Button sammelnWaehlen;
-    @FXML
-    private Button memoryWaehlen;
-    @FXML
-    private Button endgegnerWaehlen;
-
-    @FXML
-    private AnchorPane flappyBirdPane;
-    @FXML
-    private AnchorPane sammelPane;
-    @FXML
-    private AnchorPane memoryPane;
-    @FXML
-    private AnchorPane endgegnerPane;
-    private boolean karteFuerMission = false;
-
-    public HauptquartierController ()
-    {
-        instance = this;
-    }
-
-    public static HauptquartierController getInstance ()
-    {
-        return instance;
-    }
-
-
-    public boolean istKarteFuerMission ()
-    {
-        return karteFuerMission;
-    }
 
     @FXML
     public void initialize ()
     {
+        aktualisiereangezeigteBelohnungen();
     }
 
-    @FXML
-    private void flappyBirdGewaehlt ()
-    {
-        detailText.setText(Strings.FLAPPY_BIRD);
-
-        DropShadow glow = new DropShadow();
-        glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
-
-        missionStarten.setEffect(glow);
-
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_MISSION_FLAPPYBIRD));
+    /**
+     * Methode, um das enum fuer die ausgewaehlte Mission passend zur uebergebenen ID zu setzen.
+     * @param ID
+     * @Author Felix Ahrens
+     */
+    public void setzeEnumNachID (String ID){
+        switch (ID){
+            case Strings.ID_BUTTON_FLAPPY_BIRD -> missionsName = Mission.FLAPPY_BIRD;
+            case Strings.ID_BUTTON_ENDGEGNER -> missionsName = Mission.ENDGEGNER;
+            case Strings.ID_BUTTON_MEMORY -> missionsName = Mission.MEMORY;
+            case Strings.ID_BUTTON_SAMMELN -> missionsName = Mission.SAMMELN;
+        }
     }
 
+    /**
+     * Methode zum Aktivieren der Mission
+     * @param event
+     * @Author Felix Ahrens
+     */
     @FXML
-    private void sammelnGewaehlt ()
-    {
-        karteFuerMission = true;
-        detailText.setText(Strings.SAMMELN);
+    public void handleMissionWaehlen (MouseEvent event) {
+        setzeEnumNachID(((Button)event.getSource()).getId());
 
-        DropShadow glow = new DropShadow();
-        glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
-
-        missionStarten.setEffect(glow);
-
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_KARTENEW));
+        aktualisiereMissionDetailPane();
+        missionDetailPane.setVisible(true);
     }
 
-    @FXML
-    private void memoryGewaehlt ()
-    {
-        detailText.setText(Strings.MEMORY);
-
-        DropShadow glow = new DropShadow();
-        glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
-
-        missionStarten.setEffect(glow);
-
-        missionStarten.setOnMouseClicked(e -> SzenenManager.wechseleSzene(Strings.FXML_MISSION_MEMORY));
-    }
-
-    @FXML
-    private void endgegnerGewaehlt ()
-    {
-        detailText.setText(Strings.ENDGEGNER);
-
-        DropShadow glow = new DropShadow();
-        glow.setColor(Color.GREEN);
-        glow.setRadius(Konstanten.INT_TWENTY);
-        glow.setSpread(Konstanten.ZERO_POINT_SIX);
-
-        missionStarten.setEffect(glow);
-
-        missionStarten.setOnMouseClicked(e -> {
-            KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-            SzenenManager.wechseleSzene(Strings.FXML_KAMPF);
+    /**
+     * Methode zum Aktualisieren der DetailPane.
+     * @Autor Felix Ahrens
+     */
+    public void aktualisiereMissionDetailPane (){
+        detailLabel.setText(switch (missionsName){
+            case FLAPPY_BIRD -> Strings.TEXT_FLAPPY_BIRD;
+            case ENDGEGNER -> Strings.TEXT_ENDGEGNER;
+            case MEMORY -> Strings.TEXT_MEMORY;
+            case SAMMELN -> Strings.TEXT_SAMMELN;
         });
     }
+
+    /**
+     * @Author Felix Ahrens
+     */
+    public void aktualisiereangezeigteBelohnungen (){
+        flappyBirdDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_FLAPPY_BIRD));
+        sammelnDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_SAMMELN));
+        memoryDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_MEMORY));
+        endgegnerDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_ENDGEGNER));
+    }
+
+    /**
+     *
+     * @param belohnungsArray
+     * @return
+     * @Author Felix Ahrens
+     */
+    public String erstelleBelohnungsText (int[] belohnungsArray){
+        return (Strings.BELOHNUNGEN + Strings.DOPPELPUNKT + Strings.NEWLINE
+            + Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ZERO] + Strings.NEWLINE
+            + Strings.STEIN + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ONE] + Strings.NEWLINE
+            + Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_TWO] + Strings.NEWLINE
+            + Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_THREE] + Strings.NEWLINE
+            + Strings.BANONAS + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_FOUR] + Strings.NEWLINE);
+    }
+
+    /**
+     * Methode, die eine Mission startet.
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void starteMission ()
+    {
+        SzenenManager.wechseleSzene(switch (missionsName)
+        {
+            case FLAPPY_BIRD -> Strings.FXML_MISSION_FLAPPYBIRD;
+            case ENDGEGNER ->
+            {
+                KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
+                yield Strings.FXML_KAMPF;
+            }
+            case MEMORY -> Strings.FXML_MISSION_MEMORY;
+            case SAMMELN -> {
+                KartenController.kartenTyp = KartenController.KartenTyp.SAMMELN_MISSION;
+                yield Strings.FXML_KARTENEW;
+            }
+        });
+    }
+
 
     @FXML
     public void openKarte ()
     {
+        KartenController.kartenTyp = KartenController.KartenTyp.STANDARD_KARTE;
         SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
     }
 

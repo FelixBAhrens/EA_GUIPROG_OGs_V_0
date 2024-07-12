@@ -37,8 +37,8 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public static KampfTyp kampfTyp;
-    private static Kaempfer spieler;
-    private static Kaempfer gegner;
+    private Kaempfer spieler;
+    private Kaempfer gegner;
 
     private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
