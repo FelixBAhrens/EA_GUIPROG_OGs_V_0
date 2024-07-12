@@ -3,7 +3,7 @@ package control;
 import javafx.fxml.FXML;
 import res.Strings;
 
-public class MissionEndgegnerController
+public class MissionEndgegnerController extends ControllerController
 {
     @FXML
     public void initialize ()

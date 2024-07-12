@@ -7,7 +7,7 @@ import res.Konstanten;
 import res.Strings;
 
 
-public class MissionMemoryController
+public class MissionMemoryController extends ControllerController
 {
     private boolean ersterSteinUmgedreht = false;
     private AnchorPane ersterStein;
