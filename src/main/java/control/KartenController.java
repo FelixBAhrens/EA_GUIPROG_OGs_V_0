@@ -55,6 +55,8 @@ public class KartenController extends ControllerController implements Initializa
     private TextField gesammelteObjekte;
     @FXML
     private TextField missionTimer;
+    @FXML
+    public AnchorPane startenDialog;
 
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
@@ -158,6 +160,11 @@ public class KartenController extends ControllerController implements Initializa
         checkForCollections();
 
         startSaving();
+    }
+
+    @FXML
+    public void handleFortfahren (){
+        startenDialog.setVisible(false);
     }
 
     private void startCountdown ()

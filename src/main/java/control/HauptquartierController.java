@@ -129,7 +129,10 @@ public class HauptquartierController extends PaneController
                 yield Strings.FXML_KAMPF;
             }
             case MEMORY -> Strings.FXML_MISSION_MEMORY;
-            case SAMMELN -> Strings.FXML_MISSION_SAMMELN;
+            case SAMMELN -> {
+
+                yield Strings.FXML_KARTENEW;
+            }
         });
     }
 
