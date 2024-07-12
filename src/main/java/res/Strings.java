@@ -46,7 +46,7 @@ public interface Strings
     String EMPTY = "";
 
     String TEXT_FLAPPY_BIRD = "Im abgestürzten Flugzeug befindet sich ein verschlüsseltes Funkgerät. Entschlüssele es um Hilfe zu holen und alle zu retten!";
-    String TEXT_SAMMELN = "Ein Inselbewohner ist schwer verletzt und benötigt dringend 20 Gesundheitspakete. Aber Achtung nach 90 Sekunden ist es bereits zu spät!";
+    String TEXT_SAMMELN = "Ein Inselbewohner ist schwer verletzt und benötigt dringend 20 Gesundheitspakete. Aber Achtung, nach 90 Sekunden ist es bereits zu spät!";
     String TEXT_ENDGEGNER = "Kannst du den Endgegner besiegen?";
     String TEXT_MEMORY = "Auf einer Lichtung liegen Steinpaare. Finde alle Paare!";
 
@@ -151,6 +151,11 @@ public interface Strings
     String ANHEUERN = "Anheuern";
     String ANGEHEUERT = "Angeheuert";
     String BELOHNUNGEN = "Belohnungen";
+    String KARTE_STANDARD = "StandardKarte";
+    String MISSION_SAMMELN = "Mission Sammeln";
+    String SAMMELN_MISSION_BESCHREIBUNG = "Bediene den Player mit WASD und das Sammeln mit E";
+    String KARTE_BESCHREIBUNG = "In der Karte kannst Du dich mit WASD frei bewegen und Ressourcen sammeln." +
+            " Aber pass auf, es tauchen auch Gegner auf!";
 
     //Kampfausgaben
     String AMZUG_DU = "Du bist am Zug";

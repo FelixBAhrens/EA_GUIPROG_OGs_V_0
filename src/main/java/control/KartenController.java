@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
@@ -29,6 +30,20 @@ import java.util.ResourceBundle;
 
 public class KartenController extends ControllerController implements Initializable
 {
+    public enum KartenTyp
+    {
+        STANDARD_KARTE(Strings.KARTE_STANDARD),
+        SAMMELN_MISSION(Strings.MISSION_SAMMELN);
+        private final String beschreibung;
+
+        KartenTyp (String beschreibung)
+        {
+            this.beschreibung = beschreibung;
+        }
+    }
+
+    public static KartenTyp kartenTyp;
+
     @FXML
     private AnchorPane map;
     @FXML
@@ -57,6 +72,8 @@ public class KartenController extends ControllerController implements Initializa
     private TextField missionTimer;
     @FXML
     public AnchorPane startenDialog;
+    @FXML
+    public Label detailTextLabel;
 
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
@@ -124,24 +141,23 @@ public class KartenController extends ControllerController implements Initializa
         }
     };
 
+    /**
+     * Initialize-Methode
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
-        System.out.println(missionStatus);
-        if (missionStatus)
-        {
-            healthCount = Konstanten.INT_ZERO;
+        initialisiereDialog();
+        System.out.println(kartenTyp.beschreibung);
+        startenDialog.setVisible(true);
+    }
 
-            missionTimer.setVisible(true);
-            startCountdown();
-            gesammelteObjekte.setText(Strings.GESUNDHEIT_SPACE + healthCount);
-
-            wood.setVisible(false);
-            gold.setVisible(false);
-        } else
-        {
-            gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
-        }
+    /**
+     * @Author David Kien
+     */
+    public void starteMissionsUtil () {
         setupMovement();
 
         keyPressed.addListener((observableValue, oldValue, newValue) ->
@@ -162,9 +178,40 @@ public class KartenController extends ControllerController implements Initializa
         startSaving();
     }
 
+    public void initialisiereDialog(){
+        detailTextLabel.setText(switch (kartenTyp){
+            case SAMMELN_MISSION -> Strings.TEXT_SAMMELN + Strings.NEWLINE + Strings.SAMMELN_MISSION_BESCHREIBUNG;
+            case STANDARD_KARTE -> Strings.KARTE_BESCHREIBUNG;
+        });
+    }
+
+    public void starteSammelnMission () {
+        startenDialog.setVisible(false);
+        healthCount = Konstanten.INT_ZERO;
+
+        missionTimer.setVisible(true);
+        startCountdown();
+        gesammelteObjekte.setText(Strings.GESUNDHEIT_SPACE + healthCount);
+
+        wood.setVisible(false);
+        gold.setVisible(false);
+    }
+
+    public void starteStandardKarte () {
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
+    }
+
+    /**
+     * Methode, die
+     */
     @FXML
     public void handleFortfahren (){
         startenDialog.setVisible(false);
+        switch (kartenTyp){
+            case SAMMELN_MISSION -> starteSammelnMission();
+            case STANDARD_KARTE -> starteStandardKarte();
+        }
+        starteMissionsUtil();
     }
 
     private void startCountdown ()

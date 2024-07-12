@@ -83,7 +83,7 @@ public class HauptquartierController extends PaneController
     }
 
     /**
-     * Methode zum aktualisieren der DetailPane.
+     * Methode zum Aktualisieren der DetailPane.
      * @Autor Felix Ahrens
      */
     public void aktualisiereMissionDetailPane (){
@@ -96,7 +96,7 @@ public class HauptquartierController extends PaneController
     }
 
     /**
-     *
+     * @Author Felix Ahrens
      */
     public void aktualisiereangezeigteBelohnungen (){
         flappyBirdDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_FLAPPY_BIRD));
@@ -105,6 +105,12 @@ public class HauptquartierController extends PaneController
         endgegnerDetail.setText(erstelleBelohnungsText(Konstanten.BELOHNUNGEN_ENDGEGNER));
     }
 
+    /**
+     *
+     * @param belohnungsArray
+     * @return
+     * @Author Felix Ahrens
+     */
     public String erstelleBelohnungsText (int[] belohnungsArray){
         return (Strings.BELOHNUNGEN + Strings.DOPPELPUNKT + Strings.NEWLINE
             + Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ZERO] + Strings.NEWLINE
@@ -121,7 +127,8 @@ public class HauptquartierController extends PaneController
     @FXML
     public void starteMission ()
     {
-        SzenenManager.wechseleSzene(switch (missionsName){
+        SzenenManager.wechseleSzene(switch (missionsName)
+        {
             case FLAPPY_BIRD -> Strings.FXML_MISSION_FLAPPYBIRD;
             case ENDGEGNER ->
             {
@@ -130,7 +137,7 @@ public class HauptquartierController extends PaneController
             }
             case MEMORY -> Strings.FXML_MISSION_MEMORY;
             case SAMMELN -> {
-
+                KartenController.kartenTyp = KartenController.KartenTyp.SAMMELN_MISSION;
                 yield Strings.FXML_KARTENEW;
             }
         });
@@ -140,6 +147,7 @@ public class HauptquartierController extends PaneController
     @FXML
     public void openKarte ()
     {
+        KartenController.kartenTyp = KartenController.KartenTyp.STANDARD_KARTE;
         SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
     }
 
