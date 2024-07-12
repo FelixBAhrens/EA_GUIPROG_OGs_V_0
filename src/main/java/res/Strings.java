@@ -138,6 +138,15 @@ public interface Strings
     String ANHEUERN = "Anheuern";
     String ANGEHEUERT = "Angeheuert";
     String HBOX = "HBox";
+    String SAMMELN_MISSION_BESCHREIBUNG = "Bediene den Player mit WASD und das Sammeln mit E";
+    String KARTE_BESCHREIBUNG = "In der Karte kannst Du dich mit WASD frei bewegen und Ressourcen sammeln." +
+            " Aber pass auf, es tauchen auch Gegner auf!";
+    String BELOHNUNGEN = "Belohnungen";
+    String TEXT_FLAPPY_BIRD = "";
+    String TEXT_ENDGEGNER = "";
+    String TEXT_MEMORY = "";
+    String TEXT_SAMMELN = "";
+
 
     String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
     String ID_BUTTON_ENDGEGNER = "endgegnerButton";
