@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import res.Strings;
 import utility.MyIO;
 
-import java.io.IOException;
 import java.util.Stack;
 
 /**
@@ -46,7 +45,7 @@ public class SzenenManager
             hauptStage.setScene(scene);
             hauptStage.show();
             root.requestFocus();
-        } catch (IOException e)
+        } catch (Exception e)
         {
             MyIO.print(Strings.FEHLERMELDUNG_SZENENWECHSEL);
             e.printStackTrace();

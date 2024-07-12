@@ -123,7 +123,11 @@ public class HauptquartierController extends PaneController
     {
         SzenenManager.wechseleSzene(switch (missionsName){
             case FLAPPY_BIRD -> Strings.FXML_MISSION_FLAPPYBIRD;
-            case ENDGEGNER -> Strings.FXML_MISSION_ENDGEGNER;
+            case ENDGEGNER ->
+            {
+                KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
+                yield Strings.FXML_KAMPF;
+            }
             case MEMORY -> Strings.FXML_MISSION_MEMORY;
             case SAMMELN -> Strings.FXML_MISSION_SAMMELN;
         });

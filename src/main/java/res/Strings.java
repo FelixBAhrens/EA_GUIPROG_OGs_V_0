@@ -29,7 +29,7 @@ public interface Strings
     String FXML_MISSION_SAMMELN = "mission-sammeln-view.fxml";
     String FXML_MISSION_MEMORY = "mission-memory-view.fxml";
     String FXML_MISSION_FLAPPYBIRD = "mission-flappybird-view.fxml";
-    String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
+    //String FXML_MISSION_ENDGEGNER = "mission-endgegner-view.fxml";
     String FXML_MISSION_STARTEN = "missionStarten-view.fxml";
     String FXML_PLAYER_REBORN = "player-reborn-view.fxml";
 
