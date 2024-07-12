@@ -27,7 +27,7 @@ public class HauptquartierController extends PaneController
         SAMMELN(Strings.SAMMELN);
 
         Mission (String missionsName)
-                {
+        {
         }
     }
     private Mission missionsName;
@@ -113,11 +113,11 @@ public class HauptquartierController extends PaneController
      */
     public String erstelleBelohnungsText (int[] belohnungsArray){
         return (Strings.BELOHNUNGEN + Strings.DOPPELPUNKT + Strings.NEWLINE
-            + Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ZERO] + Strings.NEWLINE
-            + Strings.STEIN + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ONE] + Strings.NEWLINE
-            + Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_TWO] + Strings.NEWLINE
-            + Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_THREE] + Strings.NEWLINE
-            + Strings.BANONAS + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_FOUR] + Strings.NEWLINE);
+                + Strings.HOLZ + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ZERO] + Strings.NEWLINE
+                + Strings.STEIN + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_ONE] + Strings.NEWLINE
+                + Strings.GOLD + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_TWO] + Strings.NEWLINE
+                + Strings.GESUNDHEIT + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_THREE] + Strings.NEWLINE
+                + Strings.BANONAS + Strings.DOPPELPUNKT + Strings.SPACE + belohnungsArray[Konstanten.INT_FOUR] + Strings.NEWLINE);
     }
 
     /**
