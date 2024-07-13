@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import model.Artefakt;
 import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
@@ -66,6 +67,8 @@ public class KampfController extends ControllerController implements Initializab
     public Text siegerText;
     @FXML
     public HBox timeLineHBox;
+    @FXML
+    public HBox artefakteDisplay;
 
     @FXML
     public AnchorPane kaempferPane;
@@ -516,11 +519,28 @@ public class KampfController extends ControllerController implements Initializab
 
     }
 
+    /**
+     * Methode zum Anwenden eines Artefakts
+     * @pre
+     * @post
+     * @param angreifer
+     * @param verteidiger
+     * @Author Felix Ahrens
+     */
     public void wendeArtefaktAn (Kaempfer angreifer, Kaempfer verteidiger)
     {
         System.out.println(Strings.ARTEFAKT);
     }
 
+    /**
+     * Methode zum Verwalten vom Schaden. Diese berechnet den Schaden, den der Angreifer dem Verteidiger hinzufuegt auf Basis der Attribute
+     *  fuer Position, Nahkampfwert, Fernkampfwert und Zahl der Fernkaempfe und wendet diesen entsprechend auf den Verteidiger an.
+     * @pre Die verwendeten Parameter, Methoden, Konstanten und Instanzvariablen (bzw. Getter und Setter davon) muessen vorhanden und erreichbar sein.
+     * @post Der berechnete Schaden wurde auf den Verteidiger angewendet und es wurde ueberprueft, ob dieser nach der Attacke noch lebt.
+     * @param angreifer Der Angreifer, von dem der Schaden ausgeht.
+     * @param verteidiger Der Verteidiger, auf den der Schaden angewendet wird.
+     * @Author Felix Ahrens
+     */
     public void verwalteSchaden (Kaempfer angreifer, Kaempfer verteidiger)
     {
         double entfernung = berechneEntfernung(angreifer, verteidiger);
@@ -537,6 +557,15 @@ public class KampfController extends ControllerController implements Initializab
         checkeLebtNoch();
     }
 
+    /**
+     * Methode zum Berechnen der Entfernung. Dabei wird die Entfernung mit dem Satz des Pythagoras berechnet und als Double zurueckgegeben.
+     * @pre Die Methoden und Konstanten muessen existieren und erreichbar sein.
+     * @post Die berechnete Entfernung zwischen den in den Instanzen der Klasse Kaempfer gespeicherten wird zurueckgegeben.
+     * @param kaempferEins Der erste uebergebene Kaempfer.
+     * @param kaempferZwei Der zweite uebergebene Kaempfer.
+     * @return Die direkte Entfernung zwischen den gespeicherten Positionen der beiden uebergebenen Kaempfer.
+     * @Author Felix Ahrens
+     */
     public double berechneEntfernung (Kaempfer kaempferEins, Kaempfer kaempferZwei)
     {
         int xentf = Math.abs(kaempferEins.getxPosition() - kaempferZwei.getxPosition());
@@ -614,5 +643,24 @@ public class KampfController extends ControllerController implements Initializab
         kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
         gegnerGesundheitsBar.setProgress((double) gegner.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
         System.out.println(gegner.getGesundheit());
+        updateArtefakteDisplay();
+    }
+
+    /**
+     * Methode, die das ArtefaktDisplay aktualisiert und die sich im Besitz befindenden Artefakte in die HBox "artefaktDisplay" als Panes hinzufuegt.
+     * @pre Die genutzten Methoden muessen existieren. Die Singleton-Instanz der Klasse GameFile muss gesetzt sein.
+     * @post Das ArtefaktDisplay wurde aktualisiert und die Artefakte, die als "imBesitz" gespeicherten Artefakte sind
+     *  als Panes in der HBox "artefakteDisplay" fuer die spielende Person sichtbar.
+     * @Author Felix Ahrens
+     */
+    public void updateArtefakteDisplay (){
+        artefakteDisplay.getChildren().clear();
+        GameFile instanz = GameFile.getInstanz();
+        Artefakt[] artefakte = {instanz.getSchwert(), instanz.getStatue(),  instanz.getRing()};
+        for (Artefakt artefakt : artefakte){
+            if (artefakt.istImBesitz()){
+                artefakteDisplay.getChildren().add(artefakt.toPane());
+            }
+        }
     }
 }
