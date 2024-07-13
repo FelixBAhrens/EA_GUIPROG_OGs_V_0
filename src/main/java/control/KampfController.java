@@ -2,6 +2,7 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -9,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -18,6 +20,8 @@ import res.Konstanten;
 import res.Strings;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.ResourceBundle;
 
 // ControllerController
@@ -36,14 +40,15 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
+    public Queue<Kaempfer> timeLine = new LinkedList<>();
+
     public static KampfTyp kampfTyp;
+
     private Kaempfer spieler;
+
     private Kaempfer gegner;
 
-    private static final int GRID_SIZE = Konstanten.INT_TWELVE;
-    private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
-
-    private static String nachKampfSzenenName;
+    private static String nachKampfSzenenName = Strings.FXML_STADT;
 
     @FXML
     public ImageView hintergrund;
@@ -59,6 +64,8 @@ public class KampfController extends ControllerController implements Initializab
     public AnchorPane kampfEndeDialog;
     @FXML
     public Text siegerText;
+    @FXML
+    public HBox timeLineHBox;
 
     @FXML
     public AnchorPane kaempferPane;
@@ -66,6 +73,8 @@ public class KampfController extends ControllerController implements Initializab
     public Label kaempferStats;
     @FXML
     public ProgressBar kaempferGesundheitsBar;
+    @FXML
+    public Button zugBeenden;
 
     @FXML
     public AnchorPane gegnerPane;
@@ -76,7 +85,9 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, um den Kampf zu initialisieren.
-     *
+     * @pre Die Methoden, die Variablen und das Enum muessen vorhanden und zugreifbar sein.
+     * @post Der "kampfStartDialog" wurde invisible gesetzt und, abhaengig vom Kampftyp, eine Methode zum Starten/Initialisieren
+     *  eines bestimmten Kampfes aufgerufen
      * @author David Kien, Felix Ahrens
      */
     @FXML
@@ -87,15 +98,18 @@ public class KampfController extends ControllerController implements Initializab
         switch (kampfTyp)
         {
             case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
-            case ANDERER_KAMPF -> starteAndererKampf();
             case ARENA_KAMPF -> starteArenaKampf();
         }
     }
 
     /**
-     * Methode, um den Endgegnerkampf zu initialisieren
-     *
-     * @author David Kien, Felix Ahrens
+     * Methode, um den Endgegnerkampf zu initialisieren. Diese erstellt und setzt die Kaempfer und ruft Methoden auf,
+     *  um Charaktere und Gegner zu initialisieren, diese dem kaempferArray hinzuzufuegen, die Timeline zu berechnen,
+     *  die Charakterposition, die angezeigte Timeline und die "KampfAnchorPanes" zu aktualisieren. Ebenso wird die Methode
+     *  "naechsterZug" aufgerufen.
+     * @pre Die Methoden muessen vorhanden und erreichbar sein.
+     * @post Der EndgegnerKampf wurde mit allen notwendigen Elementen initialisiert.
+     * @Author David Kien, Felix Ahrens
      */
     public void starteEndgegnerKampf ()
     {
@@ -104,40 +118,54 @@ public class KampfController extends ControllerController implements Initializab
 
         initialisiereCharacter();
         initialisiereGegner();
+        Kaempfer[] kaempferArray = {spieler, gegner};
+        berechneTimeLine(kaempferArray);
         updateCharacterPosition();
         updateKampfAnchorPanes();
+        updateTimeLine();
+        naechsterZug();
     }
 
     /**
-     * PLATZHALTER Methode um einen anderen Kampf zu starten
-     *
-     * @author Felix Ahrens
+     * Methode, die am Ende eines Zuges aufgerufen wird, und abhaengig von dem naechsten Element der Queue
+     *  den naechsten Zug aufruft. Ist die Queue leer, wird der Kampf mit einem Unentschieden beendet, wenn
+     *  kein Kaempfer gestorben ist.
      */
-    public void starteAndererKampf ()
-    {
+    public void naechsterZug () {
+        updateTimeLine();
+        if (!timeLine.isEmpty()){
+            switch (timeLine.remove().getName()){
+                case Strings.LEADER -> eigenZug();
+                case Strings.ENDGEGNER -> gegnerZug();
+            }
+        }
+        else {
+            checkeLebtNoch();
+            beendeKampf();
+        }
 
     }
 
     /**
-     * Methode, um den Stand-Alone-Kampf ueber Netzwerk zu starten.
-     *
-     * @author Felix Ahrens
+     * Methode, um den Stand-Alone-Kampf ueber Netzwerk zu starten. Bei einem Arenakampf ist die Szenerie anders.
+     *  Da die Spiellogik und das Netzwerk zu diesem Zeitpunkt aber noch nicht durchdacht ist, kann die GUI hierfuer nicht naeher entwickelt werden.
+     * @pre Hinter dem "ARENA_BILDPFAD" muss sich der Dateipfad zu einem Bild befinden, das eine Arena zeigt.
+     * @post Das Hintergrundbild des Kampfes wurde auf das Bild einer Arena gesetzt.
+     * @Author Felix Ahrens
      */
     public void starteArenaKampf ()
     {
-        //String imagePath = getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm();
         Image bild = new Image(getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm());
         hintergrund.setImage(bild);
-        //this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstance().getLeader());
-        //this.gegner
         //Schnittstelle zum Netzwerk. Hier müssen die gegnerischen Werte dann geladen werden
     }
 
     /**
-     * Methode zum abschliessen des Kampfes. Der Sieger wurde von der checkeLebtNoch-Methode ermittelt.
-     *
-     * @param sieger
-     * @author Felix Ahrens
+     * Methode zum Abschliessen des Kampfes. Der Sieger wurde von der checkeLebtNoch-Methode ermittelt.
+     * @pre Die Strings muessen Interface enthalten sein, der KampfEndeDialog muss als AnchorPane in der Klasse vorhanden sein.
+     * @post Der "kampfEndeDialog" wurde mit dem Sieger als Text ausgegeben.
+     * @param sieger Die Instanz der Klasse Kaempfef, die im Kampf als Sieger festgestellt wurde, und der Methode als "Sieger" uebergeben wurde.
+     * @Author Felix Ahrens
      */
     public void beendeKampf (Kaempfer sieger)
     {
@@ -146,11 +174,25 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
+     * Ueberschriebene Methode, die den Kampf mit einem Unentschieden beendet, wenn die Timeline ausgelaufen ist.
+     * @pre Die Strings muessen Interface enthalten sein, der KampfEndeDialog muss als AnchorPane in der Klasse vorhanden sein.
+     * @post Der "kampfEndeDialog" wurde mit "Unentschieden" ausgegeben. Die darauf folgende Szene wurde als Stadt "angemeldet".
+     * @Author Felix Ahrens
+     */
+    public void beendeKampf () {
+        siegerText.setText(Strings.UNENTSCHIEDEN);
+        nachKampfSzenenName = Strings.FXML_STADT;
+        kampfEndeDialog.setVisible(true);
+    }
+
+    /**
      * Initialize-Methode, deren Verwendung fuer FXML-Controllerklassen verpflichtend ist.
-     *
+     * @pre Die Methoden und Variablen muessen vorhanden sein.
+     * @post Der "kampfStartDialog" ist visible,
      * @param location
      * @param resources
      * @author David Kien, Felix Ahrens
+     * @TODO @DAVID Bitte auskommentieren das hier ist dein bereich
      */
     @FXML
     public void initialize (URL location, ResourceBundle resources)
@@ -165,25 +207,49 @@ public class KampfController extends ControllerController implements Initializab
         }));
     }
 
+    /**
+     * Methode, die den von der nutzenden Person spielbaren Zug steuert. In dieser Methode werden Nutzereingaben freigeschaltet,
+     *  die nur gemacht werden können, wenn der Mensch am Zug ist. Das Gegenteil dazu ist die Methode "gegnerZug()", die den Gegner (Bot) steuert.
+     * @pre "zugBeenden" muss ein Button sein, der sich in der FXML-Datei "kampf-view.fxml" befindet. Der Button muss auch im Contoller sein.
+     * @post Der Knopf wurde freigeschaltet und diesem ein Eventlistener hinzugefuegt, der den Zug beendet und die Methode "naechsterZug" aufruft.
+     * @Author Felix Ahrens
+     */
     @FXML
     private void eigenZug ()
     {
-
-        //gegnerZug();
+        zugBeenden.setDisable(false);
+        zugBeenden.setOnAction(event -> {
+            zugBeenden.setDisable(true);
+            naechsterZug();
+        });
     }
 
+    /**
+     * Methode zum Verlassen der Kampfszene. Diese wird durch einen Button im "kampfBeendenDialog" aufgerufen und setzt
+     *  die naechste Szene auf die Szene, deren Name in "nachKampfSzenenName" gespeichert ist.
+     * @pre In "nachKampfSzenenName" muss ein gueltiger Dateiname fuer eine existierende FXML-Datei gespeichert sein.
+     *  Die Methode "wechseleSzene" in der Klasse SzenenManager muss vorhanden sein und die ihr uebergebene FXML-Datei lesen und als neue Szene setzen.
+     * @Author Felix Ahrens
+     */
     @FXML
     public void verlasseKampfSzene ()
     {
         SzenenManager.wechseleSzene(nachKampfSzenenName);
     }
 
+    /**
+     * Methode zum Ausfuehren des Gegnerzuges. Diese steuert den Gegner (Bot) indem sie verschiedene Methoden aufruft.
+     * @pre Die Methoden muessen existieren und Design-By-Contract erfuellen.
+     * @post Der gegnerische Zug wurde ausgefuehrt. Dabei wurde die Timeline aktualisiert, eine Sekunde gewartet, der Gegner bewegt und Attakiert.
+     * @Author Felix Ahrens
+     */
     private void gegnerZug ()
     {
-
+        updateTimeLine();
+        halteAn(Konstanten.INT_ONE_THOUSAND);
         bewegeGegnerDynamisch();
         attackiere(gegner, spieler);
-        eigenZug();
+        naechsterZug();
     }
 
     /**
@@ -193,16 +259,38 @@ public class KampfController extends ControllerController implements Initializab
      */
     private void createMap ()
     {
-        for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++)
+        for (int row = Konstanten.INT_ZERO; row < Konstanten.INT_TWELVE; row++)
         {
-            for (int col = Konstanten.INT_ZERO; col < GRID_SIZE; col++)
+            for (int col = Konstanten.INT_ZERO; col < Konstanten.INT_TWELVE; col++)
             {
-                Rectangle tile = new Rectangle(TILE_SIZE, TILE_SIZE);
+                Rectangle tile = new Rectangle(Konstanten.INT_FOURTY_FIVE, Konstanten.INT_FOURTY_FIVE);
                 tile.setFill(Color.LIGHTGRAY);
                 tile.setStroke(Color.BLACK);
                 gridPane.add(tile, col, row);
             }
         }
+    }
+
+    /**
+     * Methode, die die Timeline berechnen soll. Tut sie aber nicht, weil ich fuer die GUI verantwortlich bin.
+     *  Aber ich brauche die Methode, um daraus eben eine Timeline anzeigen zu koennen. Deshalb diese voreingestellte Reihenfolge.
+     * @pre Im uebergebenen Kaempferarray muessen die Teilnehmer des Kampfes enthalten sein
+     * @post die Queue "timeLine" enthaelt eine Reihenfolge der Kaempfer.
+     * @param alleKaempferArray Die Kaempfer des Kampfes
+     * @Author Felix Ahrens
+     * @TODO hier noch Zufall hinzufuegen
+     */
+    public void berechneTimeLine (Kaempfer[] alleKaempferArray) {
+        timeLine.add(alleKaempferArray[Konstanten.INT_ZERO]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ONE]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ZERO]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ZERO]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ONE]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ZERO]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ONE]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ONE]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ONE]);
+        timeLine.add(alleKaempferArray[Konstanten.INT_ZERO]);
     }
 
     /**
@@ -212,19 +300,20 @@ public class KampfController extends ControllerController implements Initializab
      */
     private void initialisiereCharacter ()
     {
-        spielerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
+        spielerRec = new Rectangle(Konstanten.INT_FOURTY_FIVE, Konstanten.INT_FOURTY_FIVE);
         spielerRec.setFill(Color.BLUE);
         gridPane.add(spielerRec, spieler.getxPosition(), spieler.getyPosition());
     }
 
     /**
-     * InitialisiereGegner methode
+     * Methode, die eine Rectangle erstellt und sie der "gridPane" an der fuer den Gegner spezifizierten Position hinzufuegt.
+     * @pre 
      *
      * @author Felix Ahrens
      */
     private void initialisiereGegner ()
     {
-        gegnerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
+        gegnerRec = new Rectangle(Konstanten.INT_FOURTY_FIVE, Konstanten.INT_FOURTY_FIVE);
         gegnerRec.setFill(Color.RED);
         gridPane.add(gegnerRec, gegner.getxPosition(), gegner.getyPosition());
     }
@@ -252,13 +341,13 @@ public class KampfController extends ControllerController implements Initializab
                 }
                 break;
             case S:
-                if (spieler.getyPosition() < GRID_SIZE - Konstanten.INT_ONE)
+                if (spieler.getyPosition() < Konstanten.INT_TWELVE - Konstanten.INT_ONE)
                 {
                     spieler.setyPosition(spieler.getyPosition() + Konstanten.INT_ONE);
                 }
                 break;
             case D:
-                if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE)
+                if (spieler.getxPosition() < Konstanten.INT_TWELVE - Konstanten.INT_ONE)
                 {
                     spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 }
@@ -271,7 +360,6 @@ public class KampfController extends ControllerController implements Initializab
                 break;
         }
         updateCharacterPosition();
-        gegnerZug();
     }
 
     /**
@@ -285,6 +373,14 @@ public class KampfController extends ControllerController implements Initializab
         GridPane.setRowIndex(spielerRec, spieler.getyPosition());
         GridPane.setColumnIndex(gegnerRec, gegner.getxPosition());
         GridPane.setRowIndex(gegnerRec, gegner.getyPosition());
+    }
+
+    public void updateTimeLine ()
+    {
+        timeLineHBox.getChildren().clear();
+        for (Kaempfer kaempfer : timeLine){
+            timeLineHBox.getChildren().addAll(kaempfer.toPane());
+        }
     }
 
     /**
@@ -345,6 +441,7 @@ public class KampfController extends ControllerController implements Initializab
             nachKampfSzenenName = Strings.FXML_HAUPTQUARTIER;
             beendeKampf(spieler);
         }
+
     }
 
     /**
@@ -363,7 +460,7 @@ public class KampfController extends ControllerController implements Initializab
 
         if (Math.abs(xDiff) > Math.abs(yDiff))
         {
-            if (xDiff > Konstanten.INT_ZERO && gegnerX + Konstanten.INT_ONE < GRID_SIZE)
+            if (xDiff > Konstanten.INT_ZERO && gegnerX + Konstanten.INT_ONE < Konstanten.INT_TWELVE)
             {
                 gegner.setxPosition(gegnerX + Konstanten.INT_ONE);
             } else if (xDiff < Konstanten.INT_ZERO && gegnerX - Konstanten.INT_ONE >= Konstanten.INT_ZERO)
@@ -372,7 +469,7 @@ public class KampfController extends ControllerController implements Initializab
             }
         } else
         {
-            if (yDiff > Konstanten.INT_ZERO && gegnerY + Konstanten.INT_ONE < GRID_SIZE)
+            if (yDiff > Konstanten.INT_ZERO && gegnerY + Konstanten.INT_ONE < Konstanten.INT_TWELVE)
             {
                 gegner.setyPosition(gegnerY + Konstanten.INT_ONE);
             } else if (yDiff < Konstanten.INT_ZERO && gegnerY - Konstanten.INT_ONE >= Konstanten.INT_ZERO)

@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.layout.Pane;
 import res.Konstanten;
 import res.Strings;
 
@@ -108,5 +109,20 @@ public class Kaempfer extends Charakter
         return new Kaempfer(Strings.ENDGEGNER, Konstanten.INT_ONE_HUNDRED, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN,
                 Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, false,
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);
+    }
+
+    public Pane toPane (){
+        Pane pane = new Pane();
+        pane.setPrefSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.setMinSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.setMaxSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.getStyleClass().add(Strings.STYLECLASS_HELLBLAU);
+        pane.setVisible(true);
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
+            case Strings.LEADER -> Strings.BLUE;
+            case Strings.ENDGEGNER -> Strings.RED;
+            default -> Strings.GRAY;
+        });
+        return pane;
     }
 }

@@ -126,6 +126,7 @@ public interface Strings
     String IP = "IP";
     String VERBESSERN = "Verbessern";
     String VERKAUFEN = "Verkaufen";
+    String UNENTSCHIEDEN = "Unendschieden";
     String SCHILD = "Schild";
     String MANAPUNKTE = "Manapunkte";
     String NAHKAMPFWERT = "Nahkampfwert";
@@ -191,6 +192,7 @@ public interface Strings
     String BC_TEXT_EINHEIT_D = "Beispieltext Einheit D";
     String BC_TEXT_EINHEIT_E = "Beispieltext Einheit E";
 
+
     //IDs
     String BUTTON_EINFACH = "einfachButton";
     String BUTTON_NORMAL = "normalButton";
@@ -218,4 +220,9 @@ public interface Strings
     String STYLE_BORDER_TRANSPARENT = "-fx-border-color: transparent";
     String STYLECLASS_TRANSPARENT = "transparenterStyle";
     String STYLECLASS_TRANSPARENT_TUERKISER_RAND = "transparenterStyleTuerkiseUmrandung";
+    String STYLECLASS_HELLBLAU = "hellblauerStyle";
+    String FX_BACKGROUND_COLOR = "-fx-background-color: ";
+    String BLUE = "blue";
+    String RED = "red";
+    String GRAY = "gray";
 }

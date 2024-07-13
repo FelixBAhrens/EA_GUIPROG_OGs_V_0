@@ -9,143 +9,97 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
     <children>
-        <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/rasen.png"/>
+                <Image url="@../assets/rasen.png" />
             </image>
         </ImageView>
-        <Button fx:id="zurueckButton" layoutX="14.0" layoutY="662.0" mnemonicParsing="false"
-                onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0"
-                styleClass="hellblauerStyle"
-                text="Zurück"/>
-        <GridPane fx:id="gridPane" layoutX="370.0" layoutY="75.0" prefHeight="540.0" prefWidth="540.0"
-                  style="-fx-background-color: lightgray">
+        <Button fx:id="zurueckButton" layoutX="14.0" layoutY="662.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Zurück" />
+        <GridPane fx:id="gridPane" layoutX="370.0" layoutY="75.0" prefHeight="540.0" prefWidth="540.0" style="-fx-background-color: lightgray">
             <columnConstraints>
-                <ColumnConstraints/>
+                <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints/>
+                <RowConstraints />
             </rowConstraints>
         </GridPane>
-        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="94.0" prefHeight="532.0" prefWidth="269.0"
-                    style="-fx-background-color: rgba(64, 234, 140, 1);">
+        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="94.0" prefHeight="532.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
             <children>
-                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer"/>
-                <HBox layoutY="45.0" prefHeight="487.0" prefWidth="269.0">
+                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
+                <HBox layoutY="45.0" prefHeight="397.0" prefWidth="269.0">
                     <children>
                         <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
                             <children>
-                                <Text fx:id="kaempferGesundheitsText" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText1" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText2" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText3" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText4" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText5" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText6" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText7" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText8" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
-                                <Text fx:id="kaempferGesundheitsText9" text="Gesundheit"
-                                      wrappingWidth="105.33330917358398"/>
+                                <Text fx:id="kaempferGesundheitsText" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText1" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText2" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText3" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText4" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText5" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText6" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText7" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText8" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text fx:id="kaempferGesundheitsText9" text="Gesundheit" wrappingWidth="105.33330917358398" />
                             </children>
                         </VBox>
-                        <VBox prefHeight="487.0" prefWidth="164.0" spacing="10">
+                        <VBox prefHeight="474.0" prefWidth="164.0" spacing="10">
                             <children>
-                                <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0"
-                                             progress="1"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar4" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar5" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar6" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar7" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar8" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
-                                <ProgressBar fx:id="kaempferGesundheitBar9" prefHeight="20.0" prefWidth="88.0"
-                                             progress="0.5"
-                                             styleClass="hellblauerStyle"/>
+                                <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar4" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar5" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar6" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar7" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar8" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                <ProgressBar fx:id="kaempferGesundheitBar9" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
                             </children>
                         </VBox>
                     </children>
                 </HBox>
+            <Button fx:id="zugBeenden" layoutX="79.0" layoutY="458.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" text="Zug Beenden" styleClass="hellblauerStyle" />
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="gegnerPane" layoutX="957.0" layoutY="92.0" prefHeight="532.0" prefWidth="309.0"
-                    style="-fx-background-color: rgba(64, 234, 240, 0.7)">
+        <AnchorPane fx:id="gegnerPane" layoutX="957.0" layoutY="92.0" prefHeight="532.0" prefWidth="309.0" style="-fx-background-color: rgba(64, 234, 240, 0.7)">
             <children>
-                <ProgressBar fx:id="gegnerGesundheitsBar" layoutX="128.0" layoutY="95.0" prefHeight="20.0"
-                             prefWidth="125.0" progress="0.5"
-                             styleClass="hellblauerStyle"/>
-                <Label fx:id="gegnerStats" layoutX="14.0" layoutY="55.0" prefHeight="103.0" prefWidth="171.0"
-                       text="G_Stats"/>
-                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegner"/>
+                <ProgressBar fx:id="gegnerGesundheitsBar" layoutX="128.0" layoutY="95.0" prefHeight="20.0" prefWidth="125.0" progress="0.5" styleClass="hellblauerStyle" />
+                <Label fx:id="gegnerStats" layoutX="14.0" layoutY="55.0" prefHeight="103.0" prefWidth="171.0" text="G_Stats" />
+                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gegner" />
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="kampfStartDialog" prefHeight="720.0" prefWidth="1280.0"
-                    style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="true">
+        <HBox fx:id="timeLineHBox" layoutX="366.0" layoutY="625.0" prefHeight="73.0" prefWidth="547.0" spacing="10" styleClass="beigerHintergrundStyle">
             <children>
-                <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0"
-                            styleClass="beigerHintergrundStyle">
+                <Pane prefHeight="73.0" prefWidth="73.0" styleClass="hellblauerStyle" />
+            </children>
+        </HBox>
+        <AnchorPane fx:id="kampfStartDialog" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+            <children>
+                <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Text fx:id="Text" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="Kampf Start Dialog"/>
-                        <Button fx:id="kampfStartButton" layoutX="224.0" layoutY="512.0" mnemonicParsing="false"
-                                onAction="#initialisiereKampf" prefHeight="27.0" prefWidth="112.0"
-                                styleClass="hellblauerStyle"
-                                text="Start"/>
+                        <Text fx:id="Text" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kampf Start Dialog" />
+                        <Button fx:id="kampfStartButton" layoutX="224.0" layoutY="512.0" mnemonicParsing="false" onAction="#initialisiereKampf" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Start" />
                     </children>
                 </AnchorPane>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="kampfEndeDialog" prefHeight="720.0" prefWidth="1280.0"
-                    style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+        <AnchorPane fx:id="kampfEndeDialog" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
             <children>
-                <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0"
-                            styleClass="beigerHintergrundStyle">
+                <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Text fx:id="siegerText" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="hat gewonnen!"/>
-                        <Button fx:id="fortfahrenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
-                                onAction="#verlasseKampfSzene" prefHeight="27.0" prefWidth="112.0"
-                                styleClass="hellblauerStyle"
-                                text="Fortfahren" visible="true"/>
+                        <Text fx:id="siegerText" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hat gewonnen!" />
+                        <Button fx:id="fortfahrenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#verlasseKampfSzene" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Fortfahren" visible="true" />
                     </children>
                 </AnchorPane>
             </children>
         </AnchorPane>
-        <fx:include source="klassisches-menue-view.fxml"/>
+        <fx:include source="klassisches-menue-view.fxml" />
     </children>
 </AnchorPane>
