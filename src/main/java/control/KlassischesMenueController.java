@@ -1,6 +1,7 @@
 package control;
 
 import javafx.fxml.FXML;
+import model.Artefakt;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
@@ -52,7 +53,7 @@ public class KlassischesMenueController extends StartMenueController
     }
 
     /**
-     * Methode zum setzen aller Ressourcen auf ein Tausend des jeweiligen Wertes.
+     * Methode zum setzen aller Ressourcen auf ein Tausend des jeweiligen Wertes. Zu Debugzwecken.
      * @Author Felix Ahrens
      */
     @FXML
@@ -62,5 +63,18 @@ public class KlassischesMenueController extends StartMenueController
         GameFile.getInstanz().setGoldRessource(Konstanten.INT_ONE_THOUSAND);
         GameFile.getInstanz().setGesundheitRessource(Konstanten.INT_ONE_THOUSAND);
         GameFile.getInstanz().setBanonasRessource(Konstanten.INT_ONE_THOUSAND);
+    }
+
+    /**
+     * Methode, die alle Artefakte auf "imBesitz" setzt. Zu Debugzwecken.
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleAlleArtefakteBekommen () {
+        GameFile instanz = GameFile.getInstanz();
+        Artefakt[] artefakte = {instanz.getSchwert(), instanz.getStatue(),  instanz.getRing()};
+        for (Artefakt artefakt : artefakte){
+            artefakt.setImBesitz(true);
+        }
     }
 }

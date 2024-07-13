@@ -31,7 +31,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#handleDebugEndgegner" text="endgegnerKampf"/>
                         <MenuItem mnemonicParsing="false" onAction="#handleDebugArena" text="Arena"/>
                         <MenuItem mnemonicParsing="false" onAction="#handleInfiniteMoney" text="INFINITE MONEY"/>
-                        <MenuItem mnemonicParsing="false" text="Close"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAlleArtefakteBekommen" text="getalleArtefakte"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Hilfe">
