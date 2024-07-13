@@ -168,9 +168,9 @@ public interface Strings
     String STADT = "Stadt";
     String SCHMIEDE = "Schmiede";
     String SCHENKE = "Schenke";
-    String MAGIEVERSTAERKER = "Magieversterker";
+    String MAGIEVERSTAERKER = "Magieverstaerker";
     String BASISCAMP = "Basiscamp";
-    String FRAKTIONENCAMPS = "Fraktionencamps";
+    String FRAKTIONENCAMPS = "Fraktionencamp";
     String TRAININGSGELAENDE = "Trainingsgelaende";
     String MARKT = "Markt";
     String HAUPTQUARTIER = "Hauptquartier";
@@ -216,4 +216,6 @@ public interface Strings
     String STYLE_TRANSPARENT_TRANSPARENT_BORDERWIDTH = "-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 2;";
     String STYLE_BORDER_ORANGE = "-fx-border-color: orange";
     String STYLE_BORDER_TRANSPARENT = "-fx-border-color: transparent";
+    String STYLECLASS_TRANSPARENT = "transparenterStyle";
+    String STYLECLASS_TRANSPARENT_TUERKISER_RAND = "transparenterStyleTuerkiseUmrandung";
 }

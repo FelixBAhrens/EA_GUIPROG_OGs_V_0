@@ -14,7 +14,7 @@
             <Image url="@../assets/stadt_neu.png"/>
         </image>
     </ImageView>
-    <Pane fx:id="schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#openSchmiede"
+    <Pane fx:id="Schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
           styleClass="transparenterStyle">
         <children>
@@ -24,7 +24,7 @@
                     text="Schmiede" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#openSchenke"
+    <Pane fx:id="Schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
           styleClass="transparenterStyle">
         <children>
@@ -34,7 +34,7 @@
                     text="Schenke" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#openMagieverstaerker"
+    <Pane fx:id="Magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
           styleClass="transparenterStyle">
         <children>
@@ -44,7 +44,7 @@
                     text="Magieverstärker" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="basisCamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#openBasisCamp"
+    <Pane fx:id="Basiscamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="135.0"
           styleClass="transparenterStyle">
         <children>
@@ -54,7 +54,7 @@
                     text="Basis-Camp" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="fraktionenCamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#openFraktionenCamp"
+    <Pane fx:id="Fraktionencamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="134.0" prefWidth="135.0"
           styleClass="transparenterStyle">
         <children>
@@ -64,7 +64,7 @@
                     text="Fraktionen-Camp" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#openHauptquartier"
+    <Pane fx:id="Hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="107.0" prefWidth="135.0"
           styleClass="transparenterStyle">
         <children>
@@ -74,7 +74,7 @@
                     text="Hauptquartier" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#openMarkt" onMouseEntered="#handleMouseEnter"
+    <Pane fx:id="Markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter"
           onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="143.0"
           styleClass="transparenterStyle">
         <children>
@@ -84,7 +84,7 @@
                     text="Markt" visible="false"/>
         </children>
     </Pane>
-    <Pane fx:id="trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#openTrainingsgelaende"
+    <Pane fx:id="Trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#handleGebaeudeOeffnen"
           onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="119.0" prefWidth="135.0"
           styleClass="transparenterStyle">
         <children>

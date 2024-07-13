@@ -1,6 +1,7 @@
 package control;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -57,7 +58,7 @@ public class PaneController extends ControllerController
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle(Strings.STYLE_BORDER_ORANGE);
-        for (javafx.scene.Node node : pane.getChildren())
+        for (Node node : pane.getChildren())
         {
             if (node instanceof Button)
             {

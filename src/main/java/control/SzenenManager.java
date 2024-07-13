@@ -19,6 +19,22 @@ public class SzenenManager
     private static Stage hauptStage;
     private static final Stack<Scene> szenenStack = new Stack<>();
 
+    /**
+     * Methode, die die aktuell gesetzte Szene zurueckgibt.
+     * @return
+     * @Author Felix Ahrens
+     */
+    public Scene gebeAktuelleSzene () {
+        Scene aktuelleSzene = szenenStack.pop();
+        szenenStack.push(aktuelleSzene);
+        return aktuelleSzene;
+    }
+
+    /**
+     * Konstruktor der Klasse Szenenmanager
+     * @param hauptStage
+     * @Author Felix Ahrens
+     */
     public SzenenManager (Stage hauptStage)
     {
         this.hauptStage = hauptStage;
@@ -34,7 +50,7 @@ public class SzenenManager
      * @param fxmlDatei Der Dateiname der fxml-Datei, die die zu setzende Szene spezifiziert.
      * @author David Kien, Felix Ahrens
      */
-    public static void wechseleSzene (String fxmlDatei)
+    public static Class wechseleSzene (String fxmlDatei)
     {
         try
         {
@@ -46,9 +62,12 @@ public class SzenenManager
             hauptStage.setScene(scene);
             hauptStage.show();
             root.requestFocus();
+            return null;
+            //return loader.getController();
         } catch (Exception e)
         {
             MyIO.print(Strings.FEHLERMELDUNG_SZENENWECHSEL);
+            return null;
         }
     }
 
