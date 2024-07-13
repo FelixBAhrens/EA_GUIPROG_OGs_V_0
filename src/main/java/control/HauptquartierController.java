@@ -71,7 +71,7 @@ public class HauptquartierController extends PaneController
 
     /**
      * Methode zum Aktivieren der Mission
-     * @param event
+     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
      * @Author Felix Ahrens
      */
     @FXML

@@ -43,8 +43,8 @@ public class ControllerController
     /**
      * Methode, die entscheidet, wohin die Szene gewechselt werden soll, abhaengig davon, ob ein "letztes Spiel"
      *  existiert oder nicht.
-     * @precondition Die aufgerufenen Methoden muessen in ihren jeweiligen Klassen existieren.
-     * @postcondition Die Singleton-Instanz der GameFile wurde auf die zuletzt bespielte GameFile gesetzt und die
+     * @pre Die aufgerufenen Methoden muessen in ihren jeweiligen Klassen existieren.
+     * @post Die Singleton-Instanz der GameFile wurde auf die zuletzt bespielte GameFile gesetzt und die
      *  Stadt-Szene wurde aufgerufen oder, wenn kein letztes Spiel existiert, wurde die "neues Spiel"-Szene aufgerufen.
      * @Author Felix Ahrens
      */
@@ -64,9 +64,9 @@ public class ControllerController
     /**
      * Methode, die die Anfrage fuer Hilfe behandelt, indem die Methode "wechseleSzene" mit dem Dateipfad fuer ein
      * Hilfe-Menue aufgerufen wird.
-     * @precondition Die Methode "wechseleSzene" muss in der Klasse "SzenenManager" existieren und das Interface
+     * @pre Die Methode "wechseleSzene" muss in der Klasse "SzenenManager" existieren und das Interface
      * "Strings" muss den String "FXML_HILFE" beinhalten.
-     * @postcondition Die Methode "wechseleSzene" im SzenenManager wurde mit dem String fuer den Dateipfad fuer die
+     * @post Die Methode "wechseleSzene" im SzenenManager wurde mit dem String fuer den Dateipfad fuer die
      *  "hilfe"-FXML-Datei aufgerufen.
      * @author Felix Ahrens
      */
@@ -81,7 +81,7 @@ public class ControllerController
      *  Sie nutzt die Methode "transaktionIstMoeglich", um zu ueberpruefen, ob eine entsprechende Transaktion moeglich ist.
      *  Ist dies der Fall, wird die Transaktion durchgefuehrt, indem die Kosten, die den uebergebenen Parametern fuer
      *  Holz, Stein, Gold, Gesundheit und Banonas entsprechen, vom "Ressourcenkonto" abgezogen.
-     * @precondition Die verwendeten Methoden muessen in den jeweiligen Klassen liegen. Der Methode muessen fuenf
+     * @pre Die verwendeten Methoden muessen in den jeweiligen Klassen liegen. Der Methode muessen fuenf
      * Integer-werte uebergeben werden.
      * @param holz Die Kosten fuer Holz in der Transaktion
      * @param stein Die Kosten fuer Stein in der Transaktion
@@ -129,7 +129,7 @@ public class ControllerController
 
     /**
      * Methode, die die Zurueck-Funktionalitaet beinhaltet.
-     * @precondition Die verwendeten Methoden muessen in den jeweiligen Klassen existieren. Der SzenenStack im SzenenManager
+     * @pre Die verwendeten Methoden muessen in den jeweiligen Klassen existieren. Der SzenenStack im SzenenManager
      *  darf nicht leer sein, sonst wird eine Fehlermeldung ausgegeben
      * @postcondititon Es wurde um eine Szene zurueck gegangen. Falls das nicht moeglich war, wurde eine Fehlermeldung
      *  in die Konsole ausgegeben.
@@ -150,10 +150,10 @@ public class ControllerController
     /**
      * Methode zum Beenden des Spiels. Abhaengig davon, ob das Singleton der GameFile gesetzt ist, wird das Spiel
      *  entweder direkt beendet oder es wird eine Szene zum Abfragen der Speicherung des Spiels aufgerufen.
-     * @precondition Die methode "instanzIstGesetzt" muss in der Klasse GameFile existieren. Die Methode "wechseleSzene"
+     * @pre Die methode "instanzIstGesetzt" muss in der Klasse GameFile existieren. Die Methode "wechseleSzene"
      *  muss in der Klasse "SzenenManager" existieren. Die Interfaces fuer Konstanten und Strings muessen die benoetigten
      *  Elemente halten.
-     * @postcondition Das Spiel wurde beendet oder es wurde die Szene "speichern-abfrage-view.fxml" aufgerufen.
+     * @post Das Spiel wurde beendet oder es wurde die Szene "speichern-abfrage-view.fxml" aufgerufen.
      * @Author Felix Ahrens
      */
     @FXML
@@ -171,8 +171,8 @@ public class ControllerController
 
     /**
      * Methode, die den aktuellen Spielstand von einer entsprechenden Methode in der Klasse GameFile speichern laesst.
-     * @precondition Die benoetigten Methoden muss in der jeweiligen Klasse existieren.
-     * @postcondition Die Methode "speichereSpielstand" in der Klasse GameFile wurde aufgerufen.
+     * @pre Die benoetigten Methoden muss in der jeweiligen Klasse existieren.
+     * @post Die Methode "speichereSpielstand" in der Klasse GameFile wurde aufgerufen.
      * @author Felix Ahrens, David Kien
      */
     @FXML
@@ -184,8 +184,8 @@ public class ControllerController
     /**
      * Methode, die den Spielstand speichert und dann die Methode "beendeAnwendung" aufruft, um die Anwendung zu
      * beenden.
-     * @precondition Die benoetigten Methoden muessen in den jeweiligen Klassen existieren.
-     * @postcondition Der Spielstand wurde gespeichert und die Methode "beendeAnwendung" aufgerufen.
+     * @pre Die benoetigten Methoden muessen in den jeweiligen Klassen existieren.
+     * @post Der Spielstand wurde gespeichert und die Methode "beendeAnwendung" aufgerufen.
      * @Author Felix Ahrens
      */
     @FXML
@@ -197,8 +197,8 @@ public class ControllerController
 
     /**
      * Methode, die die Anwendung mit dem Exit-Code null beendet
-     * @precondition /
-     * @postcondition Die Anwedung wurde mit dem Exit-Code null beendet
+     * @pre /
+     * @post Die Anwedung wurde mit dem Exit-Code null beendet
      * @author Felix Ahrens
      */
     @FXML

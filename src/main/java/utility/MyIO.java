@@ -30,8 +30,8 @@ public class MyIO
      * Print-Methode, die einen Text ausgibt.
      *
      * @param text Der Text der ausgegeben werden soll.
-     * @precondition Der eingegebene Text muss ein String sein.
-     * @postcondition Es wird ein Text ausgegeben. Ein Timestamp wird mit ausgegeben, wenn die Variable "timeStamp" true
+     * @pre Der eingegebene Text muss ein String sein.
+     * @post Es wird ein Text ausgegeben. Ein Timestamp wird mit ausgegeben, wenn die Variable "timeStamp" true
      * ist.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
@@ -55,8 +55,8 @@ public class MyIO
      *
      * @param text  Der Text der ausgegeben werden soll.
      * @param color Die Schriftfarbe des auszugebenden Textes.
-     * @precondition Der eingegebene Text muss ein String sein, die Farbe muss Parameter der Klasse ConsoleColor sein.
-     * @postcondition Es wird ein Text ausgegeben in der Farbe, die beim Methodenaufruf ausgegeben wurde.
+     * @pre Der eingegebene Text muss ein String sein, die Farbe muss Parameter der Klasse ConsoleColor sein.
+     * @post Es wird ein Text ausgegeben in der Farbe, die beim Methodenaufruf ausgegeben wurde.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
     public static void print (String text, ConsoleColor color)
@@ -72,9 +72,9 @@ public class MyIO
      * @param text            Der Text der ausgegeben werden soll.
      * @param color           Die Schriftfarbe des auszugebenden Textes.
      * @param backgroundColor Die Hintergrundfarbe des auszugebenden Textes.
-     * @precondition Der eingegebene Text muss ein String sein, die Farben muessen Parameter der Klasse ConsoleColor
+     * @pre Der eingegebene Text muss ein String sein, die Farben muessen Parameter der Klasse ConsoleColor
      * sein.
-     * @postcondition Es wird ein text ausgegeben mit den zugehoerigen Farben.
+     * @post Es wird ein text ausgegeben mit den zugehoerigen Farben.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
     public static void print (String text, ConsoleColor color, ConsoleColor backgroundColor)
@@ -89,8 +89,8 @@ public class MyIO
      * Setter fuer den timeStamp.
      *
      * @param timeStamp
-     * @precondition "timeStamp" muss einen boolschen Wert haben.
-     * @postcondition "timeStamp" wurde auf den uebergebenen boolschen Parameter gesetzt.
+     * @pre "timeStamp" muss einen boolschen Wert haben.
+     * @post "timeStamp" wurde auf den uebergebenen boolschen Parameter gesetzt.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
     public static void setTimeStamp (boolean timeStamp)
@@ -102,8 +102,8 @@ public class MyIO
      * Setter fuer den verboseMode. Ist dieser auf "true" gesetzt, werden zusaetzliche Informationen ausgegeben.
      *
      * @param verboseMode der boolsche Parameter, auf den "verboseMode" gesetzt werden soll.
-     * @precondition "verboseMode" muss einen boolschen Wert haben.
-     * @postcondition "verboseMode" wurde auf den uebergebenen boolschen Parameter gesetzt.
+     * @pre "verboseMode" muss einen boolschen Wert haben.
+     * @post "verboseMode" wurde auf den uebergebenen boolschen Parameter gesetzt.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
     public static void setVerboseMode (boolean verboseMode)

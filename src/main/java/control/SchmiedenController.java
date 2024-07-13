@@ -40,8 +40,8 @@ public class SchmiedenController extends PaneController
 
     /**
      * Methode, die die auf dem "artefaktDisplay" ausgegebenen Informationen aktualisiert.
-     * @precondition
-     * @postcondition
+     * @pre
+     * @post
      * @param artefakt
      * @Author Felix Ahrens
      */

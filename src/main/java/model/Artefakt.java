@@ -99,7 +99,7 @@ public class Artefakt extends GameFile
 
     /**
      * Methode, die die Kosten fuer die Verbesserung ermittelt.
-     * @precondition
+     * @pre
      * @return
      * @Author Felix Ahrens
      */

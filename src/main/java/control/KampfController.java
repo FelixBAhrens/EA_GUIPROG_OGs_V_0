@@ -232,7 +232,7 @@ public class KampfController extends ControllerController implements Initializab
     /**
      * Handler fuer ein KeyEvent
      *
-     * @param keyEvent
+     * @param keyEvent Das Ereignis, das durch eine Tastenaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
      * @author David Kien
      */
     private void handleKeyPress (KeyEvent keyEvent)

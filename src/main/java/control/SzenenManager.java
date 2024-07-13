@@ -43,9 +43,9 @@ public class SzenenManager
     /**
      * Methode, die die uebergebene FXML-Datei laedt und als Szene im Hauptstage (der einzige Stage, der im Programm
      *  verwendet wird) setzt.
-     * @precondition Die Klassenvariablen fuer den Szenenstack und den Hauptstage muessen existieren und nicht "null"
+     * @pre Die Klassenvariablen fuer den Szenenstack und den Hauptstage muessen existieren und nicht "null"
      *  sein.
-     * @postcondition Die Szene wurde auf die Szene gesetzt, die durch den uebergebenen Fxml-Dateinamen im Pfad
+     * @post Die Szene wurde auf die Szene gesetzt, die durch den uebergebenen Fxml-Dateinamen im Pfad
      * repraesentiert wird. Die neue Szene wurde auf dem "szenenStack" abgelegt.
      * @param fxmlDatei Der Dateiname der fxml-Datei, die die zu setzende Szene spezifiziert.
      * @author David Kien, Felix Ahrens
@@ -73,8 +73,8 @@ public class SzenenManager
 
     /**
      * Methode, die die vorherige Szene vom Szenenstack holt und setzt.
-     * @precondition Der "szenenStack" muss existieren und den Datentyp "Scene" beherbergen.
-     * @postcondition Wenn der szenenStack nicht leer ist, wurde eine Szene zurueckgegangen.
+     * @pre Der "szenenStack" muss existieren und den Datentyp "Scene" beherbergen.
+     * @post Wenn der szenenStack nicht leer ist, wurde eine Szene zurueckgegangen.
      * @author Felix Ahrens
      */
     public static void szeneZurueck ()

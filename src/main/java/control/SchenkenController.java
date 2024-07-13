@@ -82,11 +82,11 @@ public class SchenkenController extends PaneController
     /**
      * Methode, die das Anheuern steuert. Aufgerufen wird diese ueber einen Klick auf den "anheuernButton"-Knopf.
      *  Das Anheuern geschieht nur, wenn genug Gold im Besitz ist.
-     * @precondition Die Methode "fuehreTransaktionDurchWennMoeglich" muss existieren und von der Klasse
+     * @pre Die Methode "fuehreTransaktionDurchWennMoeglich" muss existieren und von der Klasse
      *  "SchenkenController" aus zugaenglich sein. Die GUI-Elemente muessen in der FXML-Datei "schenke-view.fxml"
      *  vorhanden sein und in dieser Controllerklasse ebenso. Auf die Interfaces fuer Konstanten und Strings muss
      *  zugegriffen werden koennen.
-     * @postcondition Der boolesche Wert "istAngeheuert" des ausgewaehlten Charakters wurde auf true gesetzt, wenn
+     * @post Der boolesche Wert "istAngeheuert" des ausgewaehlten Charakters wurde auf true gesetzt, wenn
      *  sich die spielende Person den Charakter leisten konnte. Ueber die GUI  ist eine visuelle Bestaetigung getaetigt
      *  worden.
      * @Author Felix Ahrens
@@ -141,10 +141,10 @@ public class SchenkenController extends PaneController
      * Methode zum Fuellen der Labels der Fxml-datei mit huebsch verpackten Charakterausgaben.
      *  Die Methode setzt in die jeweiligen Labels jeweils einen Bezeichner und den zugehoerigen Wert der Instanz der
      *  Klasse Charakter, die der Methode uebergeben wurde.
-     * @precondition Die Klasse Charakter muss die Variablen besitzen. Die Methode muss einen gueltigen Charakter
+     * @pre Die Klasse Charakter muss die Variablen besitzen. Die Methode muss einen gueltigen Charakter
      *  uebergeben bekommen. Die Labels muessen mit den korrekten IDs in der Klasse SchenkenController und in der
      *  FXML-Datei "schenke-view.fxml" existieren.
-     * @postcondition Die Labels in der "schenke-view.fxml" zeigen die Werte an, die den Werten des Charakters entsprechen,
+     * @post Die Labels in der "schenke-view.fxml" zeigen die Werte an, die den Werten des Charakters entsprechen,
      *  der der Methode uebergeben wurde.
      * @param charakter Der Charakter, dessen Werte in die Labels gesetzt werden sollen.
      * @Author Felix Ahrens

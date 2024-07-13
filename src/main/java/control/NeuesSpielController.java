@@ -81,7 +81,7 @@ public class NeuesSpielController extends ControllerController
      * implementiert, da hier ueber Zurueck-Buttons zwischen AnchorPanes, die verschiedene Nutzereingaben fordern,
      * innerhalb der Szene gewechselt werden kann.
      *
-     * @precondition
+     * @pre
      * @postcontidion
      * @author Felix Ahrens
      */

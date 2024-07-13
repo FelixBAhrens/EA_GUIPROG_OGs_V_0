@@ -28,7 +28,7 @@ public class BasisCampController extends PaneController
 
     /**
      * Methode zum Anzeigen von Details
-     * @param event
+     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
      */
     @FXML
     public void zeigeDetail (MouseEvent event){

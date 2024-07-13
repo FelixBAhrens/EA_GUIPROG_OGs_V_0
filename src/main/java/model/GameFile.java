@@ -52,7 +52,7 @@ public class GameFile
      * zugreifen koennen.
      *
      * @param gameFile Die Instanz der Klasse GameFile, die als Singleton gesetzt werden soll.
-     * @precondition
+     * @pre
      * @author Felix Ahrens
      */
     public static void setzeInstanz (GameFile gameFile)
@@ -105,8 +105,8 @@ public class GameFile
      * Getter fuer die Schwierigkeit. Gibt die Schwierigkeit als String zurueck.
      *
      * @return Die Schwierigkeit als String.
-     * @precondition Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable schwierigkeit als String zurueckgegeben.
+     * @pre Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable schwierigkeit als String zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Schwierigkeit getSchwierigkeit ()
@@ -119,8 +119,8 @@ public class GameFile
      *
      * @param schwierigkeit Die Schwierigkeit als Enum, auf den die Klassenvariable "schwierigkeit" gesetzt werden
      *                      soll.
-     * @precondition Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode
+     * @pre Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode
      * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -135,8 +135,8 @@ public class GameFile
      *
      * @param dateiPfadUndName Der Dateipfad und Name als String, auf den die Klassenvariable "filePathAndName" gesetzt
      *                         werden soll.
-     * @precondition Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der
+     * @pre Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der
      * Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -149,8 +149,8 @@ public class GameFile
      * Getter fuer die HolzRessource. Gibt die HolzRessource zurueck.
      *
      * @return Die HolzRessource als int.
-     * @precondition Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable holzRessource als int zurueckgegeben.
+     * @pre Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable holzRessource als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getHolzRessource ()
@@ -162,8 +162,8 @@ public class GameFile
      * Setter fuer die HolzRessource. Setzt die HolzRessource auf den der Methode als int uebergebenen Wert.
      *
      * @param holzRessource Die HolzRessource als int, auf den die Klassenvariable "holzRessource" gesetzt werden soll.
-     * @precondition Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte HolzRessource stimmt mit dem Parameter ueberein, der der Methode
+     * @pre Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte HolzRessource stimmt mit dem Parameter ueberein, der der Methode
      * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -176,8 +176,8 @@ public class GameFile
      * Getter fuer die SteinRessource. Gibt die SteinRessource zurueck.
      *
      * @return Die SteinRessource als int.
-     * @precondition Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable steinRessource als int zurueckgegeben.
+     * @pre Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable steinRessource als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getSteinRessource ()
@@ -190,8 +190,8 @@ public class GameFile
      *
      * @param steinRessource Die SteinRessource als int, auf den die Klassenvariable "steinRessource" gesetzt werden
      *                       soll.
-     * @precondition Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte SteinRessource stimmt mit dem Parameter ueberein, der der Methode
+     * @pre Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte SteinRessource stimmt mit dem Parameter ueberein, der der Methode
      * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -204,8 +204,8 @@ public class GameFile
      * Getter fuer die GoldRessource. Gibt die GoldRessource zurueck.
      *
      * @return Die GoldRessource als int.
-     * @precondition Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable goldRessource als int zurueckgegeben.
+     * @pre Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable goldRessource als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getGoldRessource ()
@@ -217,8 +217,8 @@ public class GameFile
      * Setter fuer die GoldRessource. Setzt die GoldRessource auf den der Methode als int uebergebenen Wert.
      *
      * @param goldRessource Die GoldRessource als int, auf den die Klassenvariable "goldRessource" gesetzt werden soll.
-     * @precondition Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte GoldRessource stimmt mit dem Parameter ueberein, der der Methode
+     * @pre Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte GoldRessource stimmt mit dem Parameter ueberein, der der Methode
      * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -231,8 +231,8 @@ public class GameFile
      * Getter fuer die GesundheitRessource. Gibt die GesundheitRessource zurueck.
      *
      * @return Die GesundheitRessource als int.
-     * @precondition Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable gesundheitRessource als int zurueckgegeben.
+     * @pre Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable gesundheitRessource als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getGesundheitRessource ()
@@ -246,8 +246,8 @@ public class GameFile
      *
      * @param gesundheitRessource Die GesundheitRessource als int, auf den die Klassenvariable "gesundheitRessource"
      *                            gesetzt werden soll.
-     * @precondition Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte GesundheitRessource stimmt mit dem Parameter ueberein, der der
+     * @pre Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte GesundheitRessource stimmt mit dem Parameter ueberein, der der
      * Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -260,8 +260,8 @@ public class GameFile
      * Getter fuer die BanonasRessource. Gibt die BanonasRessource zurueck.
      *
      * @return Die BanonasRessource als int.
-     * @precondition Die BanonasRessource muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable banonasRessource als int zurueckgegeben.
+     * @pre Die BanonasRessource muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable banonasRessource als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getBanonasRessource ()
@@ -274,8 +274,8 @@ public class GameFile
      *
      * @param banonaRessource Die BanonasRessource als int, auf den die Klassenvariable "banonasRessource" gesetzt
      *                        werden soll.
-     * @precondition Die BanonasRessource muss als Integer in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte BanonasRessource stimmt mit dem Parameter ueberein, der der Methode
+     * @pre Die BanonasRessource muss als Integer in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte BanonasRessource stimmt mit dem Parameter ueberein, der der Methode
      * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -288,8 +288,8 @@ public class GameFile
      * Getter fuer die Statue. Gibt die Statue zurueck.
      *
      * @return Die Statue als Artefakt.
-     * @precondition Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable statue als Artefakt zurueckgegeben.
+     * @pre Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable statue als Artefakt zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Artefakt getStatue ()
@@ -301,8 +301,8 @@ public class GameFile
      * Setter fuer die Statue. Setzt die Statue auf den der Methode als Artefakt uebergebenen Wert.
      *
      * @param statue Die Statue als Artefakt, auf den die Klassenvariable "statue" gesetzt werden soll.
-     * @precondition Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Die in der Klasse gespeicherte Statue stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Die in der Klasse gespeicherte Statue stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -315,8 +315,8 @@ public class GameFile
      * Getter fuer den Ring. Gibt den Ring zurueck.
      *
      * @return Der Ring als Artefakt.
-     * @precondition Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable ring als Artefakt zurueckgegeben.
+     * @pre Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable ring als Artefakt zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Artefakt getRing ()
@@ -328,8 +328,8 @@ public class GameFile
      * Setter fuer den Ring. Setzt den Ring auf den der Methode als Artefakt uebergebenen Wert.
      *
      * @param ring Der Ring als Artefakt, auf den die Klassenvariable "ring" gesetzt werden soll.
-     * @precondition Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Ring stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * @pre Der Ring muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Ring stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
      * uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -342,8 +342,8 @@ public class GameFile
      * Getter fuer das Schwert. Gibt das Schwert zurueck.
      *
      * @return Das Schwert als Artefakt.
-     * @precondition Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable schwert als Artefakt zurueckgegeben.
+     * @pre Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable schwert als Artefakt zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Artefakt getSchwert ()
@@ -355,8 +355,8 @@ public class GameFile
      * Setter fuer das Schwert. Setzt das Schwert auf den der Methode als Artefakt uebergebenen Wert.
      *
      * @param schwert Das Schwert als Artefakt, auf den die Klassenvariable "schwert" gesetzt werden soll.
-     * @precondition Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @postcondition Das in der Klasse gespeicherte Schwert stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
+     * @post Das in der Klasse gespeicherte Schwert stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -369,8 +369,8 @@ public class GameFile
      * Getter fuer den Leader. Gibt den Leader zurueck.
      *
      * @return Der Leader als Charakter.
-     * @precondition Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable leader als Charakter zurueckgegeben.
+     * @pre Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable leader als Charakter zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Charakter getLeader ()
@@ -382,8 +382,8 @@ public class GameFile
      * Setter fuer den Leader. Setzt den Leader auf den der Methode als Charakter uebergebenen Wert.
      *
      * @param leader Der Leader als Charakter, auf den die Klassenvariable "leader" gesetzt werden soll.
-     * @precondition Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Leader stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Leader stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -396,8 +396,8 @@ public class GameFile
      * Getter fuer den Medic. Gibt den Medic zurueck.
      *
      * @return Der Medic als Charakter.
-     * @precondition Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable medic als Charakter zurueckgegeben.
+     * @pre Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable medic als Charakter zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Charakter getMedic ()
@@ -409,8 +409,8 @@ public class GameFile
      * Setter fuer den Medic. Setzt den Medic auf den der Methode als Charakter uebergebenen Wert.
      *
      * @param medic Der Medic als Charakter, auf den die Klassenvariable "medic" gesetzt werden soll.
-     * @precondition Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Medic stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Medic stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -423,8 +423,8 @@ public class GameFile
      * Getter fuer den Hunter. Gibt den Hunter zurueck.
      *
      * @return Der Hunter als Charakter.
-     * @precondition Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable hunter als Charakter zurueckgegeben.
+     * @pre Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable hunter als Charakter zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Charakter getHunter ()
@@ -436,8 +436,8 @@ public class GameFile
      * Setter fuer den Hunter. Setzt den Hunter auf den der Methode als Charakter uebergebenen Wert.
      *
      * @param hunter Der Hunter als Charakter, auf den die Klassenvariable "hunter" gesetzt werden soll.
-     * @precondition Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Hunter stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Hunter stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -450,8 +450,8 @@ public class GameFile
      * Getter fuer den Magician. Gibt den Magician zurueck.
      *
      * @return Der Magician als Charakter.
-     * @precondition Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable magician als Charakter zurueckgegeben.
+     * @pre Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable magician als Charakter zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Charakter getMagician ()
@@ -463,8 +463,8 @@ public class GameFile
      * Setter fuer den Magician. Setzt den Magician auf den der Methode als Charakter uebergebenen Wert.
      *
      * @param magician Der Magician als Charakter, auf den die Klassenvariable "magician" gesetzt werden soll.
-     * @precondition Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Magician stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Magician stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -477,8 +477,8 @@ public class GameFile
      * Getter fuer den Scout. Gibt den Scout zurueck.
      *
      * @return Der Scout als Charakter.
-     * @precondition Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable scout als Charakter zurueckgegeben.
+     * @pre Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable scout als Charakter zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Charakter getScout ()
@@ -490,8 +490,8 @@ public class GameFile
      * Setter fuer den Scout. Setzt den Scout auf den der Methode als Charakter uebergebenen Wert.
      *
      * @param scout Der Scout als Charakter, auf den die Klassenvariable "scout" gesetzt werden soll.
-     * @precondition Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Scout stimmt mit dem Parameter ueberein, der der Methode beim
+     * @pre Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Scout stimmt mit dem Parameter ueberein, der der Methode beim
      * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -504,8 +504,8 @@ public class GameFile
      * Getter fuer den Dateipfad und Namen. Gibt den Dateipfad und Namen zurueck.
      *
      * @return Der Dateipfad und Name als String.
-     * @precondition Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable filePathAndName als String zurueckgegeben.
+     * @pre Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable filePathAndName als String zurueckgegeben.
      * @Author Felix Ahrens
      */
     public String getDateiPfadUndName ()
@@ -517,8 +517,8 @@ public class GameFile
      * Ueberprueft, ob das FraktionenCamp freigeschaltet ist.
      *
      * @return Der Status des FraktionenCamps als boolean.
-     * @precondition Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable fraktionenCampFreigeschaltet als boolean zurueckgegeben.
+     * @pre Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable fraktionenCampFreigeschaltet als boolean zurueckgegeben.
      * @Author Felix Ahrens
      */
     public boolean fraktionenCampIstFreigeschaltet ()
@@ -532,8 +532,8 @@ public class GameFile
      *
      * @param fraktionenCampFreigeschaltet Der Status des FraktionenCamps als boolean, auf den die Klassenvariable
      *                                     "fraktionenCampFreigeschaltet" gesetzt werden soll.
-     * @precondition Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
-     * @postcondition Der in der Klasse gespeicherte Status des FraktionenCamps stimmt mit dem Parameter ueberein, der
+     * @pre Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
+     * @post Der in der Klasse gespeicherte Status des FraktionenCamps stimmt mit dem Parameter ueberein, der
      * der Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -546,8 +546,8 @@ public class GameFile
      * Getter fuer das TrainingsgelaendeLevel. Gibt das TrainingsgelaendeLevel zurueck.
      *
      * @return Das TrainingsgelaendeLevel als int.
-     * @precondition Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable trainingsgelaendeLevel als int zurueckgegeben.
+     * @pre Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable trainingsgelaendeLevel als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getTrainingsgelaendeLevel ()
@@ -561,8 +561,8 @@ public class GameFile
      *
      * @param trainingsgelaendeLevel Das TrainingsgelaendeLevel als int, auf den die Klassenvariable
      *                               "trainingsgelaendeLevel" gesetzt werden soll.
-     * @precondition Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Das in der Klasse gespeicherte TrainingsgelaendeLevel stimmt mit dem Parameter ueberein, der der
+     * @pre Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
+     * @post Das in der Klasse gespeicherte TrainingsgelaendeLevel stimmt mit dem Parameter ueberein, der der
      * Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -575,8 +575,8 @@ public class GameFile
      * Getter fuer das MagieverstaerkerLevel. Gibt das MagieverstaerkerLevel zurueck.
      *
      * @return Das MagieverstaerkerLevel als int.
-     * @precondition Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Es wurde der Inhalt der Variable magieverstaerkerLevel als int zurueckgegeben.
+     * @pre Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable magieverstaerkerLevel als int zurueckgegeben.
      * @Author Felix Ahrens
      */
     public int getMagieverstaerkerLevel ()
@@ -590,8 +590,8 @@ public class GameFile
      *
      * @param magieverstaerkerLevel Das MagieverstaerkerLevel als int, auf den die Klassenvariable
      *                              "magieverstaerkerLevel" gesetzt werden soll.
-     * @precondition Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
-     * @postcondition Das in der Klasse gespeicherte MagieverstaerkerLevel stimmt mit dem Parameter ueberein, der der
+     * @pre Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
+     * @post Das in der Klasse gespeicherte MagieverstaerkerLevel stimmt mit dem Parameter ueberein, der der
      * Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
@@ -632,9 +632,9 @@ public class GameFile
      * @param fraktionenCampFreigeschaltet Der boolesche Wert, ob das Fraktionencamp im Spiel freigeschaltet wurde
      * @param trainingsgelaendeLevel       Das Level, in dem sich das verbesserbare Trainingsgelaende befindet
      * @param magieverstaerkerLevel        Das Level, in dem sich der verbesserbare Magieverstaerker befindet
-     * @precondition Die Datentypen der uebergebenen Parameter muessen in der Reihenfolge mit denen der Instanzvariablen
+     * @pre Die Datentypen der uebergebenen Parameter muessen in der Reihenfolge mit denen der Instanzvariablen
      * uebereinstimmen. Die Variablen muessen in der Klasse existieren.
-     * @postcondition Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten
+     * @post Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten
      * erstellt und zurueckgegeben.
      * @Author Felix Ahrens
      */
@@ -666,7 +666,7 @@ public class GameFile
      * werden die Standartwerte aus der jeweiligen Klasse verwendet, etwa bei Charakteren oder Artefakten.
      *
      * @return Eine neue, mit den Default-Werten erstellte Instanz der Klasse GameFile
-     * @precondition Der Konstruktor der GameFile muss existieren und die uebergebenen Werte in der gleichen Reihenfolge
+     * @pre Der Konstruktor der GameFile muss existieren und die uebergebenen Werte in der gleichen Reihenfolge
      * "akzeptieren" und verwenden koennen. Die der Methode uebergebenen Werte muessen Strings fuer den Spielnamen und
      * die Schwierigkeit sein
      * @Author Felix Ahrens
@@ -934,7 +934,7 @@ public class GameFile
      * @param dateiStack Der zu untersuchende Stack dessen juengste File gefragt ist.
      * @return die File, die auf dem dateiStack zuletzt bearbeitet wurde; oder null, wenn der Stack leer ist.
      * @precondititon Auf dem "dateiStack" muessen Files liegen.
-     * @postcondition Es wurde die File zurueckgegeben, die von allen im Stack zuletzt bearbeitet wurde.
+     * @post Es wurde die File zurueckgegeben, die von allen im Stack zuletzt bearbeitet wurde.
      * @author Felix Ahrens
      */
     public static File gebeJuengsteFileZurueck (Stack<File> dateiStack)
@@ -949,7 +949,7 @@ public class GameFile
      * Methode, die den Spielstand, also die Singleton-Instanz der GameFile, sofern gesetzt, als CSV-Datei schreiben
      * laesst.
      *
-     * @precondition Die Instanz muss gesetzt sein, damit der Spielstand erfolgreich gespeichert werden kann.#
+     * @pre Die Instanz muss gesetzt sein, damit der Spielstand erfolgreich gespeichert werden kann.#
      * @postcondtition Die dem "dateiPfadUndName" entsprechende csv-Datei entspricht den Werten der Singletoninstanz.
      * @Author Felix Ahrens
      */
@@ -968,8 +968,8 @@ public class GameFile
      * einfach lesbaren Version zurueckgibt. Nutzen ist hauptsaechlich die Konsolenausgabe zu Debug-Zwecken.
      *
      * @return Als String eine menschlich einfach lesbare Version der Parameter der GameFile-Instanz
-     * @precondition Die gefragten Parameter muessen Parameter der GameFile sein und in der Klasse existieren.
-     * @postcondition Es wird ein String zurueckgegeben, der von Menschen einfach lesbar ist, mit Beschriftungen und
+     * @pre Die gefragten Parameter muessen Parameter der GameFile sein und in der Klasse existieren.
+     * @post Es wird ein String zurueckgegeben, der von Menschen einfach lesbar ist, mit Beschriftungen und
      * Zeilenumbruechen.
      * @author Felix Ahrens
      */

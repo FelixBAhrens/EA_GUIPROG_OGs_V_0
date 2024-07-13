@@ -94,7 +94,7 @@
                     text="Trainingsgelände" visible="false"/>
         </children>
     </Pane>
-    <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#closeGebaeude" prefHeight="720"
+    <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#schliesseGebaeude" prefHeight="720"
                prefWidth="1280" styleClass="grauerSemiTransparenterStyle" visible="false"/>
     <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0"
                styleClass="beigerHintergrundStyle" visible="false"/>

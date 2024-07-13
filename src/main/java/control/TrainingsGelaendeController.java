@@ -217,8 +217,8 @@ public class TrainingsGelaendeController extends PaneController {
     /**
      * Methode, die eine Eigenschaft generell verbessert, abhaengig vom Buttontext, der sie aufruft.
      *
-     * @precondition die texte auf den Buttons muessen mit den String-Namen im Interface Strings uebereinstimmen.
-     * @postcondition Die zugehoerige Eigenschaft des jeweiligen Buttons wurde verbessert
+     * @pre die texte auf den Buttons muessen mit den String-Namen im Interface Strings uebereinstimmen.
+     * @post Die zugehoerige Eigenschaft des jeweiligen Buttons wurde verbessert
      * @author Felix Ahrens
      */
 
