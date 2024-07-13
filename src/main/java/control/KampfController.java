@@ -280,7 +280,6 @@ public class KampfController extends ControllerController implements Initializab
     private void gegnerZug ()
     {
         updateTimeLine();
-        halteAn(Konstanten.INT_ONE_THOUSAND);
         bewegeGegnerDynamisch();
         attackiere(gegner, spieler);
         naechsterZug();
@@ -549,9 +548,9 @@ public class KampfController extends ControllerController implements Initializab
     /**
      * Methode, die ueberprueft, ob einer der im Kampf Beteiligten einen Gesundheitswert kleiner eins hat. Ist dies der
      * Fall, wird
-     *
-     * @param
-     * @author Felix Ahrens
+     * @pre Die genutzten Methoden und Variablen muessen erreichbar sein. Die Strings und Konstanten muessen im jeweiligen Interface vorhanden sein.
+     * @post Der Kampf wurde, falls einer der Kaempfer keine Gesundheit mehr hat, beendet. Der Dateiname der entsprechenden Nachkampfszene wurde in die Variable "nachKampfSzenenName" gesetzt.
+     * @Author Felix Ahrens
      */
     public void checkeLebtNoch ()
     {
@@ -569,7 +568,8 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, mit der der Gegner den kuerzesten Weg zum Spieler nimmt.
-     *
+     * @pre Die Methoden, insbesondere in der Klasse Kaempfer, muessen existieren und erreichbar sein.
+     * @post Der Gegner wurde auf dem kuerzesten Weg in Richtung Kaempfer bewegt.
      * @author Felix Ahrens
      */
     public void bewegeGegnerDynamisch ()
@@ -600,30 +600,19 @@ public class KampfController extends ControllerController implements Initializab
                 gegner.setyPosition(gegnerY - Konstanten.INT_ONE);
             }
         }
+        updateCharacterPosition();
     }
 
+    /**
+     * Methode, die die AnchorPanes, die diverse Informationen zum Kampf und zu Werten enthalten, aktualisieren lassen.
+     * @pre Die GUI-Elemente muessen in der FXML-Datei und der Klasse existieren. Alle anderen Methoden, Variablen und Instanzen muessen auch existieren und erreichbar sein.
+     * @post Die AnchorPanes von Spieler und Gegner wurden auf den neuesten Stand gebracht.
+     * @Author Felix Ahrens
+     */
     public void updateKampfAnchorPanes ()
     {
         kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
         gegnerGesundheitsBar.setProgress((double) gegner.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
         System.out.println(gegner.getGesundheit());
-    }
-
-    /**
-     * Methode zum warten.
-     *
-     * @param ms
-     * @author Felix Ahrens
-     */
-    public void halteAn (long ms)
-    {
-        try
-        {
-            Thread.sleep(ms);
-        } catch (InterruptedException e)
-        {
-            // Unterbrechung behandeln
-            e.printStackTrace();
-        }
     }
 }
