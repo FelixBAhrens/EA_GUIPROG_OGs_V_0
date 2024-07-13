@@ -74,7 +74,13 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public ProgressBar kaempferGesundheitsBar;
     @FXML
-    public Button zugBeenden;
+    public Button zugBeendenButton;
+    @FXML
+    public Button MagieButton;
+    @FXML
+    public Button AttackierenButton;
+    @FXML
+    public Button EinheitenButton;
 
     @FXML
     public AnchorPane gegnerPane;
@@ -217,11 +223,39 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     private void eigenZug ()
     {
-        zugBeenden.setDisable(false);
-        zugBeenden.setOnAction(event -> {
-            zugBeenden.setDisable(true);
+        aktiviereButtonsWennMoeglich();
+        zugBeendenButton.setOnAction(event -> {
+            deaktiviereButtons();
             naechsterZug();
         });
+    }
+
+    /**
+     * Methode, die Methoden zum Bestimmen der Ausfuehrbarkeit von Kampfhandlungen aufruft, um, falls ja, die zugehoerigen Buttons zu aktivieren.
+     * @pre Die Methoden und Buttons muessen Existieren und erreichbar sein. Die jeweils aktivierten Buttons duerfen nur die
+     *  Handlung ausfuehren, die von der jeweiligen Methode, die hier aufgerufen wurde, als machbar bestaetigt wurde.
+     * @post Die Buttons, deren zugehoerige Handlung von den Methoden als ausfuehrbar eingestuft wurde, wurden aktiviert.
+     * @Author Felix Ahrens
+     */
+    public void aktiviereButtonsWennMoeglich (){
+        if (magieWirkenMoeglich(spieler)){
+            MagieButton.setDisable(false);
+        }
+        if (attackierenMoeglich(spieler, gegner)) {
+            AttackierenButton.setDisable(false);
+        }
+        if (einheitenEinsetzenMoeglich()){
+            EinheitenButton.setDisable(false);
+        }
+        zugBeendenButton.setDisable(false);
+    }
+
+    public void deaktiviereButtons ()
+    {
+        zugBeendenButton.setDisable(true);
+        MagieButton.setDisable(true);
+        EinheitenButton.setDisable(true);
+        AttackierenButton.setDisable(true);
     }
 
     /**
@@ -363,6 +397,19 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
+     * Methode, die von der spielenden Person aufgerufen wurde und die Methode "attackiere" mit den spielerseitigen
+     *  Parametern aufruft.
+     * @pre Die Methode "attackiere" muss existieren und die Kaempfer "spieler" und "gegner" muessen in der Klasse gespeichert sein.
+     *  Der Kaempfer muss die vom Spieler steuerbare Instanz der Klasse Kaempfer sein.
+     * @post Die Methode "attackiere" wurde mit dem Spieler (Leader) als Angreifer aufgerufen
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleAttackieren(){
+        attackiere(spieler, gegner);
+    }
+
+    /**
      * Methode zum Aktualisieren der Position des Charakters
      *
      * @author David Kien
@@ -375,6 +422,12 @@ public class KampfController extends ControllerController implements Initializab
         GridPane.setRowIndex(gegnerRec, gegner.getyPosition());
     }
 
+    /**
+     * Methode, die die Timeline mit Panes, entsprechend dem Inhalt der Queue "timeLine" fuellt.
+     * @pre Die verwendeten Methoden muessen existieren und erreichbar sein.
+     * @post Die HBox "timeLineHBox" wurde entsprechend des Inhalts der Queue aktualisiert
+     * @Author Felix Ahrens
+     */
     public void updateTimeLine ()
     {
         timeLineHBox.getChildren().clear();
@@ -384,18 +437,84 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
-     * Methode zum Wirken von Magie
-     *
-     * @param kaempfer
+     * Methode zum Wirken von Magie. Dabei wird geprueft, ob das Wirken von Magie ueberhaupt moeglich ist.
+     *  Falls ja, werden die Manapunkte des Angreifers auf 0 gesetzt und der Schaden berechnet. Der berechnete Schaden wird
+     *  danach auf den gegner angewendet. Zuletzt werden Methoden zum ueberpruefen des Lebens der Beteiligten und zum
+     *  Aktualisieren der AnchorPanes aufgerufen.
+     * @pre Die genutzten Parameter und Methoden muessen von der Methode aus erreichbar sein und ihre Arbeit erfuellen.
+     * @post Magie wurde gewirkt.
+     * @Author Felix Ahrens
      */
-    private void wirkeMagie (Kaempfer kaempfer)
+    @FXML
+    public void wirkeMagie ()
     {
-
+        if (magieWirkenMoeglich(spieler)){
+            spieler.setManapunkte(Konstanten.INT_ZERO);
+            int schaden = spieler.getFernkampfWert()*Konstanten.INT_THREE
+                    - gegner.getMagieResistenz()
+                    - gegner.getSchild();
+            gegner.setGesundheit(gegner.getGesundheit() - schaden);
+            checkeLebtNoch();
+            updateKampfAnchorPanes();
+        }
     }
 
+    /**
+     * Boolesche Methode, die bestimmt, ob das Wirken von Magie moeglich ist. Das wird anhand der Zahl der Manapunkte festgemacht.
+     * @pre Der Manapunktewert der Instanz der Klasse Kaempfer darf nicht null sein.
+     * @post Es wurde festgestellt, ob das Wirken von Magie erlaubt ist.
+     * @param kaempfer Der Angreifer, anhand dessen Manapunktezahl festgemacht wird, ob das Wirken moeglich ist
+     * @return True, wenn der kaempfer mehr als 5 Manapunkte hat, false, wenn nicht.
+     * @Author Felix Ahrens
+     */
+    public boolean magieWirkenMoeglich (Kaempfer kaempfer)
+    {
+        return (kaempfer.getManapunkte() > Konstanten.INT_FIVE);
+    }
+
+    /**
+     * Methode, die bestimmt, ob Attackieren moeglich ist. Wichtig dafuer ist die Entfernung und die Anzahl der verbleibenden Fernkaempfe.
+     * @pre Die Methoden muessen existieren und erreichbar sein. "berechneEntfernung" muss eine Double-Zahl zurueckliefern.
+     * @post Es wurde bestimmt, ob das Attackieren vom angreifer aus moeglich ist.
+     * @param angreifer Der Angreifer, dessen Faehigkeit, den Verteidiger zu attackieren, bestimmt werden soll
+     * @param verteidiger Der Verteidiger.
+     * @return True, wenn die Entfernung zwischen angreifer und verteidiger geringer als drei ist oder geringer als sechs
+     *  ist und die Zahl verbleibender Fernkaempfe des Angreifers groesser als null(Zahlenwert) ist.
+     * @Author Felix Ahrens
+     */
+    public boolean attackierenMoeglich (Kaempfer angreifer, Kaempfer verteidiger)
+    {
+        double entfernung = berechneEntfernung(angreifer, verteidiger);
+        return (entfernung <= Konstanten.INT_THREE || (entfernung <= Konstanten.INT_SIX && angreifer.getFernkaempfeVerbleibenZahl() > Konstanten.INT_ZERO));
+    }
+
+    /**
+     * Methode, die ueberpruefen soll, ob Einheiten eingesetzt werden koennen
+     * @pre
+     * @post
+     * @return False, da Einheiten noch nicht im Spiel implementiert sind.
+     * @Author Felix Ahrens
+     */
+    public boolean einheitenEinsetzenMoeglich(){
+        return false;
+    }
+
+    /**
+     * Methode zum Attackieren. Ist das Attackieren moeglich, wird die Methode "verwalteSchaden" aufgerufen, die
+     *  den Schaden berechnet und austeilt.
+     * @pre Die genutzten Methoden muessen erreichbar sein.
+     * @post Die Attacke wurde durchgefuehrt, wenn es moeglich war
+     * @param angreifer Der Angreifer, der den Verteidiger attackiert
+     * @param verteidiger Der Verteidiger.
+     * @Author Felix Ahrens
+     */
     public void attackiere (Kaempfer angreifer, Kaempfer verteidiger)
     {
-        verwalteSchaden(angreifer, verteidiger);
+        if (attackierenMoeglich(angreifer, verteidiger))
+        {
+            verwalteSchaden(angreifer, verteidiger);
+        }
+
     }
 
     public void wendeArtefaktAn (Kaempfer angreifer, Kaempfer verteidiger)
@@ -405,9 +524,7 @@ public class KampfController extends ControllerController implements Initializab
 
     public void verwalteSchaden (Kaempfer angreifer, Kaempfer verteidiger)
     {
-        int xentf = Math.abs(angreifer.getxPosition() - verteidiger.getxPosition());
-        int yentf = Math.abs(angreifer.getyPosition() - verteidiger.getyPosition());
-        double entfernung = Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO)) + (Math.pow(yentf, Konstanten.INT_TWO)));
+        double entfernung = berechneEntfernung(angreifer, verteidiger);
         int schaden = Konstanten.INT_ZERO;
         if (entfernung <= Konstanten.INT_THREE)
         {
@@ -416,10 +533,16 @@ public class KampfController extends ControllerController implements Initializab
         {
             schaden = angreifer.getFernkampfWert();
         }
-
         verteidiger.setGesundheit(verteidiger.getGesundheit() - schaden);
         updateKampfAnchorPanes();
         checkeLebtNoch();
+    }
+
+    public double berechneEntfernung (Kaempfer kaempferEins, Kaempfer kaempferZwei)
+    {
+        int xentf = Math.abs(kaempferEins.getxPosition() - kaempferZwei.getxPosition());
+        int yentf = Math.abs(kaempferEins.getyPosition() - kaempferZwei.getyPosition());
+        return Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO)) + (Math.pow(yentf, Konstanten.INT_TWO)));
 
     }
 
@@ -438,7 +561,7 @@ public class KampfController extends ControllerController implements Initializab
             beendeKampf(gegner);
         } else if (gegner.getGesundheit() < Konstanten.INT_ONE)
         {
-            nachKampfSzenenName = Strings.FXML_HAUPTQUARTIER;
+            nachKampfSzenenName = Strings.FXML_STADT;
             beendeKampf(spieler);
         }
 

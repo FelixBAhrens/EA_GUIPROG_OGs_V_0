@@ -30,10 +30,10 @@
                 <RowConstraints />
             </rowConstraints>
         </GridPane>
-        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="94.0" prefHeight="532.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
+        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="55.0" prefHeight="571.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
             <children>
                 <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
-                <HBox layoutY="45.0" prefHeight="397.0" prefWidth="269.0">
+                <HBox layoutY="45.0" prefHeight="313.0" prefWidth="269.0">
                     <children>
                         <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
                             <children>
@@ -65,7 +65,16 @@
                         </VBox>
                     </children>
                 </HBox>
-            <Button fx:id="zugBeenden" layoutX="79.0" layoutY="458.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" text="Zug Beenden" styleClass="hellblauerStyle" />
+            <Button fx:id="zugBeendenButton" layoutX="143.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Zug Beenden" />
+            <Button fx:id="AttackierenButton" onAction="#handleAttackieren" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Attackieren" />
+            <Button fx:id="MagieButton" onAction="#wirkeMagie" layoutX="143.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Magie wirken" />
+            <Button fx:id="EinheitenButton" layoutX="14.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Einheiten einsetzen" />
+            <HBox layoutX="9.0" layoutY="379.0" prefHeight="44.0" prefWidth="239.0">
+               <children>
+                  <Text fx:id="kaempferGesundheitsText91" text="Einheiten" wrappingWidth="105.33330917358398" />
+                  <ProgressBar fx:id="kaempferGesundheitBar91" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+               </children>
+            </HBox>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="gegnerPane" layoutX="957.0" layoutY="92.0" prefHeight="532.0" prefWidth="309.0" style="-fx-background-color: rgba(64, 234, 240, 0.7)">
