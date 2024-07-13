@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import res.Konstanten;
 import res.Strings;
 import utility.MyIO;
@@ -123,5 +125,25 @@ public class Artefakt extends GameFile
                 + Strings.IMBESITZ + Strings.DOPPELPUNKT + Strings.SPACE + imBesitz + Strings.NEWLINE
                 + Strings.ANZAHL_ANWENDUNGEN + Strings.DOPPELPUNKT + Strings.SPACE + anwendungenUebrig + Strings.NEWLINE
                 + Strings.STAERKE + Strings.DOPPELPUNKT + Strings.SPACE + staerke + Strings.NEWLINE;
+    }
+
+    /**
+     * ToPane-Methode, die das Artefakt fuer die spielende Person in eine betrachtbare Form bringen soll
+     * @return
+     */
+    public Pane toPane (){
+        Pane pane = new Pane();
+        pane.setPrefSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
+        pane.setMinSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
+        pane.setMaxSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
+        pane.getChildren().add(new Text(this.name));
+        pane.setVisible(true);
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
+            case Strings.SCHWERT -> Strings.GRAY;
+            case Strings.STATUE -> Strings.DARKGRAY;
+            case Strings.RING -> Strings.LIGHTGRAY;
+            default -> Strings.GRAY;
+        });
+        return pane;
     }
 }

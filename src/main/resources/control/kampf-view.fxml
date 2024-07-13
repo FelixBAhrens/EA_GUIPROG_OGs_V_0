@@ -33,9 +33,9 @@
         <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="55.0" prefHeight="571.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
             <children>
                 <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
-                <HBox layoutY="45.0" prefHeight="313.0" prefWidth="269.0">
+                <HBox layoutX="12.0" layoutY="45.0" prefHeight="313.0" prefWidth="257.0">
                     <children>
-                        <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
+                        <VBox prefHeight="313.0" prefWidth="80.0" spacing="14">
                             <children>
                                 <Text fx:id="kaempferGesundheitsText" text="Gesundheit" wrappingWidth="105.33330917358398" />
                                 <Text fx:id="kaempferGesundheitsText1" text="Gesundheit" wrappingWidth="105.33330917358398" />
@@ -66,13 +66,18 @@
                     </children>
                 </HBox>
             <Button fx:id="zugBeendenButton" layoutX="143.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Zug Beenden" />
-            <Button fx:id="AttackierenButton" onAction="#handleAttackieren" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Attackieren" />
-            <Button fx:id="MagieButton" onAction="#wirkeMagie" layoutX="143.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Magie wirken" />
+            <Button fx:id="AttackierenButton" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAttackieren" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Attackieren" />
+            <Button fx:id="MagieButton" layoutX="143.0" layoutY="439.0" mnemonicParsing="false" onAction="#wirkeMagie" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Magie wirken" />
             <Button fx:id="EinheitenButton" layoutX="14.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Einheiten einsetzen" />
-            <HBox layoutX="9.0" layoutY="379.0" prefHeight="44.0" prefWidth="239.0">
+            <HBox layoutX="11.0" layoutY="358.0" prefHeight="27.0" prefWidth="251.0">
                <children>
-                  <Text fx:id="kaempferGesundheitsText91" text="Einheiten" wrappingWidth="105.33330917358398" />
-                  <ProgressBar fx:id="kaempferGesundheitBar91" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                  <Text fx:id="EinheitenText" text="Einheiten" wrappingWidth="105" />
+                  <ProgressBar fx:id="EinheitenProgressBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+               </children>
+            </HBox>
+            <HBox fx:id="artefakteDisplay" layoutX="11.0" layoutY="393.0" prefHeight="27.0" prefWidth="243.0">
+               <children>
+                  <Text fx:id="ArtefakteText" text="Artefakte" wrappingWidth="105" />
                </children>
             </HBox>
             </children>

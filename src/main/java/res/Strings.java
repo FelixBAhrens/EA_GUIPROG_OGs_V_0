@@ -225,4 +225,6 @@ public interface Strings
     String BLUE = "blue";
     String RED = "red";
     String GRAY = "gray";
+    String DARKGRAY = "darkgray";
+    String LIGHTGRAY = "lightgray";
 }
