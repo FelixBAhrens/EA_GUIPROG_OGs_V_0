@@ -48,7 +48,7 @@ public class HauptquartierController extends PaneController
     @FXML
     public AnchorPane missionDetailPane;
 
-
+    // @Author David Kien
     @FXML
     public void initialize ()
     {
@@ -144,6 +144,7 @@ public class HauptquartierController extends PaneController
     }
 
 
+    // @Author David Kien
     @FXML
     public void openKarte ()
     {

@@ -103,7 +103,7 @@ public class KartenController extends ControllerController implements Initializa
     //--------------------------------------------------------------------------
 
 
-
+    //@Author David Kien
     private final AnimationTimer timer = new AnimationTimer()
     {
         @Override
@@ -214,6 +214,7 @@ public class KartenController extends ControllerController implements Initializa
         starteMissionsUtil();
     }
 
+    //@Author David Kien
     private void startCountdown ()
     {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(Konstanten.INT_ONE), event ->
@@ -229,6 +230,7 @@ public class KartenController extends ControllerController implements Initializa
         timeline.play();
     }
 
+    //@Author David Kien
     private String formatTime (int seconds)
     {
         int minutes = seconds / Konstanten.INT_SIXTY;
@@ -236,12 +238,14 @@ public class KartenController extends ControllerController implements Initializa
         return String.format(Strings.FORMAT_TIME, minutes, secs);
     }
 
+    //@Author David Kien
     private void setupMovement ()
     {
         scene.setOnKeyPressed(e -> setMovementKeys(e.getCode(), true));
         scene.setOnKeyReleased(e -> setMovementKeys(e.getCode(), false));
     }
 
+    //@Author David Kien
     private void setMovementKeys (KeyCode code, boolean pressed)
     {
         switch (code)
@@ -254,6 +258,7 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
+    //@Author David Kien
     private void checkForMissionStarterCollision ()
     {
         boolean intersects1 = shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent());
@@ -276,6 +281,7 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
+    //@Author David Kien
     private void addBarriers ()
     {
         for (Node node : map.getChildren())
@@ -287,6 +293,7 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
+    //@Author David Kien
     private void loadFXMLIntoPane (Pane pane, String fxmlFile)
     {
         try
@@ -300,6 +307,7 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
+    //@Author David Kien
     private double handleMovement (double x, double y, double move, double movementVariable)
     {
         if (!checkCollisionWithBarriers(x, y, shape1))
@@ -309,12 +317,14 @@ public class KartenController extends ControllerController implements Initializa
         return move;
     }
 
+    //@Author David Kien
     private void updateShapePosition (double moveX, double moveY)
     {
         shape1.setLayoutX(shape1.getLayoutX() + moveX);
         shape1.setLayoutY(shape1.getLayoutY() + moveY);
     }
 
+    //@Author David Kien, Felix Ahrens
     private void checkForResourceCollection ()
     {
         if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
@@ -357,6 +367,7 @@ public class KartenController extends ControllerController implements Initializa
 
     }
 
+    //@Author David Kien
     private boolean checkResourceCollection (boolean intersects, Rectangle resource, String resourceName, Runnable incrementCount, Runnable incrementResource)
     {
         if (intersects && ePressed.get())
@@ -369,6 +380,7 @@ public class KartenController extends ControllerController implements Initializa
         return false;
     }
 
+    //@Author David Kien
     private void incrementResource (String resourceName, Runnable incrementCount, Runnable incrementResource)
     {
         try
@@ -382,12 +394,14 @@ public class KartenController extends ControllerController implements Initializa
             {
                 gesammelteObjekte.setText(String.format(Strings.RESOURCES_PERCENTS_DS, woodCount, healthCount, goldCount));
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             throw new RuntimeException(e);
         }
     }
 
+    //@Author David Kien
     private void checkForCollections ()
     {
         placeRandomlyWithinMap(wood);
@@ -395,6 +409,7 @@ public class KartenController extends ControllerController implements Initializa
         placeRandomlyWithinMap(gold);
     }
 
+    //@Author David Kien
     private void placeRandomlyWithinMap (Rectangle object)
     {
         Random random = new Random();
@@ -419,11 +434,13 @@ public class KartenController extends ControllerController implements Initializa
         object.setLayoutY(randomY);
     }
 
+    //@Author David Kien
     private boolean checkCollisionWithBarriers (double x, double y, Rectangle movingRectangle)
     {
         return barriers.stream().anyMatch(barrier -> barrier.getBoundsInParent().intersects(x, y, movingRectangle.getWidth(), movingRectangle.getHeight()));
     }
 
+    //@Author David Kien
     @FXML
     public void handlezurueck ()
     {

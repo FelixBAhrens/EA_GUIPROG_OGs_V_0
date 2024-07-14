@@ -19,19 +19,20 @@ public class ControllerController
 {
     private ScheduledExecutorService scheduler;
 
-    // @author David Kien
+    // @Author David Kien
     public ControllerController ()
     {
         scheduler = Executors.newScheduledThreadPool(Konstanten.INT_ONE);
     }
 
-    // @author David Kien
+    // @Author David Kien
     public void startSaving ()
     {
         Runnable saveTask = this::speichereSpielstand;
         scheduler.scheduleAtFixedRate(saveTask, Konstanten.INT_ZERO, Konstanten.INT_TWENTY, TimeUnit.SECONDS);
     }
 
+    // @Author David Kien
     public void stopSaving ()
     {
         if (scheduler != null && !scheduler.isShutdown())

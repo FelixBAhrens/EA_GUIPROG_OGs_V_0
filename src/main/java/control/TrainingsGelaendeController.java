@@ -80,6 +80,7 @@ public class TrainingsGelaendeController extends PaneController {
 
     private int price = Konstanten.INT_FIVE;
 
+    //Todo: Ueber Gamefile aufrufen
     private int gesundheitPoints;
     private int schildPoints;
     private int manapunktePoints;
@@ -111,6 +112,7 @@ public class TrainingsGelaendeController extends PaneController {
     private Button bewegungsWeiteVerbessern;
 
 
+    //@Author David Kien
     @FXML
     public void initialize()
     {
@@ -199,7 +201,7 @@ public class TrainingsGelaendeController extends PaneController {
     /**
      * Methode zum verbessern des gebaeudes
      * @todo geht das nicht mit der kaufen methode?
-     *
+     * @Author David Kien
      */
     @FXML
     public void verbessereGebaeude()
@@ -219,7 +221,7 @@ public class TrainingsGelaendeController extends PaneController {
      *
      * @pre die texte auf den Buttons muessen mit den String-Namen im Interface Strings uebereinstimmen.
      * @post Die zugehoerige Eigenschaft des jeweiligen Buttons wurde verbessert
-     * @author Felix Ahrens
+     * @author David Kien, Felix Ahrens
      */
 
     @FXML
@@ -291,11 +293,13 @@ public class TrainingsGelaendeController extends PaneController {
         GameFile instanz = GameFile.getInstanz();
 
         gesammelteObjekte.setText(Strings.HOLZ_SPACE + instanz.getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + instanz.getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + instanz.getGoldRessource());
+        //Todo: Speichere Spielstand fixen
         speichereSpielstand();
 
         updateButtonStates();
     }
 
+    //@Author David Kien
     private void updateButtonStates ()
     {
         GameFile instanz = GameFile.getInstanz();
@@ -311,6 +315,7 @@ public class TrainingsGelaendeController extends PaneController {
         bewegungsWeiteVerbessern.setDisable(bewegungsWeitePoints >= Konstanten.INT_TEN || !genugGold);
     }
 
+    //@Author David Kien
     private void adjustProgress (int points, Label label, ProgressBar bar)
     {
         System.out.println(points + " " + label.getText() + " " + bar.getProgress());

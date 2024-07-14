@@ -20,12 +20,14 @@ public class TutorialController
         this.menueScene = menueScene;
     }
 
+    // @Author David Kien
     @FXML
     public void handleWeiter ()
     {
         SzenenManager.wechseleSzene(Strings.FXML_STORY);
     }
 
+    //@Author David Kien
     @FXML
     public void handleZurueck ()
     {

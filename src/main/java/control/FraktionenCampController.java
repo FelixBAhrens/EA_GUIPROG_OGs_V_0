@@ -15,18 +15,21 @@ public class FraktionenCampController extends PaneController
     @FXML
     public AnchorPane baustelle;
 
+    // @Author David Kien
     @FXML
     public void initialize ()
     {
         if (GameFile.getInstanz().fraktionenCampIstFreigeschaltet())
         {
             baustelle.setVisible(false);
-        } else
+        }
+        else
         {
             baustelle.setVisible(true);
         }
     }
 
+    // @Author David Kien
     @FXML
     public void schalteBaustelleFrei ()
     {

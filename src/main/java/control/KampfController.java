@@ -195,22 +195,32 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
-     * Initialize-Methode, deren Verwendung fuer FXML-Controllerklassen verpflichtend ist.
+     * Initialisiert den Controller nach dem Laden der FXML-Datei.
+     *
+     * Diese Methode wird aufgerufen, um den initialen Zustand der Benutzeroberfläche zu setzen.
+     * Sie macht das Dialogfenster "kampfStartDialog" sichtbar und fügt einen Listener hinzu,
+     * der auf Änderungen der Szene des "gridPane" reagiert. Wenn eine neue Szene gesetzt wird,
+     * wird ein Event-Handler registriert, der Tastendrücke in der Szene behandelt.
+     *
      * @pre Die Methoden und Variablen muessen vorhanden sein.
-     * @post Der "kampfStartDialog" ist visible,
-     * @param location
-     * @param resources
+     * @post Der "kampfStartDialog" ist visible
+     *
+     * @param location  Die URL, die zum Auflösen relativer Pfade für die Hauptcontainer der Benutzeroberfläche verwendet wird
+     * @param resources Die Ressourcen, die zur Lokalisierung der Hauptcontainer der Benutzeroberfläche verwendet werden
+     *
      * @author David Kien, Felix Ahrens
-     * @TODO @DAVID Bitte auskommentieren das hier ist dein bereich
      */
     @FXML
     public void initialize (URL location, ResourceBundle resources)
     {
+        // Macht den kampfStartDialog sichtbar
         kampfStartDialog.setVisible(true);
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
+            // Fuegt einen Listener hinzu, der auf Szenenaenderungen im gridPane reagiert
             if (newScene != null)
             {
+                // Setzt einen Event-Handler für Tastendrücke in der neuen Szene
                 newScene.setOnKeyPressed(this::handleKeyPress);
             }
         }));

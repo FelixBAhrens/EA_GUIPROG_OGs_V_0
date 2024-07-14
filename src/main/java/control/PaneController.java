@@ -103,36 +103,4 @@ public class PaneController extends ControllerController
             }
         }
     }
-
-    public void openPane (String fxmlFile, Pane targetPane, Pane backgroundPane)
-    {
-        try
-        {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Pane pane = loader.load();
-
-            PaneController controller = loader.getController();
-            if (kartenController != null)
-            {
-                controller.setKartenController(kartenController);
-            } else if (stadtController != null)
-            {
-                controller.setStadtController(stadtController);
-            }
-
-            targetPane.getChildren().setAll(pane);
-            targetPane.setVisible(true);
-            backgroundPane.setVisible(true);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public void closePane (Pane targetPane, Pane backgroundPane)
-    {
-        targetPane.setVisible(false);
-        backgroundPane.setVisible(false);
-        targetPane.getChildren().clear();
-    }
 }

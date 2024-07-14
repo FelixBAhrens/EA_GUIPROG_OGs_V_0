@@ -15,6 +15,7 @@ public class ObstaclesHandler
     private double planeWidth;
     Random random = new Random();
 
+    //@Author David Kien
     public ObstaclesHandler (AnchorPane plane, double planeHeight, double planeWidth)
     {
         this.plane = plane;
@@ -22,6 +23,7 @@ public class ObstaclesHandler
         this.planeWidth = planeWidth;
     }
 
+    //@Author David Kien
     public ArrayList<Rectangle> createObstacles ()
     {
         int width = Konstanten.INT_TWENTY_FIVE;
@@ -37,7 +39,7 @@ public class ObstaclesHandler
         return new ArrayList<>(Arrays.asList(rectangleTop, rectangleBottom));
     }
 
-
+    //@Author David Kien
     public void moveObstacles (ArrayList<Rectangle> obstacles)
     {
 
@@ -56,6 +58,7 @@ public class ObstaclesHandler
         plane.getChildren().removeAll(outOfScreen);
     }
 
+    //@Author David Kien
     private void moveRectangle (Rectangle rectangle, double amount)
     {
         rectangle.setX(rectangle.getX() + amount);

@@ -4,6 +4,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
+// @Author David Kien
 public class CollisionHandler
 {
     public boolean collisionDetection (ArrayList<Rectangle> obstacles, Rectangle bird)

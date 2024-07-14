@@ -38,6 +38,7 @@ public class MissionFlappyBirdController extends ControllerController implements
     ArrayList<Rectangle> obstacles = new ArrayList<>();
 
 
+    //@Author David Kien
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
@@ -64,6 +65,7 @@ public class MissionFlappyBirdController extends ControllerController implements
         gameLoop.start();
     }
 
+    //@Author David Kien
     @FXML
     void pressed (KeyEvent event)
     {
@@ -74,8 +76,7 @@ public class MissionFlappyBirdController extends ControllerController implements
         }
     }
 
-
-    //Called every game frame
+    //@Author David Kien
     private void update ()
     {
         gameTime++;
@@ -102,12 +103,13 @@ public class MissionFlappyBirdController extends ControllerController implements
         }
     }
 
-    //Everything called once, at the game start
+    //@Author David Kien
     private void load ()
     {
         obstacles.addAll(obstaclesHandler.createObstacles());
     }
 
+    //@Author David Kien
     private void resetGame ()
     {
         bird.setY(Konstanten.INT_ZERO);
@@ -119,7 +121,7 @@ public class MissionFlappyBirdController extends ControllerController implements
         score.setText(String.valueOf(scoreCounter));
     }
 
-
+    //@Author David Kien
     private boolean pointChecker (ArrayList<Rectangle> obstacles, Rectangle bird)
     {
         for (Rectangle obstacle : obstacles)
