@@ -16,7 +16,6 @@
             <Image url="@../assets/basiscamp.png" />
          </image>
       </ImageView>
-      <Button fx:id="zurueckButtonAlt" layoutX="37.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#handleZurueck" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Zurück" />
       <AnchorPane id="einheitenAnchPane" layoutX="505.0" layoutY="101.0" prefHeight="400.0" prefWidth="312.0" styleClass="beigerHintergrundStyle">
          <children>
             <VBox id="einheitenVbox" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
@@ -24,41 +23,41 @@
                   <HBox fx:id="HBox0" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                      <children>
                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                        <Button mnemonicParsing="false" text="-" />
-                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="-" onAction="#handleAbzug"/>
+                        <ProgressBar fx:id="BarA" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" onAction="#handleAufbau"/>
                      </children>
                   </HBox>
                   <HBox fx:id="HBox1" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                      <children>
                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                        <Button mnemonicParsing="false" text="-" />
-                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="-" onAction="#handleAbzug"/>
+                        <ProgressBar fx:id="BarB" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+" onAction="#handleAufbau"/>
                      </children>
                   </HBox>
                   <HBox fx:id="HBox2" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                      <children>
                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                        <Button mnemonicParsing="false" text="-" />
-                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="-"  onAction="#handleAbzug"/>
+                        <ProgressBar fx:id="BarC" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+"  onAction="#handleAufbau"/>
                      </children>
                   </HBox>
                   <HBox fx:id="HBox3" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                      <children>
                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                        <Button mnemonicParsing="false" text="-" />
-                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="-"  onAction="#handleAbzug"/>
+                        <ProgressBar fx:id="BarD" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+"  onAction="#handleAufbau"/>
                      </children>
                   </HBox>
                   <HBox fx:id="HBox4" prefHeight="53.0" prefWidth="312.0" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                      <children>
                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                        <Button mnemonicParsing="false" text="-" />
-                        <ProgressBar prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="-"  onAction="#handleAbzug"/>
+                        <ProgressBar fx:id="BarE" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                        <Button mnemonicParsing="false" text="+"  onAction="#handleAufbau"/>
                      </children>
                   </HBox>
                </children>

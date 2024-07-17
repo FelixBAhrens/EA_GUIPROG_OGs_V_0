@@ -2,12 +2,18 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import res.Konstanten;
 import res.Strings;
 
+/**
+ * Der BasisCampController bildet die Controllerklasse zur "basis-camp-view.fxml" und beinhaltet Methoden zur Behandlung von Nutzereingaben sowie zur Manipulation der GUI um auf Veraenderungen im Spiel zu reagieren.
+ * Dem Controller fehlen noch viele Methoden zum richtigen Arbeiten. Das GUI-Framework steht allerdings.
+ * @Author Felix Ahrens
+ */
 public class BasisCampController extends PaneController
 {
 
@@ -15,16 +21,67 @@ public class BasisCampController extends PaneController
     public VBox einheitenVbox;
     @FXML
     public Label detailLabel;
+    @FXML
+    public ProgressBar BarA;
+    @FXML
+    public ProgressBar BarB;
+    @FXML
+    public ProgressBar BarC;
+    @FXML
+    public ProgressBar BarD;
+    @FXML
+    public ProgressBar BarE;
 
+    /**
+     * Initialize-Methode der Controllerklasse einer FXMl-Datei
+     * @pre /
+     * @post /
+     * @Author Felix Ahrens
+     */
     @FXML
     public void initialize ()
     {
 
     }
 
-    public void updateEinheitenDisplay (){
-
+    /**
+     * Methode, die auf Knopfdruck den Aufbau/ die Rekrutierung von Truppen veranlasst.
+     * @pre Die verwendete Methode muss existieren.
+     * @post /
+     * @param event Das Event, dem der Methodenaufruf entstammt
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleAufbau (MouseEvent event){
+        //Hier dann der Code gemaess der Spiellogik zum rekrutieren von Einheiten
+        updateProgressBars();
     }
+
+    /**
+     * Methode, die auf Knopfdruck den Abzug/ die Reduktion von Truppen veranlasst.
+     * @pre Die verwendete Methode muss existieren.
+     * @post /
+     * @param event Das Event, dem der Methodenaufruf entstammt
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleAbzug (MouseEvent event){
+        //Hier dann der Code gemaess der Spiellogik zum reduzieren von Einheiten
+        updateProgressBars();
+    }
+
+    /**
+     * Methode zum aktualisieren vom angezeigten Fortschritt der ProgressBars
+     * @pre Die ProgressBars muessen als Parameter in der Klasse deklariert sein und ueber die ID mit ihrem Äquivalent in der FXML-Datei verbunden sein.
+     * @post Die ProgressBars wurden (wenn die Methode fertig ist) auf den aktuellen Stand gebracht
+     * @Author Felix Ahrens
+     */
+    public void updateProgressBars ()
+    {
+        //BarA.setProgress(/*Hier dann code zum Feststellen des Progress*/);
+        //BarB.set...
+    }
+
 
     /**
      * Methode zum Anzeigen von Details
