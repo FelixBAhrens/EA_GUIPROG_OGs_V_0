@@ -2,15 +2,15 @@ package control;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -63,6 +63,51 @@ public class KampfController extends ControllerController implements Initializab
     private static String nachKampfSzenenName = Strings.FXML_STADT;
 
     @FXML
+    private VBox kaempferDatenVBox;
+    @FXML
+    private Text kaempferGesundheitsText;
+    @FXML
+    private Text kaempferSchildText;
+    @FXML
+    private Text kaempferManapunkteText;
+    @FXML
+    private Text kaempferNahkampfWertText;
+    @FXML
+    private Text kaempferFernkampfWertText;
+    @FXML
+    private Text kaempferFernkaempfeVerbleibenZahlText;
+    @FXML
+    private Text kaempferZahlAusweichenText;
+    @FXML
+    private Text kaempferMagieResistenzText;
+    @FXML
+    private Text kaempferBewegungsWeiteText;
+    @FXML
+    private Text kaempferInitiativeText;
+
+    @FXML
+    private ProgressBar kaempferGesundheitsBar;
+    @FXML
+    private ProgressBar kaempferSchildBar;
+    @FXML
+    private ProgressBar kaempferManapunkteBar;
+    @FXML
+    private ProgressBar kaempferNahkampfWertBar;
+    @FXML
+    private ProgressBar kaempferFernkampfWertBar;
+    @FXML
+    private ProgressBar kaempferFernkaempfeVerbleibenZahlBar;
+    @FXML
+    private ProgressBar kaempferZahlAusweichenBar;
+    @FXML
+    private ProgressBar kaempferMagieResistenzBar;
+    @FXML
+    private ProgressBar kaempferBewegungsWeiteBar;
+    @FXML
+    private ProgressBar kaempferInitiativeBar;
+
+
+    @FXML
     public ImageView hintergrund;
     @FXML
     private GridPane gridPane;
@@ -80,13 +125,17 @@ public class KampfController extends ControllerController implements Initializab
     public HBox timeLineHBox;
     @FXML
     public HBox artefakteDisplay;
+    @FXML
+    public Pane schwert_Pane;
+    @FXML
+    public Pane statue_Pane;
+    @FXML
+    public Pane ring_Pane;
 
     @FXML
     public AnchorPane kaempferPane;
     @FXML
     public Label kaempferStats;
-    @FXML
-    public ProgressBar kaempferGesundheitsBar;
     @FXML
     public Button zugBeendenButton;
     @FXML
@@ -412,9 +461,6 @@ public class KampfController extends ControllerController implements Initializab
             case Q:
                 attackiere(spieler, gegner);
                 break;
-            case P:
-                wendeArtefaktAn(spieler, gegner);
-                break;
         }
         updateCharacterPosition();
     }
@@ -430,6 +476,7 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public void handleAttackieren(){
         attackiere(spieler, gegner);
+        AttackierenButton.setDisable(true);
     }
 
     /**
@@ -480,6 +527,27 @@ public class KampfController extends ControllerController implements Initializab
             checkeLebtNoch();
             updateKampfAnchorPanes();
         }
+    }
+
+    /**
+     * Methode die das Einsetzen eines Artefakts verwaltet. Da die Methode von allen Artefakt-Panes aufgerufen wird,
+     *  muss diese erst das passende Artefakt herausfiltern. Das geschieht ueber eine Switch-Anweisung. Damit wird die Methode
+     *  wendeArtefaktAn aufgerufen, dieser wird das jeweilige ausgewaehlte Artefakt uebergeben sowie die Kaempfer-Instanzen "spieler" und "gegner".
+     * @pre Die Methode muss von einer Pane aufgerufen werden. Deren ID muss aus einem Bezeichner, einem Unterstricht und danach dem Namen des Artefakt {Schwert, Statue, Ring} bestehen.
+     *  Die verwendeten Methoden, Klassen, Instanzen und Interfaces muessen erreichbar sein.
+     * @post Das Artefakt wurde gegen den Gegner eingesetzt.
+     * @param event Das Event, dem der Methodenaufruf entspricht
+     * @Author Felix Ahrens
+     */
+    @FXML
+    public void handleArtefaktEinsetzen (MouseEvent event) {
+        GameFile instanz = GameFile.getInstanz();
+        wendeArtefaktAn(switch (((Pane)(event.getSource())).getId().split(Strings.UNTERSTRICH)[Konstanten.INT_ONE]){
+            case Strings.SCHWERT -> instanz.getSchwert();
+            case Strings.STATUE -> instanz.getStatue();
+            case Strings.RING -> instanz.getRing();
+            default -> null;
+        }, spieler, gegner);
     }
 
     /**
@@ -541,14 +609,15 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
-     * Methode zum Anwenden eines Artefakts
+     * Methode zum Anwenden eines Artefakts. @David, @Enes muesst ihr noch machen
      * @pre
      * @post
+     * @param artefakt
      * @param angreifer
      * @param verteidiger
      * @Author Felix Ahrens
      */
-    public void wendeArtefaktAn (Kaempfer angreifer, Kaempfer verteidiger)
+    public void wendeArtefaktAn (Artefakt artefakt, Kaempfer angreifer, Kaempfer verteidiger)
     {
         System.out.println(Strings.ARTEFAKT);
     }
@@ -661,9 +730,26 @@ public class KampfController extends ControllerController implements Initializab
      */
     public void updateKampfAnchorPanes ()
     {
-        kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
-        gegnerGesundheitsBar.setProgress((double) gegner.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
-        System.out.println(gegner.getGesundheit());
+        Charakter leader = GameFile.getInstanz().getLeader();
+        for (Node node : kaempferDatenVBox.getChildren()){
+            System.out.println(((ProgressBar)((HBox)node).getChildren().get(Konstanten.INT_ONE)).getProgress());
+            ((ProgressBar)((HBox)node).getChildren().get(Konstanten.INT_ONE)).setProgress((double) (switch (((Text) ((HBox) node).getChildren().get(Konstanten.INT_ZERO)).getText())
+            {
+                case Strings.GESUNDHEIT -> leader.getGesundheit();
+                case Strings.SCHILD -> leader.getSchild();
+                case Strings.MANAPUNKTE -> leader.getManapunkte();
+                case Strings.NAHKAMPFWERT -> leader.getNahkampfWert();
+                case Strings.FERNKAMPFWERT -> leader.getFernkampfWert();
+                case Strings.FERNKAEMPFE_VERBLEIBEND -> leader.getFernkaempfeVerbleibenZahl();
+                case Strings.AUSWEICHEN_ZAHL -> leader.getZahlAusweichen();
+                case Strings.MAGIERESISTENZ -> leader.getMagieResistenz();
+                case Strings.BEWEGUNGSWEITE -> leader.getBewegungsWeite();
+                case Strings.INITIATIVE -> leader.getInitiative();
+                default -> Konstanten.INT_ZERO;
+            }) /Konstanten.INT_TEN);
+            System.out.println(((ProgressBar)((HBox)node).getChildren().get(Konstanten.INT_ONE)).getProgress());
+        }
+
         updateArtefakteDisplay();
     }
 
@@ -675,13 +761,9 @@ public class KampfController extends ControllerController implements Initializab
      * @Author Felix Ahrens
      */
     public void updateArtefakteDisplay (){
-        artefakteDisplay.getChildren().clear();
         GameFile instanz = GameFile.getInstanz();
-        Artefakt[] artefakte = {instanz.getSchwert(), instanz.getStatue(),  instanz.getRing()};
-        for (Artefakt artefakt : artefakte){
-            if (artefakt.istImBesitz()){
-                artefakteDisplay.getChildren().add(artefakt.toPane());
-            }
-        }
+        schwert_Pane.setVisible(instanz.getSchwert().istImBesitz());
+        statue_Pane.setVisible(instanz.getStatue().istImBesitz());
+        ring_Pane.setVisible(instanz.getRing().istImBesitz());
     }
 }

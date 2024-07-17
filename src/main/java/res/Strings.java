@@ -151,6 +151,7 @@ public interface Strings
     String TEXT_SAMMELN = "";
     String KARTE_STANDARD = "Standard Karte";
     String MISSION_SAMMELN = "Mission Sammeln";
+    String TEXT_FERNKAEMPFE_VERBLEIBEND = "VerbleibendeFernkaempfe";
 
 
     String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
