@@ -43,7 +43,7 @@
 }
 
 .semiTransparenterBeigerHintergrundStyle {
-    -fx-background-color: rgba(255, 238, 191, 1);
+    -fx-background-color: rgba(255, 238, 191, 0.7);
     -fx-background-radius: 8;
     -fx-border-color: black;
     -fx-border-width: 2;

@@ -12,35 +12,49 @@ import res.Strings;
 
 import java.util.Random;
 
+/**
+ * Klasse MarktController bildet die Controllerklasse fuer die "markt-view.fxml". In ihr befinden sich Variablen und Methoden, die die Interaktion und Darstellung der GUI manipulieren.
+ * @Author Felix Ahrens
+ */
 public class MarktController extends PaneController
 {
     @FXML
     public ProgressBar holzBar;
+
     @FXML
     public ProgressBar goldBar;
+
     @FXML
     public ProgressBar gesundheitsBar;
+
     @FXML
     public Label holzInventarLabel;
+
     @FXML
     public Label goldInventarLabel;
+
     @FXML
     public Label gesundheitsInventarLabel;
+
     @FXML
     public Label goldPreisLabel;
+
     @FXML
     public Label gesundheitsPreisLabel;
+
     @FXML
     public Text fehlerMeldungsText;
 
     private int goldPreis;
+
     private int gesundheitsPreis;
 
     /**
      * Initialize-Methode, die fuer die Controllerklasse einer FXML-Datei verpflichtend ist. Diese Methode ruft die
      * Methode "updateInventar" auf, um die Anzeige korrekt darzustellen.
-     *
-     * @author Felix Ahrens
+     * @pre Die aufgerufenen Methoden muessen erreichbar sein.
+     * @post Die Preise und Displays wurden aktualisiert.
+     * @Author Felix Ahrens
      */
     @FXML
     public void initialize ()
@@ -50,9 +64,16 @@ public class MarktController extends PaneController
     }
 
     /**
-     * Methode, die die Anzeige des Marktes aktualisiert
-     *
-     * @author Felix Ahrens
+     * Methode, die die Anzeige des Marktes aktualisiert. Dabei sind die GUI-Elemente in dieser Klasse deklariert,
+     *  ueber die Annotation "@FXML" sind sie mit dem GUI-Element der FXML-Datei verbunden, deren ID dem Bezeichner
+     *  des jeweiligen Elementes uebereinstimmt. In dieser Klasse wird auf diese zugegriffen und sie werden mit den Parametern
+     *  der Instanz auf neue Anzeigen gebracht. Es werden sowohl Progressbars als auch Labels geupdated, da beides
+     *  in etwa der gleichen Methodik entspricht, kann hierfuer eine Methode verwendet werden. Der Progress wird
+     *  in Teilen von Hundert, also Prozent, angegeben.
+     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein, die verwendeten Konstanten, Variablen, Methoden und Klassen muessen
+     *  erreichbar sein.
+     * @post Die Progressbars und Labels zeigen den aktuellen Stand mit den aktuellen Werten des Spielstandes an.
+     * @Author Felix Ahrens
      */
     public void updateDisplay ()
     {
@@ -67,6 +88,14 @@ public class MarktController extends PaneController
         gesundheitsPreisLabel.setText(Strings.GESUNDHEITSPREIS + String.valueOf(gesundheitsPreis));
     }
 
+    /**
+     * Methode zum Updaten der Preise. Die Methode erstellt ueber einen Zufallsgenerator zufaellige Zahlen im Rahmen:
+     *  Gold: Eins bis Neun; Gesundheit: Eins bis Vier. Die generierten Zufallszahlen werden in den Klassenvariablen
+     *  "goldPreis" und "gesundheitsPreis" gespeichert.
+     * @pre Die Klassenvariablen und die Konstanten im Interface muessen erreichbar sein.
+     * @post Die Klassenvariablen "goldPreis" und "gesundheitsPreis" wurden auf neue zufaellige Werte im jeweiligen angegebenen Rahmen gesetzt.
+     * @Author Felix Ahrens
+     */
     public void updatePreise ()
     {
         Random zufallsGenerator = new Random();
@@ -75,9 +104,14 @@ public class MarktController extends PaneController
     }
 
     /**
-     * Kaufe-Methode, mit der das Kaufen ausgefuehrt wird.
-     *
-     * @author Felix Ahrens
+     * Kaufe-Methode, mit der das Kaufen ausgefuehrt wird. Abhaengig von der ID des Buttons wird ueberprueft,
+     *  dass mehr Holz als der jeweilige Kaufpreis vorhanden ist und dann der Kauf ausgefuehrt.
+     * @pre Die Button-ID muss entweder "goldButton" oder "gesundheitButton" sein. Die benoetigten Instanzen muessen vorhanden und,
+     *  im Fall der GameFile, gesetzt sein. Die verwendeten Methoden, Konstanten und Klassen muessen alle erreichbar sein.
+     * @post Es wurde ein Kauf getaetigt und eine Visuelle Bestaetigung an die nutzende Person ausgegeben. Falls nicht genug Holz
+     *  fuer die Transaktion vorhanden ist, wird dies der spielenden Person ebenfalls deutlich gemacht, ueber die Ausgabe
+     *  eines Fehlermeldungstextes.
+     * @Author Felix Ahrens
      */
     @FXML
     public void kaufe (MouseEvent mouseEvent)
@@ -88,14 +122,17 @@ public class MarktController extends PaneController
         {
             instanz.setGoldRessource(instanz.getGoldRessource() + Konstanten.INT_ONE);
             instanz.setHolzRessource(instanz.getHolzRessource() - goldPreis);
+            fehlerMeldungsText.setVisible(false);
         } else if (buttonID.equals(Strings.GESUNDHEIT_BUTTON) && instanz.getHolzRessource() >= gesundheitsPreis)
         {
             instanz.setGesundheitRessource(instanz.getGesundheitRessource() + Konstanten.INT_ONE);
             instanz.setHolzRessource(instanz.getHolzRessource() - gesundheitsPreis);
+            fehlerMeldungsText.setVisible(false);
         } else
         {
             fehlerMeldungsText.setVisible(true);
         }
+        speichereSpielstand();
         updatePreise();
         updateDisplay();
     }
