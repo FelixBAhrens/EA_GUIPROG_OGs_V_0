@@ -152,7 +152,9 @@ public interface Strings
     String KARTE_STANDARD = "Standard Karte";
     String MISSION_SAMMELN = "Mission Sammeln";
     String TEXT_FERNKAEMPFE_VERBLEIBEND = "VerbleibendeFernkaempfe";
-
+    String FRAKTION_A = "Fraktion_A";
+    String FRAKTION_B = "Fraktion_B";
+    String FRAKTION_C = "Fraktion_C";
 
     String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
     String ID_BUTTON_ENDGEGNER = "endgegnerButton";

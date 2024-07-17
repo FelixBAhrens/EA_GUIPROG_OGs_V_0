@@ -2,42 +2,96 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.FraktionenCampController">
+
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.FraktionenCampController">
     <children>
-        <Text layoutX="201.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fraktionen-Camp">
-            <font>
-                <Font size="46.0"/>
-            </font>
-        </Text>
-        <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0">
+        <AnchorPane fx:id="fraktionenCamp" prefHeight="562.5" prefWidth="1000.0">
+            <children>
+                <ImageView fitHeight="562.5" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/basiscamp.png" />
+                    </image>
+                </ImageView>
+                <HBox layoutX="307.0" layoutY="467.0" prefHeight="69.0" prefWidth="396.0" style="-fx-spacing: 10;" styleClass="beigerHintergrundStyle">
+                    <children>
+                        <Button fx:id="fraktion_A_Button" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion A" />
+                        <Button fx:id="fraktion_B_Button" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion B" />
+                        <Button fx:id="fraktion_C_Button" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion C" />
+                    </children>
+                </HBox>
+                <AnchorPane id="einheitenAnchPane" layoutX="122.0" layoutY="101.0" prefHeight="401.0" prefWidth="695.0" styleClass="beigerHintergrundStyle">
+                    <children>
+                        <VBox id="VBoxFraktionA" layoutY="21.0" prefHeight="379.0" prefWidth="217.0" style="-fx-spacing: 20;">
+                            <children>
+                                <HBox fx:id="HBoxFraktionA" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                    <children>
+                                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <ProgressBar fx:id="BarA" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox id="VBoxFraktionB" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
+                            <children>
+                                <HBox fx:id="HBoxFraktionB" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                    <children>
+                                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <ProgressBar fx:id="BarB" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox id="VBoxFraktionC" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
+                            <children>
+                                <HBox fx:id="HBoxFraktionC" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                    <children>
+                                        <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
+                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <ProgressBar fx:id="BarC" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane id="einheitenDetail" layoutX="204.0" layoutY="115.0" prefHeight="314.0" prefWidth="200.0" styleClass="beigerHintergrundStyle">
+                    <children>
+                        <Label fx:id="detailLabel" prefHeight="206.0" prefWidth="200.0" text="Label" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="baustelle" prefHeight="562.5" prefWidth="1000.0" visible="false">
             <children>
                 <ImageView fitHeight="563.0" fitWidth="1090.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/baustelle.png"/>
+                        <Image url="@../assets/baustelle.png" />
                     </image>
                 </ImageView>
-                <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0"
-                            styleClass="beigerHintergrundStyle">
+                <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Button onAction="#schalteBaustelleFrei" layoutX="38.0" layoutY="335.0" prefHeight="44.0"
-                                prefWidth="160.0"
-                                styleClass="hellblauerStyle"
-                                mnemonicParsing="false" text="Baustelle freischalten"/>
+                        <Button layoutX="38.0" layoutY="335.0" mnemonicParsing="false" onAction="#schalteBaustelleFrei" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Baustelle freischalten" />
                         <Text layoutX="73.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baustelle">
                             <font>
-                                <Font name="System Bold" size="18.0"/>
+                                <Font name="System Bold" size="18.0" />
                             </font>
                         </Text>
-                        <TextArea layoutX="11.0" layoutY="92.0" prefHeight="100.0" prefWidth="200.0"
-                                  text="Du hast dieses Gebäude&#10;noch nicht aufgebaut!&#10;&#10;Schalte es jetzt frei für 50 Holz&#10;und 5 Gold!"/>
-                        <Label layoutX="11.0" layoutY="221.0" prefHeight="35.0" prefWidth="200.0" text="Label"/>
+                        <TextArea layoutX="11.0" layoutY="92.0" prefHeight="100.0" prefWidth="200.0" text="Du hast dieses Gebäude&#10;noch nicht aufgebaut!&#10;&#10;Schalte es jetzt frei für 50 Holz&#10;und 5 Gold!" />
+                        <Label layoutX="11.0" layoutY="221.0" prefHeight="35.0" prefWidth="200.0" text="Label" />
                     </children>
                 </AnchorPane>
             </children>
