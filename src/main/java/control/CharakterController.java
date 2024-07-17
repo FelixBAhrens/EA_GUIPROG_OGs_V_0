@@ -1,20 +1,50 @@
 package control;
 
-import javafx.fxml.FXML;
 import model.Charakter;
+import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
+import java.util.HashMap;
+
 public class CharakterController
 {
-
     private static Charakter[] charakterArray = new Charakter[Konstanten.INT_FIVE];
 
+    private static HashMap<Charakter, String> charakterStringHashMap = new HashMap<>();
+
+    /**
+     * Getter-Methode fuer das charakterArray
+     * @pre Das charakterArray muss in der Klasse deklariert sein.
+     * @post Das charakterArray wurde zurueckgegeben.
+     * @return Das charakterArray als eindimensionales Array mit Instanzen der Klasse Charakter
+     * @Author Felix Ahrens
+     */
     public static Charakter[] getCharakterArray ()
     {
         return charakterArray;
     }
 
+    /**
+     * Getter-Methode fuer die "charakterStringHashMap"
+     * @pre Die "charakterStringHashMap" muss in der Klasse deklariert sein.
+     * @post Die "charakterStringHashMap" wurde zurueckgegeben.
+     * @return Die "charakterStringHashMap".
+     * @Author Felix Ahrens
+     */
+    public static HashMap<Charakter, String> getCharakterStringHashMap ()
+    {
+        return charakterStringHashMap;
+    }
+
+    /**
+     * Methode, das "charakterArray" mit Charakteren mit den Default-Werten fuellt.
+     * @pre Der Konstruktor der Klasse Charakter muss die uebergebenen String- und Integerwerte akzeptieren.
+     *  Die genutzten Konstanten muessen verfuegbar und errechbar sein. Das "charakterArray" muss in der Klasse
+     *  deklariert sein.
+     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren aus Charakter und zugehoerigem Farb-String gefuellt.
+     * @Author Felix Ahrens
+     */
     public static Charakter[] erstelleDefaultCharakter ()
     {
         Charakter leader = new Charakter(Strings.LEADER,
@@ -95,9 +125,21 @@ public class CharakterController
         return charakterArray;
     }
 
-    @FXML
-    public void initialize ()
-    {
+    /**
+     * Methode, die die HashMap mit Schluessel-Wert-Paaren fuellt, die einen Bezug von einem Charakter zu einer Farbe darstellen.
+     *  Das ist fuer die GUI wichtig.
+     * @pre Die Methode "getInstanz()" der Klasse GameFile muss die derzeit im Spiel aktive Instanz zurueckliefern, nicht null.
+     *  Die genutzten Methoden und Konstanten muessen verfuegbar und errechbar sein. Die "charakterStringHashMap" muss in der Klasse
+     *  deklariert sein.
+     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren aus Charakter und zugehoerigem Farb-String gefuellt.
+     * @Author Felix Ahrens
+     */
+    public static void erstelleDefaultCharakterHashMap (){
+        GameFile instanz = GameFile.getInstanz();
+        charakterStringHashMap.put(instanz.getLeader(), Strings.BLUE);
+        charakterStringHashMap.put(instanz.getMedic(), Strings.CYAN);
+        charakterStringHashMap.put(instanz.getHunter(), Strings.NAVY);
+        charakterStringHashMap.put(instanz.getScout(), Strings.SKYBLUE);
+        charakterStringHashMap.put(instanz.getMagician(), Strings.DODGERBLUE);
     }
-
 }
