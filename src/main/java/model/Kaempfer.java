@@ -111,6 +111,13 @@ public class Kaempfer extends Charakter
                 Konstanten.INT_ELEVEN, Konstanten.INT_ZERO, false, false, Strings.DATEIPFAD_ENDGEGNER);
     }
 
+    /**
+     * ToPane-Methode, die aus einem Kaempfer eine Pane macht, die die Identitaet des Kaempfers visuell darstellt
+     * @pre Die verwendeten Methoden und Konstanten muessen existieren und erreichbar sein.
+     * @post Es wurde eine Pane zurueckgegeben, deren Style mit dem Namen des jeweiligen Kaempfers assoziierbar ist.
+     * @return Als Pane die "visuelle Identitaet" des Kaempfers
+     * @Author Felix Ahrens
+     */
     public Pane toPane (){
         Pane pane = new Pane();
         pane.setPrefSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);

@@ -1,9 +1,13 @@
 package model;
 
+import javafx.scene.layout.Pane;
+import res.Konstanten;
 import res.Strings;
 
 public class Charakter
 {
+
+
     /*Parameter eines Charakters. Hab da erstmal alle aus der Aufgabenstellung abgeschrieben, müssen noch auf
         Vollständigkeit überprüft werden.*/
     private String name;
@@ -175,8 +179,27 @@ public class Charakter
                 + fernkaempfeVerbleibenZahl + Strings.SEMIKOLON + zahlAusweichen + Strings.SEMIKOLON + magieResistenz
                 + Strings.SEMIKOLON + bewegungsWeite + Strings.SEMIKOLON + initiative + Strings.DOPPELPUNKT + angeheuert;
     }
+
+    /**
+     * ToPane-Methode, die aus einem Charakter eine Pane macht, die die Identitaet des Kaempfers visuell darstellt
+     * @pre Die verwendeten Methoden und Konstanten muessen existieren und erreichbar sein.
+     * @post Es wurde eine Pane zurueckgegeben, deren Style mit dem Namen des jeweiligen Kaempfers assoziierbar ist.
+     * @return Als Pane die "visuelle Identitaet" des Kaempfers
+     * @Author Felix Ahrens
+     */
+    public Pane toPane (){
+        Pane pane = new Pane();
+        pane.setPrefSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.setMinSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.setMaxSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        pane.getStyleClass().add(Strings.STYLECLASS_HELLBLAU);
+        pane.setVisible(true);
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
+            case Strings.LEADER -> Strings.BLUE;
+            case Strings.ENDGEGNER -> Strings.RED;
+            default -> Strings.GRAY;
+        });
+        return pane;
+    }
 }
 
-/**
- * VORSCHLAG Personen sind Instanzen der Klasse Charakter und uebernehmen dessen Eigenschaften.
- */

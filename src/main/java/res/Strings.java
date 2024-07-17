@@ -223,6 +223,10 @@ public interface Strings
     String STYLECLASS_HELLBLAU = "hellblauerStyle";
     String FX_BACKGROUND_COLOR = "-fx-background-color: ";
     String BLUE = "blue";
+    String CYAN = "cyan";
+    String NAVY = "navy";
+    String SKYBLUE = "skyblue";
+    String DODGERBLUE = "dodgerblue";
     String RED = "red";
     String GRAY = "gray";
     String DARKGRAY = "darkgray";
