@@ -100,6 +100,7 @@ public class GameFile
     private boolean fraktionenCampFreigeschaltet;
     private int trainingsgelaendeLevel;
     private int magieverstaerkerLevel;
+    private Charakter[] einheitenArray = new Charakter[Konstanten.INT_FIVE];
 
     /**
      * Getter fuer die Schwierigkeit. Gibt die Schwierigkeit als String zurueck.
@@ -587,7 +588,6 @@ public class GameFile
     /**
      * Setter fuer das MagieverstaerkerLevel. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen
      * Wert.
-     *
      * @param magieverstaerkerLevel Das MagieverstaerkerLevel als int, auf den die Klassenvariable
      *                              "magieverstaerkerLevel" gesetzt werden soll.
      * @pre Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
@@ -598,6 +598,33 @@ public class GameFile
     public void setMagieverstaerkerLevel (int magieverstaerkerLevel)
     {
         this.magieverstaerkerLevel = magieverstaerkerLevel;
+    }
+
+    /**
+     * Getter fuer das einheitenArray. Gibt das EinheitenArray zurueck.
+     * @return Das einheitenArray als int.
+     * @pre Das einheitenArray muss als int in der Klasse GameFile enthalten sein.
+     * @post Es wurde der Inhalt der Variable einheitenArray als Charakter-Array zurueckgegeben.
+     * @Author Felix Ahrens
+     */
+    public Charakter[] getEinheitenArray ()
+    {
+        return einheitenArray;
+    }
+
+    /**
+     * Setter fuer das einheitenArray. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen
+     * Wert.
+     * @param einheitenArray Das einheitenArray als int, auf den die einheitenArray
+     *                              "einheitenArray" gesetzt werden soll.
+     * @pre Das einheitenArray muss als CharakterArray in der Klasse GameFile enthalten sein.
+     * @post Das in der Klasse gespeicherte einheitenArray stimmt mit dem Parameter ueberein, der der
+     * Methode beim Aufruf uebergeben wurde.
+     * @Author Felix Ahrens
+     */
+    public void setEinheitenArray (Charakter[] einheitenArray)
+    {
+        this.einheitenArray = einheitenArray;
     }
 
     /**
@@ -961,6 +988,17 @@ public class GameFile
             return;
         }
         schreibeGameFile(instanz);
+    }
+
+    /**
+     * Methode, die die in der GameFile gespeicherten Charaktere als Array zurueckgibt.
+     * @pre Die GameFile muss auf einen Spielstand instanziiert sein. Die Charaktere muessen Parameter der Klasse GameFile sein.
+     * @post Es wurde ein Array, dass die fuenf Charaktere enthaelt, zurueckgegeben.
+     * @return Als eindimensionales Array die fuenf in der GameFile gespeicherten Charaktere.
+     * @Author Felix Ahrens
+     */
+    public Charakter[] gebeCharakterAlsArrayZurueck  () {
+        return new Charakter[]{leader, medic, hunter, magician, scout};
     }
 
     /**

@@ -133,7 +133,7 @@ public class HauptquartierController extends PaneController
             case ENDGEGNER ->
             {
                 KampfController.kampfTyp = KampfController.KampfTyp.ENDGEGNER_KAMPF;
-                yield Strings.FXML_KAMPF;
+                yield Strings.FXML_EINHEITEN;
             }
             case MEMORY -> Strings.FXML_MISSION_MEMORY;
             case SAMMELN -> {
@@ -142,7 +142,6 @@ public class HauptquartierController extends PaneController
             }
         });
     }
-
 
     // @Author David Kien
     @FXML

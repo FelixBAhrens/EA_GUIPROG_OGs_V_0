@@ -1,6 +1,10 @@
 package model;
 
+import control.CharakterController;
+import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import res.Konstanten;
 import res.Strings;
 
@@ -189,16 +193,15 @@ public class Charakter
      */
     public Pane toPane (){
         Pane pane = new Pane();
-        pane.setPrefSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
-        pane.setMinSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
-        pane.setMaxSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
+        VBox vbox = new VBox();
+        vbox.setSpacing(Konstanten.INT_TEN);
+        vbox.getChildren().addAll((new Text(Strings.SPACE)),(new Text(this.name)));
         pane.getStyleClass().add(Strings.STYLECLASS_HELLBLAU);
+        pane.setPadding(new Insets(Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN, Konstanten.INT_TEN));
         pane.setVisible(true);
-        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
-            case Strings.LEADER -> Strings.BLUE;
-            case Strings.ENDGEGNER -> Strings.RED;
-            default -> Strings.GRAY;
-        });
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + CharakterController.getCharakterStringHashMap().get(this));
+        pane.setPrefWidth(Konstanten.INT_TWO_HUNDRED);
+        pane.getChildren().add(vbox);
         return pane;
     }
 }

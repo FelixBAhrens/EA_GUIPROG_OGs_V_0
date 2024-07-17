@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import model.Artefakt;
+import model.Charakter;
 import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
@@ -39,6 +40,16 @@ public class KampfController extends ControllerController implements Initializab
         {
             this.beschreibung = beschreibung;
         }
+    }
+
+    private static Charakter[] einheitenArray;
+
+    /**
+     * Setter fuer das EinheitenArray
+     * @param einheitenArray
+     */
+    public void setEinheitenArray (Charakter[] einheitenArray){
+        this.einheitenArray = einheitenArray;
     }
 
     public Queue<Kaempfer> timeLine = new LinkedList<>();

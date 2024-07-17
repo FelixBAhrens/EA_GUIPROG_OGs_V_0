@@ -7,6 +7,7 @@ public interface Strings
     String FXML_ARENA = "arena-view.fxml";
     String FXML_BASISCAMP = "basis-camp-view.fxml";
     String FXML_CHARAKTERDISPLAY = "charakter-display-view.fxml";
+    String FXML_EINHEITEN = "einheiten-view.fxml";
     String FXML_EINSTELLUNGEN = "einstellungen-view.fxml";
     String FXML_FRAKTIONENCAMP = "fraktionen-camp-view.fxml";
     String FXML_HAUPTQUARTIER = "hauptquartier-view.fxml";
@@ -82,6 +83,7 @@ public interface Strings
     String SEMIKOLON = ";";
     String DOPPELPUNKT = ":";
     String SPACE = " ";
+    String UNTERSTRICH = "_";
 
     String SPIELDATEIPFAD = "src/main/resources/GameFiles/";
     String DATEIPFAD_ENDGEGNER = "src/main/resources/assets/endgegner.png";
@@ -191,6 +193,11 @@ public interface Strings
     String BC_TEXT_EINHEIT_C = "Beispieltext Einheit C";
     String BC_TEXT_EINHEIT_D = "Beispieltext Einheit D";
     String BC_TEXT_EINHEIT_E = "Beispieltext Einheit E";
+    String ID_EHLEADER = "EH_Leader";
+    String ID_EHMEDIC = "EH_Medic";
+    String ID_EHHUNTER = "EH_Hunter";
+    String ID_EHMAGICIAN = "EH_Magician";
+    String ID_EHSCOUT = "EH_Scout";
 
 
     //IDs
