@@ -20,6 +20,13 @@ public class FraktionenCampController extends PaneController
     @FXML
     public AnchorPane baustelle;
     @FXML
+    public AnchorPane AnchPaneFraktionA;
+    @FXML
+    public AnchorPane AnchPaneFraktionB;
+    @FXML
+    public AnchorPane AnchPaneFraktionC;
+
+    @FXML
     public VBox VBoxFraktionA;
     @FXML
     public VBox VBoxFraktionB;
@@ -48,13 +55,14 @@ public class FraktionenCampController extends PaneController
 
     @FXML
     public void zeigeFraktion (ActionEvent event) {
-        VBoxFraktionA.setVisible(false);
-        VBoxFraktionB.setVisible(false);
-        VBoxFraktionC.setVisible(false);
-        switch (((VBox)event.getSource()).getId()){
-            case Strings.FRAKTION_A -> VBoxFraktionA.setVisible(true);
-            case Strings.FRAKTION_B -> VBoxFraktionB.setVisible(true);
-            case Strings.FRAKTION_C -> VBoxFraktionC.setVisible(true);
+        AnchPaneFraktionA.setVisible(false);
+        AnchPaneFraktionB.setVisible(false);
+        AnchPaneFraktionC.setVisible(false);
+        System.out.println(((Button)event.getSource()).getId().split(Strings.UNTERSTRICH)[Konstanten.INT_ONE]);
+        switch (((Button)event.getSource()).getId().split(Strings.UNTERSTRICH)[Konstanten.INT_ONE]){
+            case Strings.FRAKTION_A -> AnchPaneFraktionA.setVisible(true);
+            case Strings.FRAKTION_B -> AnchPaneFraktionB.setVisible(true);
+            case Strings.FRAKTION_C -> AnchPaneFraktionC.setVisible(true);
         }
     }
 
