@@ -39,6 +39,7 @@ public class StadtController extends ControllerController
         refMap.put(Strings.TRAININGSGELAENDE, Strings.FXML_TRAININGSGELAENDE);
         refMap.put(Strings.MARKT, Strings.FXML_MARKT);
         refMap.put(Strings.HAUPTQUARTIER, Strings.FXML_HAUPTQUARTIER);
+        refMap.put(Strings.KARTE, Strings.FXML_KARTENEW);
         return refMap;
     }
 

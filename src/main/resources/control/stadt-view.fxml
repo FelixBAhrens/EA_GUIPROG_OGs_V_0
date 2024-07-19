@@ -7,96 +7,58 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StadtController">
     <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@../assets/stadt_neu.png"/>
+            <Image url="@../assets/stadt_neu.png" />
         </image>
     </ImageView>
-    <Pane fx:id="Schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Schmiede" layoutX="214.0" layoutY="348.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="schmiedenButton" layoutX="-6.0" layoutY="72.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Schmiede" visible="false"/>
+            <Button fx:id="schmiedenButton" layoutX="-6.0" layoutY="72.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Schmiede" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Schenke" layoutX="314.0" layoutY="294.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="schenkenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Schenke" visible="false"/>
+            <Button fx:id="schenkenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Schenke" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Magieverstaerker" layoutX="569.0" layoutY="234.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="100" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="magieverstaerkerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
-                    prefHeight="27.0" prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Magieverstärker" visible="false"/>
+            <Button fx:id="magieverstaerkerButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Magieverstärker" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Basiscamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="135.0"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Basiscamp" layoutX="593.0" layoutY="407.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="135.0" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="basisCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Basis-Camp" visible="false"/>
+            <Button fx:id="basisCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Basis-Camp" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Fraktionencamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="134.0" prefWidth="135.0"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Fraktionencamp" layoutX="738.0" layoutY="422.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="134.0" prefWidth="135.0" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="fraktionenCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Fraktionen-Camp" visible="false"/>
+            <Button fx:id="fraktionenCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Fraktionen-Camp" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="107.0" prefWidth="135.0"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Hauptquartier" layoutX="437.0" layoutY="315.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="107.0" prefWidth="135.0" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="hauptquartierButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Hauptquartier" visible="false"/>
+            <Button fx:id="hauptquartierButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Hauptquartier" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter"
-          onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="143.0"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Markt" layoutX="441.0" layoutY="449.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="100" prefWidth="143.0" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="marktButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Markt" visible="false"/>
+            <Button fx:id="marktButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Markt" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#handleGebaeudeOeffnen"
-          onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="119.0" prefWidth="135.0"
-          styleClass="transparenterStyle">
+    <Pane fx:id="Trainingsgelaende" layoutX="666.0" layoutY="265.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="119.0" prefWidth="135.0" styleClass="transparenterStyle">
         <children>
-            <Button fx:id="TrainingsCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0"
-                    prefWidth="112.0"
-                    styleClass="hellblauerStyleKleineSchrift"
-                    text="Trainingsgelände" visible="false"/>
+            <Button fx:id="TrainingsCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Trainingsgelände" visible="false" />
         </children>
     </Pane>
-    <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#schliesseGebaeude" prefHeight="720"
-               prefWidth="1280" styleClass="grauerSemiTransparenterStyle" visible="false"/>
-    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0"
-               styleClass="beigerHintergrundStyle" visible="false"/>
-    <fx:include source="klassisches-menue-view.fxml"/>
+    <Pane fx:id="Karte" layoutX="369.0" layoutY="82.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="147.0" prefWidth="509.0" styleClass="transparenterStyle">
+        <children>
+            <Button fx:id="KartenButton" layoutX="383.0" layoutY="106.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Karte" visible="false" />
+        </children>
+    </Pane>
+    <StackPane fx:id="hintergrundPane" layoutX="0.0" layoutY="0.0" onMouseClicked="#schliesseGebaeude" prefHeight="720" prefWidth="1280" styleClass="grauerSemiTransparenterStyle" visible="false" />
+    <StackPane fx:id="gebaeudePane" layoutX="140.0" layoutY="78.75" prefHeight="562.5" prefWidth="1000.0" styleClass="beigerHintergrundStyle" visible="false" />
+    <fx:include source="klassisches-menue-view.fxml" />
 </AnchorPane>
