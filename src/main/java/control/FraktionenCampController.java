@@ -11,8 +11,8 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Controllerklasse der "fraktionen-camp-view.fxml".
- *
+ * Controllerklasse der "fraktionen-camp-view.fxml". In ihr befinden sich die Methoden zum Steuern der GUI des Fraktionencamps,
+ *  zum Behandeln von Nutzereingaben und zum Verwalten des Fraktionencamps
  * @author Felix Ahrens, David Kien
  */
 public class FraktionenCampController extends PaneController

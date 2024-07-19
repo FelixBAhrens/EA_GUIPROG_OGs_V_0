@@ -7,6 +7,11 @@ import res.Strings;
 
 import java.util.HashMap;
 
+/**
+ * Klasse CharakterController die saemtliche Methoden zum Verwalten und Manipulieren der Instanzen der Klasse Charakter
+ *  beinhaltet.
+ * @Author Felix Ahrens, David Kien
+ */
 public class CharakterController
 {
     private static Charakter[] charakterArray = new Charakter[Konstanten.INT_FIVE];

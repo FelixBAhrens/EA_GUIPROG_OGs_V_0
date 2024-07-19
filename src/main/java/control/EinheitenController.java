@@ -12,9 +12,13 @@ import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
-
 import java.util.Stack;
 
+/**
+ * Klasse EinheitenController, die die ControllerKlasse fuer die "einheiten-view.fxml" beinhaltet. In dieser Klasse
+ *  befinden sich die Methoden, mit denen die GUI und das Verwalten von Einheiten gesteuert wird.
+ * @Author Felix Ahrens
+ */
 public class EinheitenController extends ControllerController
 {
     Stack<Charakter> charakterStack = new Stack<>();

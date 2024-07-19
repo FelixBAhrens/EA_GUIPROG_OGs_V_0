@@ -69,7 +69,7 @@ public class ControllerController
      * "Strings" muss den String "FXML_HILFE" beinhalten.
      * @post Die Methode "wechseleSzene" im SzenenManager wurde mit dem String fuer den Dateipfad fuer die
      *  "hilfe"-FXML-Datei aufgerufen.
-     * @author Felix Ahrens
+     * @Author Felix Ahrens
      */
     @FXML
     public void handleHilfe ()
@@ -132,9 +132,9 @@ public class ControllerController
      * Methode, die die Zurueck-Funktionalitaet beinhaltet.
      * @pre Die verwendeten Methoden muessen in den jeweiligen Klassen existieren. Der SzenenStack im SzenenManager
      *  darf nicht leer sein, sonst wird eine Fehlermeldung ausgegeben
-     * @postcondititon Es wurde um eine Szene zurueck gegangen. Falls das nicht moeglich war, wurde eine Fehlermeldung
+     * @post Es wurde um eine Szene zurueck gegangen. Falls das nicht moeglich war, wurde eine Fehlermeldung
      *  in die Konsole ausgegeben.
-     * @author Felix Ahrens
+     * @Author Felix Ahrens
      */
     @FXML
     public void handleZurueck ()

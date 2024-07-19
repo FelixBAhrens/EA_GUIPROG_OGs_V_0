@@ -53,7 +53,7 @@ public class BasisCampController extends PaneController
      */
     @FXML
     public void handleAufbau (MouseEvent event){
-        //Hier dann der Code gemaess der Spiellogik zum rekrutieren von Einheiten
+        //Hier dann der Code gemaess der Spiellogik zum Rekrutieren von Einheiten
         updateProgressBars();
     }
 
@@ -71,7 +71,7 @@ public class BasisCampController extends PaneController
     }
 
     /**
-     * Methode zum aktualisieren vom angezeigten Fortschritt der ProgressBars
+     * Methode zum Aktualisieren vom angezeigten Fortschritt der ProgressBars
      * @pre Die ProgressBars muessen als Parameter in der Klasse deklariert sein und ueber die ID mit ihrem Äquivalent in der FXML-Datei verbunden sein.
      * @post Die ProgressBars wurden (wenn die Methode fertig ist) auf den aktuellen Stand gebracht
      * @Author Felix Ahrens
@@ -85,7 +85,11 @@ public class BasisCampController extends PaneController
 
     /**
      * Methode zum Anzeigen von Details
+     * @pre Die verwendeten GUI-Elemente muessen existieren und in der FXML-Datei mit derselben "fx:id" aufgefuehrt sein.
+     *  Die Konstanten, Methoden und Klassen muessen erreichbar sein.
+     * @post Das "detailLabel" wurde auf den jeweils logisch zugehoerigen Wert der Aufrufquelle gesetzt.
      * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
+     * @Author Felix Ahrens
      */
     @FXML
     public void zeigeDetail (MouseEvent event){
@@ -102,19 +106,14 @@ public class BasisCampController extends PaneController
         detailLabel.setVisible(true);
     }
 
+    /**
+     * Methode zum Entfernen des Details. Es wird ein Leerzeichen als Text vom "detailLabel" gesetzt.
+     * @pre Das "detailLabel", dessen Methode und die Konstante muessen existieren.
+     * @post Der Text des "detailLabel" ist nun " ".
+     * @Author Felix Ahrens
+     */
     @FXML
     public void entferneDetail () {
         detailLabel.setText(Strings.SPACE);
     }
-
-    /**
-     * Methode, die die Hbox, die eine Einheit repraesentiert, zurueckgibt
-     * @param index
-     * @return
-     * @Author Felix Ahrens
-     */
-    public HBox findeHbox (int index) {
-        return ((HBox)einheitenVbox.getChildren().get(index));
-    }
-
 }
