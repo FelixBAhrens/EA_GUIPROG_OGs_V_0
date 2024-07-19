@@ -21,23 +21,23 @@
                         <Image url="@../assets/basiscamp.png" />
                     </image>
                 </ImageView>
-                <HBox layoutX="307.0" layoutY="467.0" prefHeight="69.0" prefWidth="396.0" style="-fx-spacing: 10;" styleClass="beigerHintergrundStyle">
+                <HBox layoutX="307.0" layoutY="467.0" prefHeight="69.0" prefWidth="510.0" style="-fx-spacing: 10;" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Button fx:id="Button_FraktionA" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion A" />
-                        <Button fx:id="Button_FraktionB" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion B" />
-                        <Button fx:id="Button_FraktionC" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="109.0" styleClass="orangerStyle" text="Fraktion C" />
+                        <Button fx:id="Button_FraktionA" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="160.0" styleClass="orangerStyle" text="Fraktion A" />
+                        <Button fx:id="Button_FraktionB" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="160.0" styleClass="orangerStyle" text="Fraktion B" />
+                        <Button fx:id="Button_FraktionC" mnemonicParsing="false" onAction="#zeigeFraktion" prefHeight="69.0" prefWidth="160.0" styleClass="orangerStyle" text="Fraktion C" />
                     </children>
                 </HBox>
                 <AnchorPane fx:id="AnchPaneFraktionA" layoutX="272.0" layoutY="47.0" prefHeight="352.0" prefWidth="583.0" styleClass="beigerHintergrundStyle" visible="false">
                     <children>
-                        <VBox id="VBoxFraktionA" layoutY="21.0" prefHeight="379.0" prefWidth="217.0" style="-fx-spacing: 20;">
+                        <VBox fx:id="VBoxFraktionA" layoutY="21.0" prefHeight="379.0" prefWidth="217.0" style="-fx-spacing: 20;">
                             <children>
-                                <HBox fx:id="HBoxFraktionA" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                <HBox fx:id="HBoxFraktionA" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                                     <children>
                                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <Button mnemonicParsing="false" onAction="#handleVerkauf" text="-" />
                                         <ProgressBar fx:id="BarA" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                        <Button mnemonicParsing="false" onAction="#handleErwerb" text="+" />
                                     </children>
                                 </HBox>
                             </children>
@@ -46,14 +46,14 @@
                 </AnchorPane>
                 <AnchorPane fx:id="AnchPaneFraktionB" layoutX="272.0" layoutY="47.0" prefHeight="352.0" prefWidth="583.0" styleClass="beigerHintergrundStyle" visible="false">
                     <children>
-                        <VBox id="VBoxFraktionB" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
+                        <VBox fx:id="VBoxFraktionB" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
                             <children>
-                                <HBox fx:id="HBoxFraktionB" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                <HBox fx:id="HBoxFraktionB" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                                     <children>
                                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <Button mnemonicParsing="false" onAction="#handleVerkauf" text="-" />
                                         <ProgressBar fx:id="BarB" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                        <Button mnemonicParsing="false" onAction="#handleErwerb" text="+" />
                                     </children>
                                 </HBox>
                             </children>
@@ -64,12 +64,12 @@
                     <children>
                         <VBox fx:id="VBoxFraktionC" layoutY="21.0" prefHeight="379.0" prefWidth="312.0" style="-fx-spacing: 20;">
                             <children>
-                                <HBox fx:id="HBoxFraktionC" onMouseEntered="#zeigeDetail" onMouseExited="#entferneDetail" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
+                                <HBox fx:id="HBoxFraktionC" prefHeight="53.0" prefWidth="312.0" style="-fx-background-color: rgba(163, 112, 61, 1); -fx-background-radius: 8;">
                                     <children>
                                         <Label prefHeight="54.0" prefWidth="95.0" text="Label" />
-                                        <Button mnemonicParsing="false" onAction="#handleAbzug" text="-" />
+                                        <Button mnemonicParsing="false" onAction="#handleVerkauf" text="-" />
                                         <ProgressBar fx:id="BarC" prefHeight="46.0" prefWidth="85.0" progress="0.0" />
-                                        <Button mnemonicParsing="false" onAction="#handleAufbau" text="+" />
+                                        <Button mnemonicParsing="false" onAction="#handleErwerb" text="+" />
                                     </children>
                                 </HBox>
                             </children>

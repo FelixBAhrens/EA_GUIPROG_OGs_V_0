@@ -201,7 +201,12 @@ public interface Strings
     String ID_EHHUNTER = "EH_Hunter";
     String ID_EHMAGICIAN = "EH_Magician";
     String ID_EHSCOUT = "EH_Scout";
-
+    String A = "A";
+    String B = "B";
+    String C = "C";
+    String TEXT_FRAKTION_A ="Beispieltext Information Fraktion A";
+    String TEXT_FRAKTION_B ="Beispieltext Information Fraktion B";
+    String TEXT_FRAKTION_C ="Beispieltext Information Fraktion C";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";
