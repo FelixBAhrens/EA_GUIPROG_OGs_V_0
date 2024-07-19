@@ -13,10 +13,10 @@ import res.Strings;
 import java.util.Random;
 
 /**
- * Klasse MarktController bildet die Controllerklasse fuer die "markt-view.fxml". In ihr befinden sich Variablen und Methoden, die die Interaktion und Darstellung der GUI manipulieren.
+ * Klasse MarktController bildet die Controllerklasse fuer die "markt-view.fxml". In ihr befinden sich Variablen und Methoden, die die Interaktion und Darstellung der GUI manipulieren und fuer Spiellogische Nutzereingaben und -entscheidungen genutzt werden.
  * @Author Felix Ahrens
  */
-public class MarktController extends PaneController
+public class MarktController extends StadtController
 {
     @FXML
     public ProgressBar holzBar;

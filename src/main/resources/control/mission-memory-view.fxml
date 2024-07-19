@@ -1,113 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionMemoryController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionMemoryController">
     <children>
         <ImageView fitHeight="725.0" fitWidth="1287.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../assets/lichtung.png"/>
+                <Image url="@../assets/lichtung.png" />
             </image>
         </ImageView>
-        <fx:include source="klassisches-menue-view.fxml"/>
-        <ImageView fx:id="stein0a" fitHeight="10.0" fitWidth="10.0" layoutX="785.0" layoutY="336.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein0b" fitHeight="10.0" fitWidth="10.0" layoutX="768.0" layoutY="242.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein1a" fitHeight="10.0" fitWidth="10.0" layoutX="488.0" layoutY="323.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein1b" fitHeight="10.0" fitWidth="10.0" layoutX="581.0" layoutY="349.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein2a" fitHeight="10.0" fitWidth="10.0" layoutX="655.0" layoutY="400.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein2b" fitHeight="10.0" fitWidth="10.0" layoutX="643.0" layoutY="547.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein3a" fitHeight="10.0" fitWidth="10.0" layoutX="696.0" layoutY="323.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein3b" fitHeight="10.0" fitWidth="10.0" layoutX="529.0" layoutY="413.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein4a" fitHeight="10.0" fitWidth="10.0" layoutX="681.0" layoutY="229.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein4b" fitHeight="10.0" fitWidth="10.0" layoutX="540.0" layoutY="279.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein5a" fitHeight="10.0" fitWidth="10.0" layoutX="696.0" layoutY="478.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein5b" fitHeight="10.0" fitWidth="10.0" layoutX="488.0" layoutY="478.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein6a" fitHeight="10.0" fitWidth="10.0" layoutX="733.0" layoutY="450.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein6b" fitHeight="10.0" fitWidth="10.0" layoutX="591.0" layoutY="438.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein7a" fitHeight="10.0" fitWidth="10.0" layoutX="514.0" layoutY="216.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
-        <ImageView fx:id="stein7b" fitHeight="10.0" fitWidth="10.0" layoutX="607.0" layoutY="310.0"
-                   onMouseClicked="#handleStein" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/stein.png"/>
-            </image>
-        </ImageView>
+        <fx:include source="klassisches-menue-view.fxml" />
+        <AnchorPane fx:id="stein0a" layoutX="785.0" layoutY="336.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein0b" layoutX="768.0" layoutY="242.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein1a" layoutX="488.0" layoutY="323.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein1b" layoutX="581.0" layoutY="349.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein2a" layoutX="655.0" layoutY="400.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein2b" layoutX="643.0" layoutY="547.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein3a" layoutX="696.0" layoutY="323.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein3b" layoutX="529.0" layoutY="413.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein4a" layoutX="681.0" layoutY="229.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein4b" layoutX="540.0" layoutY="279.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein5a" layoutX="696.0" layoutY="478.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein5b" layoutX="488.0" layoutY="478.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein6a" layoutX="733.0" layoutY="450.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein6b" layoutX="591.0" layoutY="438.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein7a" layoutX="514.0" layoutY="216.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane fx:id="stein7b" layoutX="607.0" layoutY="310.0" onMouseClicked="#handleStein">
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../assets/stein.png" />
+                </image>
+            </ImageView>
+        </AnchorPane>
+      <Label fx:id="SpielInfoLabel" layoutX="58.0" layoutY="117.0" prefHeight="467.0" prefWidth="295.0" styleClass="beigerHintergrundStyle" text="Steinpaare" />
+      <Label fx:id="steinIDLabel" layoutX="920.0" layoutY="592.0" prefHeight="54.0" prefWidth="165.0" styleClass="hellblauerStyle" text="Label" />
+      <AnchorPane fx:id="MissionBeendenLabel" layoutX="390.0" layoutY="105.0" prefHeight="493.0" prefWidth="433.0" styleClass="beigerHintergrundStyle" visible="false">
+         <children>
+            <Label prefHeight="416.0" prefWidth="433.0" text="Mission beendet" styleClass="beigerHintergrundStyle"/>
+            <Button onMouseClicked="#beendeMission" layoutX="151.0" layoutY="416.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="132.0" text="Mission beenden" styleClass="hellblauerStyle" />
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

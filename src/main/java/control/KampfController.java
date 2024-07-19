@@ -26,9 +26,19 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ResourceBundle;
 
-// ControllerController
+/**
+ * Kampfcontroller, der saemtliche Methoden zum Kaempfen beinhaltet. Dazu gehoeren GUI-Manipulationsmethoden,
+ *  Methoden zum Verwalten und ausfuehren von Kampfhandlungen, Initialisierungsmethoden und weitere.
+ * Der Kampfcontroller ist die GUI-Controllerklasse der "kampf-view.fxml".
+ * @Author David Kien, Felix Ahrens
+ */
 public class KampfController extends ControllerController implements Initializable
 {
+    /**
+     * Enum fuer den Kampftyp. Wird verwendet, um der Controllerklasse den Kampftyp mitzuteilen, bevor
+     *  die kampf-FXML-Datei aufgerufen wird.
+     * @Author Felix Ahrens
+     */
     public enum KampfTyp
     {
         ENDGEGNER_KAMPF(Strings.ENDGEGNER),
@@ -40,16 +50,6 @@ public class KampfController extends ControllerController implements Initializab
         {
             this.beschreibung = beschreibung;
         }
-    }
-
-    private static Charakter[] einheitenArray;
-
-    /**
-     * Setter fuer das EinheitenArray
-     * @param einheitenArray
-     */
-    public void setEinheitenArray (Charakter[] einheitenArray){
-        this.einheitenArray = einheitenArray;
     }
 
     public Queue<Kaempfer> timeLine = new LinkedList<>();
@@ -64,48 +64,6 @@ public class KampfController extends ControllerController implements Initializab
 
     @FXML
     private VBox kaempferDatenVBox;
-    @FXML
-    private Text kaempferGesundheitsText;
-    @FXML
-    private Text kaempferSchildText;
-    @FXML
-    private Text kaempferManapunkteText;
-    @FXML
-    private Text kaempferNahkampfWertText;
-    @FXML
-    private Text kaempferFernkampfWertText;
-    @FXML
-    private Text kaempferFernkaempfeVerbleibenZahlText;
-    @FXML
-    private Text kaempferZahlAusweichenText;
-    @FXML
-    private Text kaempferMagieResistenzText;
-    @FXML
-    private Text kaempferBewegungsWeiteText;
-    @FXML
-    private Text kaempferInitiativeText;
-
-    @FXML
-    private ProgressBar kaempferGesundheitsBar;
-    @FXML
-    private ProgressBar kaempferSchildBar;
-    @FXML
-    private ProgressBar kaempferManapunkteBar;
-    @FXML
-    private ProgressBar kaempferNahkampfWertBar;
-    @FXML
-    private ProgressBar kaempferFernkampfWertBar;
-    @FXML
-    private ProgressBar kaempferFernkaempfeVerbleibenZahlBar;
-    @FXML
-    private ProgressBar kaempferZahlAusweichenBar;
-    @FXML
-    private ProgressBar kaempferMagieResistenzBar;
-    @FXML
-    private ProgressBar kaempferBewegungsWeiteBar;
-    @FXML
-    private ProgressBar kaempferInitiativeBar;
-
 
     @FXML
     public ImageView hintergrund;
@@ -135,8 +93,6 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public AnchorPane kaempferPane;
     @FXML
-    public Label kaempferStats;
-    @FXML
     public Button zugBeendenButton;
     @FXML
     public Button MagieButton;
@@ -157,7 +113,7 @@ public class KampfController extends ControllerController implements Initializab
      * @pre Die Methoden, die Variablen und das Enum muessen vorhanden und zugreifbar sein.
      * @post Der "kampfStartDialog" wurde invisible gesetzt und, abhaengig vom Kampftyp, eine Methode zum Starten/Initialisieren
      *  eines bestimmten Kampfes aufgerufen
-     * @author David Kien, Felix Ahrens
+     * @Author David Kien, Felix Ahrens
      */
     @FXML
     public void initialisiereKampf ()
@@ -555,7 +511,7 @@ public class KampfController extends ControllerController implements Initializab
      * @pre Der Manapunktewert der Instanz der Klasse Kaempfer darf nicht null sein.
      * @post Es wurde festgestellt, ob das Wirken von Magie erlaubt ist.
      * @param kaempfer Der Angreifer, anhand dessen Manapunktezahl festgemacht wird, ob das Wirken moeglich ist
-     * @return True, wenn der kaempfer mehr als 5 Manapunkte hat, false, wenn nicht.
+     * @return True, wenn der kaempfer mehr als fuenf Manapunkte hat, false, wenn nicht.
      * @Author Felix Ahrens
      */
     public boolean magieWirkenMoeglich (Kaempfer kaempfer)
@@ -610,11 +566,11 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode zum Anwenden eines Artefakts. @David, @Enes muesst ihr noch machen
-     * @pre
-     * @post
-     * @param artefakt
-     * @param angreifer
-     * @param verteidiger
+     * @pre /
+     * @post /
+     * @param artefakt Das anzuwendende Artefakt
+     * @param angreifer Der Anwender des Artefakts
+     * @param verteidiger Der Verteidiger, auf den das Artefakt angewendet wird.
      * @Author Felix Ahrens
      */
     public void wendeArtefaktAn (Artefakt artefakt, Kaempfer angreifer, Kaempfer verteidiger)
@@ -666,7 +622,7 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, die ueberprueft, ob einer der im Kampf Beteiligten einen Gesundheitswert kleiner eins hat. Ist dies der
-     * Fall, wird
+     * Fall, wird der Kampf ueber den Methodenaufruf von "beendeKampf" beendet. Der Methode wird der festgestellte Sieger uebergeben.
      * @pre Die genutzten Methoden und Variablen muessen erreichbar sein. Die Strings und Konstanten muessen im jeweiligen Interface vorhanden sein.
      * @post Der Kampf wurde, falls einer der Kaempfer keine Gesundheit mehr hat, beendet. Der Dateiname der entsprechenden Nachkampfszene wurde in die Variable "nachKampfSzenenName" gesetzt.
      * @Author Felix Ahrens
@@ -687,9 +643,11 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, mit der der Gegner den kuerzesten Weg zum Spieler nimmt.
+     *  Da die Spiellogik, insbesondere zu Kampfhandlungen gemacht wurde, wurde diese Methode entwurfen, um wenigstens
+     *  ganz banale Kampfhandlungen zu ermoegichen.
      * @pre Die Methoden, insbesondere in der Klasse Kaempfer, muessen existieren und erreichbar sein.
      * @post Der Gegner wurde auf dem kuerzesten Weg in Richtung Kaempfer bewegt.
-     * @author Felix Ahrens
+     * @Author Felix Ahrens
      */
     public void bewegeGegnerDynamisch ()
     {

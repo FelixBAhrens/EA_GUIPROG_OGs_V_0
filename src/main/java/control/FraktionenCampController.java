@@ -15,7 +15,7 @@ import res.Strings;
  *  zum Behandeln von Nutzereingaben und zum Verwalten des Fraktionencamps
  * @author Felix Ahrens, David Kien
  */
-public class FraktionenCampController extends PaneController
+public class FraktionenCampController extends StadtController
 {
     @FXML
     public AnchorPane baustelle;

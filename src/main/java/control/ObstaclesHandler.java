@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Klasse ObstaclesHandler
+ * @Author David Kien
+ */
 public class ObstaclesHandler
 {
     private AnchorPane plane;

@@ -11,7 +11,7 @@ import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
-public class TrainingsGelaendeController extends PaneController {
+public class TrainingsGelaendeController extends StadtController {
 
     private int gesammeltesHolz;
     private int gesammelteNahrung;

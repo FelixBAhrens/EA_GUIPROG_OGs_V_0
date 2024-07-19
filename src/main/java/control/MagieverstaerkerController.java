@@ -10,7 +10,7 @@ import res.Konstanten;
  * Controllerklasse zur "magieverstaerker-view.fxml"-Datei.
  * @Author Felix Ahrens
  */
-public class MagieverstaerkerController extends PaneController
+public class MagieverstaerkerController extends StadtController
 {
     private int magiePreis_Banonas = Konstanten.INT_TWO;
     @FXML

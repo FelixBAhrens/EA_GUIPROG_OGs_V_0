@@ -53,7 +53,7 @@
             <Button fx:id="TrainingsCampButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Trainingsgelände" visible="false" />
         </children>
     </Pane>
-    <Pane fx:id="Karte" layoutX="369.0" layoutY="82.0" onMouseClicked="#handleGebaeudeOeffnen" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="147.0" prefWidth="509.0" styleClass="transparenterStyle">
+    <Pane fx:id="Karte" layoutX="369.0" layoutY="82.0" onMouseClicked="#oeffneKarte" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="147.0" prefWidth="509.0" styleClass="transparenterStyle">
         <children>
             <Button fx:id="KartenButton" layoutX="383.0" layoutY="106.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" styleClass="hellblauerStyleKleineSchrift" text="Karte" visible="false" />
         </children>

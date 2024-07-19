@@ -1,6 +1,7 @@
 package control;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -11,7 +12,7 @@ import model.GameFile;
 import res.Strings;
 
 
-public class SchmiedenController extends PaneController
+public class SchmiedenController extends StadtController
 {
     @FXML
     public AnchorPane artefaktDisplay;
@@ -94,8 +95,43 @@ public class SchmiedenController extends PaneController
 
     }
 
-    public void gebeArteFaktAus ()
+    /**
+     * Alternative Methode zu "handleMouseEnter", die die Pane und dessen Children visible setzt ohne die
+     * voreingestellte Farbe zu veraendern
+     *
+     * @param event
+     * @author Felix Ahrens
+     */
+    public void handlePaneTransparencyOnMouseEntered (MouseEvent event)
     {
-        System.out.println(GameFile.getInstanz().getSchwert().toString());
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle(Strings.STYLE_BORDER_ORANGE);
+        for (Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
+                node.setVisible(true);
+            }
+        }
+    }
+
+    /**
+     * Alternative Methode zu "handleMouseEnter", die die Pane und dessen Children visible setzt ohne die
+     * voreingestellte Farbe zu veraendern
+     *
+     * @param event
+     * @author Felix Ahrens
+     */
+    public void handlePaneTransparencyOnMouseExited (MouseEvent event)
+    {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle(Strings.STYLE_BORDER_TRANSPARENT);
+        for (javafx.scene.Node node : pane.getChildren())
+        {
+            if (node instanceof Button)
+            {
+                node.setVisible(false);
+            }
+        }
     }
 }

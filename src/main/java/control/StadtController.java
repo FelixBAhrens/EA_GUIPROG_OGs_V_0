@@ -148,8 +148,7 @@ public class StadtController extends ControllerController
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane pane = loader.load();
-            PaneController controller = loader.getController();
-            controller.setStadtController(this);
+            StadtController stadtController = loader.getController();
             gebaeudePane.getChildren().setAll(pane);
             gebaeudePane.setVisible(true);
             hintergrundPane.setVisible(true);
@@ -171,5 +170,17 @@ public class StadtController extends ControllerController
         gebaeudePane.setVisible(false);
         hintergrundPane.setVisible(false);
         gebaeudePane.getChildren().clear();
+    }
+
+    /**
+     * Methode zum Oeffnen der Karte. Dabei wird die StandardKarte als Kartentyp gesetzt, damit klar ist, dass keine Mission gespielt wird.
+     * @pre Das Enum, die Konstanten und die Methoden muessen erreichbar sein.
+     * @post Die Karte wurde geladen.
+     * @Author Felix Ahrens
+     */
+    public void oeffneKarte ()
+    {
+        KartenController.kartenTyp = KartenController.KartenTyp.STANDARD_KARTE;
+        SzenenManager.wechseleSzene(Strings.FXML_KARTENEW);
     }
 }

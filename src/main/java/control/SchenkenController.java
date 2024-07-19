@@ -16,7 +16,7 @@ import res.Strings;
  *  noetigen Methoden und Variablen zur Behandlung von Nutzereingaben und Anpassung der Gui an diese.
  * @Author Felix Ahrens
  */
-public class SchenkenController extends PaneController
+public class SchenkenController extends StadtController
 {
     private Charakter angezeigterCharakter;
     @FXML

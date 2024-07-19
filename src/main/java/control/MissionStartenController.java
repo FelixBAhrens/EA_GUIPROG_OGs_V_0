@@ -3,7 +3,10 @@ package control;
 import javafx.fxml.FXML;
 import res.Strings;
 
-//@Author David Kien
+/**
+ * MissionStartenController
+ * @Author David Kien
+ */
 public class MissionStartenController
 {
     @FXML

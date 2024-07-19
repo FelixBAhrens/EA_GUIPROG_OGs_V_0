@@ -13,7 +13,7 @@ import res.Strings;
  *  der "hauptquartier-view.fxml" und beinhaltet die Methoden zum Steuern und Setzen der Nutzereingaben und Informationsausgaben.
  * @Author David Kien, Felix Ahrens
  */
-public class HauptquartierController extends PaneController
+public class HauptquartierController extends StadtController
 {
     @FXML
     public Label flappyBirdDetail;

@@ -28,8 +28,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+/**
+ * Die Klasse KartenController bildet die Controllerklasse fuer die "karteNew-view.fxml". In ihr befinden sich die Methoden
+ *  zum Darstellen der Karte, zum Verwenden von Nutzereingaben und zur generellen Kartenlogik.
+ * @Author David Kien, Felix Ahrens
+ */
 public class KartenController extends ControllerController implements Initializable
 {
+    /**
+     * Enum fuer den Kartentyp. Wird verwendet, dem Controller die Art der Karte mitzuteilen, bevor die FXML-Datei
+     *  geladen wird.
+     * @Author Felix Ahrens
+     */
     public enum KartenTyp
     {
         STANDARD_KARTE(Strings.KARTE_STANDARD),
@@ -96,16 +106,23 @@ public class KartenController extends ControllerController implements Initializa
     private int movementVariable = Konstanten.INT_TWO;
     private int timeRemaining = Konstanten.INT_NINETY;
 
-    private PaneController paneController = new PaneController();
     private HauptquartierController hauptquartierController;
     private boolean missionStatus;
 
     //--------------------------------------------------------------------------
 
 
-    //@Author David Kien
+    /**
+     * Methode zum Animieren des Spielers auf der Karte.
+     * @Author David Kien
+     */
     private final AnimationTimer timer = new AnimationTimer()
     {
+        /**
+         * Handle-Methode
+         * @param timestamp
+         * @Author David Kien
+         */
         @Override
         public void handle (long timestamp)
         {
@@ -131,8 +148,8 @@ public class KartenController extends ControllerController implements Initializa
 
             if (movingHorizontally.get() && movingVertically.get())
             {
-                moveX /= ROOT_2;
-                moveY /= ROOT_2;
+                moveX /= Math.sqrt(Konstanten.INT_TWO);
+                moveY /= Math.sqrt(Konstanten.INT_TWO);
             }
 
             updateShapePosition(moveX, moveY);
@@ -142,19 +159,24 @@ public class KartenController extends ControllerController implements Initializa
     };
 
     /**
-     * Initialize-Methode
-     * @param url
-     * @param resourceBundle
+     * Ueberschriebene Initialize-Methode. Ist verpflichtend fuer Controllerklassen von FXML-Dateien
+     * @pre Das verwendete GUI-Element und die Methode muessen erreichbar sein.
+     * @post Der "startenDialog" wird initialisiert und visible gesetzt
+     * @param url /
+     * @param resourceBundle /
+     * @Author David Kien, Felix Ahrens
      */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         initialisiereDialog();
-        System.out.println(kartenTyp.beschreibung);
         startenDialog.setVisible(true);
     }
 
     /**
+     * Methode zum Starten der Utility fuer die Mission in der Karte
+     * @pre
+     * @post
      * @Author David Kien
      */
     public void starteMissionsUtil () {
@@ -178,6 +200,12 @@ public class KartenController extends ControllerController implements Initializa
         startSaving();
     }
 
+    /**
+     * Methode zum I des StartDialogs. Der angezeigte Text ist abhaengig vom gesetzten Enum.
+     * @pre Das Enum muss auf einen der Werte der Cases gesetzt sein. Die verwendeten GUI-Elemente, Methoden und Konstanten muessen existieren und erreichbar sein.
+     * @post Der "detailTextLabel"-Dialog wurde auf einen im Kontext sinnigen Text gesetzt.
+     * @Author Felix Ahrens
+     */
     public void initialisiereDialog(){
         detailTextLabel.setText(switch (kartenTyp){
             case SAMMELN_MISSION -> Strings.TEXT_SAMMELN + Strings.NEWLINE + Strings.SAMMELN_MISSION_BESCHREIBUNG;
@@ -185,24 +213,43 @@ public class KartenController extends ControllerController implements Initializa
         });
     }
 
+    /**
+     * Methode zum Starten der "sammelnMission". Diese manipuliert die GUI-Elemente so, dass sie in der Mission sinnig verwendet werden koennen.
+     *  Utility, wie der "missionTimer" wird sichtbar geschaltet.
+     * @pre Die GUI-Elemente muessen existieren und von der Methode manipulierbar sein. Die verwendeten Methoden und Konstanten muessen erreichbar sein.
+     * @post Die GUI fuer die "sammelnMission" wurde sinnvoll gesetzt.
+     * @Author David Kien, Felix Ahrens
+     */
     public void starteSammelnMission () {
         startenDialog.setVisible(false);
         healthCount = Konstanten.INT_ZERO;
-
         missionTimer.setVisible(true);
         startCountdown();
         gesammelteObjekte.setText(Strings.GESUNDHEIT_SPACE + healthCount);
-
         wood.setVisible(false);
         gold.setVisible(false);
     }
 
+    /**
+     * Methode zum Starten der Standardkarte, wie sie aus der Stadt zum einfachen Sammeln von Ressourcen etc aufgerufen wird.
+     *  Die Methode initialisiert die GUI zum Anzeigen der gesammelten Objekte.
+     * @pre Das GUI-Element, die Methoden und die Konstanten muessen erreichbar sein. Die Singleton-Instanz der GameFile muss gesetzt sein.
+     * @post Das GUI-Element "gesammelteObjekte" zeigt die in der Karte gesammelten Ressourcen an.
+     * @Author Felix Ahrens
+     */
     public void starteStandardKarte () {
-        gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource() + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource() + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
+        gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource()
+                + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource()
+                + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
     }
 
     /**
-     * Methode, die
+     * Methode, die das Fortfahren handled. Diese wird vom Button "detailFortfahrenButton" aufgerufen und ruft die Methoden
+     *  zum Starten des spezifischen Kartentyps auf.
+     * @pre Der "startenDialog" muss existieren. Das Enum "kartenTyp" muss gesetzt sein und einem der beiden Cases entsprechen.
+     *  Die verwendeten Methoden muessen existieren.
+     * @post Die Kartenmethode wurde gestartet.
+     * @Author Felix Ahrens
      */
     @FXML
     public void handleFortfahren (){
@@ -214,7 +261,10 @@ public class KartenController extends ControllerController implements Initializa
         starteMissionsUtil();
     }
 
-    //@Author David Kien
+    /**
+     * Methode zum Starten des Countdowns
+     * @Author David Kien
+     */
     private void startCountdown ()
     {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(Konstanten.INT_ONE), event ->
@@ -324,7 +374,7 @@ public class KartenController extends ControllerController implements Initializa
         shape1.setLayoutY(shape1.getLayoutY() + moveY);
     }
 
-    //@Author David Kien, Felix Ahrens
+    //@Author David Kien
     private void checkForResourceCollection ()
     {
         if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
@@ -440,9 +490,15 @@ public class KartenController extends ControllerController implements Initializa
         return barriers.stream().anyMatch(barrier -> barrier.getBoundsInParent().intersects(x, y, movingRectangle.getWidth(), movingRectangle.getHeight()));
     }
 
-    //@Author David Kien
-    @FXML
-    public void handlezurueck ()
+    /**
+     * Ueberschriebene Methode zum Verwenden der Zurueck-Funktionalitaet.
+     *  Diese ruft zusaetzlich die Methode "stopSaving" auf, um das Speichern zu beenden.
+     * @pre Die verwendeten Methoden muessen erreichbar sein
+     * @post Es wurde eine Szene zurueckgegangen und das Speichern gestoppt.
+     * @Author David Kien, Felix Ahrens
+     */
+    @Override
+    public void handleZurueck ()
     {
         stopSaving();
         SzenenManager.szeneZurueck();

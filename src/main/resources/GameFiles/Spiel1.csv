@@ -1,11 +1,11 @@
 src/main/resources/GameFiles/Spiel1.csv
 EINFACH
-901;1000;1007;1000;1000;
+830;1000;989;1000;1000;
 Statue;false;3;1
 Schwert;false;2;2
 Ring;false;1;2
 Leader:7;1;0;7;4;3;6;5;6;7:false
-Medic:8;1;0;4;2;1;5;6;5;5:false
+Medic:8;1;0;4;2;1;5;6;5;5:true
 Hunter:6;1;0;3;9;8;7;5;6;3:false
 Magician:5;1;0;2;8;7;4;7;5;6:false
 Scout:4;1;0;6;5;5;8;5;8;7:false

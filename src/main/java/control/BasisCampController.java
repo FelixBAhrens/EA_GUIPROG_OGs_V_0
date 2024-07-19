@@ -14,7 +14,7 @@ import res.Strings;
  * Dem Controller fehlen noch viele Methoden zum richtigen Arbeiten. Das GUI-Framework steht allerdings.
  * @Author Felix Ahrens
  */
-public class BasisCampController extends PaneController
+public class BasisCampController extends StadtController
 {
 
     @FXML
