@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Die Klasse StadtController bildet die Controllerklasse zur "stadt-view.fxml"-Datei und beinhaltet saemtliche
+ *  Methoden zum Behandeln von Nutzereingaben sowie zur Aktualisierung der GUI.
+ * @Author Felix Ahrens, David Kien
+ */
 public class StadtController extends ControllerController
 {
     private Map<String, String> refMap = new HashMap<String, String>();
