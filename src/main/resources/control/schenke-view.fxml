@@ -36,7 +36,7 @@
                     <Label fx:id="magResLabel" layoutX="10.0" layoutY="290.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
                     <Label fx:id="reachLabel" layoutX="10.0" layoutY="325.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
                     <Label fx:id="initLabel" layoutX="10.0" layoutY="360.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Button fx:id="anheuernButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern" styleClass="beigeStyle" text="Anheuern" />
+                    <Button fx:id="anheuernButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern" styleClass="beigerHintergrundStyle" text="Anheuern" />
                 </VBox>
             </children>
         </AnchorPane>
