@@ -17,7 +17,6 @@
                 <Image url="@../assets/hauptquartier.png" />
             </image>
         </ImageView>
-        <Button fx:id="kartenButton" layoutX="452.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#openKarte" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Karte" />
         <HBox layoutX="66.0" layoutY="82.0" prefHeight="412.0" prefWidth="842.0" spacing="10">
             <children>
                 <AnchorPane fx:id="missionDetailPane" prefHeight="350.0" prefWidth="273.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
