@@ -57,6 +57,8 @@ public class SchenkenController extends StadtController
 
     /**
      * Initialize-Methode, die bei Controllerklassen von FXML-Dateien verpflichtend ist.
+     * @pre /
+     * @post /
      * @Author Felix Ahrens
      */
     @FXML
@@ -69,6 +71,8 @@ public class SchenkenController extends StadtController
      * Methode zum Anzeigen der Pane "charakterDisplay".
      *  Ueber die Methode "gebeCharakterAusID" wird auf den zugehoerigen Charakter zugegriffen. Das Aktualisieren der
      *  Charakterwerte im "charakterDisplay" wird ueber die aufgerufene Methode "zeigeCharakterWerteImDisplay" beauftragt.
+     * @pre Die GUI-Elemente, Methoden und der Konstruktor muessen erreichbar sein.
+     * @post Die Werte des Charakters werden der nutzenden Person angezeigt.
      * @param event das Event, aus dem die Methode aufgerufen wurde.
      * @Author Felix Ahrens
      */
@@ -107,6 +111,8 @@ public class SchenkenController extends StadtController
      *  und "setzeLabelTexte" aufgerufen, beiden wird die Instanz der Klasse Charakter, die der Methode schon beim Aufruf
      *  uebergeben wurde, uebergeben. Beide Methoden steuern GUI-Elemente im "charakterDisplay". Zusaetzlich wird der
      *  Charakter, der der Methode uebergeben wurde, als Klassenvariable des SchenkenControllers gesetzt.
+     * @pre Die verwendeten GUI-Elemente, Konstanten und Methoden muessen erreichbar sein.
+     * @post Die Charakterwerte werden im "charakterDisplay" angezeigt.
      * @param charakter Der Charakter, der angezeigt werden soll
      * @Author Felix Ahrens
      */
@@ -125,6 +131,8 @@ public class SchenkenController extends StadtController
      * "schenke-view.fxml" aktiviert oder deaktiviert. Grund dafuer ist, dass man einen gekauften Charakter nicht
      *  nochmal kaufen koennen soll und der Versuch des Kaufens unterbunden werden soll, wenn man sich den Charakter
      *  nicht leisten kann.
+     * @pre Die verwendeten Methoden, GUI-Elemente und Konstanten muessen erreichbar sein.
+     * @post Wenn der Charakter angeheuert werden kann, wird der "anheuernButton" enabled.
      * @param charakter Der Charakter, der in der Schenke gerade ausgewaehlt ist und der in der "charakterDisplay"-Pane
      *  angezeigt wird.
      * @Author Felix Ahrens
@@ -164,10 +172,13 @@ public class SchenkenController extends StadtController
     }
 
     /**
-     * Methode, die einer uebergebenen ID einen Charakter zuordnet
-     * @param pane
-     * @return
-     * @
+     * Methode, die einer uebergebenen Pane einen Charakter zuordnet. Dabei wird die ID der Pane ueber eine switch-Anweisung mit Konstanten verglichen
+     *  und der zugehoerige Charakter aus der GameFile zurueckgegeben.
+     * @pre Die Singleton-Instanz muss gesetzt sein, die ID der Pane muss mit einem der vier Konstanten-Strings aus der switch-Anweisungen uebereinstimmen.
+     * @post Es wurde der zur ID der uebergebenen Pane gehoerender Charakter aus dem Spielstand (GameFile) zurueckgegeben.
+     * @param pane Die Pane, der diese Methode basierend auf dessen ID einen Charakter zuordnet.
+     * @return Den Charakter, der zur uebergebenen Pane gehoert.
+     * @Author Felix Ahrens
      */
     public Charakter gebeCharakterAusID (Pane pane){
         GameFile instanz = GameFile.getInstanz();
@@ -179,22 +190,4 @@ public class SchenkenController extends StadtController
             default -> null;
         };
     }
-
-    /**
-     * Ueberschriebene methode
-     * @param button
-     * @return
-     * @Author Felix Ahrens
-     */
-    public Charakter gebeCharakterausID (Button button) {
-        GameFile instanz = GameFile.getInstanz();
-        return switch (button.getId()){
-            case Strings.MEDIC_LC -> instanz.getMedic();
-            case Strings.MAGICIAN_LC -> instanz.getMagician();
-            case Strings.SCOUT_LC -> instanz.getScout();
-            case Strings.HUNTER_LC -> instanz.getHunter();
-            default -> null;
-        };
-    }
-
 }

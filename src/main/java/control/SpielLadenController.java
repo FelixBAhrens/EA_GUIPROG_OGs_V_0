@@ -1,22 +1,22 @@
 package control;
 
 import javafx.fxml.FXML;
-import model.GameFile;
 
-import java.io.IOException;
-
+/**
+ * Controllerklasse fuer die "spielLaden-view.fxml".
+ * @Author Felix Ahrens
+ */
 public class SpielLadenController extends ControllerController
 {
+    /**
+     * Initialize-Methode, wie sie Vorraussetzung fuer alle FXML-Controller ist.
+     * @pre /
+     * @post /
+     * @Author Felix Ahrens
+     */
     @FXML
     public void initialize ()
     {
+
     }
-
-    @FXML
-    public void handleKnopf () throws IOException
-    {
-        System.out.println(GameFile.gebeLetztesSpielZurueck());
-    }
-
-
 }

@@ -21,7 +21,9 @@ public class SzenenManager
 
     /**
      * Methode, die die aktuell gesetzte Szene zurueckgibt.
-     * @return
+     * @pre Der szenenStack darf nicht leer sein und muss existieren.
+     * @post Die aktuelle Szene wurde zurueckgegeben.
+     * @return Die aktuell geladene Szene
      * @Author Felix Ahrens
      */
     public Scene gebeAktuelleSzene () {
@@ -31,7 +33,7 @@ public class SzenenManager
     }
 
     /**
-     * Konstruktor der Klasse Szenenmanager
+     * Konstruktor der Klasse Szenenmanager.
      * @param hauptStage
      * @Author Felix Ahrens
      */

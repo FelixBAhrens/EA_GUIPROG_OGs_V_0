@@ -207,6 +207,14 @@ public interface Strings
     String TEXT_FRAKTION_A ="Beispieltext Information Fraktion A";
     String TEXT_FRAKTION_B ="Beispieltext Information Fraktion B";
     String TEXT_FRAKTION_C ="Beispieltext Information Fraktion C";
+    String SCHILD_VERBESSERN = "schildVerbessern";
+    String MANAPUNKTE_VERBESSERN = "manapunkteVerbessern";
+    String NAHKAMPF_WERT_VERBESSERN = "nahkampfWertVerbessern";
+    String FERNKAMPF_WERT_VERBESSERN = "fernkampfWertVerbessern";
+    String FERNKAEMPFE_ZAHL_VERBESSERN = "fernkaempfeZahlVerbessern";
+    String ZAHL_AUSWEICHEN_VERBESSERN = "zahlAusweichenVerbessern";
+    String MAGIE_RESISTENZ_VERBESSERN = "magieResistenzVerbessern";
+    String BEWEGUNGS_WEITE_VERBESSERN = "bewegungsWeiteVerbessern";
 
     //IDs
     String BUTTON_EINFACH = "einfachButton";

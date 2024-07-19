@@ -11,7 +11,10 @@ import model.Artefakt;
 import model.GameFile;
 import res.Strings;
 
-
+/**
+ * Die Klasse SchmiedenController ist die Controllerklasse fuer die "schmiede-view.fxml".
+ * @Author Felix Ahrens
+ */
 public class SchmiedenController extends StadtController
 {
     @FXML
@@ -28,8 +31,9 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode zum Anzeigen des Artefaktes
-     *
-     * @param event
+     * @pre Die verwendeten GUI-Elemente und Methoden muessen erreichbar sein.
+     * @post Das "artefaktDisplay" wurde in seinem Inhalt aktualisiert und visible gesetzt.
+     * @param event Das Event, dem dieser Methodenaufruf entstammt.
      * @Author Felix Ahrens
      */
     @FXML
@@ -41,9 +45,9 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die die auf dem "artefaktDisplay" ausgegebenen Informationen aktualisiert.
-     * @pre
-     * @post
-     * @param artefakt
+     * @pre Die GUI-Elemente, Methoden und Konstanten muessen erreichbar sein.
+     * @post Die Information im "infoLabel" wurde aktualisiert und fuer die spielende Person sinnvoll verstaendlich dargestellt.
+     * @param artefakt Das Artefakt, dessen Werte im "infoLabel" dargestellt werden soll.
      * @Author Felix Ahrens
      */
     public void aktualisiereDisplayInformation (Artefakt artefakt)
@@ -67,10 +71,11 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die abhhaengig von der uebergebenen ID das entsprechende Artefakt heraussucht
-     *
-     * @param ID
-     * @return das Artefakt, das der ID des Aufrufenden Elements entspricht.
-     * @author Felix Ahrens
+     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein. Die Id muss mit einer der Konstanten-Strings fuer den Namen des jeweiligen Artefakts uebereinstimmen.
+     * @post Das zur uebergebenen ID eindeutig zugehoerige Artefakt wurde zurueckgegeben.
+     * @param ID Die ID als String, zu der sich ein Artefakt zuordnen laesst.
+     * @return das Artefakt, das der ID des aufrufenden Elements entspricht.
+     * @Author Felix Ahrens
      */
     public Artefakt findeArtefaktAusID (String ID)
     {
@@ -86,8 +91,9 @@ public class SchmiedenController extends StadtController
 
     /**
      * Initialize-Methode der Controllerklasse fuer die "schmiede-view.fxml".
-     *
-     * @author Felix Ahrens
+     * @pre /
+     * @post
+     * @Author Felix Ahrens
      */
     @FXML
     public void initialize ()
@@ -96,13 +102,14 @@ public class SchmiedenController extends StadtController
     }
 
     /**
-     * Alternative Methode zu "handleMouseEnter", die die Pane und dessen Children visible setzt ohne die
-     * voreingestellte Farbe zu veraendern
-     *
-     * @param event
-     * @author Felix Ahrens
+     * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "sichtbar" setzt.
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und bekommmbar sein.
+     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
+     * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
+     * @Author Felix Ahrens
      */
-    public void handlePaneTransparencyOnMouseEntered (MouseEvent event)
+    @FXML
+    public void veraenderePaneSichtbarkeitBeiMouseEnter (MouseEvent event)
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle(Strings.STYLE_BORDER_ORANGE);
@@ -116,13 +123,13 @@ public class SchmiedenController extends StadtController
     }
 
     /**
-     * Alternative Methode zu "handleMouseEnter", die die Pane und dessen Children visible setzt ohne die
-     * voreingestellte Farbe zu veraendern
-     *
-     * @param event
-     * @author Felix Ahrens
+     * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "unsichtbar" setzt.
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und bekommmbar sein.
+     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
+     * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
+     * @Author Felix Ahrens
      */
-    public void handlePaneTransparencyOnMouseExited (MouseEvent event)
+    public void veraenderePaneSichtbarkeitBeiMouseExit (MouseEvent event)
     {
         Pane pane = (Pane) event.getSource();
         pane.setStyle(Strings.STYLE_BORDER_TRANSPARENT);

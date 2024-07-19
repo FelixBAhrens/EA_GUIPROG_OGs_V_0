@@ -50,8 +50,8 @@ public class StadtController extends ControllerController
 
     /**
      * Initialize-Methode der Klasse StadtController
-     * @pre
-     * @post
+     * @pre Die aufgerufene Methode muss erreichbar sein.
+     * @post die "refMap" wurde initialisiert.
      * @Author Felix Ahrens
      */
     @FXML

@@ -11,6 +11,11 @@ import model.GameFile;
 import res.Konstanten;
 import res.Strings;
 
+/**
+ * Die Klasse TrainingsGelaendeController bildet die Controllerklasse zur "trainingsgelaende-view.fxml".
+ *  Hier befinden sich saemtliche Methoden zur Behandlung von Nutzereingaben und dessen Folgen sowie zur GUI-Manipulation und -ausgabe.
+ * @Author David Kien, Felix Ahrens
+ */
 public class TrainingsGelaendeController extends StadtController {
 
     private int gesammeltesHolz;
@@ -144,6 +149,9 @@ public class TrainingsGelaendeController extends StadtController {
         updateButtonStates();
     }
 
+    /**
+     * @Author David Kien
+     */
     private void adjustInformation ()
     {
         gesammelteObjekte.setText(Strings.HOLZ_SPACE + gesammeltesHolz + Strings.GESUNDHEIT_SPACE_KOMMA + gesammelteNahrung + Strings.GOLD_SPACE_KOMMA + gesammeltesGold);
@@ -175,6 +183,9 @@ public class TrainingsGelaendeController extends StadtController {
 
     /**
      * Eigenschaft, die den Preis fuer ein EigenschaftsUpgrade abhaengig von der eingestellten Schwierigkeit setzt.
+     * @pre Die Singleton-Instanz muss gesetzt sein und die Schwierigkeit muss eine von {EINFACH, NORMAL, SCHWER} sein.
+     *  Der "eigenschaftsUpgradePreis" und die Konstanten muessen erreichbar sein.
+     * @post Der "eigenschaftsUpgradePreis" wurde abhaengig von der gesetzten Schwierigkeit auf einen Integer-wert gesetzt.
      * @author Felix Ahrens
      */
     public void bestimmmeVerbesserungsPreise(){
@@ -187,7 +198,8 @@ public class TrainingsGelaendeController extends StadtController {
 
     /**
      * Methode, die die Baustelle anzeigt.
-     * @TODO passt der zeilenumbruch im "aktuellenRessourcenstand" pruefen
+     * @pre Die Konstanten, GUI-Elemente und Methdoen muessen erreichbar sein.
+     * @post Die Baustelle und der "aktuellerRessourcenstand" werden angezeigt, um der nutzenden Person informationen zu liefern.
      * @Author Felix Ahrens
      */
     @FXML
@@ -229,60 +241,58 @@ public class TrainingsGelaendeController extends StadtController {
     {
         Button clickedButton = (Button) event.getSource();
         String buttonId = clickedButton.getId();
-        int TrainingsgelaendeLevel = GameFile.getInstanz().getTrainingsgelaendeLevel();
-
         switch (buttonId)
         {
-            case "schildVerbessern":
+            case Strings.SCHILD_VERBESSERN:
                 if (schildPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++schildPoints, schild, schildBar);
                 }
                 break;
 
-            case "manapunkteVerbessern":
+            case Strings.MANAPUNKTE_VERBESSERN:
                 if (manapunktePoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++manapunktePoints, manapunkte, manapunkteBar);
                 }
                 break;
 
-            case "nahkampfWertVerbessern":
-                if (fernkampfWertPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
+            case Strings.NAHKAMPF_WERT_VERBESSERN:
+                if (nahkampfWertPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++nahkampfWertPoints, nahkampfWert, nahkampfWertBar);
                 }
                 break;
 
-            case "fernkampfWertVerbessern":
+            case Strings.FERNKAMPF_WERT_VERBESSERN:
                 if (fernkampfWertPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++fernkampfWertPoints, fernkampfWert, fernkampfWertBar);
                 }
                 break;
 
-            case "fernkaempfeZahlVerbessern":
+            case Strings.FERNKAEMPFE_ZAHL_VERBESSERN:
                 if (fernkaempfeZahlPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++fernkaempfeZahlPoints, fernkaempfeZahl, fernkaempfeZahlBar);
                 }
                 break;
 
-            case "zahlAusweichenVerbessern":
+            case Strings.ZAHL_AUSWEICHEN_VERBESSERN:
                 if (zahlAusweichenPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++zahlAusweichenPoints, zahlAusweichen, zahlAusweichenBar);
                 }
                 break;
 
-            case "magieResistenzVerbessern":
+            case Strings.MAGIE_RESISTENZ_VERBESSERN:
                 if (magieResistenzPoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++magieResistenzPoints, magieResistenz, magieResistenzBar);
                 }
                 break;
 
-            case "bewegungsWeiteVerbessern":
+            case Strings.BEWEGUNGS_WEITE_VERBESSERN:
                 if (bewegungsWeitePoints < Konstanten.INT_TEN && fuehreTransaktionDurchWennMoeglich(Konstanten.INT_ZERO, Konstanten.INT_ZERO, Konstanten.INT_FOURTY, Konstanten.INT_ZERO, Konstanten.INT_ZERO))
                 {
                     adjustProgress(++bewegungsWeitePoints, bewegungsWeite, bewegungsWeiteBar);
