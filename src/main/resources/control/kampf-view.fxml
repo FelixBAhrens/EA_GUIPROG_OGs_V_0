@@ -30,7 +30,7 @@
                 <RowConstraints />
             </rowConstraints>
         </GridPane>
-        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="55.0" prefHeight="571.0" prefWidth="269.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
+        <AnchorPane fx:id="kaempferPane" layoutX="31.0" layoutY="55.0" prefHeight="571.0" prefWidth="299.0" style="-fx-background-color: rgba(64, 234, 140, 1);">
             <children>
                 <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
                 <HBox layoutX="12.0" layoutY="45.0" prefHeight="313.0" prefWidth="257.0">
@@ -39,11 +39,11 @@
                             <children>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_Gesundheit_Text" text="Gesundheit" wrappingWidth="105" />
-                                    <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" styleClass="hellblauerStyle" />
+                                    <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" />
                                 </HBox>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_Schild_Text" text="Schild" wrappingWidth="105" />
-                                    <ProgressBar fx:id="kaempferSchildBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                                    <ProgressBar fx:id="kaempferSchildBar" prefHeight="20.0" prefWidth="88.0" progress="0.5"/>
                                 </HBox>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_Manapunkte_Text" text="Manapunkte" wrappingWidth="105" />
@@ -51,7 +51,7 @@
                                 </HBox>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_NahkampfWert_Text" text="Nahkampfwert" wrappingWidth="105" />
-                                    <ProgressBar fx:id="kaempferNahkampfWertBar" prefHeight="20.0" prefWidth="88.0" progress="0.5"  />
+                                    <ProgressBar fx:id="kaempferNahkampfWertBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" />
                                 </HBox>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_FernkampfWert_Text" text="Fernkampfwert" wrappingWidth="105" />
@@ -75,28 +75,28 @@
                                 </HBox>
                                 <HBox spacing="10">
                                     <Text fx:id="kaempfer_Initiative_Text" text="Initiative" wrappingWidth="105" />
-                                    <ProgressBar fx:id="kaempferInitiativeBar" prefHeight="20.0" prefWidth="88.0" progress="0.5"/>
+                                    <ProgressBar fx:id="kaempferInitiativeBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" />
                                 </HBox>
                             </children>
                         </VBox>
                     </children>
                 </HBox>
-            <Button fx:id="zugBeendenButton" layoutX="143.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Zug Beenden" />
-            <Button fx:id="AttackierenButton" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAttackieren" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Attackieren" />
-            <Button fx:id="MagieButton" layoutX="143.0" layoutY="439.0" mnemonicParsing="false" onAction="#wirkeMagie" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Magie wirken" />
-            <Button fx:id="EinheitenButton" layoutX="14.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" styleClass="hellblauerStyle" text="Einheiten einsetzen" />
+            <Button fx:id="zugBeendenButton" layoutX="150.0" layoutY="505.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" styleClass="hellblauerStyle" text="Zug Beenden" />
+            <Button fx:id="AttackierenButton" layoutX="3.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAttackieren" prefHeight="51.0" prefWidth="137.0" styleClass="hellblauerStyle" text="Attackieren" />
+            <Button fx:id="MagieButton" layoutX="150.0" layoutY="439.0" mnemonicParsing="false" onAction="#wirkeMagie" prefHeight="51.0" prefWidth="137.0" styleClass="hellblauerStyle" text="Magie wirken" />
+            <Button fx:id="EinheitenButton" layoutX="3.0" layoutY="439.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" styleClass="hellblauerStyle" text="Einheiten einsetzen" />
             <HBox layoutX="11.0" layoutY="358.0" prefHeight="27.0" prefWidth="251.0">
                <children>
                   <Text fx:id="EinheitenText" text="Einheiten" wrappingWidth="105" />
-                  <ProgressBar fx:id="EinheitenProgressBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" styleClass="hellblauerStyle" />
+                  <ProgressBar fx:id="EinheitenProgressBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" />
                </children>
             </HBox>
             <HBox fx:id="artefakteDisplay" layoutX="11.0" layoutY="393.0" prefHeight="27.0" prefWidth="243.0" spacing="25">
                <children>
                   <Text fx:id="ArtefakteText" text="Artefakte" wrappingWidth="63.0" />
-                  <Pane fx:id="schwert_Pane" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" onMouseClicked="#handleArtefaktEinsetzen"/>
-                  <Pane fx:id="statue_Pane" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" onMouseClicked="#handleArtefaktEinsetzen"/>
-                  <Pane fx:id="ring_Pane" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" onMouseClicked="#handleArtefaktEinsetzen"/>
+                  <Pane fx:id="schwert_Pane" onMouseClicked="#handleArtefaktEinsetzen" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" />
+                  <Pane fx:id="statue_Pane" onMouseClicked="#handleArtefaktEinsetzen" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" />
+                  <Pane fx:id="ring_Pane" onMouseClicked="#handleArtefaktEinsetzen" prefHeight="200.0" prefWidth="200.0" styleClass="orangerStyle" visible="false" />
                </children>
             </HBox>
             </children>
@@ -109,7 +109,7 @@
                     <children>
                         <HBox spacing="10">
                             <Text fx:id="gegner_Gesundheit_Text" text="Gesundheit" wrappingWidth="105" />
-                            <ProgressBar fx:id="gegnerGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1"/>
+                            <ProgressBar fx:id="gegnerGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" />
                         </HBox>
                         <HBox spacing="10">
                             <Text fx:id="gegner_Schild_Text" text="Schild" wrappingWidth="105" />
@@ -125,7 +125,7 @@
                         </HBox>
                         <HBox spacing="10">
                             <Text fx:id="gegner_FernkampfWert_Text" text="Fernkampfwert" wrappingWidth="105" />
-                            <ProgressBar fx:id="gegnerFernkampfWertBar" prefHeight="20.0" prefWidth="88.0" progress="0.5"/>
+                            <ProgressBar fx:id="gegnerFernkampfWertBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" />
                         </HBox>
                         <HBox spacing="10">
                             <Text fx:id="gegner_FernkaempfeVerbleibend_Text" text="Fernkämpfe Verbleibend" wrappingWidth="105" />
