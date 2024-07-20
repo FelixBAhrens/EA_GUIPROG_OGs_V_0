@@ -5,6 +5,7 @@ import res.Strings;
 
 /**
  * MissionStartenController
+ *
  * @Author David Kien
  */
 public class MissionStartenController

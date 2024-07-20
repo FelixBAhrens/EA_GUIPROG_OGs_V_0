@@ -113,19 +113,22 @@ public class Kaempfer extends Charakter
 
     /**
      * ToPane-Methode, die aus einem Kaempfer eine Pane macht, die die Identitaet des Kaempfers visuell darstellt
+     *
+     * @return Als Pane die "visuelle Identitaet" des Kaempfers
      * @pre Die verwendeten Methoden und Konstanten muessen existieren und erreichbar sein.
      * @post Es wurde eine Pane zurueckgegeben, deren Style mit dem Namen des jeweiligen Kaempfers assoziierbar ist.
-     * @return Als Pane die "visuelle Identitaet" des Kaempfers
      * @Author Felix Ahrens
      */
-    public Pane toPane (){
+    public Pane toPane ()
+    {
         Pane pane = new Pane();
         pane.setPrefSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
         pane.setMinSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
         pane.setMaxSize(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
         pane.getStyleClass().add(Strings.STYLECLASS_HELLBLAU);
         pane.setVisible(true);
-        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName())
+        {
             case Strings.LEADER -> Strings.BLUE;
             case Strings.ENDGEGNER -> Strings.RED;
             default -> Strings.GRAY;

@@ -5,8 +5,9 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Klasse ArtefaktController, die die Controllerklasse fuer die Artefakte bildet.
- *  In dieser befinden sich alle wesentlichen Methoden zum Verwalten der Artefakte.
+ * Klasse ArtefaktController, die die Controllerklasse fuer die Artefakte bildet. In dieser befinden sich alle
+ * wesentlichen Methoden zum Verwalten der Artefakte.
+ *
  * @Author Felix Ahrens
  */
 public class ArtefaktController
@@ -20,10 +21,11 @@ public class ArtefaktController
 
     /**
      * Methode zum Erstellen der Default-Artefakte.
-     * @pre Die Klasse muss auf den Konstruktor der Klasse Artefakt zugreifen koennen. Dieser muss die uebergebenen Werte
-     *  akzeptieren und jeweils eine neue Instanz vom Artefakt erstellen. Die Konstanten erreichbar sein.
-     * @post Es wurden die drei Artefakte {Statue, Schwert, Ring} erstellt und als Artefakt-Array zurueckgegeben
+     *
      * @return Als Array alle drei mit den Default-Werten erstellten Artefakte
+     * @pre Die Klasse muss auf den Konstruktor der Klasse Artefakt zugreifen koennen. Dieser muss die uebergebenen
+     * Werte akzeptieren und jeweils eine neue Instanz vom Artefakt erstellen. Die Konstanten erreichbar sein.
+     * @post Es wurden die drei Artefakte {Statue, Schwert, Ring} erstellt und als Artefakt-Array zurueckgegeben
      * @Author Felix Ahrens
      */
     public static Artefakt[] erstelleDefaultArtefakte ()

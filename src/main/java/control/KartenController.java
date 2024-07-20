@@ -29,15 +29,17 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 /**
- * Die Klasse KartenController bildet die Controllerklasse fuer die "karteNew-view.fxml". In ihr befinden sich die Methoden
- *  zum Darstellen der Karte, zum Verwenden von Nutzereingaben und zur generellen Kartenlogik.
+ * Die Klasse KartenController bildet die Controllerklasse fuer die "karteNew-view.fxml". In ihr befinden sich die
+ * Methoden zum Darstellen der Karte, zum Verwenden von Nutzereingaben und zur generellen Kartenlogik.
+ *
  * @Author David Kien, Felix Ahrens
  */
 public class KartenController extends ControllerController implements Initializable
 {
     /**
      * Enum fuer den Kartentyp. Wird verwendet, dem Controller die Art der Karte mitzuteilen, bevor die FXML-Datei
-     *  geladen wird.
+     * geladen wird.
+     *
      * @Author Felix Ahrens
      */
     public enum KartenTyp
@@ -114,6 +116,7 @@ public class KartenController extends ControllerController implements Initializa
 
     /**
      * Methode zum Animieren des Spielers auf der Karte.
+     *
      * @Author David Kien
      */
     private final AnimationTimer timer = new AnimationTimer()
@@ -160,10 +163,11 @@ public class KartenController extends ControllerController implements Initializa
 
     /**
      * Ueberschriebene Initialize-Methode. Ist verpflichtend fuer Controllerklassen von FXML-Dateien
+     *
+     * @param url            /
+     * @param resourceBundle /
      * @pre Das verwendete GUI-Element und die Methode muessen erreichbar sein.
      * @post Der "startenDialog" wird initialisiert und visible gesetzt
-     * @param url /
-     * @param resourceBundle /
      * @Author David Kien, Felix Ahrens
      */
     @Override
@@ -175,11 +179,13 @@ public class KartenController extends ControllerController implements Initializa
 
     /**
      * Methode zum Starten der Utility fuer die Mission in der Karte
+     *
      * @pre
      * @post
      * @Author David Kien
      */
-    public void starteMissionsUtil () {
+    public void starteMissionsUtil ()
+    {
         setupMovement();
 
         keyPressed.addListener((observableValue, oldValue, newValue) ->
@@ -202,25 +208,32 @@ public class KartenController extends ControllerController implements Initializa
 
     /**
      * Methode zum I des StartDialogs. Der angezeigte Text ist abhaengig vom gesetzten Enum.
-     * @pre Das Enum muss auf einen der Werte der Cases gesetzt sein. Die verwendeten GUI-Elemente, Methoden und Konstanten muessen existieren und erreichbar sein.
+     *
+     * @pre Das Enum muss auf einen der Werte der Cases gesetzt sein. Die verwendeten GUI-Elemente, Methoden und
+     * Konstanten muessen existieren und erreichbar sein.
      * @post Der "detailTextLabel"-Dialog wurde auf einen im Kontext sinnigen Text gesetzt.
      * @Author Felix Ahrens
      */
-    public void initialisiereDialog(){
-        detailTextLabel.setText(switch (kartenTyp){
+    public void initialisiereDialog ()
+    {
+        detailTextLabel.setText(switch (kartenTyp)
+        {
             case SAMMELN_MISSION -> Strings.TEXT_SAMMELN + Strings.NEWLINE + Strings.SAMMELN_MISSION_BESCHREIBUNG;
             case STANDARD_KARTE -> Strings.KARTE_BESCHREIBUNG;
         });
     }
 
     /**
-     * Methode zum Starten der "sammelnMission". Diese manipuliert die GUI-Elemente so, dass sie in der Mission sinnig verwendet werden koennen.
-     *  Utility, wie der "missionTimer" wird sichtbar geschaltet.
-     * @pre Die GUI-Elemente muessen existieren und von der Methode manipulierbar sein. Die verwendeten Methoden und Konstanten muessen erreichbar sein.
+     * Methode zum Starten der "sammelnMission". Diese manipuliert die GUI-Elemente so, dass sie in der Mission sinnig
+     * verwendet werden koennen. Utility, wie der "missionTimer" wird sichtbar geschaltet.
+     *
+     * @pre Die GUI-Elemente muessen existieren und von der Methode manipulierbar sein. Die verwendeten Methoden und
+     * Konstanten muessen erreichbar sein.
      * @post Die GUI fuer die "sammelnMission" wurde sinnvoll gesetzt.
      * @Author David Kien, Felix Ahrens
      */
-    public void starteSammelnMission () {
+    public void starteSammelnMission ()
+    {
         startenDialog.setVisible(false);
         healthCount = Konstanten.INT_ZERO;
         missionTimer.setVisible(true);
@@ -231,30 +244,36 @@ public class KartenController extends ControllerController implements Initializa
     }
 
     /**
-     * Methode zum Starten der Standardkarte, wie sie aus der Stadt zum einfachen Sammeln von Ressourcen etc aufgerufen wird.
-     *  Die Methode initialisiert die GUI zum Anzeigen der gesammelten Objekte.
-     * @pre Das GUI-Element, die Methoden und die Konstanten muessen erreichbar sein. Die Singleton-Instanz der GameFile muss gesetzt sein.
+     * Methode zum Starten der Standardkarte, wie sie aus der Stadt zum einfachen Sammeln von Ressourcen etc aufgerufen
+     * wird. Die Methode initialisiert die GUI zum Anzeigen der gesammelten Objekte.
+     *
+     * @pre Das GUI-Element, die Methoden und die Konstanten muessen erreichbar sein. Die Singleton-Instanz der GameFile
+     * muss gesetzt sein.
      * @post Das GUI-Element "gesammelteObjekte" zeigt die in der Karte gesammelten Ressourcen an.
      * @Author Felix Ahrens
      */
-    public void starteStandardKarte () {
+    public void starteStandardKarte ()
+    {
         gesammelteObjekte.setText(Strings.HOLZ_SPACE + GameFile.getInstanz().getHolzRessource()
                 + Strings.GESUNDHEIT_SPACE_KOMMA + GameFile.getInstanz().getGesundheitRessource()
                 + Strings.GOLD_SPACE_KOMMA + GameFile.getInstanz().getGoldRessource());
     }
 
     /**
-     * Methode, die das Fortfahren handled. Diese wird vom Button "detailFortfahrenButton" aufgerufen und ruft die Methoden
-     *  zum Starten des spezifischen Kartentyps auf.
-     * @pre Der "startenDialog" muss existieren. Das Enum "kartenTyp" muss gesetzt sein und einem der beiden Cases entsprechen.
-     *  Die verwendeten Methoden muessen existieren.
+     * Methode, die das Fortfahren handled. Diese wird vom Button "detailFortfahrenButton" aufgerufen und ruft die
+     * Methoden zum Starten des spezifischen Kartentyps auf.
+     *
+     * @pre Der "startenDialog" muss existieren. Das Enum "kartenTyp" muss gesetzt sein und einem der beiden Cases
+     * entsprechen. Die verwendeten Methoden muessen existieren.
      * @post Die Kartenmethode wurde gestartet.
      * @Author Felix Ahrens
      */
     @FXML
-    public void handleFortfahren (){
+    public void handleFortfahren ()
+    {
         startenDialog.setVisible(false);
-        switch (kartenTyp){
+        switch (kartenTyp)
+        {
             case SAMMELN_MISSION -> starteSammelnMission();
             case STANDARD_KARTE -> starteStandardKarte();
         }
@@ -263,6 +282,7 @@ public class KartenController extends ControllerController implements Initializa
 
     /**
      * Methode zum Starten des Countdowns
+     *
      * @Author David Kien
      */
     private void startCountdown ()
@@ -444,8 +464,7 @@ public class KartenController extends ControllerController implements Initializa
             {
                 gesammelteObjekte.setText(String.format(Strings.RESOURCES_PERCENTS_DS, woodCount, healthCount, goldCount));
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -491,8 +510,9 @@ public class KartenController extends ControllerController implements Initializa
     }
 
     /**
-     * Ueberschriebene Methode zum Verwenden der Zurueck-Funktionalitaet.
-     *  Diese ruft zusaetzlich die Methode "stopSaving" auf, um das Speichern zu beenden.
+     * Ueberschriebene Methode zum Verwenden der Zurueck-Funktionalitaet. Diese ruft zusaetzlich die Methode
+     * "stopSaving" auf, um das Speichern zu beenden.
+     *
      * @pre Die verwendeten Methoden muessen erreichbar sein
      * @post Es wurde eine Szene zurueckgegangen und das Speichern gestoppt.
      * @Author David Kien, Felix Ahrens

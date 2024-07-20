@@ -10,6 +10,7 @@ import java.util.Random;
 
 /**
  * Klasse ObstaclesHandler
+ *
  * @Author David Kien
  */
 public class ObstaclesHandler

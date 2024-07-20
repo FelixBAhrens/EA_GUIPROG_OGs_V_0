@@ -8,6 +8,7 @@ import res.Strings;
 
 /**
  * Controllerklasse fuer die "tutorial-view.fxml"-Datei.
+ *
  * @Author David Kien, Enes Oezcan
  */
 public class TutorialController

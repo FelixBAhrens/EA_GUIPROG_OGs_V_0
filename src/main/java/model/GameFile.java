@@ -62,10 +62,12 @@ public class GameFile
 
     /**
      * Methode, die zurueckgibt, ob die Singleton-Instanz gesetzt wurde oder nicht.
+     *
      * @return True, wenn die "instanz" nicht "null" ist, also ein Spielstand gesetzt wurde.
      * @Author Felix Ahrens
      */
-    public static boolean instanzIstGesetzt (){
+    public static boolean instanzIstGesetzt ()
+    {
         return instanz != null;
     }
 
@@ -121,8 +123,8 @@ public class GameFile
      * @param schwierigkeit Die Schwierigkeit als Enum, auf den die Klassenvariable "schwierigkeit" gesetzt werden
      *                      soll.
      * @pre Die Schwierigkeit muss als Enum in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode
-     * beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte Schwierigkeit stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setSchwierigkeit (Schwierigkeit schwierigkeit)
@@ -137,8 +139,8 @@ public class GameFile
      * @param dateiPfadUndName Der Dateipfad und Name als String, auf den die Klassenvariable "filePathAndName" gesetzt
      *                         werden soll.
      * @pre Der Dateipfad und Name muss als String in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der
-     * Methode beim Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Dateipfad und Name stimmt mit dem Parameter ueberein, der der Methode beim
+     * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setDateiPfadUndName (String dateiPfadUndName)
@@ -164,8 +166,8 @@ public class GameFile
      *
      * @param holzRessource Die HolzRessource als int, auf den die Klassenvariable "holzRessource" gesetzt werden soll.
      * @pre Die HolzRessource muss als int in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte HolzRessource stimmt mit dem Parameter ueberein, der der Methode
-     * beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte HolzRessource stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setHolzRessource (int holzRessource)
@@ -192,8 +194,8 @@ public class GameFile
      * @param steinRessource Die SteinRessource als int, auf den die Klassenvariable "steinRessource" gesetzt werden
      *                       soll.
      * @pre Die SteinRessource muss als int in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte SteinRessource stimmt mit dem Parameter ueberein, der der Methode
-     * beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte SteinRessource stimmt mit dem Parameter ueberein, der der Methode beim
+     * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setSteinRessource (int steinRessource)
@@ -219,8 +221,8 @@ public class GameFile
      *
      * @param goldRessource Die GoldRessource als int, auf den die Klassenvariable "goldRessource" gesetzt werden soll.
      * @pre Die GoldRessource muss als int in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte GoldRessource stimmt mit dem Parameter ueberein, der der Methode
-     * beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte GoldRessource stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setGoldRessource (int goldRessource)
@@ -248,8 +250,8 @@ public class GameFile
      * @param gesundheitRessource Die GesundheitRessource als int, auf den die Klassenvariable "gesundheitRessource"
      *                            gesetzt werden soll.
      * @pre Die GesundheitRessource muss als int in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte GesundheitRessource stimmt mit dem Parameter ueberein, der der
-     * Methode beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte GesundheitRessource stimmt mit dem Parameter ueberein, der der Methode beim
+     * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setGesundheitRessource (int gesundheitRessource)
@@ -276,8 +278,8 @@ public class GameFile
      * @param banonaRessource Die BanonasRessource als int, auf den die Klassenvariable "banonasRessource" gesetzt
      *                        werden soll.
      * @pre Die BanonasRessource muss als Integer in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte BanonasRessource stimmt mit dem Parameter ueberein, der der Methode
-     * beim Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte BanonasRessource stimmt mit dem Parameter ueberein, der der Methode beim
+     * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setBanonasRessource (int banonaRessource)
@@ -303,8 +305,8 @@ public class GameFile
      *
      * @param statue Die Statue als Artefakt, auf den die Klassenvariable "statue" gesetzt werden soll.
      * @pre Die Statue muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @post Die in der Klasse gespeicherte Statue stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Die in der Klasse gespeicherte Statue stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setStatue (Artefakt statue)
@@ -357,8 +359,8 @@ public class GameFile
      *
      * @param schwert Das Schwert als Artefakt, auf den die Klassenvariable "schwert" gesetzt werden soll.
      * @pre Das Schwert muss als Artefakt in der Klasse GameFile enthalten sein.
-     * @post Das in der Klasse gespeicherte Schwert stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Das in der Klasse gespeicherte Schwert stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setSchwert (Artefakt schwert)
@@ -384,8 +386,8 @@ public class GameFile
      *
      * @param leader Der Leader als Charakter, auf den die Klassenvariable "leader" gesetzt werden soll.
      * @pre Der Leader muss als Charakter in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Leader stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Leader stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setLeader (Charakter leader)
@@ -411,8 +413,8 @@ public class GameFile
      *
      * @param medic Der Medic als Charakter, auf den die Klassenvariable "medic" gesetzt werden soll.
      * @pre Der Medic muss als Charakter in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Medic stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Medic stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setMedic (Charakter medic)
@@ -438,8 +440,8 @@ public class GameFile
      *
      * @param hunter Der Hunter als Charakter, auf den die Klassenvariable "hunter" gesetzt werden soll.
      * @pre Der Hunter muss als Charakter in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Hunter stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Hunter stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setHunter (Charakter hunter)
@@ -465,8 +467,8 @@ public class GameFile
      *
      * @param magician Der Magician als Charakter, auf den die Klassenvariable "magician" gesetzt werden soll.
      * @pre Der Magician muss als Charakter in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Magician stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Magician stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setMagician (Charakter magician)
@@ -492,8 +494,8 @@ public class GameFile
      *
      * @param scout Der Scout als Charakter, auf den die Klassenvariable "scout" gesetzt werden soll.
      * @pre Der Scout muss als Charakter in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Scout stimmt mit dem Parameter ueberein, der der Methode beim
-     * Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Scout stimmt mit dem Parameter ueberein, der der Methode beim Aufruf
+     * uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setScout (Charakter scout)
@@ -534,8 +536,8 @@ public class GameFile
      * @param fraktionenCampFreigeschaltet Der Status des FraktionenCamps als boolean, auf den die Klassenvariable
      *                                     "fraktionenCampFreigeschaltet" gesetzt werden soll.
      * @pre Der Status des FraktionenCamps muss als boolean in der Klasse GameFile enthalten sein.
-     * @post Der in der Klasse gespeicherte Status des FraktionenCamps stimmt mit dem Parameter ueberein, der
-     * der Methode beim Aufruf uebergeben wurde.
+     * @post Der in der Klasse gespeicherte Status des FraktionenCamps stimmt mit dem Parameter ueberein, der der
+     * Methode beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setFraktionenCampFreigeschaltet (boolean fraktionenCampFreigeschaltet)
@@ -563,8 +565,8 @@ public class GameFile
      * @param trainingsgelaendeLevel Das TrainingsgelaendeLevel als int, auf den die Klassenvariable
      *                               "trainingsgelaendeLevel" gesetzt werden soll.
      * @pre Das TrainingsgelaendeLevel muss als int in der Klasse GameFile enthalten sein.
-     * @post Das in der Klasse gespeicherte TrainingsgelaendeLevel stimmt mit dem Parameter ueberein, der der
-     * Methode beim Aufruf uebergeben wurde.
+     * @post Das in der Klasse gespeicherte TrainingsgelaendeLevel stimmt mit dem Parameter ueberein, der der Methode
+     * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setTrainingsgelaendeLevel (int trainingsgelaendeLevel)
@@ -588,11 +590,12 @@ public class GameFile
     /**
      * Setter fuer das MagieverstaerkerLevel. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen
      * Wert.
+     *
      * @param magieverstaerkerLevel Das MagieverstaerkerLevel als int, auf den die Klassenvariable
      *                              "magieverstaerkerLevel" gesetzt werden soll.
      * @pre Das MagieverstaerkerLevel muss als int in der Klasse GameFile enthalten sein.
-     * @post Das in der Klasse gespeicherte MagieverstaerkerLevel stimmt mit dem Parameter ueberein, der der
-     * Methode beim Aufruf uebergeben wurde.
+     * @post Das in der Klasse gespeicherte MagieverstaerkerLevel stimmt mit dem Parameter ueberein, der der Methode
+     * beim Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setMagieverstaerkerLevel (int magieverstaerkerLevel)
@@ -602,6 +605,7 @@ public class GameFile
 
     /**
      * Getter fuer das einheitenArray. Gibt das EinheitenArray zurueck.
+     *
      * @return Das einheitenArray als int.
      * @pre Das einheitenArray muss als int in der Klasse GameFile enthalten sein.
      * @post Es wurde der Inhalt der Variable einheitenArray als Charakter-Array zurueckgegeben.
@@ -613,13 +617,13 @@ public class GameFile
     }
 
     /**
-     * Setter fuer das einheitenArray. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen
-     * Wert.
-     * @param einheitenArray Das einheitenArray als int, auf den die einheitenArray
-     *                              "einheitenArray" gesetzt werden soll.
+     * Setter fuer das einheitenArray. Setzt das MagieverstaerkerLevel auf den der Methode als int uebergebenen Wert.
+     *
+     * @param einheitenArray Das einheitenArray als int, auf den die einheitenArray "einheitenArray" gesetzt werden
+     *                       soll.
      * @pre Das einheitenArray muss als CharakterArray in der Klasse GameFile enthalten sein.
-     * @post Das in der Klasse gespeicherte einheitenArray stimmt mit dem Parameter ueberein, der der
-     * Methode beim Aufruf uebergeben wurde.
+     * @post Das in der Klasse gespeicherte einheitenArray stimmt mit dem Parameter ueberein, der der Methode beim
+     * Aufruf uebergeben wurde.
      * @Author Felix Ahrens
      */
     public void setEinheitenArray (Charakter[] einheitenArray)
@@ -661,8 +665,8 @@ public class GameFile
      * @param magieverstaerkerLevel        Das Level, in dem sich der verbesserbare Magieverstaerker befindet
      * @pre Die Datentypen der uebergebenen Parameter muessen in der Reihenfolge mit denen der Instanzvariablen
      * uebereinstimmen. Die Variablen muessen in der Klasse existieren.
-     * @post Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten
-     * erstellt und zurueckgegeben.
+     * @post Es wurde eine neue Instanz der Klasse GameFile mit den dem Konstruktor uebergebenen Werten erstellt und
+     * zurueckgegeben.
      * @Author Felix Ahrens
      */
     private GameFile (String dateiPfadUndName, Schwierigkeit schwierigkeit, int holzRessource, int steinRessource, int goldRessource, int gesundheitRessource, int banonasRessource, Artefakt statue, Artefakt schwert, Artefakt ring, Charakter leader, Charakter medic, Charakter hunter,
@@ -932,8 +936,7 @@ public class GameFile
     }
 
     /**
-     * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden.
-     *  Dazu
+     * Methode, die alle Files aus einem Stack zurueckgibt, die auf ".csv" enden. Dazu
      *
      * @param fileArray
      * @return
@@ -992,12 +995,15 @@ public class GameFile
 
     /**
      * Methode, die die in der GameFile gespeicherten Charaktere als Array zurueckgibt.
-     * @pre Die GameFile muss auf einen Spielstand instanziiert sein. Die Charaktere muessen Parameter der Klasse GameFile sein.
-     * @post Es wurde ein Array, dass die fuenf Charaktere enthaelt, zurueckgegeben.
+     *
      * @return Als eindimensionales Array die fuenf in der GameFile gespeicherten Charaktere.
+     * @pre Die GameFile muss auf einen Spielstand instanziiert sein. Die Charaktere muessen Parameter der Klasse
+     * GameFile sein.
+     * @post Es wurde ein Array, dass die fuenf Charaktere enthaelt, zurueckgegeben.
      * @Author Felix Ahrens
      */
-    public Charakter[] gebeCharakterAlsArrayZurueck  () {
+    public Charakter[] gebeCharakterAlsArrayZurueck ()
+    {
         return new Charakter[]{leader, medic, hunter, magician, scout};
     }
 

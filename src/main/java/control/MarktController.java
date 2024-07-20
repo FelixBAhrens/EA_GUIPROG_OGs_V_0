@@ -13,7 +13,10 @@ import res.Strings;
 import java.util.Random;
 
 /**
- * Klasse MarktController bildet die Controllerklasse fuer die "markt-view.fxml". In ihr befinden sich Variablen und Methoden, die die Interaktion und Darstellung der GUI manipulieren und fuer Spiellogische Nutzereingaben und -entscheidungen genutzt werden.
+ * Klasse MarktController bildet die Controllerklasse fuer die "markt-view.fxml". In ihr befinden sich Variablen und
+ * Methoden, die die Interaktion und Darstellung der GUI manipulieren und fuer Spiellogische Nutzereingaben und
+ * -entscheidungen genutzt werden.
+ *
  * @Author Felix Ahrens
  */
 public class MarktController extends StadtController
@@ -52,6 +55,7 @@ public class MarktController extends StadtController
     /**
      * Initialize-Methode, die fuer die Controllerklasse einer FXML-Datei verpflichtend ist. Diese Methode ruft die
      * Methode "updateInventar" auf, um die Anzeige korrekt darzustellen.
+     *
      * @pre Die aufgerufenen Methoden muessen erreichbar sein.
      * @post Die Preise und Displays wurden aktualisiert.
      * @Author Felix Ahrens
@@ -64,14 +68,15 @@ public class MarktController extends StadtController
     }
 
     /**
-     * Methode, die die Anzeige des Marktes aktualisiert. Dabei sind die GUI-Elemente in dieser Klasse deklariert,
-     *  ueber die Annotation "@FXML" sind sie mit dem GUI-Element der FXML-Datei verbunden, deren ID dem Bezeichner
-     *  des jeweiligen Elementes uebereinstimmt. In dieser Klasse wird auf diese zugegriffen und sie werden mit den Parametern
-     *  der Instanz auf neue Anzeigen gebracht. Es werden sowohl Progressbars als auch Labels geupdated, da beides
-     *  in etwa der gleichen Methodik entspricht, kann hierfuer eine Methode verwendet werden. Der Progress wird
-     *  in Teilen von Hundert, also Prozent, angegeben.
-     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein, die verwendeten Konstanten, Variablen, Methoden und Klassen muessen
-     *  erreichbar sein.
+     * Methode, die die Anzeige des Marktes aktualisiert. Dabei sind die GUI-Elemente in dieser Klasse deklariert, ueber
+     * die Annotation "@FXML" sind sie mit dem GUI-Element der FXML-Datei verbunden, deren ID dem Bezeichner des
+     * jeweiligen Elementes uebereinstimmt. In dieser Klasse wird auf diese zugegriffen und sie werden mit den
+     * Parametern der Instanz auf neue Anzeigen gebracht. Es werden sowohl Progressbars als auch Labels geupdated, da
+     * beides in etwa der gleichen Methodik entspricht, kann hierfuer eine Methode verwendet werden. Der Progress wird
+     * in Teilen von Hundert, also Prozent, angegeben.
+     *
+     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein, die verwendeten Konstanten, Variablen, Methoden und
+     * Klassen muessen erreichbar sein.
      * @post Die Progressbars und Labels zeigen den aktuellen Stand mit den aktuellen Werten des Spielstandes an.
      * @Author Felix Ahrens
      */
@@ -90,10 +95,12 @@ public class MarktController extends StadtController
 
     /**
      * Methode zum Updaten der Preise. Die Methode erstellt ueber einen Zufallsgenerator zufaellige Zahlen im Rahmen:
-     *  Gold: Eins bis Neun; Gesundheit: Eins bis Vier. Die generierten Zufallszahlen werden in den Klassenvariablen
-     *  "goldPreis" und "gesundheitsPreis" gespeichert.
+     * Gold: Eins bis Neun; Gesundheit: Eins bis Vier. Die generierten Zufallszahlen werden in den Klassenvariablen
+     * "goldPreis" und "gesundheitsPreis" gespeichert.
+     *
      * @pre Die Klassenvariablen und die Konstanten im Interface muessen erreichbar sein.
-     * @post Die Klassenvariablen "goldPreis" und "gesundheitsPreis" wurden auf neue zufaellige Werte im jeweiligen angegebenen Rahmen gesetzt.
+     * @post Die Klassenvariablen "goldPreis" und "gesundheitsPreis" wurden auf neue zufaellige Werte im jeweiligen
+     * angegebenen Rahmen gesetzt.
      * @Author Felix Ahrens
      */
     public void updatePreise ()
@@ -104,13 +111,15 @@ public class MarktController extends StadtController
     }
 
     /**
-     * Kaufe-Methode, mit der das Kaufen ausgefuehrt wird. Abhaengig von der ID des Buttons wird ueberprueft,
-     *  dass mehr Holz als der jeweilige Kaufpreis vorhanden ist und dann der Kauf ausgefuehrt.
-     * @pre Die Button-ID muss entweder "goldButton" oder "gesundheitButton" sein. Die benoetigten Instanzen muessen vorhanden und,
-     *  im Fall der GameFile, gesetzt sein. Die verwendeten Methoden, Konstanten und Klassen muessen alle erreichbar sein.
-     * @post Es wurde ein Kauf getaetigt und eine Visuelle Bestaetigung an die nutzende Person ausgegeben. Falls nicht genug Holz
-     *  fuer die Transaktion vorhanden ist, wird dies der spielenden Person ebenfalls deutlich gemacht, ueber die Ausgabe
-     *  eines Fehlermeldungstextes.
+     * Kaufe-Methode, mit der das Kaufen ausgefuehrt wird. Abhaengig von der ID des Buttons wird ueberprueft, dass mehr
+     * Holz als der jeweilige Kaufpreis vorhanden ist und dann der Kauf ausgefuehrt.
+     *
+     * @pre Die Button-ID muss entweder "goldButton" oder "gesundheitButton" sein. Die benoetigten Instanzen muessen
+     * vorhanden und, im Fall der GameFile, gesetzt sein. Die verwendeten Methoden, Konstanten und Klassen muessen alle
+     * erreichbar sein.
+     * @post Es wurde ein Kauf getaetigt und eine Visuelle Bestaetigung an die nutzende Person ausgegeben. Falls nicht
+     * genug Holz fuer die Transaktion vorhanden ist, wird dies der spielenden Person ebenfalls deutlich gemacht, ueber
+     * die Ausgabe eines Fehlermeldungstextes.
      * @Author Felix Ahrens
      */
     @FXML

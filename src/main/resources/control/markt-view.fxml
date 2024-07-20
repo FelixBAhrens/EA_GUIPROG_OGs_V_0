@@ -10,39 +10,56 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MarktController">
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MarktController">
     <children>
-        <ImageView fitHeight="562.5" fitWidth="1000.0" layoutX="0" layoutY="0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 8">
+        <ImageView fitHeight="562.5" fitWidth="1000.0" layoutX="0" layoutY="0" pickOnBounds="true" preserveRatio="true"
+                   style="-fx-border-radius: 8">
             <image>
-                <Image url="@../assets/markt.png" />
+                <Image url="@../assets/markt.png"/>
             </image>
         </ImageView>
         <AnchorPane layoutX="0" layoutY="0" prefHeight="562.5" prefWidth="1000.0" styleClass="transparenterStyle">
             <children>
                 <Text layoutX="14.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Markt">
                     <font>
-                        <Font size="46.0" />
+                        <Font size="46.0"/>
                     </font>
                 </Text>
-                <VBox fx:id="preisVBox" alignment="CENTER" layoutX="180.0" layoutY="161.0" prefHeight="230.0" prefWidth="209.0" spacing="10" styleClass="beigerHintergrundStyle">
+                <VBox fx:id="preisVBox" alignment="CENTER" layoutX="180.0" layoutY="161.0" prefHeight="230.0"
+                      prefWidth="209.0" spacing="10" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hellblauerStyle" text="Aktuelle Preise" />
-                        <Label fx:id="gesundheitsPreisLabel" styleClass="hellblauerStyle" text="42" />
-                        <Label fx:id="goldPreisLabel" styleClass="hellblauerStyle" text="42" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="* alle Angaben in Holz" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hellblauerStyle"
+                              text="Aktuelle Preise"/>
+                        <Label fx:id="gesundheitsPreisLabel" styleClass="hellblauerStyle" text="42"/>
+                        <Label fx:id="goldPreisLabel" styleClass="hellblauerStyle" text="42"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="* alle Angaben in Holz"/>
                     </children>
                 </VBox>
-                <AnchorPane layoutX="500.0" layoutY="65.0" prefHeight="421.0" prefWidth="389.0" styleClass="beigerHintergrundStyle">
+                <AnchorPane layoutX="500.0" layoutY="65.0" prefHeight="421.0" prefWidth="389.0"
+                            styleClass="beigerHintergrundStyle">
                     <children>
-                        <ProgressBar fx:id="holzBar" layoutX="235.0" layoutY="95.0" prefHeight="20.0" prefWidth="125.0" progress="0" />
-                        <ProgressBar fx:id="goldBar" layoutX="235.0" layoutY="161.0" prefHeight="20.0" prefWidth="125.0" progress="0" />
-                        <ProgressBar fx:id="gesundheitsBar" layoutX="235.0" layoutY="272.0" prefHeight="20.0" prefWidth="125.0" progress="0" />
-                        <Label fx:id="holzInventarLabel" layoutX="21.0" layoutY="96.0" prefHeight="51.0" prefWidth="157.0" styleClass="hellblauerStyle" text="Holz:" />
-                        <Label fx:id="goldInventarLabel" layoutX="21.0" layoutY="162.0" prefHeight="43.0" prefWidth="157.0" styleClass="hellblauerStyle" text="Gold: " />
-                        <Label fx:id="gesundheitsInventarLabel" layoutX="21.0" layoutY="273.0" prefHeight="51.0" prefWidth="157.0" styleClass="hellblauerStyle" text="Gesundheit: " />
-                        <Button fx:id="goldButton" layoutX="235.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#kaufe" prefHeight="36.0" prefWidth="125.0" styleClass="hellblauerStyle" text="Gold kaufen" />
-                        <Button fx:id="gesundheitButton" layoutX="235.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#kaufe" prefHeight="51.0" prefWidth="125.0" styleClass="hellblauerStyle" text="Gesundheit kaufen" />
-                        <Text fx:id="fehlerMeldungsText" layoutX="68.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nicht genügend Holz!" styleClass="beigerHintergrundStyle" visible="false"/>
+                        <ProgressBar fx:id="holzBar" layoutX="235.0" layoutY="95.0" prefHeight="20.0" prefWidth="125.0"
+                                     progress="0"/>
+                        <ProgressBar fx:id="goldBar" layoutX="235.0" layoutY="161.0" prefHeight="20.0" prefWidth="125.0"
+                                     progress="0"/>
+                        <ProgressBar fx:id="gesundheitsBar" layoutX="235.0" layoutY="272.0" prefHeight="20.0"
+                                     prefWidth="125.0" progress="0"/>
+                        <Label fx:id="holzInventarLabel" layoutX="21.0" layoutY="96.0" prefHeight="51.0"
+                               prefWidth="157.0" styleClass="hellblauerStyle" text="Holz:"/>
+                        <Label fx:id="goldInventarLabel" layoutX="21.0" layoutY="162.0" prefHeight="43.0"
+                               prefWidth="157.0" styleClass="hellblauerStyle" text="Gold: "/>
+                        <Label fx:id="gesundheitsInventarLabel" layoutX="21.0" layoutY="273.0" prefHeight="51.0"
+                               prefWidth="157.0" styleClass="hellblauerStyle" text="Gesundheit: "/>
+                        <Button fx:id="goldButton" layoutX="235.0" layoutY="193.0" mnemonicParsing="false"
+                                onMouseClicked="#kaufe" prefHeight="36.0" prefWidth="125.0" styleClass="hellblauerStyle"
+                                text="Gold kaufen"/>
+                        <Button fx:id="gesundheitButton" layoutX="235.0" layoutY="302.0" mnemonicParsing="false"
+                                onMouseClicked="#kaufe" prefHeight="51.0" prefWidth="125.0" styleClass="hellblauerStyle"
+                                text="Gesundheit kaufen"/>
+                        <Text fx:id="fehlerMeldungsText" layoutX="68.0" layoutY="43.0" strokeType="OUTSIDE"
+                              strokeWidth="0.0" text="Nicht genügend Holz!" styleClass="beigerHintergrundStyle"
+                              visible="false"/>
                     </children>
                 </AnchorPane>
             </children>

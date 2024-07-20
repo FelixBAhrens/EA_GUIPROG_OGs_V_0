@@ -101,21 +101,25 @@ public class Artefakt extends GameFile
 
     /**
      * Methode, die die Kosten fuer die Verbesserung ermittelt.
-     * @pre
+     *
      * @return
+     * @pre
      * @Author Felix Ahrens
      */
-    public int ermittleVerbesserungsKosten () {
-        return ((this.getStaerke()+this.getAnwendungenUebrig())*Konstanten.INT_FIVE);
+    public int ermittleVerbesserungsKosten ()
+    {
+        return ((this.getStaerke() + this.getAnwendungenUebrig()) * Konstanten.INT_FIVE);
     }
 
     /**
      * Methode, die den Wert ermittelt
+     *
      * @return den Wert des Artefakts in der Einheit "Gold"
      * @Author Felix Ahrens
      */
-    public int ermittleWert() {
-        return (this.getStaerke()*Konstanten.INT_TEN);
+    public int ermittleWert ()
+    {
+        return (this.getStaerke() * Konstanten.INT_TEN);
     }
 
     @Override
@@ -129,16 +133,19 @@ public class Artefakt extends GameFile
 
     /**
      * ToPane-Methode, die das Artefakt fuer die spielende Person in eine betrachtbare Form bringen soll
+     *
      * @return
      */
-    public Pane toPane (){
+    public Pane toPane ()
+    {
         Pane pane = new Pane();
         pane.setPrefSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
         pane.setMinSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
         pane.setMaxSize(Konstanten.INT_TWENTY, Konstanten.INT_TWENTY);
         pane.getChildren().add(new Text(this.name));
         pane.setVisible(true);
-        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName()){
+        pane.setStyle(Strings.FX_BACKGROUND_COLOR + switch (this.getName())
+        {
             case Strings.SCHWERT -> Strings.GRAY;
             case Strings.STATUE -> Strings.DARKGRAY;
             case Strings.RING -> Strings.LIGHTGRAY;

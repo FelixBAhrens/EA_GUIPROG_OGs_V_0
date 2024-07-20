@@ -204,9 +204,9 @@ public interface Strings
     String A = "A";
     String B = "B";
     String C = "C";
-    String TEXT_FRAKTION_A ="Beispieltext Information Fraktion A";
-    String TEXT_FRAKTION_B ="Beispieltext Information Fraktion B";
-    String TEXT_FRAKTION_C ="Beispieltext Information Fraktion C";
+    String TEXT_FRAKTION_A = "Beispieltext Information Fraktion A";
+    String TEXT_FRAKTION_B = "Beispieltext Information Fraktion B";
+    String TEXT_FRAKTION_C = "Beispieltext Information Fraktion C";
     String SCHILD_VERBESSERN = "schildVerbessern";
     String MANAPUNKTE_VERBESSERN = "manapunkteVerbessern";
     String NAHKAMPF_WERT_VERBESSERN = "nahkampfWertVerbessern";

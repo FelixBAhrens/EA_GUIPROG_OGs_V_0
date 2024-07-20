@@ -71,7 +71,7 @@
 }
 
 .transparenterStyleTuerkiseUmrandung {
--fx-background-color: transparent;
+    -fx-background-color: transparent;
     -fx-border-color: turquoise;
     -fx-border-width: 2;
     -fx-border-radius: 8;
@@ -79,5 +79,5 @@
 }
 
 .grauerSemiTransparenterStyle {
-    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-background-color: rgba(0, 0, 0, 0.5);
 }

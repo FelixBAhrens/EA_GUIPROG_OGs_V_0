@@ -12,11 +12,14 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Die Klasse TrainingsGelaendeController bildet die Controllerklasse zur "trainingsgelaende-view.fxml".
- *  Hier befinden sich saemtliche Methoden zur Behandlung von Nutzereingaben und dessen Folgen sowie zur GUI-Manipulation und -ausgabe.
+ * Die Klasse TrainingsGelaendeController bildet die Controllerklasse zur "trainingsgelaende-view.fxml". Hier befinden
+ * sich saemtliche Methoden zur Behandlung von Nutzereingaben und dessen Folgen sowie zur GUI-Manipulation und
+ * -ausgabe.
+ *
  * @Author David Kien, Felix Ahrens
  */
-public class TrainingsGelaendeController extends StadtController {
+public class TrainingsGelaendeController extends StadtController
+{
 
     private int gesammeltesHolz;
     private int gesammelteNahrung;
@@ -119,7 +122,7 @@ public class TrainingsGelaendeController extends StadtController {
 
     //@Author David Kien
     @FXML
-    public void initialize()
+    public void initialize ()
     {
         GameFile instanz = GameFile.getInstanz();
         bestimmmeVerbesserungsPreise();
@@ -139,8 +142,7 @@ public class TrainingsGelaendeController extends StadtController {
             zahlAusweichenPoints = instanz.getLeader().getZahlAusweichen();
             magieResistenzPoints = instanz.getLeader().getMagieResistenz();
             bewegungsWeitePoints = instanz.getLeader().getBewegungsWeite();
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             throw new RuntimeException(e);
         }
@@ -183,13 +185,17 @@ public class TrainingsGelaendeController extends StadtController {
 
     /**
      * Eigenschaft, die den Preis fuer ein EigenschaftsUpgrade abhaengig von der eingestellten Schwierigkeit setzt.
+     *
      * @pre Die Singleton-Instanz muss gesetzt sein und die Schwierigkeit muss eine von {EINFACH, NORMAL, SCHWER} sein.
-     *  Der "eigenschaftsUpgradePreis" und die Konstanten muessen erreichbar sein.
-     * @post Der "eigenschaftsUpgradePreis" wurde abhaengig von der gesetzten Schwierigkeit auf einen Integer-wert gesetzt.
+     * Der "eigenschaftsUpgradePreis" und die Konstanten muessen erreichbar sein.
+     * @post Der "eigenschaftsUpgradePreis" wurde abhaengig von der gesetzten Schwierigkeit auf einen Integer-wert
+     * gesetzt.
      * @author Felix Ahrens
      */
-    public void bestimmmeVerbesserungsPreise(){
-        switch (GameFile.getInstanz().getSchwierigkeit()){
+    public void bestimmmeVerbesserungsPreise ()
+    {
+        switch (GameFile.getInstanz().getSchwierigkeit())
+        {
             case EINFACH -> eigenschaftsUpgradePreis = Konstanten.INT_THREE;
             case NORMAL -> eigenschaftsUpgradePreis = Konstanten.INT_FIVE;
             case SCHWER -> eigenschaftsUpgradePreis = Konstanten.INT_SEVEN;
@@ -198,12 +204,14 @@ public class TrainingsGelaendeController extends StadtController {
 
     /**
      * Methode, die die Baustelle anzeigt.
+     *
      * @pre Die Konstanten, GUI-Elemente und Methdoen muessen erreichbar sein.
-     * @post Die Baustelle und der "aktuellerRessourcenstand" werden angezeigt, um der nutzenden Person informationen zu liefern.
+     * @post Die Baustelle und der "aktuellerRessourcenstand" werden angezeigt, um der nutzenden Person informationen zu
+     * liefern.
      * @Author Felix Ahrens
      */
     @FXML
-    public void zeigeVerbessern()
+    public void zeigeVerbessern ()
     {
         aktuellerRessourcenstand.setText(Strings.GOLD + Strings.DOPPELPUNKT + GameFile.getInstanz().getGoldRessource()
                 + Strings.NEWLINE + Strings.HOLZ + Strings.DOPPELPUNKT + GameFile.getInstanz().getHolzRessource());
@@ -212,11 +220,12 @@ public class TrainingsGelaendeController extends StadtController {
 
     /**
      * Methode zum verbessern des gebaeudes
+     *
      * @todo geht das nicht mit der kaufen methode?
      * @Author David Kien
      */
     @FXML
-    public void verbessereGebaeude()
+    public void verbessereGebaeude ()
     {
         if (GameFile.getInstanz().getGoldRessource() >= Konstanten.INT_FIVE && GameFile.getInstanz().getHolzRessource() >= Konstanten.INT_FIFTY && GameFile.getInstanz().getSteinRessource() >= Konstanten.INT_TEN && (GameFile.getInstanz().getTrainingsgelaendeLevel() == Konstanten.INT_ZERO))
         {

@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 /**
  * Controllerklasse fuer die "mission-flappybird-view.fxml". In ihr befinden sich Methoden zur Nutzerinteraktion.
+ *
  * @Author David Kien
  */
 public class MissionFlappyBirdController extends ControllerController implements Initializable

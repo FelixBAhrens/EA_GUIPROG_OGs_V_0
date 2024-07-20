@@ -31,8 +31,7 @@ public class MyIO
      *
      * @param text Der Text der ausgegeben werden soll.
      * @pre Der eingegebene Text muss ein String sein.
-     * @post Es wird ein Text ausgegeben. Ein Timestamp wird mit ausgegeben, wenn die Variable "timeStamp" true
-     * ist.
+     * @post Es wird ein Text ausgegeben. Ein Timestamp wird mit ausgegeben, wenn die Variable "timeStamp" true ist.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */
     public static void print (String text)
@@ -72,8 +71,7 @@ public class MyIO
      * @param text            Der Text der ausgegeben werden soll.
      * @param color           Die Schriftfarbe des auszugebenden Textes.
      * @param backgroundColor Die Hintergrundfarbe des auszugebenden Textes.
-     * @pre Der eingegebene Text muss ein String sein, die Farben muessen Parameter der Klasse ConsoleColor
-     * sein.
+     * @pre Der eingegebene Text muss ein String sein, die Farben muessen Parameter der Klasse ConsoleColor sein.
      * @post Es wird ein text ausgegeben mit den zugehoerigen Farben.
      * @author provided by Prof. Dr.-Ing. Heiko Mosemann
      */

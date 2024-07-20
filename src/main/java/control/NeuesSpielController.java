@@ -11,7 +11,8 @@ import res.Strings;
 
 /**
  * Die Klasse NeuesSpielController bildet die Controllerklasse fuer die "neuesSpiel-view.fxml" und beinhaltet Methoden
- *  zum Setzen von GUI-Elementen und zum Reagieren auf GUI-seitige Nutzereingaben und Behandeln von dessen Intentionen.
+ * zum Setzen von GUI-Elementen und zum Reagieren auf GUI-seitige Nutzereingaben und Behandeln von dessen Intentionen.
+ *
  * @Author Felix Ahrens
  */
 public class NeuesSpielController extends ControllerController
@@ -30,6 +31,7 @@ public class NeuesSpielController extends ControllerController
 
     /**
      * Initialize-Methode, wie sie fuer FXML-Controllerklassen verpflichtend ist.
+     *
      * @pre Die aufgerufene Methode muss erreichbar sein.
      * @post Der Schwierigkeitsslider wurde initialisiert.
      * @Author Felix Ahrens
@@ -42,13 +44,15 @@ public class NeuesSpielController extends ControllerController
 
     /**
      * Methode zum Initialisieren des Schwierigkeitssliders. Diesem wird ein Eventlistener hinzugefuegt, der eine Value
-     *  bei Nutzer-Gui-Interaktion liefert, auf dessen Basis das Label zum Anzeigen der Schwierigkeit aktualisiert wird.
+     * bei Nutzer-Gui-Interaktion liefert, auf dessen Basis das Label zum Anzeigen der Schwierigkeit aktualisiert wird.
+     *
      * @pre die verwendeten Methoden, GUI-Elemente und Konstanten muessen erreichbar sein.
      * @post Dem "schwierigkeitsSlider" wurde ein Listener hinzugefuegt, auf Basis dessen Nutzereingabe die gewaehlte
-     *  Schwierigkeit ausgegeben wurde.
+     * Schwierigkeit ausgegeben wurde.
      * @Author Felix Ahrens
      */
-    public void initialisiereSchwierigkeitsSlider () {
+    public void initialisiereSchwierigkeitsSlider ()
+    {
         schwierigkeitsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             int value = newValue.intValue();
             schwierigkeitsSlider.setValue(value);
@@ -66,8 +70,10 @@ public class NeuesSpielController extends ControllerController
     /**
      * Methode zum Fortfahren Abhaengig von der AnchorPane, die gerade visible ist, wird entweder die Schwierigkeit
      * gesetzt oder die GameFile mit der eingegebenen Schwierigkeit und dem eingegebenen Dateinamen erstellt
+     *
      * @pre Die verwendeten Methoden, GUI-Elemente und Konstanten muessen erreichbar sein.
-     * @post Die GameFile-Instanz wurde mit der ausgewaehlten Schwierigkeit gesetzt, wenn das Menue zum Auswaehlen des SpielstandsNamens angezeigt wurde und auf Fortfahren gedrueckt wurde.
+     * @post Die GameFile-Instanz wurde mit der ausgewaehlten Schwierigkeit gesetzt, wenn das Menue zum Auswaehlen des
+     * SpielstandsNamens angezeigt wurde und auf Fortfahren gedrueckt wurde.
      * @author David Kien, Felix Ahrens
      */
     @FXML
@@ -96,6 +102,7 @@ public class NeuesSpielController extends ControllerController
      * Override der "handleZurueck"-methode aus "ControllerController". Dadurch wird zusaetzliche Funktionalitaet
      * implementiert, da hier ueber Zurueck-Buttons zwischen AnchorPanes, die verschiedene Nutzereingaben fordern,
      * innerhalb der Szene gewechselt werden kann.
+     *
      * @pre Die GUI-elemente muessen erreichbar sein.
      * @post Es wurde, abhaengig von dem Fortschritt im "neuesSpiel-Dialog", eine Ebene zurueck gegangen.
      * @Author Felix Ahrens

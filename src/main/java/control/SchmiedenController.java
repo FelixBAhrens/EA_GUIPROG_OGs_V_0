@@ -13,6 +13,7 @@ import res.Strings;
 
 /**
  * Die Klasse SchmiedenController ist die Controllerklasse fuer die "schmiede-view.fxml".
+ *
  * @Author Felix Ahrens
  */
 public class SchmiedenController extends StadtController
@@ -31,9 +32,10 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode zum Anzeigen des Artefaktes
+     *
+     * @param event Das Event, dem dieser Methodenaufruf entstammt.
      * @pre Die verwendeten GUI-Elemente und Methoden muessen erreichbar sein.
      * @post Das "artefaktDisplay" wurde in seinem Inhalt aktualisiert und visible gesetzt.
-     * @param event Das Event, dem dieser Methodenaufruf entstammt.
      * @Author Felix Ahrens
      */
     @FXML
@@ -45,19 +47,23 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die die auf dem "artefaktDisplay" ausgegebenen Informationen aktualisiert.
-     * @pre Die GUI-Elemente, Methoden und Konstanten muessen erreichbar sein.
-     * @post Die Information im "infoLabel" wurde aktualisiert und fuer die spielende Person sinnvoll verstaendlich dargestellt.
+     *
      * @param artefakt Das Artefakt, dessen Werte im "infoLabel" dargestellt werden soll.
+     * @pre Die GUI-Elemente, Methoden und Konstanten muessen erreichbar sein.
+     * @post Die Information im "infoLabel" wurde aktualisiert und fuer die spielende Person sinnvoll verstaendlich
+     * dargestellt.
      * @Author Felix Ahrens
      */
     public void aktualisiereDisplayInformation (Artefakt artefakt)
     {
-        if (!artefakt.istImBesitz()){
+        if (!artefakt.istImBesitz())
+        {
             verkaufenButton.setVisible(false);
             verbessernButton.setVisible(false);
-        } else {
+        } else
+        {
             verbessernButton.setVisible(true);
-            verbessernButton.setText(Strings.STAERKE + Strings.SPACE +  Strings.VERBESSERN + Strings.DOPPELPUNKT + Strings.SPACE
+            verbessernButton.setText(Strings.STAERKE + Strings.SPACE + Strings.VERBESSERN + Strings.DOPPELPUNKT + Strings.SPACE
                     + artefakt.ermittleVerbesserungsKosten() + Strings.SPACE + Strings.GOLD);
             verkaufenButton.setVisible(true);
             verkaufenButton.setText(Strings.VERKAUFEN + Strings.DOPPELPUNKT + Strings.SPACE
@@ -71,10 +77,12 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die abhhaengig von der uebergebenen ID das entsprechende Artefakt heraussucht
-     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein. Die Id muss mit einer der Konstanten-Strings fuer den Namen des jeweiligen Artefakts uebereinstimmen.
-     * @post Das zur uebergebenen ID eindeutig zugehoerige Artefakt wurde zurueckgegeben.
+     *
      * @param ID Die ID als String, zu der sich ein Artefakt zuordnen laesst.
      * @return das Artefakt, das der ID des aufrufenden Elements entspricht.
+     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein. Die Id muss mit einer der Konstanten-Strings fuer den
+     * Namen des jeweiligen Artefakts uebereinstimmen.
+     * @post Das zur uebergebenen ID eindeutig zugehoerige Artefakt wurde zurueckgegeben.
      * @Author Felix Ahrens
      */
     public Artefakt findeArtefaktAusID (String ID)
@@ -91,6 +99,7 @@ public class SchmiedenController extends StadtController
 
     /**
      * Initialize-Methode der Controllerklasse fuer die "schmiede-view.fxml".
+     *
      * @pre /
      * @post
      * @Author Felix Ahrens
@@ -103,9 +112,11 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "sichtbar" setzt.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und bekommmbar sein.
-     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
+     *
      * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und
+     * bekommmbar sein.
+     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
      * @Author Felix Ahrens
      */
     @FXML
@@ -124,9 +135,11 @@ public class SchmiedenController extends StadtController
 
     /**
      * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "unsichtbar" setzt.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und bekommmbar sein.
-     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
+     *
      * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und
+     * bekommmbar sein.
+     * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
      * @Author Felix Ahrens
      */
     public void veraenderePaneSichtbarkeitBeiMouseExit (MouseEvent event)

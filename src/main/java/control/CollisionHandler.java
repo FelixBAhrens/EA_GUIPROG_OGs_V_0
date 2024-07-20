@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 /**
  * Klasse CollisionHandler
+ *
  * @Author David Kien
  */
 public class CollisionHandler
 {
     /**
-     *
      * @param obstacles
      * @param bird
      * @return

@@ -17,7 +17,8 @@
         <AnchorPane layoutX="334.0" layoutY="157.0" prefHeight="405.0" prefWidth="611.0"
                     styleClass="beigerHintergrundStyle">
             <children>
-                <Text layoutX="269.0" layoutY="37.0" strokeType="OUTSIDE" styleClass="orangerStyle" strokeWidth="0.0" text="Player Reborn"/>
+                <Text layoutX="269.0" layoutY="37.0" strokeType="OUTSIDE" styleClass="orangerStyle" strokeWidth="0.0"
+                      text="Player Reborn"/>
                 <Text layoutX="83.0" layoutY="181.0" strokeType="OUTSIDE" styleClass="orangerStyle" strokeWidth="0.0"
                       text="Dein Spieler ist gestorben. Möchtest du diesen wiederbeleben? Dabei  werden alle Werte auf die Anfangswerte zurückgesetzt."
                       wrappingWidth="430.8033447265625"/>

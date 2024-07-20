@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SchenkenController">
+<AnchorPane prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SchenkenController">
     <children>
         <StackPane>
             <ImageView fitHeight="562.5" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
@@ -18,25 +19,42 @@
                 </image>
             </ImageView>
         </StackPane>
-        <Pane fx:id="medic" layoutX="206.0" layoutY="214.0" onMouseClicked="#openCharakter" prefHeight="251.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
-        <Pane fx:id="magician" layoutX="665.0" layoutY="198.0" onMouseClicked="#openCharakter" prefHeight="265.0" prefWidth="130.0" style="-fx-background-color: transparent;" />
-        <Pane fx:id="scout" layoutX="551.0" layoutY="182.0" onMouseClicked="#openCharakter" prefHeight="135.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
-        <Pane fx:id="hunter" layoutX="348.0" layoutY="187.0" onMouseClicked="#openCharakter" prefHeight="121.0" prefWidth="104.0" style="-fx-background-color: transparent;" />
-        <AnchorPane fx:id="charakterDisplay" layoutX="12.0" layoutY="22.0" prefHeight="447.0" prefWidth="205.0" style="-fx-background-color: rgba(141, 107, 73, 0.9);" visible="false">
+        <Pane fx:id="medic" layoutX="206.0" layoutY="214.0" onMouseClicked="#openCharakter" prefHeight="251.0"
+              prefWidth="130.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="magician" layoutX="665.0" layoutY="198.0" onMouseClicked="#openCharakter" prefHeight="265.0"
+              prefWidth="130.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="scout" layoutX="551.0" layoutY="182.0" onMouseClicked="#openCharakter" prefHeight="135.0"
+              prefWidth="104.0" style="-fx-background-color: transparent;"/>
+        <Pane fx:id="hunter" layoutX="348.0" layoutY="187.0" onMouseClicked="#openCharakter" prefHeight="121.0"
+              prefWidth="104.0" style="-fx-background-color: transparent;"/>
+        <AnchorPane fx:id="charakterDisplay" layoutX="12.0" layoutY="22.0" prefHeight="447.0" prefWidth="205.0"
+                    style="-fx-background-color: rgba(141, 107, 73, 0.9);" visible="false">
             <children>
                 <VBox layoutX="12.0" layoutY="14.0" prefHeight="420.0" prefWidth="188.0" spacing="10">
-                    <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="healthLabel" layoutX="10.0" layoutY="45.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="shieldLabel" layoutX="10.0" layoutY="80.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="manaLabel" layoutX="10.0" layoutY="115.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="closeCombatLabel" layoutX="10.0" layoutY="150.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="distanceCombatLabel" layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="numberDistComLabel" layoutX="10.0" layoutY="220.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="dodgeLabel" layoutX="10.0" layoutY="255.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="magResLabel" layoutX="10.0" layoutY="290.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="reachLabel" layoutX="10.0" layoutY="325.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Label fx:id="initLabel" layoutX="10.0" layoutY="360.0" prefHeight="25.0" prefWidth="180.0" styleClass="braunerStyle"/>
-                    <Button fx:id="anheuernButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern" styleClass="beigerHintergrundStyle" text="Anheuern" />
+                    <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="healthLabel" layoutX="10.0" layoutY="45.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="shieldLabel" layoutX="10.0" layoutY="80.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="manaLabel" layoutX="10.0" layoutY="115.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="closeCombatLabel" layoutX="10.0" layoutY="150.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="distanceCombatLabel" layoutX="10.0" layoutY="185.0" prefHeight="25.0"
+                           prefWidth="180.0" styleClass="braunerStyle"/>
+                    <Label fx:id="numberDistComLabel" layoutX="10.0" layoutY="220.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="dodgeLabel" layoutX="10.0" layoutY="255.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="magResLabel" layoutX="10.0" layoutY="290.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="reachLabel" layoutX="10.0" layoutY="325.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Label fx:id="initLabel" layoutX="10.0" layoutY="360.0" prefHeight="25.0" prefWidth="180.0"
+                           styleClass="braunerStyle"/>
+                    <Button fx:id="anheuernButton" mnemonicParsing="false" onMouseClicked="#handleAnheuern"
+                            styleClass="beigerHintergrundStyle" text="Anheuern"/>
                 </VBox>
             </children>
         </AnchorPane>
