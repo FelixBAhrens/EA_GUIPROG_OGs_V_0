@@ -34,7 +34,7 @@ public class KlassischesMenueController extends StartMenueController
     @FXML
     public void handleDebugStadt ()
     {
-        SzenenManager.wechseleSzene(Strings.FXML_STADT);
+        SzenenManager.wechseleSzene(Strings.FXML_PLAYER_REBORN);
     }
 
     /**

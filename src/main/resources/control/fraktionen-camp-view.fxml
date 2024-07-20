@@ -92,7 +92,7 @@
                 </ImageView>
                 <AnchorPane layoutX="110.0" layoutY="90.0" prefHeight="383.0" prefWidth="223.0" styleClass="beigerHintergrundStyle">
                     <children>
-                        <Button layoutX="38.0" layoutY="335.0" mnemonicParsing="false" onAction="#schalteBaustelleFrei" prefHeight="44.0" prefWidth="160.0" styleClass="hellblauerStyle" text="Baustelle freischalten" />
+                        <Button layoutX="6.0" layoutY="335.0" mnemonicParsing="false" onAction="#schalteBaustelleFrei" prefHeight="44.0" prefWidth="192.0" styleClass="hellblauerStyle" text="Baustelle freischalten" />
                         <Text layoutX="73.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baustelle">
                             <font>
                                 <Font name="System Bold" size="18.0" />
