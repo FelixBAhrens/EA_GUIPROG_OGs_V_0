@@ -9,7 +9,7 @@ public class Main extends Application {
     /**
      * Start-Methode, die die Application startet, indem der SzenenManager initialisiert und mit diesem dann das StartMenue aufgerufen wird.
      * @param primaryStage
-     * @author David Kien, Felix Ahrens
+     * @author David Kien, Felix Ahrens, Enes Oezcan
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
