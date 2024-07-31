@@ -5,9 +5,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
 import res.Strings;
+
+import static res.Konstanten.*;
 
 public class NeuesSpielController extends ControllerController{
     private static String spielName;
@@ -23,6 +26,12 @@ public class NeuesSpielController extends ControllerController{
     @FXML
     public TextField spielNameText;
 
+    public static int[] NEW_VALUES_LEADER = {0,0,0,0,0,0,0,0,0,0};
+    public static int[] NEW_VALUES_MEDIC = {0,0,0,0,0,0,0,0,0,0};
+    public static int[] NEW_VALUES_HUNTER = {0,0,0,0,0,0,0,0,0,0};
+    public static int[] NEW_VALUES_MAGICIAN = {0,0,0,0,0,0,0,0,0,0};
+    public static int[] NEW_VALUES_SCOUT = {0,0,0,0,0,0,0,0,0,0};
+
 
     @FXML
     private void initialize() {
@@ -31,17 +40,48 @@ public class NeuesSpielController extends ControllerController{
             schwierigkeitsSlider.setValue(value);
             schwierigkeitsLabel.setVisible(true);
             switch (value) {
-                case Konstanten.INT_ONE:
+                case INT_ONE:
                     schwierigkeitsLabel.setText(Strings.STRING_EINFACH);
+                    erstelleCharacter();
                     break;
-                case Konstanten.INT_TWO:
+                case INT_TWO:
                     schwierigkeitsLabel.setText(Strings.STRING_NORMAL);
+                    erstelleCharacter();
                     break;
                 case Konstanten.INT_THREE:
                     schwierigkeitsLabel.setText(Strings.STRING_SCHWER);
+                    erstelleCharacter();
                     break;
             }
         });
+    }
+    public void erstelleCharacter() {
+        if (schwierigkeitsSlider.getValue() == INT_ONE) {
+            for (int i = 0; i < DEFAULT_VALUES_LEADER.length; i++) {
+                NEW_VALUES_LEADER[i] = DEFAULT_VALUES_LEADER[i] + INT_TWO;
+                NEW_VALUES_MEDIC[i] = DEFAULT_VALUES_MEDIC[i] + INT_TWO;
+                NEW_VALUES_HUNTER[i] = DEFAULT_VALUES_HUNTER[i] + INT_TWO;
+                NEW_VALUES_MAGICIAN[i] = DEFAULT_VALUES_MAGICIAN[i] + INT_TWO;
+                NEW_VALUES_SCOUT[i] = DEFAULT_VALUES_SCOUT[i] + INT_TWO;
+            }
+        }
+        else if (schwierigkeitsSlider.getValue() == INT_TWO) {
+            for (int i = 0; i < DEFAULT_VALUES_LEADER.length; i++) {
+                NEW_VALUES_LEADER[i] = DEFAULT_VALUES_LEADER[i] + INT_ONE;
+                NEW_VALUES_MEDIC[i] = DEFAULT_VALUES_MEDIC[i] + INT_ONE;
+                NEW_VALUES_HUNTER[i] = DEFAULT_VALUES_HUNTER[i] + INT_ONE;
+                NEW_VALUES_MAGICIAN[i] = DEFAULT_VALUES_MAGICIAN[i] + INT_ONE;
+                NEW_VALUES_SCOUT[i] = DEFAULT_VALUES_SCOUT[i] + INT_ONE;
+            }
+        }
+        else {
+            NEW_VALUES_LEADER = DEFAULT_VALUES_LEADER;
+            NEW_VALUES_MEDIC = DEFAULT_VALUES_MEDIC;
+            NEW_VALUES_HUNTER = DEFAULT_VALUES_HUNTER;
+            NEW_VALUES_MAGICIAN = DEFAULT_VALUES_MAGICIAN;
+            NEW_VALUES_SCOUT = DEFAULT_VALUES_SCOUT;
+
+        }
     }
 
     /**
