@@ -56,7 +56,7 @@ public interface Konstanten
     int[] DEFAULT_VALUES_MAGICIAN = {5, 1, 0, 2, 8, 7, 4, 7, 5, 6};
     int[] DEFAULT_VALUES_SCOUT = {4, 1, 0, 6, 5, 5, 8, 5, 8, 7};
 
-    int[] BELOHNUNGEN_FLAPPY_BIRD = {10, 5, 2, 0, 1};
+    int[] BELOHNUNGEN_ENTSCHLUESSELUNG = {10, 5, 2, 0, 1};
     int[] BELOHNUNGEN_SAMMELN = {5, 5, 3, 20, 1};
     int[] BELOHNUNGEN_MEMORY = {10, 40, 1, 0, 0};
     int[] BELOHNUNGEN_ENDGEGNER = {50, 50, 10, 10, 5};

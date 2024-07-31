@@ -16,16 +16,16 @@
                 <Image url="@../assets/hintergrund.png"/>
             </image>
         </ImageView>
-        <AnchorPane fx:id="plane" layoutX="477.0" layoutY="118.0" prefHeight="484.0" prefWidth="341.0"
+        <AnchorPane fx:id="spielfeld" layoutX="477.0" layoutY="118.0" prefHeight="484.0" prefWidth="341.0"
                     style="-fx-background-color: rgba(245, 245, 220, 0.9);">
             <children>
-                <Text fx:id="score" layoutX="81.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0"
+                <Text fx:id="punktestandAnzeige" layoutX="81.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0"
                       textAlignment="CENTER" wrappingWidth="163.2734375">
                     <font>
                         <Font size="64.0"/>
                     </font>
                 </Text>
-                <Rectangle fx:id="bird" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="74.0"
+                <Rectangle fx:id="schluessel" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="74.0"
                            layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0"/>
             </children>
         </AnchorPane>

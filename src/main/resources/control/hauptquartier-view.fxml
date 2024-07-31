@@ -17,7 +17,6 @@
                 <Image url="@../assets/hauptquartier.png" />
             </image>
         </ImageView>
-        <Button fx:id="kartenButton" layoutX="452.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#openKarte" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Karte" />
         <HBox layoutX="66.0" layoutY="82.0" prefHeight="412.0" prefWidth="842.0" spacing="10">
             <children>
                 <AnchorPane fx:id="missionDetailPane" prefHeight="350.0" prefWidth="273.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">
@@ -43,7 +42,7 @@
                             </font>
                         </Text>
                         <Button fx:id="flappyBirdButton" layoutX="17.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#handleMissionWaehlen" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: rgba(0, 128, 0, 0.7); -fx-border-color: rgba(27, 77, 62, 1); -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: white; -fx-alignment: center;" text="Auswählen" />
-                  <Label fx:id="flappyBirdDetail" layoutX="17.0" layoutY="75.0" prefHeight="202.0" prefWidth="100.0" style="-fx-background-color: rgba(101, 67, 33, 0.7); -fx-border-color: #4B2E15; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #F5F5DC; -fx-alignment: center;" text="Belohnungen" wrapText="true" />
+                  <Label fx:id="entschluesselungDetail" layoutX="17.0" layoutY="75.0" prefHeight="202.0" prefWidth="100.0" style="-fx-background-color: rgba(101, 67, 33, 0.7); -fx-border-color: #4B2E15; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #F5F5DC; -fx-alignment: center;" text="Belohnungen" wrapText="true" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="sammelPane" layoutX="130.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0" style="-fx-background-color: rgba(245, 245, 220, 0.7)">

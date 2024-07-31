@@ -41,17 +41,17 @@ public interface Strings
     String ENDGEGNER = "Endgegner!";
     String ANDERER = "Anderer";
     String ARENA = "Arena";
-    String FLAPPY_BIRD = "Flappy Bird!";
+    String ENTSCHLUESSELUNG = "Entschlüsseln!";
     String SAMMELN = "Sammeln!";
     String EMPTY = "";
 
-    String TEXT_FLAPPY_BIRD = "Im abgestürzten Flugzeug befindet sich ein verschlüsseltes Funkgerät. Entschlüssele es um Hilfe zu holen und alle zu retten!";
+    String TEXT_ENTSCHLUESSELUNG = "Im abgestürzten Flugzeug befindet sich ein verschlüsseltes Funkgerät. Entschlüssele es um Hilfe zu holen und alle zu retten!";
     String TEXT_SAMMELN = "Ein Inselbewohner ist schwer verletzt und benötigt dringend 20 Gesundheitspakete. Aber Achtung, nach 90 Sekunden ist es bereits zu spät!";
     String TEXT_ENDGEGNER = "Kannst du den Endgegner besiegen?";
     String TEXT_MEMORY = "Auf einer Lichtung liegen Steinpaare. Finde alle Paare!";
 
     //-----------------
-    String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
+    String ID_BUTTON_ENTSCHLUESSELUNG = "flappyBirdButton";
     String ID_BUTTON_ENDGEGNER = "endgegnerButton";
     String ID_BUTTON_SAMMELN = "sammelnButton";
     String ID_BUTTON_MEMORY = "memoryButton";

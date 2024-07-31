@@ -6,14 +6,14 @@ import res.Konstanten;
 import res.Strings;
 import utility.MyIO;
 
+import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet.
- *
- * @author Felix Ahrens, David Kien
+ * Oberklasse aller Controller, die generelle Funktionalitäten beinhaltet
+ * @author Felix
  */
 public class ControllerController
 {
@@ -40,130 +40,73 @@ public class ControllerController
         }
     }
 
-    /**
-     * Methode, die entscheidet, wohin die Szene gewechselt werden soll, abhaengig davon, ob ein "letztes Spiel"
-     *  existiert oder nicht.
-     * @precondition Die aufgerufenen Methoden muessen in ihren jeweiligen Klassen existieren.
-     * @postcondition Die Singleton-Instanz der GameFile wurde auf die zuletzt bespielte GameFile gesetzt und die
-     *  Stadt-Szene wurde aufgerufen oder, wenn kein letztes Spiel existiert, wurde die "neues Spiel"-Szene aufgerufen.
-     * @Author Felix Ahrens
-     */
-    public void setzeGameFileInstanzLogisch ()
-    {
+    public void setzeGameFileInstanzLogisch() {
         GameFile gamefile = GameFile.gebeLetztesSpielZurueck();
-        if (gamefile != null)
-        {
+        if (gamefile != null) {
             GameFile.setzeInstanz(gamefile);
             SzenenManager.wechseleSzene(Strings.FXML_STADT);
-        } else
-        {
+        } else {
             SzenenManager.wechseleSzene(Strings.FXML_NEUESSPIEL);
         }
     }
 
     /**
-     * Methode, die die Anfrage fuer Hilfe behandelt, indem die Methode "wechseleSzene" mit dem Dateipfad fuer ein
-     * Hilfe-Menue aufgerufen wird.
-     * @precondition Die Methode "wechseleSzene" muss in der Klasse "SzenenManager" existieren und das Interface
-     * "Strings" muss den String "FXML_HILFE" beinhalten.
-     * @postcondition Die Methode "wechseleSzene" im SzenenManager wurde mit dem String fuer den Dateipfad fuer die
-     *  "hilfe"-FXML-Datei aufgerufen.
+     * Methode, die die Anfrage fuer Hilfe behandelt, indem ein Hilfe-Menue aufgerufen lassen wird.
+     * @throws IOException
      * @author Felix Ahrens
      */
     @FXML
-    public void handleHilfe ()
-    {
+    public void handleHilfe() {
         SzenenManager.wechseleSzene(Strings.FXML_HILFE);
     }
 
     /**
      * Methode, um eine Transaktion, also einen Kauf durchzufuehren, wenn dieser moeglich ist.
-     *  Sie nutzt die Methode "transaktionIstMoeglich", um zu ueberpruefen, ob eine entsprechende Transaktion moeglich ist.
-     *  Ist dies der Fall, wird die Transaktion durchgefuehrt, indem die Kosten, die den uebergebenen Parametern fuer
-     *  Holz, Stein, Gold, Gesundheit und Banonas entsprechen, vom "Ressourcenkonto" abgezogen.
-     * @precondition Die verwendeten Methoden muessen in den jeweiligen Klassen liegen. Der Methode muessen fuenf
-     * Integer-werte uebergeben werden.
-     * @param holz Die Kosten fuer Holz in der Transaktion
-     * @param stein Die Kosten fuer Stein in der Transaktion
-     * @param gold Die Kosten fuer Gold in der Transaktion
-     * @param gesundheit Die Kosten fuer Gesundheit in der Transaktion
-     * @param banonas Die Kosten fuer Banonas in der Transaktion
-     * @return True, wenn eine Transaktion moeglich war und durchgefuehrt wurde.
+     * @param holz
+     * @param stein
+     * @param gold
+     * @param banonas
+     * @param gesundheit
+     * @return
      * @author Felix Ahrens
      */
-    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int gesundheit, int banonas)
-    {
-        GameFile instanz = GameFile.getInstanz();
-        if (transaktionIstMoeglich(holz, stein, gold, gesundheit, banonas))
-        {
+    public boolean fuehreTransaktionDurchWennMoeglich (int holz, int stein, int gold, int banonas, int gesundheit){
+        GameFile instanz = GameFile.gebeLetztesSpielZurueck();
+        if (instanz.getHolzRessource() > holz && instanz.getSteinRessource() > stein && instanz.getGoldRessource() > gold && instanz.getGesundheitRessource() > gesundheit && instanz.getBanonasRessource() > banonas){
             instanz.setHolzRessource(instanz.getHolzRessource() - holz);
             instanz.setSteinRessource(instanz.getSteinRessource() - stein);
             instanz.setGoldRessource(instanz.getGoldRessource() - gold);
             instanz.setGesundheitRessource(instanz.getGesundheitRessource() - gesundheit);
             instanz.setBanonasRessource(instanz.getBanonasRessource() - banonas);
             return true;
-        } else
-        {
+        }
+        else {
             return false;
         }
     }
 
     /**
-     * Methode, die die Machbarkeit einer Transaktion bestimmt.
-     *  Sie bekommt die Kosten der einzelnen Ressourcen uebergeben und versichert mit dem booleschen Rueckgabewert, dass
-     *  das "Konto" des Spielstandes nicht ueberzogen wird. Dazu wird fuer alle fuenf Ressourcentypen ueberprueft, dass
-     *  die im Besitz liegende Ressource nicht unter dem uebergebenen Kostenwert der jeweiligen Ressource liegt.
-     * @param holz Die Holzkosten.
-     * @param stein Die Steinkosten.
-     * @param gold Die Goldkosten.
-     * @param gesundheit Die Gesundheitskosten.
-     * @param banonas Die Banonaskosten.
-     * @return Einen Booleschen Wert, der angibt, ob eine Transaktion durchfuehrbar waere, ohne das "Ressourcenkonto"
-     *  des Spielstandes zu ueberziehen.
-     * @Author Felix Ahrens
-     */
-    public boolean transaktionIstMoeglich (int holz, int stein, int gold,int gesundheit, int banonas) {
-        GameFile instanz = GameFile.getInstanz();
-        return ((instanz.getHolzRessource() >= holz) && instanz.getSteinRessource() >= stein && instanz.getGoldRessource() >= gold && instanz.getGesundheitRessource() >= gesundheit && instanz.getBanonasRessource() >= banonas);
-    }
-
-    /**
-     * Methode, die die Zurueck-Funktionalitaet beinhaltet.
-     * @precondition Die verwendeten Methoden muessen in den jeweiligen Klassen existieren. Der SzenenStack im SzenenManager
-     *  darf nicht leer sein, sonst wird eine Fehlermeldung ausgegeben
-     * @postcondititon Es wurde um eine Szene zurueck gegangen. Falls das nicht moeglich war, wurde eine Fehlermeldung
-     *  in die Konsole ausgegeben.
+     * Methode, die die Zurueck-Funktionalitaet beinhaltet
      * @author Felix Ahrens
      */
     @FXML
-    public void handleZurueck ()
+    public void handleZurueck()
     {
-        try
-        {
+        try {
             SzenenManager.szeneZurueck();
-        } catch (RuntimeException e)
-        {
+        } catch (RuntimeException e) {
             MyIO.print(Strings.FEHLERMELDUNG_ZURUECK);
         }
     }
 
     /**
-     * Methode zum Beenden des Spiels. Abhaengig davon, ob das Singleton der GameFile gesetzt ist, wird das Spiel
-     *  entweder direkt beendet oder es wird eine Szene zum Abfragen der Speicherung des Spiels aufgerufen.
-     * @precondition Die methode "instanzIstGesetzt" muss in der Klasse GameFile existieren. Die Methode "wechseleSzene"
-     *  muss in der Klasse "SzenenManager" existieren. Die Interfaces fuer Konstanten und Strings muessen die benoetigten
-     *  Elemente halten.
-     * @postcondition Das Spiel wurde beendet oder es wurde die Szene "speichern-abfrage-view.fxml" aufgerufen.
-     * @Author Felix Ahrens
+     *
      */
     @FXML
-    public void handleSpielBeenden ()
-    {
-        if (GameFile.instanzIstGesetzt())
-        {
+    public void handleSpielBeenden(){
+        if (GameFile.getInstanz() != null){
             SzenenManager.wechseleSzene(Strings.FXML_SPEICHERN_ABFRAGE);
-        } else
-        {
+        } else {
             System.exit(Konstanten.INT_ZERO);
         }
     }
@@ -171,39 +114,26 @@ public class ControllerController
 
     /**
      * Methode, die den aktuellen Spielstand von einer entsprechenden Methode in der Klasse GameFile speichern laesst.
-     * @precondition Die benoetigten Methoden muss in der jeweiligen Klasse existieren.
-     * @postcondition Die Methode "speichereSpielstand" in der Klasse GameFile wurde aufgerufen.
-     * @author Felix Ahrens, David Kien
+     * @author Felix Ahrens
      */
     @FXML
-    public void speichereSpielstand ()
+    public void speichereSpielstand()
     {
         GameFile.speichereSpielstand();
-    }
-
-    /**
-     * Methode, die den Spielstand speichert und dann die Methode "beendeAnwendung" aufruft, um die Anwendung zu
-     * beenden.
-     * @precondition Die benoetigten Methoden muessen in den jeweiligen Klassen existieren.
-     * @postcondition Der Spielstand wurde gespeichert und die Methode "beendeAnwendung" aufgerufen.
-     * @Author Felix Ahrens
-     */
-    @FXML
-    public void speichereSpielstandUndBeendeSpiel ()
-    {
-        GameFile.speichereSpielstand();
-        beendeAnwendung();
     }
 
     /**
      * Methode, die die Anwendung mit dem Exit-Code null beendet
-     * @precondition /
-     * @postcondition Die Anwedung wurde mit dem Exit-Code null beendet
      * @author Felix Ahrens
      */
     @FXML
-    public void beendeAnwendung ()
-    {
+    public void beendeAnwendung () {
         System.exit(Konstanten.INT_ZERO);
+    }
+
+    @FXML
+    public void speichereSpielstandUndBeendeSpiel(){
+        GameFile.speichereSpielstand();
+        beendeAnwendung();
     }
 }

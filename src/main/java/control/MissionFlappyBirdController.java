@@ -8,60 +8,89 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import model.Bird;
+import model.Schluessel;
 import res.Konstanten;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller fuer das Entschluesselungsspiel. Verwaltet das Spielfeld, den Schluessel,
+ * die Hinternisse und den Punktestand. Implementiert die Hauptspielschleife und
+ * die Eingabeereignisse.
+ *
+ * @version 1.0
+ * @since 2024-06-24
+ * @author David Kien
+ */
 public class MissionFlappyBirdController extends ControllerController implements Initializable
 {
-    AnimationTimer gameLoop;
+    AnimationTimer gameLoop; // Hauptschleife
 
     @FXML
-    private AnchorPane plane;
+    private AnchorPane spielfeld; // Das Spielfeld
 
     @FXML
-    private Rectangle bird;
+    private Rectangle schluessel; // Der Schluessel
 
     @FXML
-    private Text score;
+    private Text punktestandAnzeige; // Textfeld fuer den Punktestand
 
-    private double accelerationTime = Konstanten.INT_ZERO;
-    private int gameTime = Konstanten.INT_ZERO;
-    private int scoreCounter = Konstanten.INT_ZERO;
+    private double beschleunigungszeit = Konstanten.INT_ZERO; // Zeit, die die Beschleunigung dauert
 
-    private Bird birdComponent;
-    private ObstaclesHandler obstaclesHandler;
+    private int spielzeit = Konstanten.INT_ZERO; // Laufzeit des Spiels
 
-    ArrayList<Rectangle> obstacles = new ArrayList<>();
+    private int punktestand = Konstanten.INT_ZERO; // Zaehler fuer den Punktestand
+
+    private Schluessel schluesselKomponente; // Komponente die den Schluessel steuert
+
+    private ObstaclesHandler hindernissBehandler; // Handler fuer die Hindernisse
+
+    ArrayList<Rectangle> hindernisse = new ArrayList<>(); // Liste fuer die Hindernisse
 
 
+    /**
+     * Initialisiert die Spielkomponenten und startet die Spielschleife
+     *
+     * @param url URL zum FXML-Dokument
+     * @param resourceBundle Resourcenbundle fuer die Lokalisierung
+     *
+     * @pre Die FXML-Komponenten muessen korrekt geladen sein.
+     *
+     * @post Die Spielkomponenten sind initialisiert und die Spielschleife startet
+     *
+     * @author David Kien
+     */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
-        Rectangle clip = new Rectangle(plane.getPrefWidth(), plane.getPrefHeight());
-        plane.setClip(clip);
+        // Setzt eine Schnittmaske, um das Spielfeld innerhalb seiner Grenzen zu halten.
+        Rectangle schnittmaske = new Rectangle(spielfeld.getPrefWidth(), spielfeld.getPrefHeight());
+        spielfeld.setClip(schnittmaske);
 
-        int jumpHeight = Konstanten.INT_FOURTYFIVE;
-        birdComponent = new Bird(bird, jumpHeight);
+        // Initialisiert die Sprunghoehe des Schluessels
+        int sprungHoehe = Konstanten.INT_FOURTYFIVE;
+        schluesselKomponente = new Schluessel(schluessel, sprungHoehe);
+
+        // Initialisiert die Dimensionenen des Spielfeldes
         double planeHeight = Konstanten.INT_SIX_HUNDRED;
         double planeWidth = Konstanten.INT_FOUR_HUNDRED;
-        obstaclesHandler = new ObstaclesHandler(plane, planeHeight, planeWidth);
+        hindernissBehandler = new ObstaclesHandler(spielfeld, planeHeight, planeWidth);
 
+        // Definiert die Hauptspielschleife
         gameLoop = new AnimationTimer()
         {
             @Override
             public void handle (long l)
             {
-                update();
+                update(); // Aktualisiert den Spielzustand in jedem Frame
             }
         };
 
-        load();
+        load(); // Laedt die Spielkomponenten
 
-        gameLoop.start();
+        gameLoop.start(); // Startet die Spielschleife
     }
 
     @FXML
@@ -69,8 +98,8 @@ public class MissionFlappyBirdController extends ControllerController implements
     {
         if (event.getCode() == KeyCode.SPACE)
         {
-            birdComponent.fly();
-            accelerationTime = Konstanten.INT_ZERO;
+            schluesselKomponente.fliege();
+            beschleunigungszeit = Konstanten.INT_ZERO;
         }
     }
 
@@ -78,25 +107,25 @@ public class MissionFlappyBirdController extends ControllerController implements
     //Called every game frame
     private void update ()
     {
-        gameTime++;
-        accelerationTime++;
+        spielzeit++;
+        beschleunigungszeit++;
         double yDelta = Konstanten.ZERO_POINT_ZERO_TWO;
-        birdComponent.moveBirdY(yDelta * accelerationTime);
+        schluesselKomponente.bewegeSchluesselY(yDelta * beschleunigungszeit);
 
-        if (pointChecker(obstacles, bird))
+        if (pointChecker(hindernisse, schluessel))
         {
-            scoreCounter++;
-            score.setText(String.valueOf(scoreCounter));
+            punktestand++;
+            punktestandAnzeige.setText(String.valueOf(punktestand));
         }
 
-        obstaclesHandler.moveObstacles(obstacles);
+        hindernissBehandler.moveObstacles(hindernisse);
 
-        if (gameTime % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO)
+        if (spielzeit % Konstanten.INT_FIVE_HUNDRED == Konstanten.INT_ZERO)
         {
-            obstacles.addAll(obstaclesHandler.createObstacles());
+            hindernisse.addAll(hindernissBehandler.createObstacles());
         }
 
-        if (birdComponent.isBirdDead(obstacles, plane))
+        if (schluesselKomponente.isBirdDead(hindernisse, spielfeld))
         {
             resetGame();
         }
@@ -105,18 +134,18 @@ public class MissionFlappyBirdController extends ControllerController implements
     //Everything called once, at the game start
     private void load ()
     {
-        obstacles.addAll(obstaclesHandler.createObstacles());
+        hindernisse.addAll(hindernissBehandler.createObstacles());
     }
 
     private void resetGame ()
     {
-        bird.setY(Konstanten.INT_ZERO);
-        plane.getChildren().removeAll(obstacles);
-        obstacles.clear();
-        gameTime = Konstanten.INT_ZERO;
-        accelerationTime = Konstanten.INT_ZERO;
-        scoreCounter = Konstanten.INT_ZERO;
-        score.setText(String.valueOf(scoreCounter));
+        schluessel.setY(Konstanten.INT_ZERO);
+        spielfeld.getChildren().removeAll(hindernisse);
+        hindernisse.clear();
+        spielzeit = Konstanten.INT_ZERO;
+        beschleunigungszeit = Konstanten.INT_ZERO;
+        punktestand = Konstanten.INT_ZERO;
+        punktestandAnzeige.setText(String.valueOf(punktestand));
     }
 
 
