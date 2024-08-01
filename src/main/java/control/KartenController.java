@@ -1,5 +1,10 @@
 package control;
 
+// TODO: Mission soll sich nicht währen einer Mission in der Karte öffnen lassen und
+// Es soll ein separates Fenster angezeigt werden wie viele objekte man gesammelt hat
+// TODO: Stein als ressource hinzufügen
+// holz statt wood usw.
+
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -29,18 +34,19 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 /**
- * Die Klasse KartenController bildet die Controllerklasse fuer die "karteNew-view.fxml". In ihr befinden sich die
- * Methoden zum Darstellen der Karte, zum Verwenden von Nutzereingaben und zur generellen Kartenlogik.
+ * Die Klasse KartenController bildet die Controllerklasse fuer die "karteNew-view.fxml".
+ * In ihr befinden sich die Methoden zum Darstellen der Karte, zum Verwenden von Nutzereingaben
+ * und zur generellen Kartenlogik.
  *
- * @Author David Kien, Felix Ahrens
+ * @author David Kien, Felix Ahrens
  */
 public class KartenController extends ControllerController implements Initializable
 {
     /**
-     * Enum fuer den Kartentyp. Wird verwendet, dem Controller die Art der Karte mitzuteilen, bevor die FXML-Datei
-     * geladen wird.
+     * Enum fuer den Kartentyp. Wird verwendet, dem Controller die Art der Karte mitzuteilen,
+     * bevor die FXML-Datei geladen wird.
      *
-     * @Author Felix Ahrens
+     * @author Felix Ahrens.
      */
     public enum KartenTyp
     {
@@ -61,6 +67,9 @@ public class KartenController extends ControllerController implements Initializa
     @FXML
     private AnchorPane scene;
     @FXML
+    public AnchorPane startenDialog;
+
+    @FXML
     private Rectangle wood;
     @FXML
     private Rectangle gold;
@@ -72,18 +81,19 @@ public class KartenController extends ControllerController implements Initializa
     private Rectangle missionStarter2;
     @FXML
     private Rectangle shape1;
+
     @FXML
     private Pane menuePane;
     @FXML
     private Pane missionStartenPane;
     @FXML
     private Pane hintergrundPane;
+
     @FXML
     private TextField gesammelteObjekte;
     @FXML
     private TextField missionTimer;
-    @FXML
-    public AnchorPane startenDialog;
+
     @FXML
     public Label detailTextLabel;
 
@@ -98,8 +108,6 @@ public class KartenController extends ControllerController implements Initializa
     private BooleanBinding movingVertically = aPressed.or(dPressed);
     private boolean onMissionStarter = false;
 
-    private static final double ROOT_2 = Math.sqrt(Konstanten.INT_TWO);
-
     private List<Rectangle> barriers = new ArrayList<>();
 
     private int woodCount = GameFile.getInstanz().getHolzRessource();
@@ -108,23 +116,38 @@ public class KartenController extends ControllerController implements Initializa
     private int movementVariable = Konstanten.INT_TWO;
     private int timeRemaining = Konstanten.INT_NINETY;
 
-    private HauptquartierController hauptquartierController;
     private boolean missionStatus;
 
     //--------------------------------------------------------------------------
 
 
     /**
-     * Methode zum Animieren des Spielers auf der Karte.
+     * Initialisiert eine neue Instanz von AnimationTimer, die kontinuierlich
+     * aufgerufen wird, um Animationen zu aktualisieren und Eingaben zu verarbeiten.
      *
-     * @Author David Kien
+     * @author David Kien.
      */
     private final AnimationTimer timer = new AnimationTimer()
     {
         /**
-         * Handle-Methode
-         * @param timestamp
-         * @Author David Kien
+         * Wird kontinuierlich aufgerufen waehrend der AnimationTimer laeuft.
+         * Verarbeitet dabei aktuelle Benutzereingaben und aktualisiert die
+         * Positionen der Spielfigur entsprechend.
+         *
+         * @pre Die verwendeten Variablen muessen korrekt initialisiert sein und den
+         * Zustand der jeweiligen Tasten darstellen. Die verwendeten Konstanten muessen
+         * definiert sein. Die Methoden 'handleMovement', 'updateShapePosition',
+         * checkForResourceCollection' und 'checkForMissionStarterCollision' muessen
+         * implementiert und funktionsfaehig sein.
+         *
+         * @post Die Position der Spielfigur 'shape1' wurde entsprechend der Benutzereingaben
+         * aktualisiert. Falls eine Diagonale Bewegung festgestellt wurde, wurde die
+         * Bewegungsgeschwindigkeit reduziert. Eine Ueberpruefung auf Ressourcensammlung
+         * und Kollision wurde durchgefuehrt.
+         *
+         * @param timestamp Der Zeitstempel des aktuellen Frames in Nanosekunden.
+         *
+         * @author David Kien.
          */
         @Override
         public void handle (long timestamp)
@@ -155,20 +178,32 @@ public class KartenController extends ControllerController implements Initializa
                 moveY /= Math.sqrt(Konstanten.INT_TWO);
             }
 
+            // Aktualisierung der Position der Spielfigur asierend auf der berechneten Bewegung.
             updateShapePosition(moveX, moveY);
+
+            // Ueberpruefen, ob die Figur Ressourcen einsammelt.
+
             checkForResourceCollection();
+
+            // Ueberpruefen, ob die Spielfigur auf ein Missionsobjekt trifft.
             checkForMissionStarterCollision();
         }
     };
 
     /**
-     * Ueberschriebene Initialize-Methode. Ist verpflichtend fuer Controllerklassen von FXML-Dateien
+     * Ueberschriebene Initialize-Methode. Ist verpflichtend fuer Controllerklassen von FXML-Dateien.
      *
-     * @param url            /
-     * @param resourceBundle /
+     *
      * @pre Das verwendete GUI-Element und die Methode muessen erreichbar sein.
-     * @post Der "startenDialog" wird initialisiert und visible gesetzt
-     * @Author David Kien, Felix Ahrens
+     *
+     * @post Der "startenDialog" wurde initialisiert und visible gesetzt.
+     *
+     * @param url Der Ort, von dem die FXML-Datei geladen wurde.
+     *
+     * @param resourceBundle Ein ResourceBundle, das zur Internationalisierung
+     * verwendet werden kann.
+     *
+     * @author David Kien, Felix Ahrens.
      */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
@@ -178,11 +213,18 @@ public class KartenController extends ControllerController implements Initializa
     }
 
     /**
-     * Methode zum Starten der Utility fuer die Mission in der Karte
+     * Initialisiert die notwendigen Komponenten und startet die Missionslogik.
      *
-     * @pre
-     * @post
-     * @Author David Kien
+     * @pre Es wird erwartet, dass alle notwendigen Ressourcen und Objekte fuer die
+     * Missionslogik vorbereitet und korrekt initialisiert sind. Das Objekt 'map'
+     * sollte initialisiert sein und der Methode 'requestFocus()' bereit sein,
+     * den Fokus zu erhalten. Ausserdem sollte der timer korrekt konfiguriert sein,
+     * um bei Bedarf gestartet und gestoppt zu werden.
+     *
+     * @post Die Bewegungslogik wurde eingerichtet und ein Listener fuer Tastatureingaben
+     * hinzugefuegt, um den 'timer' iininobiuh
+     *
+     * @author David Kien.
      */
     public void starteMissionsUtil ()
     {
@@ -281,9 +323,16 @@ public class KartenController extends ControllerController implements Initializa
     }
 
     /**
-     * Methode zum Starten des Countdowns
+     * Die Methode startet den Timer fuer die Mission und zeigt einen Countdown an,
+     * der herunterzaehlt.
      *
-     * @Author David Kien
+     * @pre Der 'missionTimer' muss initialisiert und sichtbar sein. Die verwendete
+     * Konstante muss initialisiert sein.
+     *
+     * @post Der Countdown beginnt zu laufen und wird auf dem 'missionTimer'
+     * angezeigt. Der Timer stoppt automatisch, wenn die Zeit abgelaufen ist.
+     *
+     * @author David Kien.
      */
     private void startCountdown ()
     {
@@ -300,7 +349,21 @@ public class KartenController extends ControllerController implements Initializa
         timeline.play();
     }
 
-    //@Author David Kien
+    /**
+     * Formatiert die in Sekunden angegebene Zeit in ein Minuten-Sekunden-Format.
+     *
+     * @pre Die verwendete Konstante und das Formatierungsmuster 'Strings.FORMAT_TIME'
+     * muessen definiert sein.
+     *
+     * @post Die gegebene Zeit wurde in einem String mit Minuten-Sekunden-Format umgewandelt
+     * und zurueckgegeben.
+     *
+     * @param seconds Die Zeit in Sekunden, die Formatiert werden soll.
+     *
+     * @return Ein String im Format "MM:SS".
+     *
+     * @author David Kien.
+     */
     private String formatTime (int seconds)
     {
         int minutes = seconds / Konstanten.INT_SIXTY;
@@ -308,14 +371,37 @@ public class KartenController extends ControllerController implements Initializa
         return String.format(Strings.FORMAT_TIME, minutes, secs);
     }
 
-    //@Author David Kien
+    /**
+     * Richtet die Bewegungseinstellung ein, indem Event-Handler fuer Tastenereignisse
+     * hinzugefuegt werden.
+     *
+     * @pre Die Szene 'scene' und die Tastenereignis-Methoden muessen verfuegbar sein.
+     *
+     * @post Bei Tastendruck- und -freigabeereignissen wurden die entsprechenden
+     * Methoden aufgerufen, um die Bewegungsvariablen zu setzen.
+     *
+     * @author David Kien.
+     */
     private void setupMovement ()
     {
         scene.setOnKeyPressed(e -> setMovementKeys(e.getCode(), true));
         scene.setOnKeyReleased(e -> setMovementKeys(e.getCode(), false));
     }
 
-    //@Author David Kien
+    /**
+     * Setzt die Bewegungsstatus-Variablen basierend auf die gedrueckten Tasten.
+     *
+     * @pre Die KeyCode-Werte und Bewegungs-BooleanProperties muessen definiert sein.
+     *
+     * @post Die entsprechenden BooleanProperties werden basieren auf dem Tastendruck
+     * gesetzt oder zurueckgesetzt.
+     *
+     * @param code Die Taste die gedrueckt oder losgelassen wurde.
+     *
+     * @param pressed Gibt an, ob die Taste gedrueckt (true) oder losgelassen (false) wurde.
+     *
+     * @author David Kien.
+     */
     private void setMovementKeys (KeyCode code, boolean pressed)
     {
         switch (code)
@@ -328,7 +414,16 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
-    //@Author David Kien
+    /**
+     * Ueberprueft, ob die Spielfigur mit einem Missionstarter-Objekt kollidiert.
+     *
+     * @pre Die Rectangle-Objekte muessen initialisiert sein.
+     *
+     * @post Falls eine Kollision festgestellt wurde, wurde das im Zeitraum der
+     * Kollision das Missionstarten-Pane angezeigt.
+     *
+     * @author David Kien.
+     */
     private void checkForMissionStarterCollision ()
     {
         boolean intersects1 = shape1.getBoundsInParent().intersects(missionStarter1.getBoundsInParent());
@@ -341,7 +436,8 @@ public class KartenController extends ControllerController implements Initializa
                 onMissionStarter = true;
                 loadFXMLIntoPane(missionStartenPane, Strings.FXML_MISSION_STARTEN);
             }
-        } else
+        }
+        else
         {
             if (onMissionStarter)
             {
@@ -351,7 +447,17 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
-    //@Author David Kien
+    /**
+     * Fuegt alle Hindernisrechtecke (Barrieren) der Karte zu einer Liste hinzu, ausser
+     * speziellen Objekten wie Ressourcen- oder Missionstarter-Rechtecke.
+     *
+     * @pre Die 'map' und die zu pruefenden Rectangle-Objekte muessen initialisiert sein.
+     *
+     * @post Alle nicht spezifizierten Rectangle-Objekte in der Karte wurden als
+     * Barrieren in die Liste 'barriers' aufgenommen.
+     *
+     * @author David Kien.
+     */
     private void addBarriers ()
     {
         for (Node node : map.getChildren())
@@ -363,7 +469,19 @@ public class KartenController extends ControllerController implements Initializa
         }
     }
 
-    //@Author David Kien
+    /**
+     * Laedt eine FXML-Datei in ein angegebenes Pane.
+     *
+     * @pre Die FXML-Datei muss existieren und das Pane-Objekt muss initialisiert sein.
+     *
+     * @post Das angegeben Pane wird mit dem Inhalt der geladenen FXML-Datei aktualisiert.
+     *
+     * @param pane Das Pane, in das der FXML-Inhalt geladen werden soll.
+     *
+     * @param fxmlFile Der Pfad zur FXML-Datei, die geladen werden soll.
+     *
+     * @author David Kien.
+     */
     private void loadFXMLIntoPane (Pane pane, String fxmlFile)
     {
         try
@@ -371,13 +489,32 @@ public class KartenController extends ControllerController implements Initializa
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Pane newPane = loader.load();
             pane.getChildren().setAll(newPane);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
     }
 
-    //@Author David Kien
+    /**
+     * Handhabt die Bewegung der Spielfigur und verhindert Kollisionen mit Hindernissen.
+     *
+     * @pre Die Bewegungseinstellung und die Hindernissliste muessen initialisiert sein.
+     *
+     * @post Wenn keine Kollision festgestell wurde, wurde die Bewegungsaenderung zurueckgegeben.
+     *
+     * @param x Die geplante x-Koordinate der Bewegung.
+     *
+     * @param y Die geplante y-Koordinate der Bewegung.
+     *
+     * @param move Der aktuelle Bewegungsbetrag.
+     *
+     * @param movementVariable Der Wert, um den die Bewegung geaendert werden soll.
+     *
+     * @return Die aktualisierte Bewegung, wenn keine Kollision erkannt wurde.
+     *
+     * @author David Kien.
+     */
     private double handleMovement (double x, double y, double move, double movementVariable)
     {
         if (!checkCollisionWithBarriers(x, y, shape1))
@@ -387,20 +524,47 @@ public class KartenController extends ControllerController implements Initializa
         return move;
     }
 
-    //@Author David Kien
+    /**
+     * Aktualisiert die Position der Spielfigur basierend auf den berechneten Bewegungswerten.
+     *
+     * @pre Die Spielfigur muss initialisiert sein und die Bewegungswerte muessen
+     * gueltige Werte besitzen.
+     *
+     * @post Die Position der Spielfigur wurde entsprechend den uebergebeneden
+     * Bewegungswerten aktualisiert.
+     *
+     * @param moveX Die horizontale Bewegungsaenderung.
+     *
+     * @param moveY Die vertikale Bewegungsaenderung.
+     *
+     * @author David Kien.
+     */
     private void updateShapePosition (double moveX, double moveY)
     {
         shape1.setLayoutX(shape1.getLayoutX() + moveX);
         shape1.setLayoutY(shape1.getLayoutY() + moveY);
     }
 
-    //@Author David Kien
+    /**
+     * Ueberprueft, ob die Spielfigur Ressourcen eingesammelt hat und aktualisiert
+     * den Status entsprechend.
+     *
+     * @pre Die Ressourcenrechtecke (wood, health, gold) und die Spielfigur (shape1)
+     * muessen initialisiert sein.
+     *
+     * @post Falls eine Ressource eingesammelt wurde, wurde die entsprechende Ressource
+     * innerhalb der Karte neu positioniert und der jeweilige Zaehler erhoeht.
+     *
+     * @author David Kien.
+     */
     private void checkForResourceCollection ()
     {
-        if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, "Holz", () -> woodCount++, () -> {
+        GameFile instanz = GameFile.getInstanz();
+
+        if (checkResourceCollection(shape1.getBoundsInParent().intersects(wood.getBoundsInParent()), wood, () -> woodCount++, () -> {
             try
             {
-                GameFile.getInstanz().setHolzRessource(GameFile.getInstanz().getHolzRessource() + Konstanten.INT_ONE);
+                instanz.setHolzRessource(instanz.getHolzRessource() + Konstanten.INT_ONE);
             } catch (Exception e)
             {
                 throw new RuntimeException(e);
@@ -410,11 +574,11 @@ public class KartenController extends ControllerController implements Initializa
             return;
         }
 
-        if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, Strings.GESUNDHEIT, () -> healthCount++, () ->
+        if (checkResourceCollection(shape1.getBoundsInParent().intersects(health.getBoundsInParent()), health, () -> healthCount++, () ->
         {
             try
             {
-                GameFile.getInstanz().setGesundheitRessource(GameFile.getInstanz().getGesundheitRessource() + Konstanten.INT_ONE);
+                instanz.setGesundheitRessource(instanz.getGesundheitRessource() + Konstanten.INT_ONE);
             } catch (Exception e)
             {
                 throw new RuntimeException(e);
@@ -424,11 +588,11 @@ public class KartenController extends ControllerController implements Initializa
             return;
         }
 
-        checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, Strings.GOLD, () -> goldCount++, () ->
+        checkResourceCollection(shape1.getBoundsInParent().intersects(gold.getBoundsInParent()), gold, () -> goldCount++, () ->
         {
             try
             {
-                GameFile.getInstanz().setGoldRessource(GameFile.getInstanz().getGoldRessource() + Konstanten.INT_ONE);
+                instanz.setGoldRessource(instanz.getGoldRessource() + Konstanten.INT_ONE);
             } catch (Exception e)
             {
                 throw new RuntimeException(e);
@@ -437,12 +601,32 @@ public class KartenController extends ControllerController implements Initializa
 
     }
 
-    //@Author David Kien
-    private boolean checkResourceCollection (boolean intersects, Rectangle resource, String resourceName, Runnable incrementCount, Runnable incrementResource)
+    /**
+     * Ueberprueft, ob die Spielfigur eine Ressource einsammelt und fuehrt die entsprechenden
+     * Aktionen aus.
+     *
+     * @pre Die verwendeten Variablem muessen gueltige Werte haben.
+     *
+     * @post Falls die Spielfigur eine Ressource einsammelt, wurde der Zaehler erhoeht,
+     * die Ressource innerhalb der Karte neu positioniert und der Status aktualisiert.
+     *
+     * @param intersects Gibt an, ob die Spielfigur mit einer Ressource kollidiert.
+     *
+     * @param resource Das Rechteck, dass die Ressource repraesentiert.
+     *
+     * @param incrementCount Ein Runnable, der den Ressourcen-Zaehler erhoeht.
+     *
+     * @param incrementResource Ein Runnable, der die Ressource im Spiel erhoeht.
+     *
+     * @return Ein boolean, der anzeigt, ob die Ressource eingesammelt wurde.
+     *
+     * @author David Kien.
+     */
+    private boolean checkResourceCollection (boolean intersects, Rectangle resource, Runnable incrementCount, Runnable incrementResource)
     {
         if (intersects && ePressed.get())
         {
-            incrementResource(resourceName, incrementCount, incrementResource);
+            incrementResource(incrementCount, incrementResource);
             placeRandomlyWithinMap(resource);
             ePressed.set(false);
             return true;
@@ -450,8 +634,20 @@ public class KartenController extends ControllerController implements Initializa
         return false;
     }
 
-    //@Author David Kien
-    private void incrementResource (String resourceName, Runnable incrementCount, Runnable incrementResource)
+    /**
+     * Erhoeht den Zaehler fuer eine gesammelte Ressource und aktualisiert die Anzeige.
+     *
+     * @pre Die Parameter muessen gueltige Werte haben.
+     *
+     * @post Der Zaehler fuer die angegebene Ressource wurde erhoeht und die Anzeige
+     * aktualisiert, je nachdem, ob die Mission aktiv ist.
+     *
+     * TODO: Oberen Kommentar checken und die Kommentare ergänzen
+     *
+     * @param incrementCount
+     * @param incrementResource
+     */
+    private void incrementResource (Runnable incrementCount, Runnable incrementResource)
     {
         try
         {

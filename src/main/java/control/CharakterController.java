@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED
+
 import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
@@ -8,10 +10,10 @@ import res.Strings;
 import java.util.HashMap;
 
 /**
- * Klasse CharakterController die saemtliche Methoden zum Verwalten und Manipulieren der Instanzen der Klasse Charakter
- * beinhaltet.
+ * Klasse CharakterController die saemtliche Methoden zum Verwalten und Manipulieren
+ * der Instanzen der Klasse Charakter beinhaltet.
  *
- * @Author Felix Ahrens, David Kien
+ * @author Felix Ahrens, David Kien.
  */
 public class CharakterController
 {
@@ -20,12 +22,15 @@ public class CharakterController
     private static HashMap<Charakter, String> charakterStringHashMap = new HashMap<>();
 
     /**
-     * Getter-Methode fuer das charakterArray
+     * Getter-Methode fuer das charakterArray.
      *
-     * @return Das charakterArray als eindimensionales Array mit Instanzen der Klasse Charakter
+     * @return Das charakterArray als eindimensionales Array mit Instanzen der Klasse Charakter.
+     *
      * @pre Das charakterArray muss in der Klasse deklariert sein.
+     *
      * @post Das charakterArray wurde zurueckgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens
      */
     public static Charakter[] getCharakterArray ()
     {
@@ -33,12 +38,15 @@ public class CharakterController
     }
 
     /**
-     * Getter-Methode fuer die "charakterStringHashMap"
+     * Getter-Methode fuer die "charakterStringHashMap".
      *
      * @return Die "charakterStringHashMap".
+     *
      * @pre Die "charakterStringHashMap" muss in der Klasse deklariert sein.
+     *
      * @post Die "charakterStringHashMap" wurde zurueckgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public static HashMap<Charakter, String> getCharakterStringHashMap ()
     {
@@ -48,12 +56,14 @@ public class CharakterController
     /**
      * Methode, das "charakterArray" mit Charakteren mit den Default-Werten fuellt.
      *
-     * @pre Der Konstruktor der Klasse Charakter muss die uebergebenen String- und Integerwerte akzeptieren. Die
-     * genutzten Konstanten muessen verfuegbar und errechbar sein. Das "charakterArray" muss in der Klasse deklariert
-     * sein.
-     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren aus Charakter und zugehoerigem
-     * Farb-String gefuellt.
-     * @Author Felix Ahrens
+     * @pre Der Konstruktor der Klasse Charakter muss die uebergebenen String-
+     * und Integerwerte akzeptieren. Die genutzten Konstanten muessen verfuegbar
+     * und errechbar sein. Das "charakterArray" muss in der Klasse deklariert sein.
+     *
+     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren
+     * aus Charakter und zugehoerigem Farb-String gefuellt.
+     *
+     * @author Felix Ahrens.
      */
     public static Charakter[] erstelleDefaultCharakter ()
     {
@@ -136,15 +146,18 @@ public class CharakterController
     }
 
     /**
-     * Methode, die die HashMap mit Schluessel-Wert-Paaren fuellt, die einen Bezug von einem Charakter zu einer Farbe
-     * darstellen. Das ist fuer die GUI wichtig.
+     * Methode, die die HashMap mit Schluessel-Wert-Paaren fuellt, die einen Bezug
+     * von einem Charakter zu einer Farbe darstellen. Das ist fuer die GUI wichtig.
      *
-     * @pre Die Methode "getInstanz()" der Klasse GameFile muss die derzeit im Spiel aktive Instanz zurueckliefern,
-     * nicht null. Die genutzten Methoden und Konstanten muessen verfuegbar und errechbar sein. Die
-     * "charakterStringHashMap" muss in der Klasse deklariert sein.
-     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren aus Charakter und zugehoerigem
-     * Farb-String gefuellt.
-     * @Author Felix Ahrens
+     * @pre Die Methode "getInstanz()" der Klasse GameFile muss die derzeit im Spiel
+     * aktive Instanz zurueckliefern, nicht null.
+     * Die genutzten Methoden und Konstanten muessen verfuegbar und errechbar sein.
+     * Die "charakterStringHashMap" muss in der Klasse deklariert sein.
+     *
+     * @post Die "charakterStringHashMap" wurde mit fuenf Schluesse-Wert-Paaren
+     * aus Charakter und zugehoerigem Farb-String gefuellt.
+     *
+     * @author Felix Ahrens.
      */
     public static void erstelleDefaultCharakterHashMap ()
     {

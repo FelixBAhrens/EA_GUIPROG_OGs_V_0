@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED (OPEN TODO)
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,10 +12,11 @@ import utility.MyIO;
 import java.util.Stack;
 
 /**
- * Die Klasse SzenenManager verwaltet die Szenen in der Application und beinhaltet die noetigen Methoden dafuer. Alle
- * Szenen werden im Hauptstage, welcher auch der "main" uebergeben wurde, gesetzt.
+ * Die Klasse SzenenManager verwaltet die Szenen in der Application und beinhaltet
+ * die noetigen Methoden dafuer. Alle Szenen werden im Hauptstage, welcher auch der
+ * "main" uebergeben wurde, gesetzt.
  *
- * @Author Felix Ahrens, David Kien
+ * @author Felix Ahrens, David Kien.
  */
 public class SzenenManager
 {
@@ -23,10 +26,15 @@ public class SzenenManager
     /**
      * Methode, die die aktuell gesetzte Szene zurueckgibt.
      *
-     * @return Die aktuell geladene Szene
+     * @return Die aktuell geladene Szene.
+     *
      * @pre Der szenenStack darf nicht leer sein und muss existieren.
+     *
      * @post Die aktuelle Szene wurde zurueckgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
+     *
+     * // TODO: No usage
      */
     public Scene gebeAktuelleSzene ()
     {
@@ -39,7 +47,8 @@ public class SzenenManager
      * Konstruktor der Klasse Szenenmanager.
      *
      * @param hauptStage
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public SzenenManager (Stage hauptStage)
     {
@@ -47,14 +56,19 @@ public class SzenenManager
     }
 
     /**
-     * Methode, die die uebergebene FXML-Datei laedt und als Szene im Hauptstage (der einzige Stage, der im Programm
-     * verwendet wird) setzt.
+     * Methode, die die uebergebene FXML-Datei laedt und als Szene im Hauptstage
+     * (der einzige Stage, der im Programm verwendet wird) setzt.
      *
      * @param fxmlDatei Der Dateiname der fxml-Datei, die die zu setzende Szene spezifiziert.
-     * @pre Die Klassenvariablen fuer den Szenenstack und den Hauptstage muessen existieren und nicht "null" sein.
-     * @post Die Szene wurde auf die Szene gesetzt, die durch den uebergebenen Fxml-Dateinamen im Pfad repraesentiert
-     * wird. Die neue Szene wurde auf dem "szenenStack" abgelegt.
-     * @author David Kien, Felix Ahrens
+     *
+     * @pre Die Klassenvariablen fuer den Szenenstack und den Hauptstage muessen
+     * existieren und nicht "null" sein.
+     *
+     * @post Die Szene wurde auf die Szene gesetzt, die durch den uebergebenen
+     * Fxml-Dateinamen im Pfad repraesentiert wird. Die neue Szene wurde auf dem
+     * "szenenStack" abgelegt.
+     *
+     * @author David Kien, Felix Ahrens.
      */
     public static Class wechseleSzene (String fxmlDatei)
     {
@@ -82,8 +96,10 @@ public class SzenenManager
      * Methode, die die vorherige Szene vom Szenenstack holt und setzt.
      *
      * @pre Der "szenenStack" muss existieren und den Datentyp "Scene" beherbergen.
+     *
      * @post Wenn der szenenStack nicht leer ist, wurde eine Szene zurueckgegangen.
-     * @author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public static void szeneZurueck ()
     {

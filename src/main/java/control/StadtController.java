@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Die Klasse StadtController bildet die Controllerklasse zur "stadt-view.fxml"-Datei und beinhaltet saemtliche Methoden
- * zum Behandeln von Nutzereingaben sowie zur Aktualisierung der GUI.
+ * Die Klasse StadtController bildet die Controllerklasse zur "stadt-view.fxml"-Datei
+ * und beinhaltet saemtliche Methoden zum Behandeln von Nutzereingaben sowie zur Aktualisierung
+ * der GUI.
  *
- * @Author Felix Ahrens, David Kien
+ * @author Felix Ahrens, David Kien.
  */
 public class StadtController extends ControllerController
 {
@@ -24,20 +27,23 @@ public class StadtController extends ControllerController
 
     @FXML
     private Pane gebaeudePane;
-
     @FXML
     private Pane hintergrundPane;
 
     /**
-     * Methode, die die refMap konfiguriert, die eine Referenz zwischen den IDs der Panes und den zugehoerigen
-     * Dateinamen der FXML-Dateien der jeweiligen Gebaeude herstellt
+     * Methode, die die refMap konfiguriert, die eine Referenz zwischen den IDs der
+     * Panes und den zugehoerigen Dateinamen der FXML-Dateien der jeweiligen Gebaeude herstellt.
      *
-     * @return die konfigurierte "refMap" die Strings und Strings enthaelt
-     * @pre Die Strings muessen im Interface "Strings" vorhanden sein. Die refMap muss in der Klasse StadtController
-     * existieren. Die refMap muss Werte vom Typ "String" sowohl als Key als auch als Value speichern koennen.
-     * @post Die "refMap" wurde initialisiert und mit den IDs der Panes als Keys und den Dateinamen der zu den IDs
-     * gehoerenden FXML-Dateien als Values gefuellt werden.
-     * @Author Felix Ahrens
+     * @return die konfigurierte "refMap" die Strings und Strings enthaelt.
+     *
+     * @pre Die Strings muessen im Interface "Strings" vorhanden sein.
+     * Die refMap muss in der Klasse StadtController existieren. Die refMap muss Werte vom
+     * Typ "String" sowohl als Key als auch als Value speichern koennen.
+     *
+     * @post Die "refMap" wurde initialisiert und mit den IDs der Panes als Keys
+     * und den Dateinamen der zu den IDs gehoerenden FXML-Dateien als Values gefuellt werden.
+     *
+     * @author Felix Ahrens.
      */
     public Map<String, String> setupRefMap ()
     {
@@ -55,11 +61,13 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Initialize-Methode der Klasse StadtController
+     * Initialize-Methode der Klasse StadtController.
      *
      * @pre Die aufgerufene Methode muss erreichbar sein.
+     *
      * @post die "refMap" wurde initialisiert.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void initialize ()
@@ -68,15 +76,21 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode, die aus der zugehoerigen FXML-Datei aufgerufen wird und die Elemente der Pane sichtbar setzt. Die
-     * StyleClass der Pane wird nun auf einen nicht-transparenten tuerkisen Rand gesetzt.
+     * Methode, die aus der zugehoerigen FXML-Datei aufgerufen wird und die
+     * Elemente der Pane sichtbar setzt. Die StyleClass der Pane wird nun auf
+     * einen nicht-transparenten tuerkisen Rand gesetzt.
      *
-     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Methode muss von einer Pane aufgerufen werden, wenn ein
-     * Mauscursor ihr Gebiet betritt. Die genutzten Methoden und Variablen muessen existieren.
-     * @post Die Elemente der Pane und deren Rand wurden sichtbar und auf das Design aus der entsprechenden StyleClass
-     * gestellt.
-     * @Author Felix Ahrens
+     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und
+     * zum Methodenaufruf gefuehrt hat.
+     *
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Methode muss von
+     * einer Pane aufgerufen werden, wenn ein Mauscursor ihr Gebiet betritt.
+     * Die genutzten Methoden und Variablen muessen existieren.
+     *
+     * @post Die Elemente der Pane und deren Rand wurden sichtbar und auf das Design
+     * aus der entsprechenden StyleClass gestellt.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     private void handleMouseEnter (MouseEvent event)
@@ -93,15 +107,21 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode, die von einer Pane aufgerufen wird, wenn der Mauscursor die Pane verlaesst. Die Methode setzt die
-     * Elemente der Pane auf nicht visible und stellt den Hintergrund der Pane auf durchsichtig.
+     * Methode, die von einer Pane aufgerufen wird, wenn der Mauscursor die Pane verlaesst.
+     * Die Methode setzt die Elemente der Pane auf nicht visible und stellt den Hintergrund
+     * der Pane auf durchsichtig.
      *
-     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Methode muss von einer Pane aufgerufen werden, wenn ein
-     * Mauscursor ihr Gebiet verlaesst. Die genutzten Methoden und Variablen muessen existieren.
-     * @post Die Elemente der Pane und deren Rand wurden unsichtbar und auf das Design aus der entsprechenden StyleClass
-     * gestellt.
-     * @Author Felix Ahrens
+     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum
+     * Methodenaufruf gefuehrt hat.
+     *
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Methode muss von einer
+     * Pane aufgerufen werden, wenn ein Mauscursor ihr Gebiet verlaesst. Die genutzten
+     * Methoden und Variablen muessen existieren.
+     *
+     * @post Die Elemente der Pane und deren Rand wurden unsichtbar und auf das
+     * Design aus der entsprechenden StyleClass gestellt.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     private void handleMouseExit (MouseEvent event)
@@ -118,15 +138,21 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode zum aendern der StyleClass. Diese entfernt vorher alle StyleClasses und setzt die uebergebene StyleClass
-     * als einzige StyleClass.
+     * Methode zum aendern der StyleClass. Diese entfernt vorher alle StyleClasses
+     * und setzt die uebergebene StyleClass als einzige StyleClass.
      *
-     * @param pane       Die Pane, die nur noch die uebergebene styleClass enthaelt.
+     * @param pane Die Pane, die nur noch die uebergebene styleClass enthaelt.
+     *
      * @param styleClass Die styleClass, die die Pane nur noch enthalten soll.
-     * @pre Der Methode muessen eine Pane und ein String uebergeben werden. Die Pane muss eine "observableList" mit den
-     * styleClasses zurueckliefern. Der uebergebene String muss einer vordefinierten StyleClass entsprechen.
-     * @post Die uebergebene Pane enthaelt nur noch die dieser Methode uebergebene styleClass
-     * @Author Felix Ahrens
+     *
+     * @pre Der Methode muessen eine Pane und ein String uebergeben werden.
+     * Die Pane muss eine "observableList" mit den styleClasses zurueckliefern.
+     * Der uebergebene String muss einer vordefinierten StyleClass entsprechen.
+     *
+     * @post Die uebergebene Pane enthaelt nur noch die dieser Methode uebergebene
+     * styleClass.
+     *
+     * @author Felix Ahrens.
      */
     public void aendereStyleClass (Pane pane, String styleClass)
     {
@@ -136,16 +162,22 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Universelle Methode zum Oeffnen von Gebaeuden. Diese wird bei Mausklick auf eine der Panes aufgerufen und holt
-     * sich aus der ID der jeweiligen Pane mit der "refMap" den Pfad der FXML-Datei des jeweiligen Gebaeudes, um mit
+     * Universelle Methode zum Oeffnen von Gebaeuden. Diese wird bei Mausklick
+     * auf eine der Panes aufgerufen und holt sich aus der ID der jeweiligen Pane
+     * mit der "refMap" den Pfad der FXML-Datei des jeweiligen Gebaeudes, um mit
      * dieser (als String) die Methode "openGebaeude" aufzurufen.
      *
-     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum Methodenaufruf gefuehrt hat.
-     * @pre Das Event muss sich zu einer Pane typkonvertieren lassen und einer ID aus der refMap entsprechen.
-     * "refMap.get()" muss einen String zurueckliefern und die genutzten Methoden muessen existieren
-     * @post Die Methode "oeffneGebaeude" der Klasse StadtController wurde mit einem String aus der "refMap"
-     * aufgerufen.
-     * @Author Felix Ahrens
+     * @param event Das Ereignis, das durch eine Mausaktion ausgeloest wurde und zum
+     * Methodenaufruf gefuehrt hat.
+     *
+     * @pre Das Event muss sich zu einer Pane typkonvertieren lassen und einer ID
+     * aus der refMap entsprechen. "refMap.get()" muss einen String zurueckliefern und
+     * die genutzten Methoden muessen existieren.
+     *
+     * @post Die Methode "oeffneGebaeude" der Klasse StadtController wurde mit
+     * einem String aus der "refMap" aufgerufen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleGebaeudeOeffnen (MouseEvent event)
@@ -154,13 +186,19 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode, die ein Gebaeude in die Stadt reinlaedt und die entsprechende Controllerklasse setzt.
+     * Methode, die ein Gebaeude in die Stadt reinlaedt und die entsprechende
+     * Controllerklasse setzt.
      *
-     * @param fxmlFile die FXML-Datei des Gebaeudes, das in die Pane "gebaeudepane" reingeladen werden soll.
-     * @pre Der uebergebene String fuer den Dateinamen einer FXML-Datei muss zu einer existierenden Datei passen.
-     * @post Die FXML-Datei, die dem uebergebenen String entspricht, wurde in die Pane "gebaeudePane" geladen und diese
-     * sichtbar gesetzt.
-     * @Author Felix Ahrens
+     * @param fxmlFile die FXML-Datei des Gebaeudes, das in die Pane "gebaeudepane"
+     * reingeladen werden soll.
+     *
+     * @pre Der uebergebene String fuer den Dateinamen einer FXML-Datei muss zu einer
+     * existierenden Datei passen.
+     *
+     * @post Die FXML-Datei, die dem uebergebenen String entspricht, wurde in die Pane
+     * "gebaeudePane" geladen und diese sichtbar gesetzt.
+     *
+     * @author Felix Ahrens.
      */
     private void oeffneGebaeude (String fxmlFile)
     {
@@ -179,12 +217,16 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode zum schliessen des Gebaeudes. Die Panes "gebaeudePane" und "hintergrundPane" werden auf invisible
-     * gesetzt. Alles, was in der gebaeudePane enthalten war - also das geladene Gebaeude wird entfernt.
+     * Methode zum schliessen des Gebaeudes. Die Panes "gebaeudePane" und "hintergrundPane"
+     * werden auf invisible gesetzt. Alles, was in der gebaeudePane enthalten
+     * war - also das geladene Gebaeude wird entfernt.
      *
-     * @pre Die Panes "gebaeudePane" und "hintergrundPane" muessen in der Klasse existieren
-     * @post Die Panes wurden auf unsichtbar gesetzt und jeder Inhalt der "gebaeudePane" entfernt.
-     * @Author Felix Ahrens
+     * @pre Die Panes "gebaeudePane" und "hintergrundPane" muessen in der Klasse existieren.
+     *
+     * @post Die Panes wurden auf unsichtbar gesetzt und jeder Inhalt der "gebaeudePane"
+     * entfernt.
+     *
+     * @author Felix Ahrens.
      */
     public void schliesseGebaeude ()
     {
@@ -194,12 +236,14 @@ public class StadtController extends ControllerController
     }
 
     /**
-     * Methode zum Oeffnen der Karte. Dabei wird die StandardKarte als Kartentyp gesetzt, damit klar ist, dass keine
-     * Mission gespielt wird.
+     * Methode zum Oeffnen der Karte. Dabei wird die StandardKarte als Kartentyp gesetzt,
+     * damit klar ist, dass keine Mission gespielt wird.
      *
      * @pre Das Enum, die Konstanten und die Methoden muessen erreichbar sein.
+     *
      * @post Die Karte wurde geladen.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public void oeffneKarte ()
     {

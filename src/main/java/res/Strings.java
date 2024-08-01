@@ -42,7 +42,7 @@ public interface Strings
     String ENDGEGNER = "Endgegner!";
     String ANDERER = "Anderer";
     String ARENA = "Arena";
-    String FLAPPY_BIRD = "Flappy Bird!";
+    String ENTSCHLUESSELN = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
     String EMPTY = "";
 
@@ -145,7 +145,7 @@ public interface Strings
     String KARTE_BESCHREIBUNG = "In der Karte kannst Du dich mit WASD frei bewegen und Ressourcen sammeln." +
             " Aber pass auf, es tauchen auch Gegner auf!";
     String BELOHNUNGEN = "Belohnungen";
-    String TEXT_FLAPPY_BIRD = "";
+    String TEXT_ENTSCHLUESSELN = "";
     String TEXT_ENDGEGNER = "";
     String TEXT_MEMORY = "";
     String TEXT_SAMMELN = "";
@@ -156,7 +156,7 @@ public interface Strings
     String FRAKTION_B = "FraktionB";
     String FRAKTION_C = "FraktionC";
 
-    String ID_BUTTON_FLAPPY_BIRD = "flappyBirdButton";
+    String ID_BUTTON_ENTSCHLUESSELN = "flappyBirdButton";
     String ID_BUTTON_ENDGEGNER = "endgegnerButton";
     String ID_BUTTON_MEMORY = "memoryButton";
     String ID_BUTTON_SAMMELN = "sammelnButton";

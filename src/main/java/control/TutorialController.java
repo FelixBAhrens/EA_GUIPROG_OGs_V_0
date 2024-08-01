@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED, No usages entfernen
+
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -9,7 +11,7 @@ import res.Strings;
 /**
  * Controllerklasse fuer die "tutorial-view.fxml"-Datei.
  *
- * @Author David Kien, Enes Oezcan
+ * @author David Kien, Enes Oezcan.
  */
 public class TutorialController
 {
@@ -19,9 +21,22 @@ public class TutorialController
     private Scene menueScene;
 
     /**
-     * @param stage
-     * @param menueScene
-     * @Author Enes Oezcan, David Kien
+     * Initialisiert den Controller mit der Buehne und der Menueszenen-Referenz.
+     *
+     * @pre Die Parameter 'stage' und 'menueScene'muessen gueltige und initialisierte
+     * Objekte sein. Der Controller muss mit FXML verbunden und korrekt geladen sein.
+     *
+     * @post Die Instanzvariablen 'stage' und menueScene' sind gesetzt worden und koennen in
+     * anderen Methoden des Controllers verwendet werden, um auf die Hauptbuehne und
+     * die Menueszenen-Referenz zuzugreifen.
+     *
+     * @param stage Die Hauptbuehne (Stage) der Anwendung, die verwendet wird, um die
+     * Szene anzuzeigen.
+     *
+     * @param menueScene Die Szene (Scene) fuer das Menue, die verwendet wird, um die
+     * Ansicht zu wechseln.
+     *
+     * @author David Kien, Enes Oezcan.
      */
     @FXML
     public void initialize (Stage stage, Scene menueScene)
@@ -30,19 +45,38 @@ public class TutorialController
         this.menueScene = menueScene;
     }
 
-    // @Author David Kien
+    /**
+     * Handhabt die Aktion zum Weiterschalten in die naechste Szene der Anwendung.
+     *
+     * @pre Die Methode 'wechsleSzene' des 'SzenenManager' muss implementiert und
+     * funktionsfaehig sein. Die Konstante 'Strings.FXML_STORY' muss definiert sein
+     * und den Pfad zur FXML-Datei der naechsten Szene enthalten.
+     *
+     * @post Die aktuelle Szene wurde zur Szene, die durch den Pfad 'Strings.FXML_STORY'
+     * beschrieben wird.
+     *
+     * @author David Kien.
+     */
     @FXML
     public void handleWeiter ()
     {
         SzenenManager.wechseleSzene(Strings.FXML_STORY);
     }
 
-    //@Author David Kien
+    /**
+     * Handhabt die Aktion zum Zurueckwechseln in die vorherige Szene der Anwendung.
+     *
+     * @pre Die Methode 'szeneZurueck' des 'SzenenManager' muss implementiert und
+     * funktionsfaehig sein. Es muss eine vorherige Szene existieren, zu der
+     * zurueckgewechselt werden kann.
+     *
+     * @post Die Anwendung wechselte zurueck zu der vorherigen Szene.
+     *
+     * @author David Kien.
+     */
     @FXML
     public void handleZurueck ()
     {
         SzenenManager.szeneZurueck();
     }
-
-
 }

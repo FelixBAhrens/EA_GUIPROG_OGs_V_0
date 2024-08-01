@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED
+
 import javafx.fxml.FXML;
 import model.Artefakt;
 import model.GameFile;
@@ -7,19 +9,21 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Controllerklasse der "klassisches-menue-view.fxml". Hier finden sich diverse Methoden zur Behandlung von
- * Nutzereingaben ueber dieses Menue.
+ * Controllerklasse der "klassisches-menue-view.fxml". Hier finden sich diverse
+ * Methoden zur Behandlung von Nutzereingaben ueber dieses Menue.
  *
- * @Author Felix Ahrens
+ * @author Felix Ahrens.
  */
 public class KlassischesMenueController extends StartMenueController
 {
     /**
      * Initialize-Methode, die fuer FXML-Controllerklassen verpflichtend ist.
      *
-     * @pre /
-     * @post /
-     * @Author Felix Ahrens
+     * @pre /.
+     *
+     * @post /.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void initialize ()
@@ -31,8 +35,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode, um in die Stadt direkt zu wechseln. Zu Debugzwecken.
      *
      * @pre Die Methode "wechseleSzene" im SzenenManager und die Konstante muss erreichbar sein.
-     * @post Es wurde ein Szenenwechsel zur Stadt vollzogen
-     * @Author Felix Ahrens
+     *
+     * @post Es wurde ein Szenenwechsel zur Stadt vollzogen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleDebugStadt ()
@@ -44,8 +50,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode, um in die Karte direkt zu wechseln. Zu Debugzwecken.
      *
      * @pre Die Methode "wechseleSzene" im SzenenManager und die Konstante muss erreichbar sein.
-     * @post Es wurde ein Szenenwechsel zur Karte vollzogen
-     * @Author Felix Ahrens
+     *
+     * @post Es wurde ein Szenenwechsel zur Karte vollzogen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleDebugKarte ()
@@ -54,11 +62,13 @@ public class KlassischesMenueController extends StartMenueController
     }
 
     /**
-     * Methode, um in den direkt zu wechseln. Zu Debugzwecken.
+     * Methode, um in den Kampf direkt zu wechseln. Zu Debugzwecken.
      *
      * @pre Die Methode "wechseleSzene" im SzenenManager und die Konstante muss erreichbar sein.
-     * @post Es wurde ein Szenenwechsel zum Kampf vollzogen
-     * @Author Felix Ahrens
+     *
+     * @post Es wurde ein Szenenwechsel zum Kampf vollzogen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleDebugKampf ()
@@ -70,8 +80,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode, um in die Arena direkt zu wechseln. Zu Debugzwecken.
      *
      * @pre Die Methode "wechseleSzene" im SzenenManager und die Konstante muss erreichbar sein.
-     * @post Es wurde ein Szenenwechsel zur Arena vollzogen
-     * @Author Felix Ahrens
+     *
+     * @post Es wurde ein Szenenwechsel zur Arena vollzogen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleDebugArena ()
@@ -83,8 +95,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode, um in den Engegnerkampf direkt zu wechseln. Zu Debugzwecken.
      *
      * @pre Die Methode "wechseleSzene" im SzenenManager und die Konstante muss erreichbar sein.
-     * @post Es wurde ein Szenenwechsel zum Endgegnerkampf vollzogen
-     * @Author Felix Ahrens
+     *
+     * @post Es wurde ein Szenenwechsel zum Endgegnerkampf vollzogen.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleDebugEndgegner ()
@@ -98,8 +112,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode, um die Spieldatei in die Konsole auszugeben. Zu Debugzwecken.
      *
      * @pre Die Singleton-Instanz der GameFile muss gesetzt sein.
+     *
      * @post Es wurde der Spielstand in die Konsole ausgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void gameFileAusgeben ()
@@ -111,8 +127,10 @@ public class KlassischesMenueController extends StartMenueController
      * Methode zum setzen aller Ressourcen auf Eintausend des jeweiligen Wertes. Zu Debugzwecken.
      *
      * @pre Die Singleton-Instanz der GameFile muss gesetzt sein. Die Konstanten muessen existieren.
+     *
      * @post Alle Ressourcenwerte wurden auf Eintausend gesetzt.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleInfiniteMoney ()
@@ -127,10 +145,13 @@ public class KlassischesMenueController extends StartMenueController
     /**
      * Methode, die alle Artefakte auf "imBesitz" setzt. Zu Debugzwecken.
      *
-     * @pre Die GameFile-Instanz muss gesetzt sein. Der Konstruktor der Klasse Artefakt muss verwendbar sein. Die
-     * GameFile muss die Getter fuer die Artefakte {Schwert, Statue, Ring} besitzen
+     * @pre Die GameFile-Instanz muss gesetzt sein. Der Konstruktor der Klasse
+     * Artefakt muss verwendbar sein. Die GameFile muss die Getter fuer die Artefakte
+     * {Schwert, Statue, Ring} besitzen.
+     *
      * @post Alle Artefakte wurden auf "imBesitz = true" gesetzt.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleAlleArtefakteBekommen ()

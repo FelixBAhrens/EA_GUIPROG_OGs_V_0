@@ -1,8 +1,9 @@
 package control;
 
-public class MapController {
-}
+// NOT COMPLETED
 
+public class MapController
+{
 /**
  * Hier sollten wir uns schon ueberlegen wie wir die Steuerung machen wollen
  * und wie die Elemente der Map aussehen sollen.
@@ -10,3 +11,4 @@ public class MapController {
  * Vom Design her brauchen wir dann noch am Bildschirmrand Anzeigen fuer gesammelte Objekte ect.
  * ~Felix
  */
+}

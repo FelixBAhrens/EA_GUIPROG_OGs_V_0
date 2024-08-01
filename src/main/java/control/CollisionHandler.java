@@ -1,5 +1,7 @@
 package control;
 
+// NOT COMPLETED
+
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Klasse CollisionHandler
  *
- * @Author David Kien
+ * @author David Kien
  */
 public class CollisionHandler
 {

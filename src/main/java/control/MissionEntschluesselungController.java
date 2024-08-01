@@ -1,5 +1,7 @@
 package control;
 
+// NOT COMPLETED
+
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +22,7 @@ import java.util.ResourceBundle;
  *
  * @Author David Kien
  */
-public class MissionFlappyBirdController extends ControllerController implements Initializable
+public class MissionEntschluesselungController extends ControllerController implements Initializable
 {
     AnimationTimer gameLoop;
 

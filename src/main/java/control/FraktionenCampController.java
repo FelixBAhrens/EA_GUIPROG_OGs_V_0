@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED (SPACE FOR PROGRAMMING)
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,31 +13,27 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Controllerklasse der "fraktionen-camp-view.fxml". In ihr befinden sich die Methoden zum Steuern der GUI des
- * Fraktionencamps, zum Behandeln von Nutzereingaben und zum Verwalten des Fraktionencamps
+ * Controllerklasse der "fraktionen-camp-view.fxml". In ihr befinden sich die Methoden
+ * zum Steuern der GUI des Fraktionencamps, zum Behandeln von Nutzereingaben und
+ * zum Verwalten des Fraktionencamps.
  *
- * @author Felix Ahrens, David Kien
+ * @author Felix Ahrens, David Kien.
  */
 public class FraktionenCampController extends StadtController
 {
     @FXML
     public AnchorPane baustelle;
-
     @FXML
     public AnchorPane AnchPaneFraktionA;
-
     @FXML
     public AnchorPane AnchPaneFraktionB;
-
     @FXML
     public AnchorPane AnchPaneFraktionC;
 
     @FXML
     public VBox VBoxFraktionA;
-
     @FXML
     public VBox VBoxFraktionB;
-
     @FXML
     public VBox VBoxFraktionC;
 
@@ -43,11 +41,15 @@ public class FraktionenCampController extends StadtController
     public Label detailLabel;
 
     /**
-     * Initialize-Methode der Klasse. Diese ist bei Controllerklassen von FXML-Dateien verpflichtend.
+     * Initialize-Methode der Klasse. Diese ist bei Controllerklassen von
+     * FXML-Dateien verpflichtend.
      *
      * @pre Die verwendete Methode muss erreichbar sein.
-     * @post Die Baustelle ist sichtbar, wenn diese im Spielstand noch nicht anders gespeichert wurde.
-     * @Author David Kien, Felix Ahrens
+     *
+     * @post Die Baustelle ist sichtbar, wenn diese im Spielstand noch nicht anders
+     * gespeichert wurde.
+     *
+     * @author David Kien, Felix Ahrens.
      */
     @FXML
     public void initialize ()
@@ -56,33 +58,40 @@ public class FraktionenCampController extends StadtController
     }
 
     /**
-     * Methode, die die Baustelle, abhaengig davon, ob diese in der GameFile als "freigeschaltet" gespeichert ist,
-     * visible oder nicht visible setzt.
+     * Methode, die die Baustelle, abhaengig davon, ob diese in der GameFile als
+     * "freigeschaltet" gespeichert ist, visible oder nicht visible setzt.
      *
-     * @pre Die verwendeten Methoden und Klassen muessen erreichbar sein. Die Singleton-Instanz der GameFile muss
-     * gesetzt sein.
-     * @post Die Baustelle ist sichtbar, wenn diese als "freigeschaltet" gespeichert wurde
-     * @Author Felix Ahrens
+     * @pre Die verwendeten Methoden und Klassen muessen erreichbar sein.
+     * Die Singleton-Instanz der GameFile muss gesetzt sein.
+     *
+     * @post Die Baustelle ist sichtbar, wenn diese als "freigeschaltet" gespeichert wurde.
+     *
+     * @author Felix Ahrens.
      */
     public void handleBaustelleSichtbarkeit ()
     {
         if (GameFile.getInstanz().fraktionenCampIstFreigeschaltet())
         {
             baustelle.setVisible(false);
-        } else
+        }
+        else
         {
             baustelle.setVisible(true);
         }
     }
 
     /**
-     * Methode, die vom jeweiligen Button aufgerufen wird und die jeweilige Anchorpane visible setzt.
+     * Methode, die vom jeweiligen Button aufgerufen wird und die jeweilige
+     * Anchorpane visible setzt.
      *
-     * @param event Das Event, aus dem der Methodenaufruf stammt
-     * @pre Die Anchorpanes muessen in der Klasse als Parameter gespeichert sein sowie eine Verbindung zu den
-     * GUI-Elementen in der FXML-Datei haben
+     * @param event Das Event, aus dem der Methodenaufruf stammt.
+     *
+     * @pre Die Anchorpanes muessen in der Klasse als Parameter gespeichert sein
+     * sowie eine Verbindung zu den GUI-Elementen in der FXML-Datei haben.
+     *
      * @post Die zu dem Button passende FraktionenAnchorPane wurde auf "visible=true" gesetzt.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void zeigeFraktion (ActionEvent event)
@@ -112,15 +121,20 @@ public class FraktionenCampController extends StadtController
     }
 
     /**
-     * Methode, die den DetaillabelText entsprechend des Fraktionentyps (String) setzt. Die Texte bilden nur eine
-     * Schnittstelle zu anderen Verantwortungsbereichen und enthalten zurzeit keinen sinnvollen Inhalt.
+     * Methode, die den DetaillabelText entsprechend des Fraktionentyps (String) setzt.
+     * Die Texte bilden nur eine Schnittstelle zu anderen Verantwortungsbereichen
+     * und enthalten zurzeit keinen sinnvollen Inhalt.
      *
-     * @param fraktionenTyp Als String der Typ {A,B,C} der jeweiligen Fraktion
-     * @pre Die Konstanten und GUI-Elemente muessen vorhanden sein. Der Fraktion soll ein String der entweder "A", "B"
-     * oder "C" enthaelt, uebergeben werden, sonst kommt es zu keiner vernuenftigen Ausgabe.
-     * @post Der Text im "detailLabel" wurde auf einen dem Label entsprechenden Text gesetzt. Das "detailLabel" wurde
-     * auf "sichtbar" gesetzt.
-     * @Author Felix Ahrens
+     * @param fraktionenTyp Als String der Typ {A,B,C} der jeweiligen Fraktion.
+     *
+     * @pre Die Konstanten und GUI-Elemente muessen vorhanden sein.
+     * Der Fraktion soll ein String der entweder "A", "B" oder "C" enthaelt,
+     * uebergeben werden, sonst kommt es zu keiner vernuenftigen Ausgabe.
+     *
+     * @post Der Text im "detailLabel" wurde auf einen dem Label entsprechenden Text gesetzt.
+     * Das "detailLabel" wurde auf "sichtbar" gesetzt.
+     *
+     * @author Felix Ahrens.
      */
     public void setzeDetailLabelText (String fraktionenTyp)
     {
@@ -135,12 +149,14 @@ public class FraktionenCampController extends StadtController
     }
 
     /**
-     * Methode, die das Erwerben einer Einheit durchfuehren soll. Wird von der GUI aufgerufen, um Einheiten
-     * dazuzukaufen.
+     * Methode, die das Erwerben einer Einheit durchfuehren soll.
+     * Wird von der GUI aufgerufen, um Einheiten dazuzukaufen.
      *
-     * @pre /
-     * @post Die Methode bildet nur die Schnittstelle zur GUI
-     * @Author Felix Ahrens
+     * @pre /.
+     *
+     * @post Die Methode bildet nur die Schnittstelle zur GUI.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleErwerb ()
@@ -149,12 +165,14 @@ public class FraktionenCampController extends StadtController
     }
 
     /**
-     * Methode, die das Verkaufen einer Einheit durchfuehren soll. Wird von der GUI aufgerufen, um Einheiten zu
-     * verkaufen.
+     * Methode, die das Verkaufen einer Einheit durchfuehren soll.
+     * Wird von der GUI aufgerufen, um Einheiten zu verkaufen.
      *
-     * @pre /
-     * @post Die Methode bildet nur die Schnittstelle zur GUI
-     * @Author Felix Ahrens
+     * @pre /.
+     *
+     * @post Die Methode bildet nur die Schnittstelle zur GUI.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleVerkauf ()
@@ -163,12 +181,15 @@ public class FraktionenCampController extends StadtController
     }
 
     /**
-     * Methode, die die Baustelle freischaltet, wenn die Transaktion gelungen ist. Dazu wird die Methode
-     * "fuehreTransaktionDurchWennMoeglich" der Oberklasse ControllerController verwendet
+     * Methode, die die Baustelle freischaltet, wenn die Transaktion gelungen ist.
+     * Dazu wird die Methode "fuehreTransaktionDurchWennMoeglich" der Oberklasse
+     * ControllerController verwendet.
      *
      * @pre Die Methoden und Konstanten muessen verfuegbar und erreichbar sein.
+     *
      * @post Die Baustelle wurde Invisible gesetzt, wenn der Spielstand genug Ressourcen hergab.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void schalteBaustelleFrei ()

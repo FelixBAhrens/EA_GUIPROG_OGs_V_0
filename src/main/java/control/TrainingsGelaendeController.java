@@ -1,5 +1,7 @@
 package control;
 
+// COMPLETED (OPEN TODO)
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,15 +14,14 @@ import res.Konstanten;
 import res.Strings;
 
 /**
- * Die Klasse TrainingsGelaendeController bildet die Controllerklasse zur "trainingsgelaende-view.fxml". Hier befinden
- * sich saemtliche Methoden zur Behandlung von Nutzereingaben und dessen Folgen sowie zur GUI-Manipulation und
- * -ausgabe.
+ * Die Klasse TrainingsGelaendeController bildet die Controllerklasse zur "trainingsgelaende-view.fxml".
+ * Hier befinden sich saemtliche Methoden zur Behandlung von Nutzereingaben und dessen
+ * Folgen sowie zur GUI-Manipulation und -ausgabe.
  *
- * @Author David Kien, Felix Ahrens
+ * @author David Kien, Felix Ahrens.
  */
 public class TrainingsGelaendeController extends StadtController
 {
-
     private int gesammeltesHolz;
     private int gesammelteNahrung;
     private int gesammeltesGold;
@@ -31,54 +32,39 @@ public class TrainingsGelaendeController extends StadtController
 
     @FXML
     private Label bewegungsWeite;
+    @FXML
+    private Label fernkaempfeZahl;
+    @FXML
+    private Label fernkampfWert;
+    @FXML
+    private Label gesundheit; // TODO: No usage
+    @FXML
+    private Label magieResistenz;
+    @FXML
+    private Label manapunkte;
+    @FXML
+    private Label nahkampfWert;
+    @FXML
+    private Label schild;
+    @FXML
+    private Label zahlAusweichen;
 
     @FXML
     private ProgressBar bewegungsWeiteBar;
-
-    @FXML
-    private Label fernkaempfeZahl;
-
     @FXML
     private ProgressBar fernkaempfeZahlBar;
-
-    @FXML
-    private Label fernkampfWert;
-
     @FXML
     private ProgressBar fernkampfWertBar;
-
     @FXML
-    private Label gesundheit;
-
-    @FXML
-    private ProgressBar gesundheitBar;
-
-    @FXML
-    private Label magieResistenz;
-
+    private ProgressBar gesundheitBar; // TODO: No usage
     @FXML
     private ProgressBar magieResistenzBar;
-
-    @FXML
-    private Label manapunkte;
-
     @FXML
     private ProgressBar manapunkteBar;
-
-    @FXML
-    private Label nahkampfWert;
-
     @FXML
     private ProgressBar nahkampfWertBar;
-
-    @FXML
-    private Label schild;
-
     @FXML
     private ProgressBar schildBar;
-
-    @FXML
-    private Label zahlAusweichen;
 
     @FXML
     private ProgressBar zahlAusweichenBar;

@@ -1,5 +1,7 @@
 package control;
 
+// COMPELETED
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,16 +16,18 @@ import res.Strings;
 /**
  * Die Klasse SchmiedenController ist die Controllerklasse fuer die "schmiede-view.fxml".
  *
- * @Author Felix Ahrens
+ * @author Felix Ahrens.
  */
 public class SchmiedenController extends StadtController
 {
     @FXML
     public AnchorPane artefaktDisplay;
+
     @FXML
     public Label infoLabel;
     @FXML
     public Label kostenLabel;
+
     @FXML
     public Button verbessernButton;
     @FXML
@@ -31,12 +35,15 @@ public class SchmiedenController extends StadtController
 
 
     /**
-     * Methode zum Anzeigen des Artefaktes
+     * Methode zum Anzeigen des Artefaktes.
      *
      * @param event Das Event, dem dieser Methodenaufruf entstammt.
+     *
      * @pre Die verwendeten GUI-Elemente und Methoden muessen erreichbar sein.
+     *
      * @post Das "artefaktDisplay" wurde in seinem Inhalt aktualisiert und visible gesetzt.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void zeigeArtefaktDetails (MouseEvent event)
@@ -49,10 +56,13 @@ public class SchmiedenController extends StadtController
      * Methode, die die auf dem "artefaktDisplay" ausgegebenen Informationen aktualisiert.
      *
      * @param artefakt Das Artefakt, dessen Werte im "infoLabel" dargestellt werden soll.
+     *
      * @pre Die GUI-Elemente, Methoden und Konstanten muessen erreichbar sein.
-     * @post Die Information im "infoLabel" wurde aktualisiert und fuer die spielende Person sinnvoll verstaendlich
-     * dargestellt.
-     * @Author Felix Ahrens
+     *
+     * @post Die Information im "infoLabel" wurde aktualisiert und fuer die spielende
+     * Person sinnvoll verstaendlich dargestellt.
+     *
+     * @author Felix Ahrens.
      */
     public void aktualisiereDisplayInformation (Artefakt artefakt)
     {
@@ -60,7 +70,8 @@ public class SchmiedenController extends StadtController
         {
             verkaufenButton.setVisible(false);
             verbessernButton.setVisible(false);
-        } else
+        }
+        else
         {
             verbessernButton.setVisible(true);
             verbessernButton.setText(Strings.STAERKE + Strings.SPACE + Strings.VERBESSERN + Strings.DOPPELPUNKT + Strings.SPACE
@@ -79,11 +90,16 @@ public class SchmiedenController extends StadtController
      * Methode, die abhhaengig von der uebergebenen ID das entsprechende Artefakt heraussucht
      *
      * @param ID Die ID als String, zu der sich ein Artefakt zuordnen laesst.
+     *
      * @return das Artefakt, das der ID des aufrufenden Elements entspricht.
-     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein. Die Id muss mit einer der Konstanten-Strings fuer den
-     * Namen des jeweiligen Artefakts uebereinstimmen.
+     *
+     * @pre Die Singleton-Instanz der GameFile muss gesetzt sein.
+     * Die Id muss mit einer der Konstanten-Strings fuer denNamen des jeweiligen
+     * Artefakts uebereinstimmen.
+     *
      * @post Das zur uebergebenen ID eindeutig zugehoerige Artefakt wurde zurueckgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public Artefakt findeArtefaktAusID (String ID)
     {
@@ -100,9 +116,11 @@ public class SchmiedenController extends StadtController
     /**
      * Initialize-Methode der Controllerklasse fuer die "schmiede-view.fxml".
      *
-     * @pre /
-     * @post
-     * @Author Felix Ahrens
+     * @pre /.
+     *
+     * @post /.
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void initialize ()
@@ -113,11 +131,14 @@ public class SchmiedenController extends StadtController
     /**
      * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "sichtbar" setzt.
      *
-     * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und
-     * bekommmbar sein.
+     * @param event Das Event (Source Pane!) dem der Methodenaufruf entstammt.
+     *
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und
+     * GUI-Elemente muessen erreichbar und bekommmbar sein.
+     *
      * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void veraenderePaneSichtbarkeitBeiMouseEnter (MouseEvent event)
@@ -134,13 +155,17 @@ public class SchmiedenController extends StadtController
     }
 
     /**
-     * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf auf "unsichtbar" setzt.
+     * Methode, die die Sichtbarkeit der Pane und dessen Children bei Methodenaufruf
+     * auf "unsichtbar" setzt.
      *
-     * @param event Das Event (Source Pane!!) dem der Methodenaufruf entstammt.
-     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und GUI-Elemente muessen erreichbar und
-     * bekommmbar sein.
+     * @param event Das Event (Source Pane!) dem der Methodenaufruf entstammt.
+     *
+     * @pre Das MouseEvent muss von einer Pane stammen. Die Konstanten, Methoden und
+     * GUI-Elemente muessen erreichbar und bekommmbar sein.
+     *
      * @post Die Styleclass der Pane wurde veraendert und die Sichtbarkeit dessen Children veraendert.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     public void veraenderePaneSichtbarkeitBeiMouseExit (MouseEvent event)
     {

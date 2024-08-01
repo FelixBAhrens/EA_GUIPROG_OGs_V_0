@@ -42,7 +42,7 @@
                         </Text>
                     </children>
                 </AnchorPane>
-                <AnchorPane fx:id="flappyBirdPane" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
+                <AnchorPane fx:id="entschluesselnPane" layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="150.0"
                             style="-fx-background-color: rgba(245, 245, 220, 0.7)">
                     <children>
                         <Text layoutX="34.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rette alle">
@@ -54,7 +54,7 @@
                                 onMouseClicked="#handleMissionWaehlen" prefHeight="35.0" prefWidth="100.0"
                                 style="-fx-background-color: rgba(0, 128, 0, 0.7); -fx-border-color: rgba(27, 77, 62, 1); -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: white; -fx-alignment: center;"
                                 text="Auswählen"/>
-                        <Label fx:id="flappyBirdDetail" layoutX="17.0" layoutY="75.0" prefHeight="202.0"
+                        <Label fx:id="entschluesselnDetail" layoutX="17.0" layoutY="75.0" prefHeight="202.0"
                                prefWidth="100.0"
                                style="-fx-background-color: rgba(101, 67, 33, 0.7); -fx-border-color: #4B2E15; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #F5F5DC; -fx-alignment: center;"
                                text="Belohnungen" wrapText="true"/>
