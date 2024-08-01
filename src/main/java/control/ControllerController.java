@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import model.GameFile;
 import res.Konstanten;
@@ -21,6 +19,8 @@ public class ControllerController
 {
     // Ein ScheduledExecutorService, um Aufgaben periodisch zu planen und auszufuehren.
     private ScheduledExecutorService scheduler;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Konstruktor fuer ein neues ControllerController-Objekt.
@@ -195,7 +195,8 @@ public class ControllerController
      * nicht leer sein, sonst wird eine Fehlermeldung ausgegeben
      * @post Es wurde um eine Szene zurueck gegangen. Falls das nicht moeglich war, wurde eine Fehlermeldung in die
      * Konsole ausgegeben.
-     * @Author Felix Ahrens
+     *
+     * @author Felix Ahrens.
      */
     @FXML
     public void handleZurueck ()
@@ -260,7 +261,7 @@ public class ControllerController
      *
      * @post Der Spielstand wurde gespeichert und die Methode "beendeAnwendung" aufgerufen.
      *
-     * @author Felix Ahrens
+     * @author Felix Ahrens.
      */
     @FXML
     public void speichereSpielstandUndBeendeSpiel ()

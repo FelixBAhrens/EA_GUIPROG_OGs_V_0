@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (OPEN TODO)
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -32,6 +30,8 @@ public class MissionMemoryController extends ControllerController
     public AnchorPane MissionBeendenLabel;
     @FXML
     private AnchorPane ersterStein;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode, wie sie fuer alle FXML-Controllerklassen verpflichtend ist.
@@ -140,7 +140,6 @@ public class MissionMemoryController extends ControllerController
     @FXML
     public void beendeMission ()
     {
-        // TODO
         //Noch Belohnungnen auszahlen.
         SzenenManager.wechseleSzene(Strings.FXML_STADT);
     }

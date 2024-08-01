@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +27,8 @@ public class StadtController extends ControllerController
     private Pane gebaeudePane;
     @FXML
     private Pane hintergrundPane;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Methode, die die refMap konfiguriert, die eine Referenz zwischen den IDs der

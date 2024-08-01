@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (LAST METHOD NOT)
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -30,15 +28,16 @@ public class EinheitenController extends ControllerController
 
     @FXML
     public HBox einheitenHBox;
-
     @FXML
     public HBox MissionsEinheitenHBox;
 
     @FXML
-    public Label tutorialLabel;
+    public VBox charakterDisplay;
 
     @FXML
-    public VBox charakterDisplay;
+    public Label tutorialLabel;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode des EinheitenControllers. Hier werden Methoden aufgerufen,
@@ -254,6 +253,8 @@ public class EinheitenController extends ControllerController
      * @param charakter
      *
      * @return
+     *
+     * @author David Kien.
      */
     public String generiereText (int index, Charakter charakter)
     {

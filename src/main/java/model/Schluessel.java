@@ -6,13 +6,13 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
-public class Bird
+public class Schluessel
 {
     private Rectangle bird;
     private int jumpHeight;
     CollisionHandler collisionHandler = new CollisionHandler();
 
-    public Bird (Rectangle bird, int jumpHeight)
+    public Schluessel (Rectangle bird, int jumpHeight)
     {
         this.bird = bird;
         this.jumpHeight = jumpHeight;
@@ -34,7 +34,7 @@ public class Bird
         bird.setY(bird.getY() + positionChange);
     }
 
-    public boolean isBirdDead (ArrayList<Rectangle> obstacles, AnchorPane plane)
+    public boolean isKeyDead (ArrayList<Rectangle> obstacles, AnchorPane plane)
     {
         double birdY = bird.getLayoutY() + bird.getY();
 

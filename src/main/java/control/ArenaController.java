@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import res.Strings;
 

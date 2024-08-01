@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -35,6 +33,8 @@ public class NeuesSpielController extends ControllerController
     public AnchorPane spielNameAnchPane;
     @FXML
     public AnchorPane schwierigkeitsAnchPane;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode, wie sie fuer FXML-Controllerklassen verpflichtend ist.

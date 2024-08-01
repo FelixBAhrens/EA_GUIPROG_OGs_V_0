@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (OPEN TODO)
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,8 +31,6 @@ public class SzenenManager
      * @post Die aktuelle Szene wurde zurueckgegeben.
      *
      * @author Felix Ahrens.
-     *
-     * // TODO: No usage
      */
     public Scene gebeAktuelleSzene ()
     {

@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (OPEN TODO 3x)
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -62,7 +60,6 @@ public class KampfController extends ControllerController implements Initializab
     public static KampfTyp kampfTyp;
 
     private Kaempfer spieler;
-
     private Kaempfer gegner;
 
     private static String nachKampfSzenenName = Strings.FXML_STADT;
@@ -120,6 +117,8 @@ public class KampfController extends ControllerController implements Initializab
     @FXML
     public ProgressBar gegnerGesundheitsBar;
 
+    //--------------------------------------------------------------------------
+
     /**
      * Methode, um den Kampf zu initialisieren.
      *
@@ -160,7 +159,7 @@ public class KampfController extends ControllerController implements Initializab
         this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
         this.gegner = Kaempfer.erstelleEndgegner();
 
-        initialisiereCharacter();
+        initialisiereCharakter();
         initialisiereGegner();
         Kaempfer[] kaempferArray = {spieler, gegner};
         berechneTimeLine(kaempferArray);
@@ -425,7 +424,6 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
-     * TODO
      * Methode, die die Timeline berechnen soll. Tut sie aber nicht, weil ich
      * fuer die GUI verantwortlich bin. Aber ich brauche die Methode,
      * um daraus eben eine Timeline anzeigen zu koennen.
@@ -438,7 +436,6 @@ public class KampfController extends ControllerController implements Initializab
      * @post die Queue "timeLine" enthaelt eine Reihenfolge der Kaempfer.
      *
      * @author Felix Ahrens.
-     * @TODO hier noch Zufall hinzufuegen
      */
     public void berechneTimeLine (Kaempfer[] alleKaempferArray)
     {
@@ -471,14 +468,12 @@ public class KampfController extends ControllerController implements Initializab
      *
      * @author David Kien.
      */
-    private void initialisiereCharacter ()
+    private void initialisiereCharakter ()
     {
         spielerRec = new Rectangle(Konstanten.INT_FOURTY_FIVE, Konstanten.INT_FOURTY_FIVE);
         spielerRec.setFill(Color.BLUE);
         gridPane.add(spielerRec, spieler.getxPosition(), spieler.getyPosition());
     }
-
-    // TODO: Oben und unten redundant.
 
     /**
      * Initialisiert den Gegner des Spiels und fuegt ihn in das GridPane ein.
@@ -766,8 +761,6 @@ public class KampfController extends ControllerController implements Initializab
         }
 
     }
-
-    // ToDo: untere Methode
 
     /**
      * Methode zum Anwenden eines Artefakts. @David, @Enes muesst ihr noch machen

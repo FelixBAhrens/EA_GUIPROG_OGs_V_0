@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -72,6 +70,8 @@ public class HauptquartierController extends StadtController
     public AnchorPane endgegnerPane;
     @FXML
     public AnchorPane missionDetailPane;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode der Klasse. Diese ist fuer Controllerklassen verpflichtend.

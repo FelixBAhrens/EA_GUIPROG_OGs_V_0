@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,6 +45,8 @@ public class MarktController extends StadtController
 
     private int goldPreis;
     private int gesundheitsPreis;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode, die fuer die Controllerklasse einer FXML-Datei verpflichtend ist.

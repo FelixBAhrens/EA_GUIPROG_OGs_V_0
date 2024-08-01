@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED, No usages entfernen
-
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -19,6 +17,8 @@ public class TutorialController
     private TextArea tutorialTextArea;
     private Stage stage;
     private Scene menueScene;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialisiert den Controller mit der Buehne und der Menueszenen-Referenz.

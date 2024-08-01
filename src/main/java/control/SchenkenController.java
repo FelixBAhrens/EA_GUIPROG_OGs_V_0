@@ -1,8 +1,5 @@
 package control;
 
-// COMPLETED
-// Variablen ins deutsche übersetzen
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,6 +59,8 @@ public class SchenkenController extends StadtController
     private Label reachLabel;
     @FXML
     private Label initLabel;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode, die bei Controllerklassen von FXML-Dateien verpflichtend ist.

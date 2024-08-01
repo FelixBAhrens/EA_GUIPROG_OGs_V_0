@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -17,14 +15,13 @@ import res.Strings;
  * der GUI um auf Veraenderungen im Spiel zu reagieren. Dem Controller fehlen
  * noch viele Methoden zum richtigen Arbeiten. Das GUI-Framework steht allerdings.
  *
- * @author Felix Ahrens
+ * @author Felix Ahrens.
  */
 public class BasisCampController extends StadtController
 {
     @FXML
-    public VBox einheitenVbox;
-    @FXML
     public Label detailLabel;
+
     @FXML
     public ProgressBar BarA;
     @FXML
@@ -35,6 +32,8 @@ public class BasisCampController extends StadtController
     public ProgressBar BarD;
     @FXML
     public ProgressBar BarE;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode der Controllerklasse einer FXMl-Datei.
@@ -83,7 +82,7 @@ public class BasisCampController extends StadtController
     @FXML
     public void handleAbzug (MouseEvent event)
     {
-        //Hier dann der Code gemaess der Spiellogik zum reduzieren von Einheiten
+        // Hier dann der Code gemaess der Spiellogik zum Reduzieren von Einheiten.
         updateProgressBars();
     }
 
@@ -103,7 +102,6 @@ public class BasisCampController extends StadtController
         //BarA.setProgress(/*Hier dann code zum Feststellen des Progress*/);
         //BarB.set...
     }
-
 
     /**
      * Methode zum Anzeigen von Details.

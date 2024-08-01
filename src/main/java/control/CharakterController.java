@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import model.Charakter;
 import model.GameFile;
 import res.Konstanten;
@@ -30,7 +28,7 @@ public class CharakterController
      *
      * @post Das charakterArray wurde zurueckgegeben.
      *
-     * @author Felix Ahrens
+     * @author Felix Ahrens.
      */
     public static Charakter[] getCharakterArray ()
     {

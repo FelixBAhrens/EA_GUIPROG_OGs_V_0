@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             onKeyPressed="#pressed" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionEntschluesselungController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MissionEntschluesselnController">
     <children>
         <ImageView fitHeight="745.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -25,7 +25,7 @@
                         <Font size="64.0"/>
                     </font>
                 </Text>
-                <Rectangle fx:id="bird" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="74.0"
+                <Rectangle fx:id="schluessel" arcHeight="5.0" arcWidth="5.0" fill="#fcba03" height="50.0" layoutX="74.0"
                            layoutY="217.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0"/>
             </children>
         </AnchorPane>

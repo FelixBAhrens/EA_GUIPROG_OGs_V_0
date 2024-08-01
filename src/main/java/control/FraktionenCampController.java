@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (SPACE FOR PROGRAMMING)
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,6 +37,8 @@ public class FraktionenCampController extends StadtController
 
     @FXML
     public Label detailLabel;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode der Klasse. Diese ist bei Controllerklassen von

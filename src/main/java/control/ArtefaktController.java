@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import model.Artefakt;
 import res.Konstanten;
 import res.Strings;

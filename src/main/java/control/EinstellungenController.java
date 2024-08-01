@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import res.Strings;
@@ -21,6 +19,8 @@ public class EinstellungenController extends ControllerController
 {
     @FXML
     public Label ipLabel;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-methode, die bei Controllerklassen verpflichtend ist.

@@ -14,7 +14,7 @@ public interface Strings
     String FXML_HILFE = "hilfe-view.fxml";
     String FXML_KAMPF = "kampf-view.fxml";
     String FXML_KARTE = "karten-view.fxml";
-    String FXML_KARTENEW = "karteNew-view.fxml";
+    String FXML_KARTENEW = "karte-view.fxml";
     String FXML_MAGIEVERSTAERKER = "magieverstaerker-view.fxml";
     String FXML_MARKT = "markt-view.fxml";
     String FXML_NEUESSPIEL = "neuesSpiel-view.fxml";
@@ -45,6 +45,12 @@ public interface Strings
     String ENTSCHLUESSELN = "Flappy Bird!";
     String SAMMELN = "Sammeln!";
     String EMPTY = "";
+    String GESUNDHEIT_SAMMELN_MISSION_FEHLGESCHLAGEN = "Dir ist leider die Zeit ausgegangen "
+            + "und du hast es nicht Geschaft, 20 mal Gesundheit zu sammeln."
+            + " Versuche es doch gleich nochmal! Anzahl an gesammelter Gesundheit: ";
+
+    String GESUNDHEIT_SAMMELN_MISSION_ERFOLGREICH = "Herzlichen Glückwunsch! Du hast es "
+            + "geschaft. Anzahl gesammelter Gesundheit: ";
 
     String STRING_STORY = "story";
     String OPEN_MEDIC = "open medic";
@@ -62,10 +68,6 @@ public interface Strings
     String HUNTER_LC = "hunter";
     String MAGICIAN_LC = "magician";
     String SCOUT_LC = "scout";
-
-
-    //Kaempfer
-
 
     //Artefakte
     String STATUE = "Statue";

@@ -1,7 +1,5 @@
 package control;
 
-// COMPLETED (OPEN TODO)
-
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +19,8 @@ public class MagieverstaerkerController extends StadtController
     public ProgressBar PreisBar;
     @FXML
     public ProgressBar MagieBar;
+
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize-Methode der Klasse. Diese ist verpflichtend fuer

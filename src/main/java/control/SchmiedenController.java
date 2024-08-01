@@ -1,7 +1,5 @@
 package control;
 
-// COMPELETED
-
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -33,6 +31,7 @@ public class SchmiedenController extends StadtController
     @FXML
     public Button verkaufenButton;
 
+    //--------------------------------------------------------------------------
 
     /**
      * Methode zum Anzeigen des Artefaktes.
