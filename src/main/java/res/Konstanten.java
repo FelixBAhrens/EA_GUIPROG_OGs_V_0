@@ -26,6 +26,7 @@ public interface Konstanten {
     int INT_FOURTY = 40;
     int INT_FOURTYFIVE = 45;
     int INT_FOURTY_FIVE = 45;
+    int INT_FIFTY = 50;
     int INT_SIXTY = 60;
     int INT_NINETY = 90;
     int INT_ONE_HUNDRED = 100;
@@ -38,7 +39,6 @@ public interface Konstanten {
     int INT_ONE_THOUSAND = 1000;
     int INT_TWENTY_FIVE = 25;
     int INT_TWO_HUNDRED = 200;
-    int INT_FIFTY = 50;
 
     //Ressource
     int DEFAULT_VALUE_HOLZ = 50;
