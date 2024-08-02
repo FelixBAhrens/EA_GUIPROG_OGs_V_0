@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StoryController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StoryController">
     <children>
         <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -18,11 +17,16 @@
           <Button layoutX="504.0" layoutY="650.0" mnemonicParsing="false" onMouseClicked="#handleFortfahren" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Fortfahren" />
         <AnchorPane layoutX="305.0" layoutY="130.0" prefHeight="459.0" prefWidth="669.0" style="-fx-background-color: rgba(245, 245, 220, 0.9); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8;">
             <children>
-                <Text layoutX="53.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Story" style="-fx-font-weight: bold; -fx-font-size: 14;">
+                <Text layoutX="53.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="Story">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Text>
+            <Text fx:id="kaempferGesundheitsText" layoutX="53.0" layoutY="87.0" text="Der Spieler und viele andere fliegen nach einem anstrengendem Jahr voller Arbeit und Schule in den Urlaub. Der Spieler redet eine Menge und die Mehrheit der fremden Passagiere sind genervt. Der Spieler freut sich aber sehr. „Riecht ihr sie? Die warme Sommerluft, die angenehm kühle Meeresbrise und die eigentlich viel zu süßen Cocktails.&quot; Als der Spieler weiter reden möchte, wird er von starken Turbulenzen unterbrochen. Die meisten Passagiere in völliger Panik ruft der Spieler „Das ist völlig normal, ich bin schon oft geflogen. Das passiert eben manchmal, macht euch keine Sorgen&quot;. Eine kaum zu verstehende Stimme gibt sich über die Lautsprecher des Flugzeugs als Pilot zu erkennen und schreit fast schon ängstlich ins Mikrofon „Eines unserer Triebwerke funktioniert nicht mehr, WIR STÜRZEN AB!&quot; Die Piloten lenken gegen, doch sie stürzen ab. Sie sind auf einer Insel gelandet, nur weniger haben es überlebt. Nun geht es darum weiter zu überleben. Sie sammeln Ressourcen und ernennen den Spieler zum Anführer. Sie fangen an zu handeln und sich ein Leben auf dieser Insel auf zubauen. Nachdem sie eine angespülte Piratenflagge finden, wissen sie alle: Sie müssen sich wappnen!" wrappingWidth="601.333309173584">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
         <Button layoutX="674.0" layoutY="650.0" mnemonicParsing="false" onMouseClicked="#handleFortfahren" prefHeight="47.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                           linear-gradient(from 0% 0% to 100% 100%, rgba(162, 222, 208, 0.3), rgba(14, 141, 128, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)),                          linear-gradient(from 0% 0% to 100% 100%, rgba(14, 141, 128, 0.3), rgba(162, 222, 208, 0.3)); -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-padding: 10 20 10 20; -fx-background-insets: 0,1,2,3; -fx-border-insets: 0; -fx-border-radius: 8; -fx-background-radius: 8,7,6,5; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #000000; -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Zurück" />

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.KampfController">
     <children>
       <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,33 +34,25 @@
             <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kämpfer" />
             <HBox layoutY="45.0" prefHeight="487.0" prefWidth="269.0">
                <children>
-                  <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
+                  <VBox prefHeight="487.0" prefWidth="193.0" spacing="14">
                      <children>
                         <Text fx:id="kaempferGesundheitsText" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText1" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText2" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText3" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText4" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText5" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText6" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText7" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText8" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                        <Text fx:id="kaempferGesundheitsText9" text="Gesundheit" wrappingWidth="105.33330917358398" />
-                     </children>
+                        <Text fx:id="kaempferGesundheitsText1" text="Mana" wrappingWidth="105.33330917358398" />
+                        <Text fx:id="kaempferGesundheitsText2" text="Anzahl Fernkampf noch nutzbar" wrappingWidth="174.33330917358398" />
+                        <Text fx:id="kaempferGesundheitsText4" text="Anzahl Ring noch nutzbar" wrappingWidth="166.33330917358398" />
+                        <Text fx:id="kaempferGesundheitsText5" text="Anzahl Schwert noch nutzbar" wrappingWidth="174.33330917358398" />
+                         <Text fx:id="kaempferGesundheitsText6" text="Anzahl Statue noch nutzbar" wrappingWidth="174.33330917358398" />
+                        </children>
                   </VBox>
                   <VBox prefHeight="487.0" prefWidth="164.0" spacing="10">
                      <children>
-                        <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar4" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar5" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar6" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar7" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar8" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                        <ProgressBar fx:id="kaempferGesundheitBar9" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
-                     </children>
+                        <ProgressBar fx:id="gesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="1" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="manaBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="fernkampfÜbrigBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="ringBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="schwertBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        <ProgressBar fx:id="statueBar" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                        </children>
                   </VBox>
                </children>
             </HBox>

@@ -20,7 +20,7 @@ public class Main extends Application {
     /**
      * Main-methode des Programms
      * @param args
-     * @author David Kien
+     * @author David Kien, Enes Oezcan
      */
     public static void main(String[] args) {
         launch(args);
