@@ -300,29 +300,56 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     /**
-     * Methode zum Wirken von Magie
-     * @param
+     *
+     * @param angreifer
+     * @param verteidiger
+     * @post ruft die Methode verwalteMagieSchaden() auf.
+     * @Author Enes Oezcan
      */
     public void attackiereMagie(Kaempfer angreifer, Kaempfer verteidiger) {
         verwalteMagieSchaden(angreifer, verteidiger);
     }
-
+    /**
+     *
+     * @param angreifer
+     * @param verteidiger
+     * @post ruft die Methode verwalteMagieSchaden() auf.
+     * @Author Enes Oezcan, Felix Ahrens
+     */
     public void attackiere(Kaempfer angreifer, Kaempfer verteidiger) {
         verwalteSchaden(angreifer, verteidiger);
     }
 
+    /**
+     *
+     * @param angreifer
+     * @post wendet beim nutzer das Artefakt „Statue" an
+     * @Author Enes Oezcan
+     */
     public void wendeStatueAn(Kaempfer angreifer) {
         if (statue > 0) {
             spieler.setGesundheit(spieler.getGesundheit() + Konstanten.INT_TWENTY);
             statue--;
         }
     }
+    /**
+     *
+     * @param angreifer
+     * @post wendet beim nutzer das Artefakt „Schwert" an
+     * @Author Enes Oezcan
+     */
     public void wendeSchwertAn(Kaempfer angreifer, Kaempfer verteidiger) {
         if (schwert > 0) {
             gegner.setGesundheit(gegner.getGesundheit() - Konstanten.INT_TWENTY);
             schwert--;
         }
     }
+    /**
+     *
+     * @param angreifer
+     * @post wendet beim nutzer das Artefakt „Ring" an
+     * @Author Enes Oezcan
+     */
     public void wendeRingAn(Kaempfer angreifer) {
         if (ring > 0) {
             angreifer.setManapunkte(angreifer.getManapunkte()+ Konstanten.INT_TWO);
@@ -330,6 +357,13 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
+    /**
+     *
+     * @param angreifer
+     * @param verteidiger
+     * @post ermittelt den erreichten Schaden und zieht in dem Gegner ab
+     * @Author Enes Oezcan, Felix Ahrens
+     */
     public void verwalteSchaden (Kaempfer angreifer, Kaempfer verteidiger) {
         int xentf = Math.abs(angreifer.getxPosition()-verteidiger.getxPosition());
         int yentf = Math.abs(angreifer.getyPosition()-verteidiger.getyPosition());
@@ -346,6 +380,13 @@ public class KampfController extends ControllerController implements Initializab
         checkeLebtNoch();
 
     }
+    /**
+     *
+     * @param angreifer
+     * @param verteidiger
+     * @post ermittelt den erreichten Magieschaden und zieht in dem Gegner ab
+     * @Author Enes Oezcan
+     */
     public void verwalteMagieSchaden (Kaempfer angreifer, Kaempfer verteidiger) {
         int schaden = Konstanten.INT_ZERO;
         if (angreifer.getManapunkte() >= Konstanten.INT_ONE) {
@@ -404,6 +445,10 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
+    /**
+     * @post Aktualisiert die Progressbars
+     * @Author Enes Oezcan, Felix Ahrens
+     */
     public void updateKampfAnchorPanes () {
         gesundheitsBar.setProgress((double) spieler.getGesundheit()/(double)Konstanten.INT_ONE_HUNDRED);
         gegnerGesundheitsBar.setProgress((double)gegner.getGesundheit()/(double) Konstanten.INT_ONE_HUNDRED);

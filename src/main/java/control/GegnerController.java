@@ -10,50 +10,49 @@ public class GegnerController {
      * @param angreifer
      * @param verteidiger
      * @post Nach dieser Methode bewegt sich der Gegner zufällig oder greift den Spieler an.
-     * Wird nicht mehr genutzt da wir uns für eine andere Methode entschieden haben.
      * @Author Enes Oezcan
      */
     public static void gegnerAgiert (Charakter angreifer, Charakter verteidiger) {
         for (int gegnerAktionen = Konstanten.INT_THREE; gegnerAktionen > Konstanten.INT_ZERO; gegnerAktionen--) {
             int xEntfernung;
             int yEntfernung;
-            if (KampfController.xPositionSpieler <= KampfController.xPositionGegner) {
-                xEntfernung = KampfController.xPositionGegner - KampfController.xPositionSpieler;
+            if (KampfController2.xPositionSpieler <= KampfController2.xPositionGegner) {
+                xEntfernung = KampfController2.xPositionGegner - KampfController2.xPositionSpieler;
             } else {
-                xEntfernung = KampfController.xPositionSpieler - KampfController.xPositionGegner;
+                xEntfernung = KampfController2.xPositionSpieler - KampfController2.xPositionGegner;
             }
-        if (KampfController.yPositionSpieler <= KampfController.yPositionGegner) {
-            yEntfernung = KampfController.yPositionGegner - KampfController.yPositionSpieler;
+        if (KampfController2.yPositionSpieler <= KampfController2.yPositionGegner) {
+            yEntfernung = KampfController2.yPositionGegner - KampfController2.yPositionSpieler;
         } else {
-            yEntfernung = KampfController.yPositionSpieler - KampfController.yPositionGegner;
+            yEntfernung = KampfController2.yPositionSpieler - KampfController2.yPositionGegner;
         }
             if (xEntfernung <= Konstanten.INT_ONE && yEntfernung <= Konstanten.INT_ONE) {
                 verteidiger.setGesundheit(verteidiger.getGesundheit() - angreifer.getNahkampfWert());
             } else if (xEntfernung <= Konstanten.INT_THREE && yEntfernung <= Konstanten.INT_THREE) {
                 verteidiger.setGesundheit(verteidiger.getGesundheit() - angreifer.getFernkampfWert());
             }
-            KampfController.attackiere(KampfController.gegner, KampfController.spieler);
+            KampfController2.attackiere(KampfController2.gegner, KampfController2.spieler);
             switch (waehleAktion()) {
                 case Konstanten.INT_ONE:
-                    KampfController.attackiereMagie(KampfController.gegner, KampfController.spieler);
+                    KampfController2.attackiereMagie(KampfController2.gegner, KampfController2.spieler);
                     break;
                 case Konstanten.INT_TWO:
                     switch (waehleRichtung()) {
                         case Konstanten.INT_ONE:
-                            if (KampfController.yPositionSpieler > Konstanten.INT_ZERO)
-                                KampfController.yPositionSpieler = +Konstanten.INT_ONE;
+                            if (KampfController2.yPositionSpieler > Konstanten.INT_ZERO)
+                                KampfController2.yPositionSpieler = +Konstanten.INT_ONE;
                             break;
                         case Konstanten.INT_TWO:
-                            if (KampfController.xPositionSpieler > Konstanten.INT_ZERO)
-                                KampfController.xPositionSpieler = -Konstanten.INT_ONE;
+                            if (KampfController2.xPositionSpieler > Konstanten.INT_ZERO)
+                                KampfController2.xPositionSpieler = -Konstanten.INT_ONE;
                             break;
                         case Konstanten.INT_THREE:
-                            if (KampfController.yPositionSpieler < Konstanten.INT_ELEVEN)
-                                KampfController.yPositionSpieler = +Konstanten.INT_ONE;
+                            if (KampfController2.yPositionSpieler < Konstanten.INT_ELEVEN)
+                                KampfController2.yPositionSpieler = +Konstanten.INT_ONE;
                             break;
                         case Konstanten.INT_FOUR:
-                            if (KampfController.xPositionSpieler < Konstanten.INT_ELEVEN)
-                                KampfController.xPositionSpieler = +Konstanten.INT_ONE;
+                            if (KampfController2.xPositionSpieler < Konstanten.INT_ELEVEN)
+                                KampfController2.xPositionSpieler = +Konstanten.INT_ONE;
                             break;
                     }
             }
