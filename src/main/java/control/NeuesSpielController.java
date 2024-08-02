@@ -55,6 +55,10 @@ public class NeuesSpielController extends ControllerController{
             }
         });
     }
+
+    /**
+     * @Author Enes Oezcan
+     */
     public void erstelleCharacter() {
         if (schwierigkeitsSlider.getValue() == INT_ONE) {
             for (int i = 0; i < DEFAULT_VALUES_LEADER.length; i++) {
@@ -88,7 +92,7 @@ public class NeuesSpielController extends ControllerController{
      * Methode zum Fortfahren
      * Abhaengig von der AnchorPane, die gerade visible ist, wird entweder die Schwierigkeit gesetzt oder die GameFile mit
      * der eingegebenen Schwierigkeit und dem eingegebenen Dateinamen erstellt
-     * @author David Kien, Felix Ahrens
+     * @author David Kien, Felix Ahrens, Enes Oezcan
      */
     @FXML
     public void handleFortfahren () {

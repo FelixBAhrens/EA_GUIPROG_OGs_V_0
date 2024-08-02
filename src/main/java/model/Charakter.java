@@ -113,7 +113,7 @@ public class Charakter {
     /**
      * Konstruktor der Klasse Charakter
      * @param name Der Name des Charakters, der zurueckgegeben werden soll
-     * @Author Felix Ahrens
+     * @Author Felix Ahrens, Enes Oezcan
      */
     public Charakter (String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
                       int fernkaempfeVerbleibenZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative) {

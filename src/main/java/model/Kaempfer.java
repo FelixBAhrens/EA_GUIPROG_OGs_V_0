@@ -67,7 +67,7 @@ public class Kaempfer extends Charakter {
      * @param bewegungsWeite
      * @param initiative
      * weitere parameter
-     * @Author Felix Ahrens
+     * @Author Felix Ahrens, Enes Oezcan
      */
     public Kaempfer(String name, int gesundheit, int schild, int manapunkte, int nahkampfWert, int fernkampfWert,
                     int fernkaempfeZahl, int zahlAusweichen, int magieResistenz, int bewegungsWeite, int initiative,
