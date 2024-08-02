@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import res.Konstanten;
 import res.Strings;
 
-
+//
 public class MissionMemoryController {
     private boolean ersterSteinUmgedreht = false;
     private ImageView ersterStein;
