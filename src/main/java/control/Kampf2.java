@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import model.Charakter;
@@ -42,6 +43,15 @@ public class Kampf2 extends ControllerController implements Initializable
     private ProgressBar manaBar;
     private double mana;
     @FXML
+    private ProgressBar angriffeÜbrigBar;
+    private double angriffeÜbrig;
+    @FXML
+    private ProgressBar magieAngriffeÜbrigBar;
+    private double magieAngriffeÜbrig;
+    @FXML
+    private ProgressBar fernkampfAngriffeÜbrigBar;
+    private double fernkampfAngriffeÜbrig;
+    @FXML
     private ProgressBar ringBar;
     private double ring;
     @FXML
@@ -53,6 +63,8 @@ public class Kampf2 extends ControllerController implements Initializable
     @FXML
     private ProgressBar gegnerGesundheitsBar;
     private double gegnerGesundheit;
+    @FXML
+    public AnchorPane kampfStartDialog;
 
     public static void attackiere(Charakter angreifer, Charakter verteidiger) {
             int xEntfernung;
@@ -128,6 +140,7 @@ public class Kampf2 extends ControllerController implements Initializable
         spielFeld.add(gegnerPosition, xPositionGegner, yPositionGegner);
     }
     private void initialisiereSpieler () {
+        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
         spielerPosition = new Rectangle(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
         spielerPosition.setFill(Color.BLUE);
         xPositionSpieler = Konstanten.INT_ZERO;
@@ -135,6 +148,7 @@ public class Kampf2 extends ControllerController implements Initializable
         aktualisierePosition();
     }
     private void initialisiereGegner () {
+        this.gegner = Kaempfer.erstelleEndgegner();
         gegnerPosition = new Rectangle(Konstanten.INT_FIFTY, Konstanten.INT_FIFTY);
         gegnerPosition.setFill(Color.RED);
         xPositionGegner = Konstanten.INT_ZERO;
@@ -154,19 +168,44 @@ public class Kampf2 extends ControllerController implements Initializable
             }
         }
     public void initialisierKampf2 () {
-        this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
-        this.gegner = Kaempfer.erstelleEndgegner();
+        kampfStartDialog.setVisible(false);
         initialisiereSpielFeld();
         initialisiereSpieler();
-        initialisiereGegner();
+        /*initialisiereGegner();
+        initialisiereAlleProgressBar();*/
     }
     private void initialisiereAlleProgressBar (){
         gesundheitsBar.setProgress(1.0);
+        manaBar.setProgress(1.0);
+        angriffeÜbrigBar.setProgress(1.0);
+        fernkampfAngriffeÜbrigBar.setProgress(1.0);
+        magieAngriffeÜbrigBar.setProgress(1.0);
+        ringBar.setProgress(1.0);
+        schwertBar.setProgress(1.0);
+        statueBar.setProgress(1.0);
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
         gesundheitsBar.setStyle("-fx-accent: red;");
+        spielFeld.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
+        {
+            if (newScene != null)
+            {
+                newScene.setOnKeyPressed(this::handleKeyPressed);
+            }
+        }));
+    }
+    private void schaueObGewonnen () {
+        if (gesundheit == 0.0) {
+
+        } else if (gegnerGesundheit == 0.0) {
+
+        }
+    }
+    @FXML
+    private void gewinne () {
+
     }
 }
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Kampf2">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Kampf3">
     <children>
         <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1280.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -60,7 +60,7 @@
                     <children>
                         <VBox prefHeight="487.0" prefWidth="105.0" spacing="14">
                             <children>
-                                <Text fx:id="kaempferGesundheitsText" text="Gesundheit" wrappingWidth="105.33330917358398" />
+                                <Text text="Gesundheit" wrappingWidth="105.33330917358398" />
                                 <Text fx:id="kaempferGesundheitsText1" text="Angriffe übrig" wrappingWidth="105.33330917358398" />
                                 <Text fx:id="kaempferGesundheitsText2" text="Mana" wrappingWidth="105.33330917358398" />
                                 <Text fx:id="kaempferGesundheitsText3" text="Ring übrig" wrappingWidth="105.33330917358398" />
@@ -74,7 +74,7 @@
                         </VBox>
                         <VBox prefHeight="487.0" prefWidth="164.0" spacing="10">
                             <children>
-                                <ProgressBar fx:id="kaempferGesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress=#Gesundheit2 style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
+                                <ProgressBar fx:id="gesundheitsBar" prefHeight="20.0" prefWidth="88.0" progress="0.0" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                                 <ProgressBar fx:id="kaempferGesundheitBar1" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                                 <ProgressBar fx:id="kaempferGesundheitBar2" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
                                 <ProgressBar fx:id="kaempferGesundheitBar3" prefHeight="20.0" prefWidth="88.0" progress="0.5" style="-fx-background-color: #A2DED0; -fx-border-color: #1B4D3E; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 9;" />
@@ -102,7 +102,7 @@
                 <AnchorPane layoutX="340.0" layoutY="74.0" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: rgba(255, 238, 191, 1);">
                     <children>
                         <Text fx:id="Text" layoutX="250.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kampf Start Dialog" />
-                        <Button fx:id="kampfStartButton" layoutX="244.0" layoutY="529.0" mnemonicParsing="false" onAction="#initialisiereKampf" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Start" />
+                        <Button fx:id="kampfStartButton" layoutX="244.0" layoutY="529.0" mnemonicParsing="false" onAction="#initialisierKampf2" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Start" />
                     </children>
                 </AnchorPane>
             </children>
@@ -112,7 +112,7 @@
                 <AnchorPane layoutX="370.0" layoutY="76.0" prefHeight="554.0" prefWidth="540.0" style="-fx-background-color: rgba(255, 238, 191, 1);">
                     <children>
                         <Text fx:id="siegerText" layoutX="230.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hat gewonnen!" />
-                        <Button fx:id="fortfahrenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#verlasseKampfSzene" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Fortfahren" visible="true" />
+                        <Button fx:id="fortfahrenButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#gewinne" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: turquoise; -fx-border-color: #1B4D3E; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 8; -fx-text-fill: #000000;" text="Fortfahren" visible="true" />
                     </children>
                 </AnchorPane>
             </children>

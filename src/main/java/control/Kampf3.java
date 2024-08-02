@@ -12,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import model.Charakter;
 import model.GameFile;
 import model.Kaempfer;
 import res.Konstanten;
@@ -22,53 +21,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 // ControllerController
-public class KampfController extends ControllerController implements Initializable {
-    public static int yPositionSpieler;
-    public static int xPositionSpieler;
-    public static int yPositionGegner;
-    public static int xPositionGegner;
-    public static Kaempfer spieler;
-    public static Kaempfer gegner;
-    private Kaempfer angreifer;
-    private Kaempfer verteidiger;
-    private boolean spielerZug = true;
-    private static final int GRID_SIZE = Konstanten.INT_TWELVE;
-    @FXML
-    private Rectangle spielerPosition;
-    @FXML
-    private Rectangle gegnerPosition;
-    @FXML
-    private GridPane spielFeld;
-    @FXML
-    public ProgressBar gesundheitsBar;
-    private double gesundheit;
-    @FXML
-    public ProgressBar manaBar;
-    private double mana;
-    @FXML
-    public ProgressBar angriffeÜbrigBar;
-    @FXML
-    public ProgressBar magieAngriffeÜbrigBar;
-    private double magieAngriffeÜbrig;
-    @FXML
-    public ProgressBar fernkampfAngriffeÜbrigBar;
-    private double fernkampfAngriffeÜbrig;
-    @FXML
-    public ProgressBar ringBar;
-    private double ring;
-    @FXML
-    public ProgressBar schwertBar;
-    private double schwert;
-    @FXML
-    public ProgressBar statueBar;
-    private double statue;
-    @FXML
-    public ProgressBar gegnerGesundheitsBar;
-    private double gegnerGesundheit;
-    @FXML
-    public AnchorPane kampfStartDialog;
-    private static int angriffeÜbrig = Konstanten.INT_ONE;
-
+public class Kampf3 extends ControllerController implements Initializable
+{
     public enum KampfTyp {
         ENDGEGNER_KAMPF(Strings.ENDGEGNER),
         ANDERER_KAMPF(Strings.ANDERER),
@@ -81,7 +35,10 @@ public class KampfController extends ControllerController implements Initializab
     }
 
     public static KampfTyp kampfTyp;
+    private static Kaempfer spieler;
+    private static Kaempfer gegner;
 
+    private static final int GRID_SIZE = Konstanten.INT_TWELVE;
     private static final int TILE_SIZE = Konstanten.INT_FOURTY_FIVE;
 
     private static String nachKampfSzenenName;
@@ -94,6 +51,8 @@ public class KampfController extends ControllerController implements Initializab
     private Rectangle spielerRec;
     @FXML
     private Rectangle gegnerRec;
+    @FXML
+    public AnchorPane kampfStartDialog;
     @FXML
     public AnchorPane kampfEndeDialog;
     @FXML
@@ -110,17 +69,20 @@ public class KampfController extends ControllerController implements Initializab
     public AnchorPane gegnerPane;
     @FXML
     public Label gegnerStats;
+    @FXML
+    public ProgressBar gegnerGesundheitsBar;
 
     /**
      * Methode, um den Kampf zu initialisieren.
-     *
      * @author David Kien, Felix Ahrens
      */
     @FXML
-    public void initialisiereKampf() {
+    public void initialisiereKampf ()
+    {
         kampfStartDialog.setVisible(false);
         createMap();
-        switch (kampfTyp) {
+        switch (kampfTyp)
+        {
             case ENDGEGNER_KAMPF -> starteEndgegnerKampf();
             case ANDERER_KAMPF -> starteAndererKampf();
             case ARENA_KAMPF -> starteArenaKampf();
@@ -129,10 +91,10 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, um den Endgegnerkampf zu initialisieren
-     *
      * @author David Kien, Felix Ahrens
      */
-    public void starteEndgegnerKampf() {
+    public void starteEndgegnerKampf ()
+    {
         this.spieler = Kaempfer.macheNeuenKaempferAusCharakter(GameFile.getInstanz().getLeader());
         this.gegner = Kaempfer.erstelleEndgegner();
 
@@ -145,19 +107,17 @@ public class KampfController extends ControllerController implements Initializab
     /**
      * PLATZHALTER
      * Methode um einen anderen Kampf zu starten
-     *
      * @author Felix Ahrens
      */
-    public void starteAndererKampf() {
+    public void starteAndererKampf () {
 
     }
 
     /**
      * Methode, um den Stand-Alone-Kampf ueber Netzwerk zu starten.
-     *
      * @author Felix Ahrens
      */
-    public void starteArenaKampf() {
+    public void starteArenaKampf () {
         //String imagePath = getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm();
         Image bild = new Image(getClass().getResource(Strings.ARENA_BILDPFAD).toExternalForm());
         hintergrund.setImage(bild);
@@ -168,45 +128,45 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode zum abschliessen des Kampfes. Der Sieger wurde von der checkeLebtNoch-Methode ermittelt.
-     *
      * @param sieger
      * @author Felix Ahrens
      */
-    public void beendeKampf(Kaempfer sieger) {
+    public void beendeKampf (Kaempfer sieger) {
         siegerText.setText(sieger.getName() + Strings.HAT_GEWONNEN);
         kampfEndeDialog.setVisible(true);
     }
 
     /**
      * Initialize-Methode, deren Verwendung fuer FXML-Controllerklassen verpflichtend ist.
-     *
      * @param location
      * @param resources
      * @author David Kien, Felix Ahrens
      */
     @FXML
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize (URL location, ResourceBundle resources)
+    {
         kampfStartDialog.setVisible(true);
         gridPane.sceneProperty().addListener(((observableValue, oldScene, newScene) ->
         {
-            if (newScene != null) {
+            if (newScene != null)
+            {
                 newScene.setOnKeyPressed(this::handleKeyPress);
             }
         }));
     }
 
     @FXML
-    private void eigenZug() {
+    private void eigenZug (){
 
         //gegnerZug();
     }
 
     @FXML
-    public void verlasseKampfSzene() {
+    public void verlasseKampfSzene () {
         SzenenManager.wechseleSzene(nachKampfSzenenName);
     }
 
-    private void gegnerZug() {
+    private void gegnerZug () {
 
         bewegeGegnerDynamisch();
         attackiere(gegner, spieler);
@@ -215,12 +175,14 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * CreateMap-Methode
-     *
      * @author David Kien
      */
-    private void createMap() {
-        for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++) {
-            for (int col = Konstanten.INT_ZERO; col < GRID_SIZE; col++) {
+    private void createMap ()
+    {
+        for (int row = Konstanten.INT_ZERO; row < GRID_SIZE; row++)
+        {
+            for (int col = Konstanten.INT_ZERO; col < GRID_SIZE; col++)
+            {
                 Rectangle tile = new Rectangle(TILE_SIZE, TILE_SIZE);
                 tile.setFill(Color.LIGHTGRAY);
                 tile.setStroke(Color.BLACK);
@@ -231,10 +193,10 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * initialize Charakter - Methode
-     *
      * @author David Kien
      */
-    private void initialisiereCharacter() {
+    private void initialisiereCharacter()
+    {
         spielerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
         spielerRec.setFill(Color.BLUE);
         gridPane.add(spielerRec, spieler.getxPosition(), spieler.getyPosition());
@@ -242,10 +204,10 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * InitialisiereGegner methode
-     *
      * @author Felix Ahrens
      */
-    private void initialisiereGegner() {
+    private void initialisiereGegner ()
+    {
         gegnerRec = new Rectangle(TILE_SIZE, TILE_SIZE);
         gegnerRec.setFill(Color.RED);
         gridPane.add(gegnerRec, gegner.getxPosition(), gegner.getyPosition());
@@ -253,27 +215,24 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Handler fuer ein KeyEvent
-     *
      * @param keyEvent
      * @author David Kien
      */
-    private void handleKeyPress(KeyEvent keyEvent) {
-        switch (keyEvent.getCode()) {
+    private void handleKeyPress (KeyEvent keyEvent)
+    {
+        switch (keyEvent.getCode())
+        {
             case W:
-                if (spieler.getyPosition() > Konstanten.INT_ZERO)
-                    spieler.setyPosition(spieler.getyPosition() - Konstanten.INT_ONE);
+                if (spieler.getyPosition() > Konstanten.INT_ZERO) spieler.setyPosition(spieler.getyPosition() - Konstanten.INT_ONE);
                 break;
             case A:
-                if (spieler.getxPosition() > Konstanten.INT_ZERO)
-                    spieler.setxPosition(spieler.getxPosition() - Konstanten.INT_ONE);
+                if (spieler.getxPosition() > Konstanten.INT_ZERO) spieler.setxPosition(spieler.getxPosition() - Konstanten.INT_ONE);
                 break;
             case S:
-                if (spieler.getyPosition() < GRID_SIZE - Konstanten.INT_ONE)
-                    spieler.setyPosition(spieler.getyPosition() + Konstanten.INT_ONE);
+                if (spieler.getyPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setyPosition(spieler.getyPosition() + Konstanten.INT_ONE);
                 break;
             case D:
-                if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE)
-                    spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
+                if (spieler.getxPosition() < GRID_SIZE - Konstanten.INT_ONE) spieler.setxPosition(spieler.getxPosition() + Konstanten.INT_ONE);
                 break;
             case Q:
                 attackiere(spieler, gegner);
@@ -288,10 +247,10 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode zum Aktualisieren der Position des Charakters
-     *
      * @author David Kien
      */
-    private void updateCharacterPosition() {
+    private void updateCharacterPosition ()
+    {
         GridPane.setColumnIndex(spielerRec, spieler.getxPosition());
         GridPane.setRowIndex(spielerRec, spieler.getyPosition());
         GridPane.setColumnIndex(gegnerRec, gegner.getxPosition());
@@ -300,44 +259,24 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode zum Wirken von Magie
-     *
      * @param kaempfer
      */
-    private void wirkeMagie(Kaempfer kaempfer) {
+    private void wirkeMagie (Kaempfer kaempfer) {
 
     }
 
-    public static void attackiere(Charakter angreifer, Charakter verteidiger) {
-        int xEntfernung;
-        int yEntfernung;
-
-        if (xPositionSpieler <= xPositionGegner) {
-            xEntfernung = xPositionGegner - xPositionSpieler;
-        } else {
-            xEntfernung = xPositionSpieler - xPositionGegner;
-        }
-        if (yPositionSpieler <= yPositionGegner) {
-            yEntfernung = yPositionGegner - yPositionSpieler;
-        } else {
-            yEntfernung = yPositionSpieler - yPositionGegner;
-        }
-        if (xEntfernung <= Konstanten.INT_ONE && yEntfernung <= Konstanten.INT_ONE && angriffeÜbrig == Konstanten.INT_ONE) {
-            verteidiger.setGesundheit(verteidiger.getGesundheit() - angreifer.getNahkampfWert());
-            angriffeÜbrig--;
-        } else if (xEntfernung <= Konstanten.INT_THREE && yEntfernung <= Konstanten.INT_THREE && angriffeÜbrig == Konstanten.INT_ONE) {
-            verteidiger.setGesundheit(verteidiger.getGesundheit() - angreifer.getFernkampfWert());
-            angriffeÜbrig--;
-        }
+    public void attackiere(Kaempfer angreifer, Kaempfer verteidiger) {
+        verwalteSchaden(angreifer, verteidiger);
     }
 
-    public void wendeArtefaktAn(Kaempfer angreifer, Kaempfer verteidiger) {
+    public void wendeArtefaktAn (Kaempfer angreifer, Kaempfer verteidiger) {
         System.out.println(Strings.ARTEFAKT);
     }
 
-    public void verwalteSchaden(Kaempfer angreifer, Kaempfer verteidiger) {
-        int xentf = Math.abs(angreifer.getxPosition() - verteidiger.getxPosition());
-        int yentf = Math.abs(angreifer.getyPosition() - verteidiger.getyPosition());
-        double entfernung = Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO)) + (Math.pow(yentf, Konstanten.INT_TWO)));
+    public void verwalteSchaden (Kaempfer angreifer, Kaempfer verteidiger) {
+        int xentf = Math.abs(angreifer.getxPosition()-verteidiger.getxPosition());
+        int yentf = Math.abs(angreifer.getyPosition()-verteidiger.getyPosition());
+        double entfernung = Math.sqrt((Math.pow(xentf, Konstanten.INT_TWO))+(Math.pow(yentf, Konstanten.INT_TWO)));
         int schaden = Konstanten.INT_ZERO;
         if (entfernung <= Konstanten.INT_THREE) {
             schaden = angreifer.getNahkampfWert();
@@ -353,16 +292,16 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, die ueberprueft, ob einer der im Kampf Beteiligten einen Gesundheitswert kleiner eins hat.
-     * Ist dies der Fall, wird
-     *
+     *  Ist dies der Fall, wird
      * @param
      * @author Felix Ahrens
      */
-    public void checkeLebtNoch() {
+    public void checkeLebtNoch () {
         if (spieler.getGesundheit() < Konstanten.INT_ONE) {
             nachKampfSzenenName = Strings.FXML_PLAYER_REBORN;
             beendeKampf(gegner);
-        } else if (gegner.getGesundheit() < Konstanten.INT_ONE) {
+        }
+        else if (gegner.getGesundheit() < Konstanten.INT_ONE) {
             nachKampfSzenenName = Strings.FXML_HAUPTQUARTIER;
             beendeKampf(spieler);
         }
@@ -370,10 +309,9 @@ public class KampfController extends ControllerController implements Initializab
 
     /**
      * Methode, mit der der Gegner den kuerzesten Weg zum Spieler nimmt.
-     *
      * @author Felix Ahrens
      */
-    public void bewegeGegnerDynamisch() {
+    public void bewegeGegnerDynamisch (){
         int gegnerX = gegner.getxPosition();
         int gegnerY = gegner.getyPosition();
         int spielerX = spieler.getxPosition();
@@ -396,12 +334,23 @@ public class KampfController extends ControllerController implements Initializab
         }
     }
 
-    public void updateKampfAnchorPanes() {
-        kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
-        gegnerGesundheitsBar.setProgress((double) gegner.getGesundheit() / (double) Konstanten.INT_ONE_HUNDRED);
-        manaBar.setProgress((double) spieler.getManapunkte() / (double) Konstanten.INT_ONE_HUNDRED);
-        fernkampfAngriffeÜbrigBar.setProgress((double) spieler.getFernkaempfeVerbleibenZahl() / (double) Konstanten.INT_ONE_HUNDRED);
-        angriffeÜbrigBar.setProgress((int) angriffeÜbrig / (double) Konstanten.INT_ONE_HUNDRED);
+    public void updateKampfAnchorPanes () {
+        kaempferGesundheitsBar.setProgress((double) spieler.getGesundheit()/(double)Konstanten.INT_ONE_HUNDRED);
+        gegnerGesundheitsBar.setProgress((double)gegner.getGesundheit()/(double) Konstanten.INT_ONE_HUNDRED);
         System.out.println(gegner.getGesundheit());
+    }
+
+    /**
+     * Methode zum warten.
+     * @param ms
+     * @author Felix Ahrens
+     */
+    public void halteAn (long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            // Unterbrechung behandeln
+            e.printStackTrace();
+        }
     }
 }
